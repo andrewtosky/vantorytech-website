@@ -1,0 +1,9 @@
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-6yg4xGHNMdVcmqHS9kdoUWnBtjD+J6K6Q+YJ1Iae+LU=' https://plausible.io/js/pa-cBmSDXMl1zdkkjd0z-Frh.js; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; media-src 'self'; connect-src 'self' https://api.web3forms.com https://plausible.io; form-action 'self' https://api.web3forms.com; frame-ancestors 'none'; base-uri 'none'; object-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests
+  X-Frame-Options: DENY
+  X-Permitted-Cross-Domain-Policies: none
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000
+  Cross-Origin-Opener-Policy: same-origin

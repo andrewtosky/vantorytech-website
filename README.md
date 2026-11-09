@@ -21,6 +21,10 @@ If something breaks after a merge, Netlify keeps every earlier version: in Netli
 - **`site/assets/plausible-init.js`** and the Plausible script tag in each page's `<head>` run the visitor analytics. Don't add a second copy.
 - **The contact forms** (`index.html`, `contact.html`) send through Web3Forms. Its `access_key` is meant to be public. Keep the field IDs (`f-name`, `f-company`, `f-email`, `f-process`, `f-consent`) as they are, because the inline script checks them.
 
+## Changes proposed with Claude
+
+Ryan may use Claude to prepare changes. Claude only opens pull requests on new branches. It never merges, so Andrew reviews the Deploy Preview and merges each change himself.
+
 ## Commit messages
 
 This repository is public, so keep commit messages and pull request descriptions short and factual, for example "Update Solutions page wording".

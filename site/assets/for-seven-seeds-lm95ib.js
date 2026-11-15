@@ -194,8 +194,8 @@ function drawShot(it){
     sx.fillStyle = wrong ? '#24476b' : '#3A2A1E';
     sx.textAlign = 'center';
     sx.font = '600 11px Inter, sans-serif'; sx.fillText(wrong ? 'SPECIALTY COFFEE' : 'SPECIALTY COFFEE', 0, -20);
-    sx.font = '700 19px Inter, sans-serif'; sx.fillText(wrong ? 'DECAF' : 'ESPRESSO', 0, 2);
-    sx.font = '600 12px Inter, sans-serif'; sx.fillText('1 kg · whole bean', 0, 22);
+    sx.font = '700 19px Inter, sans-serif'; sx.fillText(wrong ? 'SINGLE ORIGIN' : 'HOUSE BLEND', 0, 2);
+    sx.font = '600 12px Inter, sans-serif'; sx.fillText('1 kg', 0, 22);
     sx.restore();
   }
   /* code */
@@ -220,7 +220,7 @@ var REASONS = {
   labelMissing: ['Label missing', 'Labels'],
   labelCrooked: ['Label crooked: 5° off', 'Labels'],
   labelTorn: ['Label torn', 'Labels'],
-  labelWrong: ['Wrong label: Decaf on a Espresso run', 'Labels'],
+  labelWrong: ['Wrong label: Single Origin on a House Blend run', 'Labels'],
   codeSmudged: ['Roast date unreadable', 'Roast dates'],
   codeMissing: ['Roast date missing', 'Roast dates'],
   codeWrong: ['Wrong roast date: 12 10 printed, 12 11 expected', 'Roast dates'],
@@ -409,7 +409,7 @@ var lastFailTxt = '';
 function drawScreen(){
   var c = scrCtx; c.fillStyle = '#0b1424'; c.fillRect(0, 0, 512, 300);
   c.fillStyle = '#8ea6ff'; c.font = '600 22px Inter, sans-serif'; c.fillText('LINE 1  ·  CHANGEOVER SET 05:30', 24, 42);
-  c.fillStyle = '#eef1f6'; c.font = '700 34px Inter, sans-serif'; c.fillText('Espresso blend 1 kg', 24, 92);
+  c.fillStyle = '#eef1f6'; c.font = '700 34px Inter, sans-serif'; c.fillText('House blend 1 kg', 24, 92);
   c.font = '600 28px "JetBrains Mono", monospace'; c.fillText(CODE_OK, 24, 138);
   c.fillStyle = '#a9b5d0'; c.font = '500 24px Inter, sans-serif';
   var total = 0; for (var k in report.cats) total += report.cats[k];

@@ -187,7 +187,7 @@ function drawShot(it){
       if (d === 'labelTorn'){ sx.beginPath(); sx.moveTo(-half, -lh / 2); sx.lineTo(half, -lh / 2); sx.lineTo(half, 4); sx.lineTo(40, 16); sx.lineTo(14, 0); sx.lineTo(-10, 20); sx.lineTo(-40, 8); sx.lineTo(-half, 24); sx.closePath(); sx.fill(); }
       else sx.fillRect(-half, -lh / 2, half * 2, lh);
       sx.fillStyle = wrong ? '#24476b' : '#2F5D1E'; sx.textAlign = 'center';
-      sx.font = '700 19px Inter, sans-serif'; sx.fillText(wrong ? 'CAGE FREE' : 'FREE RANGE', 0, -4);
+      sx.font = '700 19px Inter, sans-serif'; sx.fillText(wrong ? 'BARN LAID' : 'FREE RANGE', 0, -4);
       sx.font = '600 12px Inter, sans-serif'; sx.fillText('12 LARGE EGGS · 700 g', 0, 18);
       sx.restore();
     }
@@ -236,7 +236,7 @@ var REASONS = {
   "Labels"
  ],
  "labelWrong": [
-  "Wrong label: Cage free on a Free range run",
+  "Wrong label: Barn laid on a Free range run",
   "Labels"
  ],
  "codeSmudged": [

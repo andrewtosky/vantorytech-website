@@ -194,7 +194,7 @@ function drawShot(it){
     sx.fillStyle = wrong ? '#24476b' : '#1F6F43';
     sx.textAlign = 'center';
     sx.font = '600 11px Inter, sans-serif'; sx.fillText(wrong ? 'CORN TORTILLAS' : 'CORN TORTILLAS', 0, -20);
-    sx.font = '700 19px Inter, sans-serif'; sx.fillText(wrong ? 'LARGE' : 'TACO SIZE', 0, 2);
+    sx.font = '700 19px Inter, sans-serif'; sx.fillText(wrong ? 'LARGE' : 'SMALL', 0, 2);
     sx.font = '600 12px Inter, sans-serif'; sx.fillText('Nixtamal corn', 0, 22);
     sx.restore();
   }
@@ -220,7 +220,7 @@ var REASONS = {
   labelMissing: ['Label missing', 'Labels'],
   labelCrooked: ['Label crooked: 5° off', 'Labels'],
   labelTorn: ['Label torn', 'Labels'],
-  labelWrong: ['Wrong label: Large on a Taco Size run', 'Labels'],
+  labelWrong: ['Wrong label: Large on a Small run', 'Labels'],
   codeSmudged: ['Best-before code unreadable', 'Best-before codes'],
   codeMissing: ['Best-before code missing', 'Best-before codes'],
   codeWrong: ['Wrong year: 25 printed, 26 expected', 'Best-before codes'],
@@ -409,7 +409,7 @@ var lastFailTxt = '';
 function drawScreen(){
   var c = scrCtx; c.fillStyle = '#0b1424'; c.fillRect(0, 0, 512, 300);
   c.fillStyle = '#8ea6ff'; c.font = '600 22px Inter, sans-serif'; c.fillText('LINE 1  ·  CHANGEOVER SET 05:30', 24, 42);
-  c.fillStyle = '#eef1f6'; c.font = '700 34px Inter, sans-serif'; c.fillText('Corn tortillas taco size', 24, 92);
+  c.fillStyle = '#eef1f6'; c.font = '700 34px Inter, sans-serif'; c.fillText('Corn tortillas', 24, 92);
   c.font = '600 28px "JetBrains Mono", monospace'; c.fillText(CODE_OK, 24, 138);
   c.fillStyle = '#a9b5d0'; c.font = '500 24px Inter, sans-serif';
   var total = 0; for (var k in report.cats) total += report.cats[k];

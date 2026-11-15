@@ -10,6 +10,10 @@ if len(sys.argv) < 3:
     sys.exit('Usage: python3 build.py companies/<slug>.json out/<slug>.html')
 CFG = json.load(open(sys.argv[1]))
 C = CFG
+C.setdefault('headline', 'Every tub of %s checked, not a sample.' % C['productShort'])
+C.setdefault('lineType', 'fresh cheese tub line')
+C.setdefault('vatsLabel', 'Cheese vats')
+C.setdefault('dispatchLabel', 'Chilled dispatch')
 
 def cut(s, start, end):
     i = s.index(start); j = s.index(end, i)
@@ -72,7 +76,7 @@ main = '''<main>
   <section class="stop hero" data-stop="0" id="line" aria-labelledby="h-line">
     <div class="intro">
       <p class="eyebrow"><span class="dot"></span>For %(company)s · %(site)s</p>
-      <h1 id="h-line">Every tub of %(productShort)s checked, not a sample.</h1>
+      <h1 id="h-line">%(headline)s</h1>
       <p class="lede">%(heroLede)s</p>
       <ul class="facts">
         <li><b>Every tub</b><span>checked at line speed</span></li>
@@ -235,7 +239,7 @@ a, _, b = cut(s, '<main>', '<footer class="note">')
 s = a + (main % vals) + '\n\n' + b
 a, _, b = cut(s, '<footer class="note">', '<script src=')
 s = a + '''<footer class="note">
-  <p>Prepared for %(company)s by Vantory Technologies, Melbourne. The line shown is an illustration of a typical fresh cheese tub line, not a model of your site, and the product labels are generic. Figures marked as guesses are ours, made from public information, and are not results from a client. All amounts in Australian dollars.</p>
+  <p>Prepared for %(company)s by Vantory Technologies, Melbourne. The line shown is an illustration of a typical %(lineType)s, not a model of your site, and the product labels are generic. Figures marked as guesses are ours, made from public information, and are not results from a client. All amounts in Australian dollars.</p>
   <p>Sources: <a href="https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released">FSANZ, 2025 food recall statistics</a>; <a href="https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf">AFGC Product Recall Survey Report</a>.</p>
 </footer>
 
@@ -272,7 +276,7 @@ $('tighten').addEventListener('submit', function(e){
   if (!$('t-email').value.trim() || !$('t-email').checkValidity()){ st.className = 'status err'; st.textContent = 'Please enter a valid work email, like name@company.com.'; $('t-email').focus(); return; }
   if (!$('t-consent').checked){ st.className = 'status err'; st.textContent = 'Please tick the box to agree to our Privacy Policy.'; $('t-consent').focus(); return; }
   var first = $('t-name').value.trim().split(' ')[0];
-  /* On vantorytech.com this sends the form, the estimate inputs and "page: for/floridia-cheese" to the enquiries sheet and Web3Forms, and a trial plan is drafted within the hour. */
+  /* On vantorytech.com this sends the form, the estimate inputs and "page: for/%(slug)s" to the enquiries sheet and Web3Forms, and a trial plan is drafted within the hour. */
   st.className = 'status ok';
   st.textContent = 'Thanks, ' + first + '. This is a preview, so nothing was sent. On the live page your details go straight to the Vantory team.';
 });
@@ -502,7 +506,7 @@ s = s.replace("'Phase 2: air jet rejects flagged bottles' : 'Phase 1: staff remo
 
 # ---------- labels ----------
 s = s.replace("['Filler', X_FILLER, 3.2], ['Capper', X_CAP, 2.8], ['Labeller', X_LABEL, 2.4], ['Date coder', X_CODE, 2.6], ['Camera check', X_CAM, 3.0], ['Case packer', X_PACK + 0.9, 2.6], ['Dispatch', 21.5, 3.6]",
-              "['Cheese vats', -23.5, 2.2], ['Tub filler', X_FILLER, 3.4], ['Lidder', X_CAP, 2.8], ['Labeller', X_LABEL, 2.4], ['Use-by coder', X_CODE, 2.6], ['Camera check', X_CAM, 3.0], ['Case packer', X_PACK + 0.9, 2.6], ['Chilled dispatch', 21.5, 3.6]")
+              "['%s', -23.5, 2.2], ['Tub filler', X_FILLER, 3.4], ['Lidder', X_CAP, 2.8], ['Labeller', X_LABEL, 2.4], ['Use-by coder', X_CODE, 2.6], ['Camera check', X_CAM, 3.0], ['Case packer', X_PACK + 0.9, 2.6], ['%s', 21.5, 3.6]" % (C['vatsLabel'], C['dispatchLabel']))
 s = s.replace("setLabel(scrLab, '', 'Line screen · product and date set at changeover');", "setLabel(scrLab, '', 'Line screen · product and use-by set at changeover');")
 a, _, b = cut(s, 'var laterLabs = [', '/* ---------- camera rig ---------- */')
 s = a + 'var laterLabs = [];\n\n' + b

@@ -294,6 +294,7 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
 /* Form consent */
 .consent { grid-column: 1 / -1; display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 12px; align-items: start; font-size: 15px; color: var(--slate); }
 .consent input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--cobalt); }
+form.enquiry .full-hint { grid-column: 1 / -1; margin: -8px 0 0; font-size: 14px; color: var(--slate); }
 .form-note { grid-column: 1 / -1; font-size: 13px; color: var(--slate); }
 
 .careers-hero { min-height: calc(100vh - 72px - 220px); display: flex; align-items: center; }
@@ -356,6 +357,7 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
 .strip .wrap { padding-block: 9px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 24px; }
 .strip a { color: var(--white); font-weight: 600; }
 </style>
+<script src="assets/enquiry-plus.js" defer></script>
 </head>
 <body>
 <div class="strip">
@@ -401,6 +403,7 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
         <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         <div class="field"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
         <div class="field"><label for="f-country">Country</label><input id="f-country" name="country" autocomplete="country-name"></div>
+        <div class="field"><label for="f-site">Site location <span class="opt">(optional)</span></label><input id="f-site" name="site" placeholder="e.g. Thomastown, VIC"></div>
       </fieldset>
 
       <fieldset>
@@ -447,9 +450,68 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
         </div>
       </fieldset>
 
+      <fieldset id="fb-block" hidden>
+        <legend>Your line</legend>
+        <p class="hint full-hint">A few details about the line help us send you a trial plan and cost range for it.</p>
+        <div class="field">
+          <label for="f-packaging">What do you pack?</label>
+          <select id="f-packaging" name="packaging">
+            <option value="">Choose packaging</option>
+            <option>Bottles</option><option>Cans</option><option>Jars</option><option>Tubs or pots</option><option>Bags or pouches</option><option>Trays</option><option>Cartons or boxes</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-volume">Packs a day on the busiest line</label>
+          <select id="f-volume" name="volume">
+            <option value="">Choose a range</option>
+            <option>Under 5,000</option><option>5,000 to 20,000</option><option>20,000 to 50,000</option><option>50,000 to 100,000</option><option>Over 100,000</option><option>Not sure</option>
+          </select>
+        </div>
+        <div class="field full" role="group" aria-labelledby="checks-label">
+          <input type="hidden" name="checks" id="f-checks" value="">
+          <span class="label" id="checks-label">What would you like checked? <span class="opt">(choose any)</span></span>
+          <div class="chips">
+            <span class="chip"><input type="checkbox" id="c-label" name="check" value="Labels"><label for="c-label">Labels</label></span>
+            <span class="chip"><input type="checkbox" id="c-code" name="check" value="Date and batch codes"><label for="c-code">Date and batch codes</label></span>
+            <span class="chip"><input type="checkbox" id="c-fill" name="check" value="Fill level and caps"><label for="c-fill">Fill level and caps</label></span>
+            <span class="chip"><input type="checkbox" id="c-seal" name="check" value="Seals and leaks"><label for="c-seal">Seals and leaks</label></span>
+            <span class="chip"><input type="checkbox" id="c-obj" name="check" value="Foreign objects"><label for="c-obj">Foreign objects</label></span>
+            <span class="chip"><input type="checkbox" id="c-other" name="check" value="Something else"><label for="c-other">Something else</label></span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-checked">How are they checked today?</label>
+          <select id="f-checked" name="checkedNow">
+            <option value="">Choose one</option>
+            <option>Staff check every pack</option><option>Staff check a sample</option><option>We have a camera or vision system</option><option>Not checked regularly</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-lines">How many packing or filling lines?</label>
+          <select id="f-lines" name="lines">
+            <option value="">Choose one</option>
+            <option>1</option><option>2 to 3</option><option>4 to 6</option><option>More than 6</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-plc">Line controller brand <span class="opt">(optional)</span></label>
+          <select id="f-plc" name="plc">
+            <option value="">Not sure</option>
+            <option>Siemens</option><option>Allen-Bradley (Rockwell)</option><option>Mitsubishi</option><option>Omron</option><option>Schneider</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-photos">Could you share photos of the line?</label>
+          <select id="f-photos" name="photos">
+            <option value="">Choose one</option>
+            <option>Yes</option><option>After we talk</option><option>No</option>
+          </select>
+        </div>
+      </fieldset>
+
       <div class="consent"><input type="checkbox" id="f-consent" name="consent" required><label for="f-consent">I agree to Vantory Technologies using these details to reply to my enquiry, as set out in the <a href="privacy.html">Privacy Policy</a>.</label></div>
       <button class="btn btn-primary" type="submit">Send my details</button>
-      <p class="form-note">We never sell your details. We only use them to reply to you, as set out in our <a href="privacy.html">Privacy Policy</a>.</p>
+      <p class="form-note">We reply within one business day, usually with a draft trial plan for your line. We never sell your details. We only use them to reply to you, as set out in our <a href="privacy.html">Privacy Policy</a>.</p>
       <p class="form-status" id="form-status" role="status"></p>
     </form>
   </div>

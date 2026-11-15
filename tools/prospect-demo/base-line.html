@@ -1,0 +1,1119 @@
+<title>Vantory Bottling Line</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: full-bleed 3D bottling line behind; sticky briefing panel per stop on the left; live camera view bottom right; stop rail top right. */
+:root{
+  color-scheme: dark;
+  --night:#070D1A;
+  --midnight:#0B1424;
+  --midnight-2:#13203A;
+  --line:#22324E;
+  --cobalt:#2350F5;
+  --cobalt-soft:#8EA6FF;
+  --text:#EEF1F6;
+  --muted:#A9B5D0;
+  --ok:#3DDC97;
+  --warn:#FFB547;
+  --alert:#FF5A4E;
+  --lemon:#F5D54A;
+  --font:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--night);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+a{color:var(--cobalt-soft)}
+:focus-visible{outline:2px solid var(--cobalt-soft);outline-offset:3px;border-radius:6px}
+
+#scene{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:0}
+.no-webgl #scene{display:none}
+.no-webgl body{background:radial-gradient(120% 80% at 70% 30%,#13203A 0%,var(--night) 60%) fixed}
+.scrim{position:fixed;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(7,13,26,.9) 0%,rgba(7,13,26,.65) 34%,rgba(7,13,26,0) 58%)}
+#labels{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+.tag3d{position:absolute;left:0;top:0;white-space:nowrap;font:500 11.5px/1 var(--mono);color:var(--text);
+  background:rgba(7,13,26,.86);border:1px solid var(--line);border-radius:999px;padding:7px 11px 7px 9px;display:flex;align-items:center;gap:7px;opacity:0;will-change:transform,opacity}
+.tag3d i{width:8px;height:8px;border-radius:50%;background:var(--cobalt-soft);flex:none}
+.tag3d.ok{border-color:rgba(61,220,151,.5)} .tag3d.ok i{background:var(--ok)}
+.tag3d.warn{border-color:rgba(255,181,71,.55)} .tag3d.warn i{background:var(--warn)}
+.tag3d.alert{border-color:rgba(255,90,78,.7);color:#fff} .tag3d.alert i{background:var(--alert);box-shadow:0 0 0 4px rgba(255,90,78,.25)}
+.tag3d.station{font-family:var(--font);font-weight:600;font-size:12px;letter-spacing:.02em;background:rgba(19,32,58,.9)}
+.tag3d.later{border-style:dashed;color:var(--muted);background:rgba(7,13,26,.78)} .tag3d.later i{background:transparent;border:1.5px solid var(--muted)}
+
+.bar{position:fixed;z-index:6;top:env(safe-area-inset-top,0px);left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding-block:14px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));
+  background:linear-gradient(to bottom,rgba(7,13,26,.88),rgba(7,13,26,0))}
+.bar .logo{display:block;line-height:0}
+.bar .logo svg{height:34px;width:auto;display:block}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 14px/1 var(--font);color:#fff;background:var(--cobalt);border:0;border-radius:999px;padding:11px 18px;text-decoration:none;cursor:pointer}
+.btn:hover{background:#3a63ff}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+.btn.ghost:hover{border-color:var(--cobalt-soft)}
+
+.rail{position:fixed;z-index:4;right:max(18px,env(safe-area-inset-right,0px));top:calc(84px + env(safe-area-inset-top,0px));display:flex;flex-direction:column;gap:2px;margin:0;padding:0;list-style:none}
+.rail button{all:unset;cursor:pointer;display:flex;align-items:center;justify-content:flex-end;gap:10px;font:500 12px/1 var(--font);color:var(--muted);padding:6px 0}
+.rail button span{opacity:0;transform:translateX(6px);transition:opacity .2s,transform .2s}
+.rail button:hover span,.rail button:focus-visible span,.rail button.on span{opacity:1;transform:none}
+.rail button::after{content:"";width:9px;height:9px;border-radius:50%;border:1.5px solid var(--muted);transition:all .2s}
+.rail button.on{color:var(--text)}
+.rail button.on::after{background:var(--cobalt);border-color:var(--cobalt);box-shadow:0 0 0 4px rgba(35,80,245,.3)}
+
+/* live camera view */
+.cam{position:fixed;z-index:5;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));width:340px;
+  background:rgba(11,20,36,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:var(--radius);
+  padding:12px;display:flex;flex-direction:column;gap:10px;transition:opacity .4s,transform .4s}
+.cam.off{opacity:0;transform:translateY(12px);pointer-events:none}
+.cam-h{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0;font:600 11.5px/1 var(--font);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cam-h .live{display:inline-flex;align-items:center;gap:6px}
+.cam-h .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--alert);animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+.chip{font:600 11px/1 var(--mono);letter-spacing:.04em;padding:5px 8px;border-radius:6px;background:var(--midnight-2);color:var(--muted);text-transform:none}
+.chip.pass{background:rgba(61,220,151,.16);color:var(--ok)}
+.chip.fail{background:rgba(255,90,78,.18);color:#ff8b82}
+.cam-body{display:grid;grid-template-columns:132px 1fr;gap:12px;align-items:start}
+#shot{width:132px;height:176px;border-radius:8px;background:#05080f;display:block}
+.read{display:flex;flex-direction:column;gap:8px;min-width:0}
+.read dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 8px;font-size:12px}
+.read dt{color:var(--muted)}
+.read dd{margin:0;font:500 11.5px/1.35 var(--mono);color:var(--text);overflow-wrap:anywhere}
+.read dd.bad{color:#ff8b82}
+.read dd.good{color:var(--ok)}
+.reason{margin:0;font:600 12.5px/1.35 var(--font);color:var(--text)}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--midnight-2);border:1px solid var(--line);border-radius:10px;padding:3px}
+.seg button{all:unset;cursor:pointer;text-align:center;font:600 12px/1.2 var(--font);color:var(--muted);padding:8px 6px;border-radius:7px}
+.seg button[aria-pressed="true"]{background:var(--cobalt);color:#fff}
+.seg button:focus-visible{outline:2px solid var(--cobalt-soft)}
+
+main{position:relative;z-index:3;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.stop{min-height:160vh;position:relative}
+.stop.hero{min-height:135vh}
+.panel{position:sticky;top:calc(96px + env(safe-area-inset-top,0px));width:min(430px,100%);margin-left:clamp(0px,3vw,48px);
+  background:rgba(11,20,36,.84);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 20px;
+  display:flex;flex-direction:column;gap:14px;transform:translateY(-6px) scale(.985);opacity:.75;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s,border-color .5s}
+.panel.is-active{transform:none;opacity:1;border-color:rgba(142,166,255,.38)}
+.eyebrow{margin:0;display:flex;align-items:center;gap:8px;font:600 11.5px/1 var(--font);letter-spacing:.12em;text-transform:uppercase;color:var(--cobalt-soft)}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--cobalt-soft)}
+.eyebrow.later{color:var(--muted)} .eyebrow.later .dot{background:transparent;border:1.5px solid var(--muted)}
+h1,h2{margin:0;font-weight:650;letter-spacing:-.02em;text-wrap:balance;line-height:1.12}
+h2{font-size:26px}
+.lede{margin:0;color:var(--muted);font-size:15.5px}
+.fact{margin:0;font-size:13.5px;color:var(--text);border-left:2px solid var(--lemon);padding-left:10px}
+.fact a{white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.chips li{font:500 12px/1 var(--font);color:var(--text);border:1px solid var(--line);background:var(--midnight-2);border-radius:999px;padding:7px 10px}
+.save{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:6px}
+.save-h{margin:0;display:flex;justify-content:space-between;align-items:center;gap:10px;font:600 12px/1.2 var(--font);color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.save-h em{font-style:normal;font:500 10.5px/1 var(--mono);text-transform:none;letter-spacing:0;color:var(--muted);border:1px dashed var(--line);border-radius:6px;padding:4px 6px}
+.big{margin:0;font:600 34px/1.05 var(--font);letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:#fff}
+.big .per{font:500 14px/1 var(--font);color:var(--muted);margin-left:6px;letter-spacing:0}
+.calc{margin:0;font:500 12px/1.55 var(--mono);color:var(--muted)}
+
+.steps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:center;font-size:13.5px;color:var(--muted);padding:6px 8px;border-radius:8px;transition:background .2s,color .2s}
+.steps li::before{content:counter(s);width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font:600 11px/1 var(--mono);color:var(--muted)}
+.steps li.done::before{content:"✓";border-color:var(--ok);color:var(--ok)}
+.steps li.on{background:var(--midnight-2);color:var(--text)}
+.steps li.on::before{border-color:var(--cobalt-soft);color:var(--text);background:var(--cobalt)}
+.steps li.on.fail::before{background:var(--alert);border-color:var(--alert)}
+
+.report{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.report div{background:var(--midnight-2);border:1px solid var(--line);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.report b{font:600 20px/1.1 var(--font);font-variant-numeric:tabular-nums}
+.report span{font-size:12px;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:8px}
+.bars .row{display:grid;grid-template-columns:118px 1fr 70px;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
+.bars .track{display:block;height:8px;border-radius:4px;background:#0E1A30;overflow:hidden}
+.bars .fill{display:block;height:100%;background:var(--cobalt);border-radius:4px;width:0;transition:width .4s}
+.bars .val{font:500 13px/1 var(--mono);text-align:right;color:var(--text);font-variant-numeric:tabular-nums}
+.alertrow{margin:0;display:flex;gap:10px;align-items:flex-start;font-size:13px;background:rgba(255,181,71,.08);border:1px solid rgba(255,181,71,.35);border-radius:10px;padding:10px 12px}
+.alertrow::before{content:"";flex:none;width:8px;height:8px;margin-top:6px;border-radius:50%;background:var(--warn)}
+
+.timeline{margin:0;padding:0;list-style:none;display:flex;flex-direction:column}
+.timeline li{display:grid;grid-template-columns:104px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.timeline li:first-child{border-top:0;padding-top:0}
+.timeline .wk{font:600 12px/1.4 var(--mono);color:var(--cobalt-soft)}
+.timeline b{display:block;font-size:14px;font-weight:600}
+.timeline span{font-size:13px;color:var(--muted)}
+.callout{margin:0;font-size:14px;font-weight:600;color:var(--text);background:rgba(61,220,151,.08);border:1px solid rgba(61,220,151,.35);border-radius:10px;padding:10px 12px}
+
+.later-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.later-list li{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border:1px dashed var(--line);border-radius:10px}
+.later-list b{font-size:14px}
+.later-list span{font-size:13px;color:var(--muted)}
+
+.hero .intro{position:sticky;top:calc(120px + env(safe-area-inset-top,0px));max-width:620px;margin-left:clamp(0px,3vw,48px);display:flex;flex-direction:column;gap:18px}
+.hero h1{font-size:clamp(36px,5.2vw,60px)}
+.hero .lede{font-size:clamp(16px,1.6vw,19px);max-width:520px;color:#C9D2E6}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin:6px 0 0;padding:0;list-style:none}
+.facts li{display:flex;flex-direction:column;gap:2px}
+.facts b{font:600 22px/1.1 var(--font);font-variant-numeric:tabular-nums}
+.facts span{font-size:13px;color:var(--muted)}
+.hint{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);margin:10px 0 0}
+.hint::before{content:"";width:1px;height:28px;background:linear-gradient(var(--cobalt-soft),transparent);animation:drip 1.8s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(.3);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(.3);transform-origin:bottom}}
+
+.final{min-height:auto;padding-block:30vh 12vh}
+.final .panel{position:relative;top:auto;width:min(640px,100%)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label{font-size:13px;color:var(--muted)}
+.field input[type=number]{width:100%;font:500 16px/1 var(--mono);color:var(--text);background:var(--midnight-2);border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-variant-numeric:tabular-nums}
+.field input[type=number]:focus{outline:none;border-color:var(--cobalt-soft)}
+.field small{font-size:11.5px;color:var(--muted)}
+.result{display:flex;flex-direction:column;gap:10px;background:var(--midnight-2);border:1px solid var(--line);border-radius:12px;padding:16px}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px}
+.fine{margin:0;font-size:12.5px;color:var(--muted)}
+footer.note{position:relative;z-index:3;padding-block:0 48px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+footer.note p{max-width:640px;margin:0 0 8px clamp(0px,3vw,48px);font-size:12.5px;color:var(--muted)}
+
+@media (max-width:760px){
+  .rail{display:none}
+  .bar .logo svg{height:28px}
+  .btn{padding:10px 14px;font-size:13px}
+  .panel{margin-left:0;padding:16px;gap:10px;top:calc(68px + env(safe-area-inset-top,0px))}
+  h2{font-size:21px}
+  .lede{font-size:14px}
+  .big{font-size:26px}
+  .chips,.steps,.hide-sm{display:none}
+  .calc{font-size:11px}
+  .fact{font-size:12.5px}
+  .hero .intro{top:calc(86px + env(safe-area-inset-top,0px));margin-left:0}
+  .form{grid-template-columns:1fr}
+  .bars .row{grid-template-columns:96px 1fr 56px}
+  .report b{font-size:17px}
+  .timeline li{grid-template-columns:84px 1fr}
+  .scrim{background:linear-gradient(180deg,rgba(7,13,26,.92) 0%,rgba(7,13,26,.8) 52%,rgba(7,13,26,0) 72%)}
+  .cam{left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));width:auto;padding:10px;gap:8px}
+  .cam-body{grid-template-columns:78px 1fr;gap:10px}
+  #shot{width:78px;height:104px}
+  .read dl{font-size:11px}
+  .read dd{font-size:10.5px}
+  .reason{font-size:12px}
+  .seg button{padding:6px 4px;font-size:11.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  .panel{transition:none}
+  .hint::before,.cam-h .live::before{animation:none}
+}
+</style>
+
+<header class="bar">
+  <a class="logo" href="https://www.vantorytech.com/" aria-label="Vantory Technologies home">{{LOGO}}</a>
+  <a class="btn" href="https://www.vantorytech.com/contact.html">Book a trial</a>
+</header>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="scrim" id="scrim" aria-hidden="true"></div>
+<div id="labels" aria-hidden="true"></div>
+
+<ol class="rail" aria-label="Sections">
+  <li><button type="button" data-go="0"><span>Your line</span></button></li>
+  <li><button type="button" data-go="1"><span>Fill and caps</span></button></li>
+  <li><button type="button" data-go="2"><span>Labels</span></button></li>
+  <li><button type="button" data-go="3"><span>Date codes</span></button></li>
+  <li><button type="button" data-go="4"><span>Foreign objects</span></button></li>
+  <li><button type="button" data-go="5"><span>Shift report</span></button></li>
+  <li><button type="button" data-go="6"><span>How a trial runs</span></button></li>
+  <li><button type="button" data-go="7"><span>Later phases</span></button></li>
+  <li><button type="button" data-go="8"><span>Your numbers</span></button></li>
+</ol>
+
+<aside class="cam off" id="cam" aria-label="Live camera check">
+  <p class="cam-h"><span class="live">Camera 1 · after the coder</span><span class="chip" id="cam-status">Waiting</span></p>
+  <div class="cam-body">
+    <canvas id="shot" width="264" height="352" role="img" aria-label="Latest bottle photographed by the inspection camera"></canvas>
+    <div class="read">
+      <p class="reason" id="cam-reason">Waiting for the next bottle</p>
+      <dl>
+        <dt>Read</dt><dd id="cam-read">-</dd>
+        <dt>Expected</dt><dd>BB 14 MAY 27 L2317</dd>
+        <dt>Checked</dt><dd id="cam-count">0</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="seg" role="group" aria-label="What happens to a flagged bottle">
+    <button type="button" id="ph1" aria-pressed="true">Phase 1: staff remove</button>
+    <button type="button" id="ph2" aria-pressed="false">Phase 2: auto reject</button>
+  </div>
+</aside>
+
+<main>
+  <section class="stop hero" data-stop="0" id="line" aria-labelledby="h-line">
+    <div class="intro">
+      <p class="eyebrow"><span class="dot"></span>Food and beverage</p>
+      <h1 id="h-line">Every bottle checked, not a sample.</h1>
+      <p class="lede">A camera after your date coder checks the fill, cap, label and code on every bottle. Faulty ones are flagged or pushed off the line before they reach a case. Scroll to follow a bottle down an example line.</p>
+      <ul class="facts">
+        <li><b>Every pack</b><span>checked at line speed</span></li>
+        <li><b>8 to 12 weeks</b><span>from first call to a working check</span></li>
+        <li><b>On site</b><span>the AI runs on a unit beside your line</span></li>
+      </ul>
+      <p class="hint">Scroll to follow the bottle</p>
+    </div>
+  </section>
+
+  <section class="stop" data-stop="1" id="fill-caps" aria-labelledby="h-fill">
+    <div class="panel">
+      <p class="eyebrow"><span class="dot"></span>Line check 1</p>
+      <h2 id="h-fill">Fill level, caps and seals</h2>
+      <p class="lede">The camera measures the fill line and checks every cap is present, straight and sealed. Short fills and loose caps are caught before they are packed.</p>
+      <ul class="chips"><li>Underfills</li><li>Missing caps</li><li>Skewed caps</li><li>Leaks</li></ul>
+      <div class="save">
+        <p class="save-h">Where it saves money <em>Example line</em></p>
+        <p class="big"><span class="num" data-to="60000">$60,000</span><span class="per">returns and complaints a year</span></p>
+        <p class="calc">40,000 bottles a day × 250 days × 0.04% fewer faulty bottles leaving the site × $15 per return or complaint.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stop" data-stop="2" id="labels-check" aria-labelledby="h-label">
+    <div class="panel">
+      <p class="eyebrow"><span class="dot"></span>Line check 2</p>
+      <h2 id="h-label">The right label, on straight</h2>
+      <p class="lede">Each label is checked for the right product, position and condition. A wrong label is the costly one, because it can mean an undeclared allergen.</p>
+      <p class="fact">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href="https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released">FSANZ</a></p>
+      <div class="save">
+        <p class="save-h">Where it saves money <em>Example line</em></p>
+        <p class="big"><span class="num" data-to="200000">$200,000</span><span class="per">per recall avoided</span></p>
+        <p class="calc">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure in the calculator below.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stop" data-stop="3" id="date-codes" aria-labelledby="h-code">
+    <div class="panel">
+      <p class="eyebrow"><span class="dot"></span>Line check 3</p>
+      <h2 id="h-code">Date and batch codes, read on every bottle</h2>
+      <p class="lede">The system reads the printed code and compares it with the product and date set at changeover. A smudged, missing or wrong code turns the light red.</p>
+      <ol class="steps" id="steps" aria-label="What happens for each bottle">
+        <li class="done">Operator sets product and date at changeover</li>
+        <li>Sensor sees the bottle and the camera takes a photo</li>
+        <li>The on-site AI reads the code</li>
+        <li>Pass, or red light and photo on screen</li>
+      </ol>
+      <div class="save">
+        <p class="save-h">Where it saves money <em>Example line</em></p>
+        <p class="big"><span class="num" data-to="51480">$51,480</span><span class="per">QC time freed a year</span></p>
+        <p class="calc">30 hours a week of manual label and code checks × $55/h × 52 weeks, with 60% handed to the camera.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stop" data-stop="4" id="foreign-objects" aria-labelledby="h-obj">
+    <div class="panel">
+      <p class="eyebrow"><span class="dot"></span>Line check 4</p>
+      <h2 id="h-obj">Foreign objects on the conveyor</h2>
+      <p class="lede">The camera over the belt spots anything that should not be there, such as a glove fragment or a loose washer, and stops it reaching a case.</p>
+      <p class="fact">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href="https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf">AFGC</a></p>
+      <div class="save">
+        <p class="save-h">Where it saves money <em>Example line</em></p>
+        <p class="big"><span class="num" data-to="16000">$16,000</span><span class="per">retailer penalties a year</span></p>
+        <p class="calc">$20,000 of chargebacks and rejected deliveries a year × 80% fewer faulty packs reaching the retailer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stop" data-stop="5" id="shift-report" aria-labelledby="h-report">
+    <div class="panel">
+      <p class="eyebrow"><span class="dot"></span>Every shift</p>
+      <h2 id="h-report">A report your QC team can file</h2>
+      <p class="lede">Each shift ends with a count of every bottle checked and every reject, with photos kept as quality records. Repeat faults on one line raise an alert.</p>
+      <div class="report" aria-live="off">
+        <div><b id="rp-checked">18,240</b><span>bottles checked</span></div>
+        <div><b id="rp-rejects">22</b><span>flagged</span></div>
+        <div><b id="rp-rate">0.12%</b><span>reject rate</span></div>
+      </div>
+      <div class="bars" id="rp-bars"></div>
+      <p class="alertrow">Three crooked labels in ten minutes on Line 2. Check the labeller.</p>
+      <p class="fine">Example shift. Counts update as bottles pass the camera.</p>
+    </div>
+  </section>
+
+  <section class="stop" data-stop="6" id="trial" aria-labelledby="h-trial">
+    <div class="panel">
+      <p class="eyebrow"><span class="dot"></span>How a trial runs</p>
+      <h2 id="h-trial">One camera, one line, alerts only</h2>
+      <ol class="timeline">
+        <li><span class="wk">Week 1</span><div><b>Call and site visit</b><span>We watch the line run and choose the inspection point.</span></div></li>
+        <li><span class="wk">Weeks 2 to 3</span><div><b>Feasibility and proposal</b><span>Fixed trial price, success targets and data handling in writing.</span></div></li>
+        <li><span class="wk">Weeks 3 to 6</span><div><b>Images, setup and equipment</b><span>Your QC team shows us good and faulty packs. We set up the checks and the hardware.</span></div></li>
+        <li><span class="wk">Week 7</span><div><b>Install and tune</b><span>Half a day in a maintenance window, then we cut false alarms.</span></div></li>
+        <li><span class="wk">Weeks 8 to 12</span><div><b>Four-week trial and review</b><span>We report bottles checked, faults caught and false alarms against the targets.</span></div></li>
+      </ol>
+      <p class="callout">Our equipment never stops your line. Automatic rejects come in phase two, with your maintenance team.</p>
+    </div>
+  </section>
+
+  <section class="stop" data-stop="7" id="later" aria-labelledby="h-later">
+    <div class="panel">
+      <p class="eyebrow later"><span class="dot"></span>Later phases</p>
+      <h2 id="h-later">Once the line checks are running</h2>
+      <p class="lede">The same on-site unit can take on more of the plant. Each of these is assessed for your site before we quote it.</p>
+      <ul class="later-list">
+        <li><b>Hygiene at the high-care door</b><span>Hairnets, gloves and coats checked before staff enter production.</span></li>
+        <li><b>Cold room and compressor energy</b><span>Energy use by room and machine, with alerts when a door is left open.</span></li>
+        <li><b>Filler and capper health</b><span>Machine data used to warn of a failure before the line stops.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="stop final" data-stop="8" id="your-numbers" aria-labelledby="h-roi">
+    <div class="panel">
+      <p class="eyebrow"><span class="dot"></span>Your numbers</p>
+      <h2 id="h-roi">What could checking every bottle be worth?</h2>
+      <p class="lede">Enter rough figures for one line. Everything below is calculated from your inputs.</p>
+      <form class="form" id="roi" novalidate>
+        <div class="field"><label for="c-packs">Packs a day on this line</label><input id="c-packs" type="number" min="0" step="1000" value="40000" inputmode="numeric"></div>
+        <div class="field"><label for="c-days">Production days a year</label><input id="c-days" type="number" min="0" step="1" value="250" inputmode="numeric"></div>
+        <div class="field"><label for="c-hours">Staff hours a week on manual label and code checks</label><input id="c-hours" type="number" min="0" step="1" value="30" inputmode="numeric"></div>
+        <div class="field"><label for="c-rate">Hourly cost of that staff ($)</label><input id="c-rate" type="number" min="0" step="1" value="55" inputmode="numeric"></div>
+        <div class="field"><label for="c-recall">Cost of one recall or withdrawal ($)</label><input id="c-recall" type="number" min="0" step="10000" value="200000" inputmode="numeric"><small>The AFGC cites a global average direct cost of US$10 million.</small></div>
+        <div class="field"><label for="c-recalls">Labelling recalls or withdrawals in the past 5 years</label><input id="c-recalls" type="number" min="0" step="1" value="1" inputmode="numeric"></div>
+        <div class="field"><label for="c-penalty">Retailer penalties and rejected loads a year ($)</label><input id="c-penalty" type="number" min="0" step="1000" value="20000" inputmode="numeric"></div>
+        <div class="field"><label for="c-escape">Cost per faulty pack reaching a customer ($)</label><input id="c-escape" type="number" min="0" step="1" value="15" inputmode="numeric"></div>
+      </form>
+      <div class="result" aria-live="polite">
+        <p class="save-h">Estimated saving <em>From your inputs</em></p>
+        <p class="big"><span id="r-total">$0</span><span class="per">a year</span></p>
+        <div class="bars" id="r-bars"></div>
+        <p class="fine">Assumes faulty packs leaving the site drop from 0.05% to 0.01%, recall and penalty risk falls by 80%, and 60% of manual check time is freed. A trial measures the real figures for your line.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="https://www.vantorytech.com/contact.html">Start with a trial</a>
+        <a class="btn ghost" href="https://www.vantorytech.com/solutions.html">See all solutions</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="note">
+  <p>The plant shown is an illustration. Figures marked as examples show how savings are worked out and are not results from a specific client. All amounts are in Australian dollars unless stated.</p>
+  <p>Sources: <a href="https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released">FSANZ, 2025 food recall statistics</a>; <a href="https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf">AFGC Product Recall Survey Report</a>.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+'use strict';
+var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+var fmt = function(n){ return '$' + Math.round(n).toLocaleString('en-AU'); };
+var num = function(n){ return Math.round(n).toLocaleString('en-AU'); };
+function clamp(v, a, b){ return v < a ? a : v > b ? b : v; }
+function smooth(t){ return t * t * (3 - 2 * t); }
+var $ = function(id){ return document.getElementById(id); };
+
+/* ---------- scroll stops ---------- */
+var sections = Array.prototype.slice.call(document.querySelectorAll('.stop'));
+var panels = sections.map(function(s){ return s.querySelector('.panel'); });
+var railBtns = Array.prototype.slice.call(document.querySelectorAll('.rail button'));
+var LAST = sections.length - 1;
+var anchors = [];
+function measure(){
+  var vh = innerHeight;
+  anchors = sections.map(function(s, i){
+    var top = s.getBoundingClientRect().top + scrollY;
+    if (i === 0) return 0;
+    if (i === LAST) return Math.max(0, Math.min(top + vh * 0.15, document.documentElement.scrollHeight - vh));
+    return top + s.offsetHeight * 0.5 - vh * 0.5;
+  });
+}
+function stopFloat(){
+  var y = scrollY, n = anchors.length;
+  if (y <= anchors[0]) return 0;
+  for (var i = 0; i < n - 1; i++){
+    if (y < anchors[i + 1]){
+      var t = (y - anchors[i]) / (anchors[i + 1] - anchors[i]);
+      return i + smooth(clamp((t - 0.18) / 0.64, 0, 1));
+    }
+  }
+  return n - 1;
+}
+railBtns.forEach(function(b){
+  b.addEventListener('click', function(){ scrollTo({ top: anchors[+b.getAttribute('data-go')], behavior: reduced ? 'auto' : 'smooth' }); });
+});
+var counted = {};
+function countUp(i){
+  if (counted[i] || reduced) return;
+  counted[i] = true;
+  var el = panels[i] && panels[i].querySelector('.num');
+  if (!el) return;
+  var to = +el.getAttribute('data-to'), t0 = performance.now();
+  (function step(now){
+    var k = clamp((now - t0) / 900, 0, 1);
+    el.textContent = fmt(to * (1 - Math.pow(1 - k, 3)));
+    if (k < 1) requestAnimationFrame(step);
+  })(t0);
+}
+function barsHTML(parts, money){
+  var max = Math.max.apply(null, parts.map(function(p){ return p[1]; })) || 1;
+  return parts.map(function(p){
+    return '<div class="row"><span>' + p[0] + '</span><span class="track"><span class="fill" style="width:' + (p[1] / max * 100).toFixed(1) + '%"></span></span><span class="val">' + (money ? fmt(p[1]) : num(p[1])) + '</span></div>';
+  }).join('');
+}
+
+/* ---------- calculator ---------- */
+function val(id){ var v = parseFloat($(id).value); return isFinite(v) && v > 0 ? v : 0; }
+function roi(){
+  var packs = val('c-packs') * val('c-days');
+  var parts = [
+    ['QC time', val('c-hours') * 52 * val('c-rate') * 0.6],
+    ['Recall risk', val('c-recalls') / 5 * val('c-recall') * 0.8],
+    ['Retailer penalties', val('c-penalty') * 0.8],
+    ['Faulty packs', packs * 0.0004 * val('c-escape')]
+  ];
+  $('r-total').textContent = fmt(parts.reduce(function(s, p){ return s + p[1]; }, 0));
+  $('r-bars').innerHTML = barsHTML(parts, true);
+}
+['c-packs','c-days','c-hours','c-rate','c-recall','c-recalls','c-penalty','c-escape'].forEach(function(id){ $(id).addEventListener('input', roi); });
+$('roi').addEventListener('submit', function(e){ e.preventDefault(); });
+roi();
+
+/* ---------- shift report ---------- */
+var report = { checked: 18240, cats: { 'Fill and caps': 9, 'Labels': 7, 'Date codes': 4, 'Foreign objects': 2 } };
+function drawReport(){
+  var total = 0; for (var k in report.cats) total += report.cats[k];
+  $('rp-checked').textContent = num(report.checked);
+  $('rp-rejects').textContent = num(total);
+  $('rp-rate').textContent = (total / report.checked * 100).toFixed(2) + '%';
+  $('rp-bars').innerHTML = barsHTML(Object.keys(report.cats).map(function(k){ return [k, report.cats[k]]; }), false);
+}
+drawReport();
+
+/* ---------- phase toggle ---------- */
+var phase = 1;
+function setPhase(p){ phase = p; $('ph1').setAttribute('aria-pressed', p === 1); $('ph2').setAttribute('aria-pressed', p === 2); }
+$('ph1').addEventListener('click', function(){ setPhase(1); });
+$('ph2').addEventListener('click', function(){ setPhase(2); });
+
+/* ---------- camera inset drawing ---------- */
+var shot = $('shot'), sx = shot.getContext('2d');
+var CODE_OK = 'BB 14 MAY 27 L2317';
+function rr(x, y, w, h, r){ sx.beginPath(); sx.moveTo(x + r, y); sx.arcTo(x + w, y, x + w, y + h, r); sx.arcTo(x + w, y + h, x, y + h, r); sx.arcTo(x, y + h, x, y, r); sx.arcTo(x, y, x + w, y, r); sx.closePath(); }
+function tagBox(x, y, w, h, bad, text){
+  sx.strokeStyle = bad ? '#FF5A4E' : '#3DDC97'; sx.lineWidth = bad ? 4 : 2.5;
+  sx.setLineDash(bad ? [] : [8, 6]); sx.strokeRect(x, y, w, h); sx.setLineDash([]);
+  if (text){
+    sx.font = '600 15px "JetBrains Mono", monospace';
+    var tw = sx.measureText(text).width + 12;
+    var tx = Math.min(Math.max(x, 4), 264 - tw - 4);
+    sx.fillStyle = bad ? '#FF5A4E' : '#1f7a55'; sx.fillRect(tx, y - 22, tw, 20);
+    sx.fillStyle = '#fff'; sx.fillText(text, tx + 6, y - 7);
+  }
+}
+function drawShot(it){
+  var W = 264, H = 352;
+  var g = sx.createRadialGradient(W / 2, H * 0.45, 20, W / 2, H * 0.45, 260);
+  g.addColorStop(0, '#2a3346'); g.addColorStop(1, '#0a0e16');
+  sx.fillStyle = g; sx.fillRect(0, 0, W, H);
+  sx.fillStyle = '#1a2130'; sx.fillRect(0, H - 34, W, 34);
+  if (!it){ return; }
+  if (it.kind === 'object'){
+    sx.save(); sx.translate(W / 2, H - 70); sx.rotate(-0.3);
+    if (it.defect === 'glove'){ sx.fillStyle = '#3b7bff'; rr(-46, -16, 92, 34, 14); sx.fill(); sx.fillStyle = '#2b5fd0'; rr(-46, -16, 30, 34, 10); sx.fill(); }
+    else { sx.fillStyle = '#9aa6bb'; sx.beginPath(); sx.arc(0, 0, 26, 0, Math.PI * 2); sx.fill(); sx.fillStyle = '#1a2130'; sx.beginPath(); sx.arc(0, 0, 11, 0, Math.PI * 2); sx.fill(); }
+    sx.restore();
+    tagBox(W / 2 - 70, H - 118, 140, 92, true, 'FOREIGN OBJECT');
+    return;
+  }
+  var cx = W / 2, top = 44, bw = 104, bh = 250, by = top + 54;
+  /* liquid */
+  var fillTop = it.defect === 'underfill' ? by + 78 : by + 22;
+  sx.fillStyle = 'rgba(245,213,74,.82)'; rr(cx - bw / 2 + 5, fillTop, bw - 10, by + bh - fillTop - 6, 16); sx.fill();
+  /* glass */
+  sx.strokeStyle = 'rgba(205,225,255,.75)'; sx.lineWidth = 3;
+  rr(cx - bw / 2, by, bw, bh, 22); sx.stroke();
+  sx.beginPath(); sx.moveTo(cx - 20, by + 2); sx.lineTo(cx - 18, top + 18); sx.moveTo(cx + 20, by + 2); sx.lineTo(cx + 18, top + 18); sx.stroke();
+  sx.fillStyle = 'rgba(205,225,255,.10)'; sx.fillRect(cx - 18, top + 18, 36, by - top - 16);
+  /* cap */
+  if (it.defect !== 'capMissing'){
+    sx.save(); sx.translate(cx, top + 10);
+    if (it.defect === 'capSkew') { sx.translate(8, -6); sx.rotate(0.38); }
+    sx.fillStyle = '#e9edf5'; rr(-22, -12, 44, 26, 5); sx.fill();
+    sx.fillStyle = '#c3cbda'; for (var i = -18; i <= 16; i += 6) sx.fillRect(i, -10, 2, 22);
+    sx.restore();
+  }
+  /* label */
+  var ly = by + 96, lh = 92;
+  if (it.defect !== 'labelMissing'){
+    sx.save(); sx.translate(cx, ly + lh / 2);
+    if (it.defect === 'labelCrooked') sx.rotate(-0.11);
+    var wrong = it.defect === 'labelWrong';
+    sx.fillStyle = wrong ? '#ff9a3c' : '#f6efc6';
+    if (it.defect === 'labelTorn'){ sx.beginPath(); sx.moveTo(-bw / 2, -lh / 2); sx.lineTo(bw / 2, -lh / 2); sx.lineTo(bw / 2, 4); sx.lineTo(28, 14); sx.lineTo(10, 2); sx.lineTo(-8, 22); sx.lineTo(-30, 8); sx.lineTo(-bw / 2, 26); sx.closePath(); sx.fill(); }
+    else sx.fillRect(-bw / 2, -lh / 2, bw, lh);
+    sx.fillStyle = wrong ? '#5a2300' : '#5b4a00';
+    sx.font = '700 13px Inter, sans-serif'; sx.textAlign = 'center';
+    sx.fillText(wrong ? 'ORANGE' : 'SPARKLING', 0, -18); sx.fillText(wrong ? '& MANGO' : 'LEMON', 0, -2);
+    sx.font = '600 11px Inter, sans-serif'; sx.fillText('600 mL', 0, 16);
+    sx.restore();
+  }
+  /* code */
+  var cy = by + bh - 34;
+  if (it.defect !== 'codeMissing'){
+    sx.save(); sx.font = '600 12.5px "JetBrains Mono", monospace'; sx.textAlign = 'center';
+    if (it.defect === 'codeSmudged'){ sx.filter = 'blur(2.2px)'; sx.fillStyle = 'rgba(20,20,20,.75)'; sx.fillText('BB 1? M?Y 2? L23?', cx, cy); }
+    else { sx.fillStyle = '#121212'; sx.fillText(it.defect === 'codeWrong' ? 'BB 14 MAY 26 L2317' : CODE_OK, cx, cy); }
+    sx.restore();
+  }
+  /* detection boxes */
+  var d = it.defect || '';
+  tagBox(cx - 30, top - 8, 60, 38, /^cap/.test(d), /^cap/.test(d) ? 'CAP' : null);
+  tagBox(cx - bw / 2 - 6, fillTop - 10, bw + 12, 20, d === 'underfill', d === 'underfill' ? 'FILL LOW' : null);
+  tagBox(cx - bw / 2 - 6, ly - 8, bw + 12, lh + 16, /^label/.test(d), /^label/.test(d) ? 'LABEL' : null);
+  tagBox(cx - 76, cy - 18, 152, 26, /^code/.test(d), /^code/.test(d) ? 'CODE' : null);
+  if (!d){ sx.fillStyle = '#3DDC97'; sx.font = '700 15px "JetBrains Mono", monospace'; sx.textAlign = 'left'; sx.fillText('PASS', 10, 24); }
+}
+drawShot(null);
+
+var REASONS = {
+  underfill: ['Underfilled: 28 mL short', 'Fill and caps'],
+  capSkew: ['Cap not seated', 'Fill and caps'],
+  capMissing: ['Cap missing', 'Fill and caps'],
+  labelMissing: ['Label missing', 'Labels'],
+  labelCrooked: ['Label crooked: 6° off', 'Labels'],
+  labelTorn: ['Label torn', 'Labels'],
+  labelWrong: ['Wrong label: Orange and Mango on a Sparkling Lemon run', 'Labels'],
+  codeSmudged: ['Date code unreadable', 'Date codes'],
+  codeMissing: ['Date code missing', 'Date codes'],
+  codeWrong: ['Wrong date: 26 printed, 27 expected', 'Date codes'],
+  glove: ['Foreign object: blue glove fragment', 'Foreign objects'],
+  washer: ['Foreign object: loose washer', 'Foreign objects']
+};
+var camChecked = 0;
+function capture(it){
+  camChecked++; report.checked++;
+  drawShot(it);
+  var bad = !!it.defect;
+  var st = $('cam-status');
+  st.textContent = bad ? 'Fail' : 'Pass'; st.className = 'chip ' + (bad ? 'fail' : 'pass');
+  $('cam-reason').textContent = bad ? REASONS[it.defect][0] : 'Fill, cap, label and code OK';
+  var rd = $('cam-read');
+  var code = it.kind === 'object' ? '-' : it.defect === 'codeMissing' ? 'No code found' : it.defect === 'codeSmudged' ? 'Unreadable' : it.defect === 'codeWrong' ? 'BB 14 MAY 26 L2317' : CODE_OK;
+  rd.textContent = code; rd.className = /^code/.test(it.defect || '') ? 'bad' : (it.kind === 'object' ? '' : 'good');
+  $('cam-count').textContent = num(camChecked);
+  if (bad) report.cats[REASONS[it.defect][1]]++;
+  if (activeStop === 5) drawReport();
+}
+
+/* ---------- 3D scene ---------- */
+var canvas = $('scene'), renderer;
+var activeStop = 0;
+var stepEls = Array.prototype.slice.call(document.querySelectorAll('#steps li'));
+var camEl = $('cam');
+var scrimEl = $('scrim');
+function setActive(i){
+  panels.forEach(function(p, j){ if (p) p.classList.toggle('is-active', j === i); });
+  railBtns.forEach(function(b, j){ b.classList.toggle('on', j === i); if (j === i) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current'); });
+  camEl.classList.toggle('off', !(i >= 1 && i <= 5));
+  if (i === 5) drawReport();
+  countUp(i);
+}
+try {
+  if (!window.THREE) throw new Error('no three');
+  renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, powerPreference: 'high-performance' });
+} catch (e) {
+  document.documentElement.classList.add('no-webgl');
+  camEl.hidden = true;
+  measure();
+  var fb = function(){ var a = Math.round(stopFloat()); if (a !== activeStop){ activeStop = a; } setActive(a); };
+  addEventListener('scroll', fb, { passive: true });
+  addEventListener('resize', function(){ measure(); fb(); });
+  fb();
+  return;
+}
+var narrow = innerWidth < 760;
+renderer.setPixelRatio(Math.min(devicePixelRatio || 1, narrow ? 1.5 : 2));
+var scene = new THREE.Scene();
+var BG = 0x070d1a;
+scene.background = new THREE.Color(BG);
+scene.fog = new THREE.FogExp2(BG, 0.011);
+var camera = new THREE.PerspectiveCamera(40, 1, 0.1, 300);
+scene.add(new THREE.HemisphereLight(0xdfe7ff, 0x0b1424, 1.0));
+var sun = new THREE.DirectionalLight(0xffffff, 0.55); sun.position.set(12, 30, 18); scene.add(sun);
+
+var C = { steel: 0xaeb9cc, steelDark: 0x7d8aa3, belt: 0x232d44, floor: 0x0f1a2f, wall: 0x1b2c50, edge: 0x8ea6ff, data: 0x6f9bff, ok: 0x3ddc97, warn: 0xffb547, alert: 0xff5a4e, lemon: 0xf5d54a };
+function lam(c, o){ var m = new THREE.MeshLambertMaterial({ color: c }); if (o !== undefined){ m.transparent = true; m.opacity = o; m.depthWrite = o > 0.6; } return m; }
+var edgeMat = new THREE.LineBasicMaterial({ color: C.edge, transparent: true, opacity: 0.5 });
+var edgeFaint = new THREE.LineBasicMaterial({ color: C.edge, transparent: true, opacity: 0.2 });
+function box(w, h, d, mat, x, y, z, edges, parent){
+  var g = new THREE.BoxGeometry(w, h, d);
+  var m = new THREE.Mesh(g, typeof mat === 'number' ? lam(mat) : mat);
+  m.position.set(x, y + h / 2, z);
+  if (edges) m.add(new THREE.LineSegments(new THREE.EdgesGeometry(g), edges === 'faint' ? edgeFaint : edgeMat));
+  (parent || scene).add(m); return m;
+}
+function cyl(r, h, mat, x, y, z, seg, parent){
+  var g = new THREE.CylinderGeometry(r, r, h, seg || 24);
+  var m = new THREE.Mesh(g, typeof mat === 'number' ? lam(mat) : mat);
+  m.position.set(x, y + h / 2, z); (parent || scene).add(m); return m;
+}
+function radialTex(inner, outer){
+  var c = document.createElement('canvas'); c.width = c.height = 64;
+  var x = c.getContext('2d'), g = x.createRadialGradient(32, 32, 0, 32, 32, 32);
+  g.addColorStop(0, inner); g.addColorStop(1, outer); x.fillStyle = g; x.fillRect(0, 0, 64, 64);
+  return new THREE.CanvasTexture(c);
+}
+
+/* floor + zones */
+var floor = new THREE.Mesh(new THREE.PlaneGeometry(300, 300), lam(0x0a1222)); floor.rotation.x = -Math.PI / 2; scene.add(floor);
+var hall = new THREE.Mesh(new THREE.PlaneGeometry(56, 18), lam(C.floor)); hall.rotation.x = -Math.PI / 2; hall.position.set(-1, 0.01, -2); scene.add(hall);
+var grid = new THREE.GridHelper(56, 56, 0x1c2c4d, 0x142240); grid.scale.set(1, 1, 18 / 56); grid.position.set(-1, 0.02, -2); scene.add(grid);
+var lane = new THREE.Mesh(new THREE.PlaneGeometry(36, 4.2), lam(0x13213b)); lane.rotation.x = -Math.PI / 2; lane.position.set(-4, 0.025, 0); scene.add(lane);
+
+/* low see-through walls */
+function wall(x0, z0, x1, z1, h){
+  var dx = x1 - x0, dz = z1 - z0, L = Math.hypot(dx, dz);
+  var m = box(L, h, 0.2, lam(C.wall, 0.35), (x0 + x1) / 2, 0, (z0 + z1) / 2, true);
+  m.rotation.y = -Math.atan2(dz, dx);
+}
+wall(-29, -11, 27, -11, 1.5); wall(-29, -11, -29, 7, 1.5); wall(-29, 7, 19, 7, 1.5); wall(27, -11, 27, -3, 1.5);
+wall(-18, -11, -18, -5.6, 1.5); wall(-18, -3.4, -18, 7, 1.5);   /* processing room partition with high-care door gap */
+
+/* processing tanks + pipes */
+[[-25.5, -8], [-22, -8], [-25.5, -4.5], [-22, -4.5]].forEach(function(p){
+  var t = cyl(1.3, 3.2, C.steel, p[0], 0.6, p[1], 28);
+  t.add(new THREE.LineSegments(new THREE.EdgesGeometry(t.geometry, 30), edgeFaint));
+  cyl(1.32, 0.3, C.steelDark, p[0], 3.8, p[1], 28);
+  [[-0.8, -0.8], [0.8, -0.8], [-0.8, 0.8], [0.8, 0.8]].forEach(function(l){ cyl(0.07, 0.6, C.steelDark, p[0] + l[0], 0, p[1] + l[1], 6); });
+});
+(function(){
+  var pts = [[-22, 3.4, -4.5], [-19.5, 3.4, -4.5], [-19.5, 3.4, 0], [-19.5, 2.2, 0]].map(function(p){ return new THREE.Vector3(p[0], p[1], p[2]); });
+  var curve = new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.05);
+  scene.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 40, 0.1, 8, false), lam(C.steel)));
+})();
+/* cold room */
+var coldRoom = box(6, 3, 5, lam(0x3a6ea8, 0.28), -24.5, 0, 3.6, true);
+var coldGlow = new THREE.Mesh(new THREE.PlaneGeometry(5.6, 4.6), new THREE.MeshBasicMaterial({ color: 0x6fb4ff, transparent: true, opacity: 0.12, depthWrite: false }));
+coldGlow.rotation.x = -Math.PI / 2; coldGlow.position.set(-24.5, 0.05, 3.6); scene.add(coldGlow);
+/* high-care door + hand wash */
+box(1.2, 1.0, 0.6, C.steel, -16.8, 0, -6.5, 'faint');
+var doorFrame = box(0.25, 2.4, 0.25, C.steelDark, -18, 0, -5.6); box(0.25, 2.4, 0.25, C.steelDark, -18, 0, -3.4); box(0.25, 0.25, 2.45, C.steelDark, -18, 2.4, -4.5);
+
+/* ---------- the line ---------- */
+var BELT_Y = 0.85, X_START = -17.2, X_FILLER = -19.5, X_CAP = -14.2, X_LABEL = -9.6, X_CODE = -5.2, X_CAM = 0, X_TRIG = -0.6, X_REJ = 3.6, X_PACK = 9.6;
+var SPEED = 0.95, SPACING = 1.15;
+/* conveyor */
+box(X_PACK - X_START + 1.4, 0.18, 1.0, C.belt, (X_START + X_PACK) / 2, BELT_Y - 0.18, 0, 'faint');
+box(X_PACK - X_START + 1.4, 0.08, 0.08, C.steel, (X_START + X_PACK) / 2, BELT_Y - 0.06, -0.54);
+box(X_PACK - X_START + 1.4, 0.08, 0.08, C.steel, (X_START + X_PACK) / 2, BELT_Y - 0.06, 0.54);
+for (var lx = X_START; lx <= X_PACK; lx += 2.4){ box(0.08, BELT_Y - 0.18, 0.08, C.steelDark, lx, 0, -0.45); box(0.08, BELT_Y - 0.18, 0.08, C.steelDark, lx, 0, 0.45); }
+/* belt stripes to show motion */
+var stripeMat = new THREE.MeshBasicMaterial({ color: 0x3a4766 });
+var stripes = [];
+for (var si = 0; si < 28; si++){ var s = new THREE.Mesh(new THREE.PlaneGeometry(0.06, 0.9), stripeMat); s.rotation.x = -Math.PI / 2; s.position.set(X_START + si * 1, BELT_Y + 0.002, 0); scene.add(s); stripes.push(s); }
+
+/* filler carousel */
+var filler = new THREE.Group(); filler.position.set(X_FILLER, 0, 0); scene.add(filler);
+cyl(1.7, 1.0, C.steelDark, 0, 0, 0, 32, filler);
+var carousel = new THREE.Group(); carousel.position.y = 1.0; filler.add(carousel);
+cyl(1.6, 0.12, C.steel, 0, 0, 0, 32, carousel);
+for (var fi = 0; fi < 12; fi++){
+  var a = fi / 12 * Math.PI * 2;
+  var fb2 = cyl(0.2, 0.75, lam(0xcfe3ff, 0.45), Math.cos(a) * 1.3, 0.12, Math.sin(a) * 1.3, 12, carousel);
+  cyl(0.06, 0.9, C.steel, Math.cos(a) * 1.3, 0.95, Math.sin(a) * 1.3, 8, carousel);
+}
+cyl(0.5, 1.6, C.steel, 0, 1.12, 0, 20, carousel);
+/* capper */
+box(1.6, 1.2, 1.4, C.steel, X_CAP, 0, -1.25, true);
+box(0.5, 0.25, 1.9, C.steel, X_CAP, 2.15, -0.5, 'faint');
+var capHead = cyl(0.26, 0.5, C.steelDark, X_CAP, 1.6, 0, 16);
+/* labeller */
+box(2.2, 1.3, 1.3, C.steel, X_LABEL, 0, -1.25, true);
+var reel1 = cyl(0.45, 0.16, lam(0xf6efc6), X_LABEL - 0.5, 1.3, -1.25, 24);
+var reel2 = cyl(0.3, 0.16, lam(0xf6efc6), X_LABEL + 0.55, 1.3, -1.25, 24);
+/* date coder */
+box(0.5, 1.6, 0.5, C.steelDark, X_CODE, 0, -1.0);
+box(0.9, 0.5, 0.6, C.steel, X_CODE, 1.6, -1.0, 'faint');
+box(0.2, 0.2, 0.6, C.steelDark, X_CODE, 1.25, -0.55);
+var codeFlash = new THREE.Sprite(new THREE.SpriteMaterial({ map: radialTex('rgba(150,190,255,1)', 'rgba(150,190,255,0)'), transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending }));
+codeFlash.position.set(X_CODE, BELT_Y + 0.5, -0.25); codeFlash.scale.set(0.8, 0.8, 1); scene.add(codeFlash);
+/* camera station: hood + light + trigger + tower light */
+var hood = new THREE.Group(); hood.position.set(X_CAM, 0, 0); scene.add(hood);
+box(0.12, 1.3, 0.12, C.steel, -0.55, BELT_Y, -0.6, false, hood); box(0.12, 1.3, 0.12, C.steel, 0.55, BELT_Y, -0.6, false, hood);
+box(0.12, 1.3, 0.12, C.steel, -0.55, BELT_Y, 0.6, false, hood); box(0.12, 1.3, 0.12, C.steel, 0.55, BELT_Y, 0.6, false, hood);
+box(1.3, 0.3, 1.4, lam(0x1a2a4d), 0, BELT_Y + 1.3, 0, true, hood);
+var camBody = box(0.35, 0.3, 0.45, lam(0x2350f5), 0, BELT_Y + 1.6, 0, false, hood);
+var ringMat = new THREE.MeshBasicMaterial({ color: 0xbfd0ff, transparent: true, opacity: 0.35, side: THREE.DoubleSide });
+var ring = new THREE.Mesh(new THREE.RingGeometry(0.32, 0.48, 32), ringMat); ring.rotation.x = Math.PI / 2; ring.position.set(0, BELT_Y + 1.29, 0); hood.add(ring);
+var camLight = new THREE.PointLight(0xcfe0ff, 0.3, 4); camLight.position.set(0, BELT_Y + 1.1, 0); hood.add(camLight);
+var beamMat = new THREE.MeshBasicMaterial({ color: 0x8ea6ff, transparent: true, opacity: 0.08, depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.DoubleSide });
+var beam = new THREE.Mesh(new THREE.ConeGeometry(0.62, 1.2, 24, 1, true), beamMat); beam.position.set(0, BELT_Y + 0.65, 0); hood.add(beam);
+box(0.18, 0.5, 0.12, C.steelDark, X_TRIG, BELT_Y - 0.1, 0.62);
+var laserMat = new THREE.MeshBasicMaterial({ color: 0xff3b30, transparent: true, opacity: 0.35 });
+var laser = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.02, 1.2), laserMat); laser.position.set(X_TRIG, BELT_Y + 0.25, 0); scene.add(laser);
+var tower = new THREE.Group(); tower.position.set(1.0, 0, -0.85); scene.add(tower);
+cyl(0.05, 2.1, C.steelDark, 0, 0, 0, 8, tower);
+var lampMats = [0x3ddc97, 0xffb547, 0xff5a4e].map(function(c, i){ var m = new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: 0.25 }); cyl(0.13, 0.22, m, 0, 2.1 + i * 0.24, 0, 16, tower); return m; });
+/* edge AI unit + line screen */
+var unit = box(0.9, 1.5, 0.7, lam(0x101c38), 2.4, 0, -2.3, true);
+var unitLeds = [];
+for (var ul = 0; ul < 4; ul++){ var led = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.05), new THREE.MeshBasicMaterial({ color: C.data, transparent: true, opacity: 0.8 })); led.position.set(0, 0.3 - ul * 0.18, 0.36); unit.add(led); unitLeds.push(led); }
+var scrCanvas = document.createElement('canvas'); scrCanvas.width = 512; scrCanvas.height = 300;
+var scrCtx = scrCanvas.getContext('2d'), scrTex = new THREE.CanvasTexture(scrCanvas);
+box(0.08, 1.6, 0.08, C.steelDark, -1.6, 0, -1.7);
+var screen = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 0.88), new THREE.MeshBasicMaterial({ map: scrTex })); screen.position.set(-1.6, 2.0, -1.62); scene.add(screen);
+box(1.6, 0.98, 0.06, lam(0x1a2130), -1.6, 1.51, -1.68);
+var lastFailTxt = '';
+function drawScreen(){
+  var c = scrCtx; c.fillStyle = '#0b1424'; c.fillRect(0, 0, 512, 300);
+  c.fillStyle = '#8ea6ff'; c.font = '600 22px Inter, sans-serif'; c.fillText('LINE 2  ·  CHANGEOVER SET 06:00', 24, 42);
+  c.fillStyle = '#eef1f6'; c.font = '700 34px Inter, sans-serif'; c.fillText('Sparkling Lemon 600 mL', 24, 92);
+  c.font = '600 28px "JetBrains Mono", monospace'; c.fillText(CODE_OK, 24, 138);
+  c.fillStyle = '#a9b5d0'; c.font = '500 24px Inter, sans-serif';
+  var total = 0; for (var k in report.cats) total += report.cats[k];
+  c.fillText('Checked ' + num(report.checked) + '   Flagged ' + total, 24, 190);
+  c.fillStyle = lastFailTxt ? '#ff5a4e' : '#3ddc97'; c.beginPath(); c.arc(36, 246, 10, 0, 7); c.fill();
+  c.fillStyle = '#eef1f6'; c.font = '600 24px Inter, sans-serif'; c.fillText(lastFailTxt || 'All checks passing', 58, 254);
+  scrTex.needsUpdate = true;
+}
+drawScreen();
+/* reject: air nozzle, chute, bin; QC hold table */
+box(0.25, 0.25, 0.35, C.steelDark, X_REJ, BELT_Y + 0.1, -0.75);
+var puff = new THREE.Sprite(new THREE.SpriteMaterial({ map: radialTex('rgba(220,235,255,.9)', 'rgba(220,235,255,0)'), transparent: true, opacity: 0, depthWrite: false }));
+puff.position.set(X_REJ, BELT_Y + 0.4, -0.4); puff.scale.set(0.9, 0.9, 1); scene.add(puff);
+var chute = box(0.9, 0.08, 1.0, C.steel, X_REJ, BELT_Y - 0.4, 1.05); chute.rotation.x = 0.45;
+var bin = box(1.3, 0.6, 1.1, lam(0x5a2a3a), X_REJ, 0, 2.0, true);
+var holdTable = box(1.8, 0.85, 0.9, C.steel, X_REJ + 0.4, 0, -2.0, 'faint');
+/* case packer, pallet, truck */
+box(2.0, 2.0, 2.2, C.steel, X_PACK + 0.9, 0, 0, true);
+box(4.4, 0.6, 1.0, C.belt, X_PACK + 4.0, 0.25, 0, 'faint');
+var PALLET_X = 15.6;
+var palletGroup = new THREE.Group(); palletGroup.position.set(PALLET_X, 0, 0); scene.add(palletGroup);
+box(2.2, 0.16, 1.8, lam(0x8a6a44), 0, 0, 0, false, palletGroup);
+var truck = new THREE.Group(); truck.position.set(23.5, 0, 0); scene.add(truck);
+box(6, 2.6, 2.6, lam(0xd9dee8, 0.4), 0, 0.6, 0, true, truck);
+box(1.8, 2.0, 2.4, lam(0x2350f5), 4.0, 0.4, 0, true, truck);
+[[-2, 1.3], [-2, -1.3], [3.8, 1.3], [3.8, -1.3]].forEach(function(w){ var c = cyl(0.45, 0.3, lam(0x111827), truck.position.x + w[0], 0.45, w[1], 16); c.rotation.x = Math.PI / 2; c.position.y = 0.45; });
+
+/* people */
+function person(x, z, ry){
+  var g = new THREE.Group(); g.position.set(x, 0.02, z); g.rotation.y = ry || 0;
+  var body = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.32, 1.1, 12), lam(0xf2f4f8)); body.position.y = 0.88; g.add(body);
+  var legs = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.36, 8), lam(0x2a3654)); legs.position.y = 0.18; g.add(legs);
+  var head = new THREE.Mesh(new THREE.SphereGeometry(0.2, 14, 10), lam(0xd9b59a)); head.position.y = 1.62; g.add(head);
+  var net = new THREE.Mesh(new THREE.SphereGeometry(0.215, 14, 8, 0, Math.PI * 2, 0, Math.PI / 2), lam(0xffffff)); net.position.y = 1.64; g.add(net);
+  scene.add(g); return g;
+}
+var opScreen = person(-2.4, -2.5, 0.6);
+var opHold = person(X_REJ + 0.4, -3.0, 0);
+var opDoor = person(-16.6, -4.5, -1.2);
+
+/* ---------- bottles ---------- */
+var glassMat = lam(0xcfe3ff, 0.38);
+var liquidMat = lam(C.lemon);
+var capMat = lam(0xf2f4f8);
+var labelMat = new THREE.MeshLambertMaterial({ color: 0xf6efc6, side: THREE.DoubleSide });
+var labelWrongMat = new THREE.MeshLambertMaterial({ color: 0xff9a3c, side: THREE.DoubleSide });
+var codeMat = new THREE.MeshBasicMaterial({ color: 0x111111 });
+var codeSmudgeMat = new THREE.MeshBasicMaterial({ color: 0x555555, transparent: true, opacity: 0.45 });
+var R = 0.2, BH = 0.78;
+var gBody = new THREE.CylinderGeometry(R, R, BH, 16); gBody.translate(0, BH / 2, 0);
+var gNeck = new THREE.CylinderGeometry(0.08, R, 0.24, 16); gNeck.translate(0, BH + 0.12, 0);
+var gLiquid = new THREE.CylinderGeometry(R * 0.86, R * 0.86, 1, 14); gLiquid.translate(0, 0.5, 0);
+var gCap = new THREE.CylinderGeometry(0.095, 0.095, 0.1, 12);
+var gLabel = new THREE.CylinderGeometry(R + 0.012, R + 0.012, 0.3, 20, 1, true);
+var gLabelTorn = new THREE.CylinderGeometry(R + 0.012, R + 0.012, 0.3, 20, 1, true, 0, Math.PI * 1.1);
+var gCode = new THREE.PlaneGeometry(0.2, 0.04);
+var flagGeo = new THREE.EdgesGeometry(new THREE.BoxGeometry(0.56, 1.22, 0.56));
+function makeBottle(){
+  var g = new THREE.Group();
+  var liquid = new THREE.Mesh(gLiquid, liquidMat); liquid.position.y = 0.03; g.add(liquid);
+  g.add(new THREE.Mesh(gBody, glassMat)); g.add(new THREE.Mesh(gNeck, glassMat));
+  var cap = new THREE.Mesh(gCap, capMat); cap.position.y = BH + 0.29; g.add(cap);
+  var label = new THREE.Mesh(gLabel, labelMat); label.position.y = 0.42; g.add(label);
+  var code = new THREE.Mesh(gCode, codeMat); code.position.set(0, 0.22, R + 0.016); g.add(code);
+  var flag = new THREE.LineSegments(flagGeo, new THREE.LineBasicMaterial({ color: C.alert, transparent: true, opacity: 0 })); flag.position.y = 0.58; g.add(flag);
+  scene.add(g);
+  return { kind: 'bottle', g: g, liquid: liquid, cap: cap, label: label, code: code, flag: flag, x: 0, defect: null, checked: false, out: null, t: 0 };
+}
+var gGlove = new THREE.BoxGeometry(0.42, 0.05, 0.2), gWasher = new THREE.TorusGeometry(0.09, 0.035, 8, 16);
+function makeObject(){
+  var g = new THREE.Group();
+  var glove = new THREE.Mesh(gGlove, lam(0x3b7bff)); glove.rotation.y = 0.5; g.add(glove);
+  var washer = new THREE.Mesh(gWasher, lam(0x9aa6bb)); washer.rotation.x = Math.PI / 2; g.add(washer);
+  var flag = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(0.6, 0.35, 0.5)), new THREE.LineBasicMaterial({ color: C.alert, transparent: true, opacity: 0 })); flag.position.y = 0.12; g.add(flag);
+  g.visible = false; scene.add(g);
+  return { kind: 'object', g: g, glove: glove, washer: washer, flag: flag, x: 0, defect: null, checked: false, out: null, t: 0, live: false };
+}
+var POOLS = {
+  1: ['underfill', 'capSkew', 'capMissing'],
+  2: ['labelWrong', 'labelCrooked', 'labelTorn', 'labelMissing'],
+  3: ['codeWrong', 'codeSmudged', 'codeMissing'],
+  any: ['underfill', 'capSkew', 'labelCrooked', 'labelWrong', 'codeSmudged', 'codeWrong', 'labelTorn', 'capMissing']
+};
+var poolIdx = 0;
+function pick(stop){
+  var pool = POOLS[stop] || POOLS.any;
+  poolIdx = (poolIdx + 1) % 997;
+  return pool[poolIdx % pool.length];
+}
+function roll(stop){ return Math.random() < (stop >= 1 && stop <= 3 ? 0.22 : 0.1) ? pick(stop) : null; }
+function dress(b){
+  var d = b.defect || '';
+  var f = d === 'underfill' ? 0.5 : 0.74;
+  b.liquid.scale.y = f;
+  b.cap.rotation.z = d === 'capSkew' ? 0.55 : 0; b.cap.position.x = d === 'capSkew' ? 0.05 : 0; b.cap.position.y = BH + (d === 'capSkew' ? 0.26 : 0.29);
+  b.label.material = d === 'labelWrong' ? labelWrongMat : labelMat;
+  b.label.geometry = d === 'labelTorn' ? gLabelTorn : gLabel;
+  b.label.rotation.z = d === 'labelCrooked' ? 0.2 : 0; b.label.position.y = d === 'labelCrooked' ? 0.46 : 0.42;
+  b.code.material = d === 'codeSmudged' ? codeSmudgeMat : codeMat;
+}
+var bottles = [];
+var nB = Math.ceil((X_PACK - X_START) / SPACING) + 1;
+for (var bi = 0; bi < nB; bi++){ var b = makeBottle(); b.x = X_START + bi * SPACING; b.defect = b.x < X_CAM ? roll(0) : null; b.checked = b.x >= X_CAM; dress(b); bottles.push(b); }
+var objects = [makeObject(), makeObject()];
+function resetBottle(b){
+  var minX = Infinity;
+  bottles.forEach(function(o){ if (!o.out && o !== b) minX = Math.min(minX, o.x); });
+  b.x = Math.min(X_START, minX - SPACING);
+  b.defect = roll(activeStop); b.checked = false; b.out = null; b.t = 0;
+  b.g.visible = true; b.g.rotation.set(0, 0, 0); b.flag.material.opacity = 0;
+  dress(b);
+}
+function reroll(stop){
+  /* restock defects for bottles not yet at the camera so the active check shows up soon */
+  var upstream = bottles.filter(function(b){ return !b.out && b.x < X_CAM; }).sort(function(a, b){ return b.x - a.x; });
+  upstream.forEach(function(b, i){
+    if (stop >= 1 && stop <= 3) b.defect = (i === 2 || i === 7 || i === 12) ? pick(stop) : (Math.random() < 0.08 ? pick(stop) : null);
+    else b.defect = (i % 9 === 4) ? pick(0) : null;
+    dress(b);
+  });
+  if (stop === 4) launchObject(0, 1);
+}
+function launchObject(k, gapIndex){
+  var o = objects[k]; if (o.live) return;
+  var upstream = bottles.filter(function(b){ return !b.out && b.x < X_CAM - 1; }).sort(function(a, b){ return b.x - a.x; });
+  var ref = upstream[gapIndex] || upstream[0]; if (!ref) return;
+  o.x = ref.x + SPACING / 2; o.defect = Math.random() < 0.5 ? 'glove' : 'washer';
+  o.glove.visible = o.defect === 'glove'; o.washer.visible = o.defect === 'washer';
+  o.checked = false; o.out = null; o.t = 0; o.live = true; o.g.visible = true; o.g.rotation.set(0, 0, 0); o.flag.material.opacity = 0;
+}
+
+/* cases */
+var packed = 0, palletCount = 0, palletState = 'fill', palletT = 0;
+var caseGeo = new THREE.BoxGeometry(0.95, 0.5, 0.75), caseMat = lam(0xc9a46a);
+var cases = [];
+function spawnCase(){
+  var m = new THREE.Mesh(caseGeo, caseMat); m.add(new THREE.LineSegments(new THREE.EdgesGeometry(caseGeo), edgeFaint));
+  m.position.set(X_PACK + 2.0, 0.85 + 0.25, 0); scene.add(m);
+  var slot = palletCount++; cases.push({ m: m, slot: slot, t: 0 });
+}
+function slotPos(s){ var layer = Math.floor(s / 4), i = s % 4; return new THREE.Vector3((i % 2 ? 0.5 : -0.5), 0.16 + 0.25 + layer * 0.5, (i < 2 ? -0.4 : 0.4)); }
+
+/* ---------- labels ---------- */
+var labelRoot = $('labels');
+function mkLabel(stops, cls){ var el = document.createElement('div'); el.className = 'tag3d ' + (cls || ''); el.innerHTML = '<i></i><span></span>'; labelRoot.appendChild(el); return { el: el, txt: el.lastChild, stops: stops, pos: new THREE.Vector3(), state: cls || '', text: '', w: 0 }; }
+function setLabel(l, state, text){ if (l.state !== state){ l.el.className = 'tag3d ' + state; l.state = state; } if (l.text !== text){ l.txt.textContent = text; l.text = text; l.w = 0; } }
+var stationLabels = [
+  ['Filler', X_FILLER, 3.2], ['Capper', X_CAP, 2.8], ['Labeller', X_LABEL, 2.4], ['Date coder', X_CODE, 2.6], ['Camera check', X_CAM, 3.0], ['Case packer', X_PACK + 0.9, 2.6], ['Dispatch', 21.5, 3.6]
+].map(function(s){ var l = mkLabel([0], 'station'); setLabel(l, 'station', s[0]); l.pos.set(s[1], s[2], 0); return l; });
+var det = mkLabel([1, 2, 3, 4]);
+var phaseLab = mkLabel([3, 4]);
+phaseLab.pos.set(X_REJ, 2.4, 1.2);
+var unitLab = mkLabel([5]); setLabel(unitLab, '', 'On-site AI unit · footage stays on site'); unitLab.pos.set(2.4, 2.1, -2.3);
+var scrLab = mkLabel([5]); setLabel(scrLab, '', 'Line screen · product and date set at changeover'); scrLab.pos.set(-1.6, 2.75, -1.62);
+var trialLab = mkLabel([6]); setLabel(trialLab, 'ok', 'Camera station · bolts on in half a day'); trialLab.pos.set(X_CAM, 3.2, 0);
+var trialLab2 = mkLabel([6]); setLabel(trialLab2, '', 'Phase 1: no connection to your machines'); trialLab2.pos.set(X_REJ, 1.9, 1.2);
+var laterLabs = [
+  [-18, 3.3, -4.5, 'Later: hygiene check at the high-care door'],
+  [-24.5, 3.8, 3.6, 'Later: cold room energy and door alerts'],
+  [X_CAP, 3.1, -0.6, 'Later: filler and capper health']
+].map(function(d){ var l = mkLabel([7], 'later'); setLabel(l, 'later', d[3]); l.pos.set(d[0], d[1], d[2]); return l; });
+
+/* ---------- camera rig ---------- */
+var shots = [
+  { p: [6, 17, 25], t: [-4, 0, -1] },
+  { p: [3.2, 4.2, 6.6], t: [-4.2, 1.0, 0] },
+  { p: [-4.0, 4.0, 6.8], t: [-4.6, 1.0, 0] },
+  { p: [2.6, 3.3, 4.6], t: [-0.4, 1.3, -0.2] },
+  { p: [0.6, 6.8, 5.6], t: [0.2, 0.8, 0] },
+  { p: [5.5, 5.6, 6.8], t: [0.2, 1.2, -1.3] },
+  { p: [9.5, 6.8, 9.5], t: [1.4, 1.0, 0] },
+  { p: [-6, 14, 17], t: [-21, 0.5, -1] },
+  { p: [16, 21, 24], t: [0, 0, -1] }
+].map(function(s){ return { p: new THREE.Vector3().fromArray(s.p), t: new THREE.Vector3().fromArray(s.t) }; });
+var camPos = shots[0].p.clone(), camTgt = shots[0].t.clone(), wantPos = new THREE.Vector3(), wantTgt = new THREE.Vector3();
+function resize(){
+  var w = innerWidth, h = innerHeight;
+  narrow = w < 760;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h;
+  camera.fov = narrow ? 56 : 40;
+  if (narrow) camera.setViewOffset(w, h, 0, -h * 0.12, w, h);
+  else camera.setViewOffset(w, h, -w * 0.16, h * 0.04, w, h);
+  camera.updateProjectionMatrix();
+  measure();
+}
+addEventListener('resize', resize);
+resize();
+
+/* ---------- loop ---------- */
+var clock = new THREE.Clock(), time = 0, act = [], lastActive = -1, towerRed = 0, captureFlash = 0, scrTimer = 0, lastFlagged = null, objTimer = 6;
+var proj = new THREE.Vector3(), tmp = new THREE.Vector3();
+var blockers = [];
+function placeLabel(l, a){
+  if (a < 0.02){ l.el.style.opacity = '0'; return; }
+  proj.copy(l.pos).project(camera);
+  if (proj.z > 1 || Math.abs(proj.x) > 1.3 || Math.abs(proj.y) > 1.3){ l.el.style.opacity = '0'; return; }
+  var x = (proj.x * 0.5 + 0.5) * innerWidth, y = (-proj.y * 0.5 + 0.5) * innerHeight;
+  var hw = (l.w || (l.w = l.el.offsetWidth)) / 2 + 10;
+  x = hw * 2 > innerWidth ? innerWidth / 2 : clamp(x, hw, innerWidth - hw);
+  for (var bi = 0; bi < blockers.length; bi++){ var r = blockers[bi]; if (x + hw - 10 > r.left && x - hw + 10 < r.right && y > r.top && y - 26 < r.bottom){ l.el.style.opacity = '0'; return; } }
+  l.el.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) translate(-50%,-100%)';
+  l.el.style.opacity = a.toFixed(2);
+}
+function labelAct(l){ var m = 0; l.stops.forEach(function(s){ m = Math.max(m, act[s] || 0); }); return m; }
+
+function moveItem(it, dt, speed){
+  if (!it.out){
+    it.x += SPEED * speed * dt;
+    if (!it.checked && it.x >= X_CAM){
+      it.checked = true; capture(it); captureFlash = 1;
+      if (it.defect){ towerRed = 2.2; lastFlagged = it; lastFailTxt = REASONS[it.defect][0]; drawScreen(); it.flag.material.color.setHex(C.alert); it.flag.material.opacity = 1; }
+      else { it.flag.material.color.setHex(C.ok); it.flag.material.opacity = 0.9; it.t = -0.35; }
+    }
+    if (it.checked && !it.defect && it.t < 0){ it.t += dt; if (it.t >= 0){ it.flag.material.opacity = 0; } }
+    if (it.defect && it.checked && it.x >= X_REJ){ it.out = phase === 2 ? 'jet' : 'hand'; it.t = 0; it.ox = it.x; if (phase === 2) puff.material.opacity = 1; }
+    it.g.position.set(it.x, BELT_Y, it.kind === 'object' ? 0.28 : 0);
+    if (it.kind === 'object') it.g.position.y = BELT_Y + 0.03;
+    return;
+  }
+  it.t += dt * speed;
+  if (it.out === 'jet'){
+    var k = Math.min(it.t / 0.9, 1);
+    it.g.position.set(it.ox + 0.1 * k, BELT_Y - Math.max(0, k - 0.35) * 1.2, 0.3 + k * 1.7);
+    it.g.rotation.x = k * 1.2;
+    if (it.t > 1.6){ it.g.visible = false; it.out = 'done'; }
+  } else if (it.out === 'hand'){
+    var h = Math.min(it.t / 1.1, 1), lift = Math.sin(h * Math.PI) * 0.5;
+    it.g.position.set(it.ox + 0.4 * h, BELT_Y + lift, -2.0 * smooth(h));
+    if (h >= 1) it.g.position.y = 0.85;
+    if (it.t > 3.2){ it.g.visible = false; it.out = 'done'; }
+  }
+}
+
+function frame(){
+  var dt = Math.min(clock.getDelta(), 0.05);
+  if (document.hidden){ requestAnimationFrame(frame); return; }
+  var speed = reduced ? 0.35 : 1;
+  time += dt * speed;
+  var f = stopFloat();
+  for (var i = 0; i < shots.length; i++) act[i] = clamp(1 - Math.abs(f - i) * 1.6, 0, 1);
+
+  var i0 = Math.floor(f), i1 = Math.min(i0 + 1, shots.length - 1), k = f - i0;
+  wantPos.copy(shots[i0].p).lerp(shots[i1].p, k);
+  wantTgt.copy(shots[i0].t).lerp(shots[i1].t, k);
+  if (i0 === 0 && k < 0.5 && !reduced){ wantPos.x += Math.sin(time * 0.15) * 2.5; wantPos.z += Math.cos(time * 0.15) * 1.5; }
+  var damp = reduced ? 1 : 1 - Math.pow(0.0015, dt);
+  camPos.lerp(wantPos, damp); camTgt.lerp(wantTgt, damp);
+  camera.position.copy(camPos); camera.lookAt(camTgt);
+
+  var active = Math.round(f);
+  if (active !== lastActive){ activeStop = active; setActive(active); reroll(active); lastActive = active; }
+
+  /* machines */
+  carousel.rotation.y -= dt * speed * 0.9;
+  capHead.rotation.y += dt * speed * 6;
+  reel1.rotation.y += dt * speed * 2; reel2.rotation.y += dt * speed * 3;
+  stripes.forEach(function(s){ s.position.x += SPEED * speed * dt; if (s.position.x > X_PACK) s.position.x -= (X_PACK - X_START + 0.8); });
+  unitLeds.forEach(function(l, j){ l.material.opacity = 0.35 + 0.55 * (0.5 + 0.5 * Math.sin(time * 7 + j * 1.9)); });
+  coldGlow.material.opacity = 0.1 + 0.05 * Math.sin(time * 1.5) + 0.1 * act[7];
+
+  /* bottles + objects */
+  var codeHit = false, trigHit = false, nextD = Infinity;
+  bottles.forEach(function(b){
+    moveItem(b, dt, speed);
+    if (!b.out){
+      b.cap.visible = b.x > X_CAP && b.defect !== 'capMissing';
+      b.label.visible = b.x > X_LABEL && b.defect !== 'labelMissing';
+      b.code.visible = b.x > X_CODE && b.defect !== 'codeMissing' && b.label.visible;
+      if (Math.abs(b.x - X_CODE) < 0.12) codeHit = true;
+      if (b.x > X_TRIG && b.x < X_CAM) trigHit = true;
+      if (b.x < X_CAM) nextD = Math.min(nextD, X_CAM - b.x);
+      if (b.x > X_PACK){ packed++; if (packed % 6 === 0 && palletState === 'fill' && palletCount < 12) spawnCase(); resetBottle(b); }
+    } else if (b.out === 'done'){ resetBottle(b); }
+  });
+  objects.forEach(function(o){
+    if (!o.live) return;
+    moveItem(o, dt, speed);
+    if (o.out === 'done' || (!o.out && o.x > X_PACK)){ o.live = false; o.g.visible = false; }
+  });
+  objTimer -= dt * speed;
+  if (objTimer <= 0){ objTimer = activeStop === 4 ? 7 : 26; launchObject(objects[0].live ? 1 : 0, 2); }
+
+  /* station effects */
+  codeFlash.material.opacity = codeHit ? 0.9 : Math.max(0, codeFlash.material.opacity - dt * 4);
+  laserMat.opacity = trigHit ? 0.95 : 0.3;
+  captureFlash = Math.max(0, captureFlash - dt * 3);
+  ringMat.opacity = 0.3 + captureFlash * 0.7; camLight.intensity = 0.3 + captureFlash * 2.2; beamMat.opacity = 0.06 + captureFlash * 0.18;
+  towerRed = Math.max(0, towerRed - dt * speed);
+  lampMats[0].opacity = towerRed > 0 ? 0.2 : 0.95;
+  lampMats[2].opacity = towerRed > 0 ? (0.6 + 0.4 * Math.sin(time * 14)) : 0.2;
+  lampMats[1].opacity = phase === 1 && towerRed > 0 ? 0.8 : 0.2;
+  puff.material.opacity = Math.max(0, puff.material.opacity - dt * 2.5);
+  if (towerRed <= 0 && lastFailTxt){ lastFailTxt = ''; drawScreen(); }
+  scrTimer -= dt; if (scrTimer <= 0){ scrTimer = 1; drawScreen(); }
+
+  /* step tracker */
+  if (activeStop === 3){
+    var stepOn = nextD < 0.55 ? 1 : (towerRed > 1.6 || captureFlash > 0.35) ? 2 : 3;
+    stepEls.forEach(function(el, j){ el.classList.toggle('on', j === stepOn); el.classList.toggle('fail', j === 3 && towerRed > 0); });
+  }
+
+  /* cases + pallet */
+  cases.forEach(function(c){
+    if (c.placed) return;
+    c.t += dt * speed;
+    if (c.t < 2.2){ c.m.position.x = X_PACK + 2.0 + c.t / 2.2 * 2.6; }
+    else {
+      var s = slotPos(c.slot), kk = Math.min((c.t - 2.2) / 0.7, 1);
+      tmp.set(PALLET_X + s.x, s.y, s.z);
+      c.m.position.lerp(tmp, kk);
+      if (kk >= 1){ palletGroup.attach(c.m); c.placed = true; }
+    }
+  });
+  if (palletState === 'fill' && palletCount >= 12 && cases.every(function(c){ return c.placed; })){ palletState = 'load'; palletT = 0; }
+  if (palletState === 'load'){
+    palletT += dt * speed;
+    palletGroup.position.x = PALLET_X + smooth(Math.min(palletT / 3, 1)) * 6.5;
+    if (palletT > 3.6){
+      cases.forEach(function(c){ palletGroup.remove(c.m); });
+      cases = []; palletCount = 0; palletGroup.position.x = PALLET_X; palletState = 'fill';
+    }
+  }
+
+  /* operators */
+  opHold.rotation.y = Math.sin(time * 0.6) * 0.3;
+  opDoor.position.x = -16.6 + Math.sin(time * 0.4) * 0.3;
+
+  /* labels */
+  var heroIntro = sections[0].querySelector('.intro');
+  blockers = [ (activeStop === 0 ? heroIntro : panels[activeStop]).getBoundingClientRect() ];
+  if (!camEl.classList.contains('off')) blockers.push(camEl.getBoundingClientRect());
+  scrimEl.style.opacity = (0.35 + 0.65 * act[0]).toFixed(2);
+  stationLabels.forEach(function(l){ placeLabel(l, act[0]); });
+  var dA = labelAct(det);
+  if (lastFlagged && lastFlagged.g.visible && lastFlagged.out !== 'done' && towerRed > -1 && (lastFlagged.kind === 'object' ? lastFlagged.live : true) && lastFlagged.checked && lastFlagged.defect){
+    det.pos.copy(lastFlagged.g.position).setY(lastFlagged.g.position.y + (lastFlagged.kind === 'object' ? 0.7 : 1.5));
+    setLabel(det, 'alert', REASONS[lastFlagged.defect][0]);
+    if (lastFlagged.out === 'done' || !lastFlagged.g.visible) lastFlagged = null;
+  } else {
+    det.pos.set(X_CAM, BELT_Y + 2.1, 0);
+    setLabel(det, 'ok', 'Fill, cap, label and code OK');
+  }
+  placeLabel(det, dA);
+  setLabel(phaseLab, phase === 2 ? 'ok' : 'warn', phase === 2 ? 'Phase 2: air jet rejects flagged bottles' : 'Phase 1: staff remove flagged bottles');
+  placeLabel(phaseLab, labelAct(phaseLab));
+  [unitLab, scrLab, trialLab, trialLab2].forEach(function(l){ placeLabel(l, labelAct(l)); });
+  laterLabs.forEach(function(l){ placeLabel(l, act[7]); });
+
+  renderer.render(scene, camera);
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+addEventListener('load', measure);
+})();
+</script>

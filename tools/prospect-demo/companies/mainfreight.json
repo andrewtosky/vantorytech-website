@@ -1,0 +1,171 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Outbound dock",
+ "pageTitle": "Mainfreight Outbound Carton Check",
+ "company": "Mainfreight",
+ "short": "Mainfreight",
+ "site": "Australian warehouses",
+ "shape": "carton",
+ "productName": "Outbound carton",
+ "productShort": "cartons",
+ "headline": "Every carton checked before it leaves the dock.",
+ "formProduct": "Outbound cartons",
+ "labelTop": "SHIP TO",
+ "labelMain": "MELBOURNE",
+ "labelSize": "1 of 4",
+ "wrongTop": "SHIP TO",
+ "wrongMain": "BRISBANE",
+ "code": "SSCC 0093 1234 5678 9012",
+ "codeWrong": "SSCC 0093 1234 5678 9013",
+ "lid": "#c79a63",
+ "label": "#FFFFFF",
+ "labelInk": "#1D3D6B",
+ "wrongLabel": "#FDE2C4",
+ "body": "#c79a63",
+ "fill": "#c79a63",
+ "lineType": "outbound packing line",
+ "vatsLabel": "Pick faces",
+ "visitLine": "Call and visit to one of your warehouses",
+ "heroLede": "Mainfreight runs 337 branches in 27 countries, and its latest results point to warehousing getting more efficient as new sites fill up. Every carton that leaves a warehouse needs a sealed lid, the right shipping label and a barcode that scans. This is what a camera check could look like at the outbound end of a warehouse, as an example. We would match it to how your sites actually run. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every carton is taped shut, flaps down and not crushed. An open or damaged carton at the dock becomes a damage claim at the other end.",
+ "labelLede": "A carton with another order’s label goes to the wrong city. The camera checks every carton carries the right shipping label for its order, straight and complete.",
+ "codeLede": "A barcode that will not scan stops the carton at the next depot. The system reads the barcode on every carton and checks it matches the order it was packed for.",
+ "objectLede": "Strapping, tape ends and loose packaging can end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches the dock.",
+ "vocab": {
+  "unit": "carton",
+  "units": "cartons",
+  "c1": "Seals",
+  "c1h": "Taped shut, flaps down, not crushed",
+  "chips": [
+   "Open flaps",
+   "Loose tape",
+   "Crushed cartons"
+  ],
+  "r1": [
+   "Tape not sealed",
+   "Flap open",
+   "Carton crushed"
+  ],
+  "tag1": "SEAL",
+  "ok": "Seal, label and barcode OK",
+  "lidder": "Carton taper",
+  "filler": "Packing bench",
+  "coder": "Label printer",
+  "alert": "Four cartons with loose tape in fifteen minutes. Check the taper.",
+  "c2": "Shipping labels",
+  "codes": "Barcodes",
+  "codesLong": "Barcodes and order numbers",
+  "code1": "Barcode",
+  "codeLower": "order",
+  "codeShort": "order",
+  "smudge": "SSCC 00?3 12?4 ??78 9???",
+  "wrongCode": "Wrong order: barcode does not match the carton",
+  "audits": "customer audits",
+  "retailer": "customer",
+  "labelWrong": "Wrong destination: %(wrong)s on a %(right)s order",
+  "tag3": "BARCODE"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the order</h2>"
+  ],
+  [
+   "['Labeller', X_LABEL",
+   "['Print and apply', X_LABEL"
+  ],
+  [
+   "['Case packer', X_PACK + 0.9",
+   "['Pallet build', X_PACK + 0.9"
+  ],
+  [
+   "<span class=\"live\">Camera 1 · after the coder</span>",
+   "<span class=\"live\">Camera 1 · before the dock</span>"
+  ],
+  [
+   "The on-site AI reads the code",
+   "The on-site AI checks the seal, label and barcode"
+  ],
+  [
+   "Half a day in a maintenance window, rated for washdown areas.",
+   "Half a day in a maintenance window, clear of forklift aisles."
+  ],
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   "<p class=\"fact\">A mis-sent carton costs freight both ways, a re-pick and an unhappy customer. A photo of every carton leaving the dock also settles damage claims quickly.</p>"
+  ],
+  [
+   "<p class=\"fact\">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC</a></p>",
+   ""
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"2000\">$2,000</span><span class=\"per\">per mis-sent order avoided</span></p>\n        <p class=\"calc\">Example cost of one order sent to the wrong place: freight both ways, re-pick, re-send and a credit. Use your own figure below.</p>"
+  ],
+  [
+   "Cost of one recall or withdrawal",
+   "Cost of one mis-sent order"
+  ],
+  [
+   "Recalls or withdrawals in the past 5 years",
+   "Mis-sent orders in the past 5 years"
+  ],
+  [
+   "['Recall risk',",
+   "['Mis-sent orders',"
+  ],
+  [
+   "how often recalls happen",
+   "how often orders go to the wrong place"
+  ],
+  [
+   "manual label and code checks",
+   "manual label and seal checks"
+  ],
+  [
+   "Staff hours a week on label and code checks",
+   "Staff hours a week on label and seal checks"
+  ],
+  [
+   "How are labels and codes checked today?",
+   "How are outbound cartons checked today?"
+  ],
+  [
+   "Tubs a day on the busiest line",
+   "Cartons a day through the busiest site"
+  ],
+  [
+   "the product labels are generic",
+   "the labels shown are generic"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Sources: <a href=\"https://www.mainfreight.com/\">Mainfreight website</a>.</p>"
+  ],
+  [
+   "Retailer penalties and rejected loads a year",
+   "Customer claims and credits a year"
+  ],
+  [
+   "['Retailer penalties',",
+   "['Customer claims',"
+  ],
+  [
+   "retailer penalties a year",
+   "customer claims a year"
+  ]
+ ],
+ "est": {
+  "packs": 20000,
+  "days": 300,
+  "hours": 20,
+  "rate": 40,
+  "recall": 2000,
+  "recalls": 250,
+  "penalty": 30000,
+  "escape": 25
+ },
+ "slug": "mainfreight"
+}

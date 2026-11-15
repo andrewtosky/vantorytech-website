@@ -1,0 +1,82 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Asahi Yatala Can Line",
+ "company": "Asahi Beverages",
+ "short": "Asahi",
+ "site": "Yatala, QLD",
+ "shape": "can",
+ "productName": "Lager 375 mL",
+ "productShort": "cans",
+ "headline": "Every can checked, even at two million a day.",
+ "formProduct": "Canned beer",
+ "labelTop": "LAGER",
+ "labelMain": "FULL STRENGTH",
+ "labelSize": "375 mL",
+ "wrongTop": "LAGER",
+ "wrongMain": "MID STRENGTH",
+ "code": "BB 14 MAY 27 L2317",
+ "codeWrong": "BB 14 MAY 26 L2317",
+ "lid": "#B9C0C8",
+ "label": "#F4F1E8",
+ "labelInk": "#1F3E73",
+ "wrongLabel": "#E3EEF9",
+ "body": "#c9ced6",
+ "fill": "#b9c0c8",
+ "lineType": "high-speed can line",
+ "vatsLabel": "Brewhouse",
+ "visitLine": "Call and visit to Yatala",
+ "heroLede": "Asahi Beverages' $60 million can line at Yatala, which it calls Australia's biggest brewery, can fill more than two million cans every 24 hours of beers like Great Northern, VB and Carlton Dry. At that speed, nobody can read every label and date by eye. This is what a camera check could look like on a can line like yours. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every can has its end on and seated, with no visible damage around the seam. It looks at what can be seen from outside, so it adds to your seam checks rather than replacing them.",
+ "labelLede": "Full strength and mid strength cans can look almost the same at line speed, and the wrong one in a carton is a complaint and a possible withdrawal. The camera checks every can carries the right label for the run, straight and intact.",
+ "codeLede": "At two million cans a day, a date coder that slips for ten minutes is a lot of stock. The system reads the printed best-before and batch code on every can and compares them with the beer and date set at changeover.",
+ "objectLede": "Can ends, label backing and carton offcuts can all end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "can",
+  "units": "cans",
+  "c1": "Can ends",
+  "c1h": "Ends on, seated and undamaged",
+  "chips": [
+   "Missing ends",
+   "Ends not seated",
+   "Visible seam damage"
+  ],
+  "r1": [
+   "End not seated",
+   "End missing",
+   "Visible seam damage"
+  ],
+  "tag1": "END",
+  "ok": "End, label and code OK",
+  "lidder": "Seamer",
+  "filler": "Can filler",
+  "coder": "Date coder",
+  "alert": "Four ends not seated in fifteen minutes on Line 1. Check the seamer.",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected"
+ },
+ "extra": [
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"1000000\">$1,000,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a national brewer: stock destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 2000000,
+  "days": 300,
+  "hours": 24,
+  "rate": 50,
+  "recall": 1000000,
+  "recalls": 1,
+  "penalty": 150000,
+  "escape": 4
+ },
+ "slug": "asahi"
+}

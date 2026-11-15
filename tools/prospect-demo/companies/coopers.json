@@ -1,0 +1,83 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Coopers Bottling Line",
+ "company": "Coopers Brewery",
+ "short": "Coopers",
+ "site": "Regency Park, SA",
+ "shape": "bottle",
+ "productName": "Original Pale Ale 375 mL",
+ "productShort": "beer bottles",
+ "headline": "Every bottle of Coopers checked, not a sample.",
+ "formProduct": "Bottled ales and stouts",
+ "labelTop": "COOPERS",
+ "labelMain": "PALE ALE",
+ "labelSize": "375 mL",
+ "wrongTop": "COOPERS",
+ "wrongMain": "SPARKLING ALE",
+ "code": "BB 14 MAY 27 L2317",
+ "codeWrong": "BB 14 MAY 26 L2317",
+ "lid": "#C9A43A",
+ "label": "#F3EFE4",
+ "labelInk": "#1F4E2C",
+ "wrongLabel": "#F1D7D0",
+ "body": "#6b3d1a",
+ "fill": "#6b3d1a",
+ "codeInk": "#F2F2F2",
+ "lineType": "beer bottling line",
+ "vatsLabel": "Brewhouse",
+ "visitLine": "Call and visit to Regency Park",
+ "heroLede": "Coopers is Australia's oldest family owned and run brewery, packing its ales, stouts and lagers on two packaging lines at Regency Park. With Original Pale Ale, Sparkling Ale, Mild Ale and the rest running past at speed, the label is what tells one bottle from the next. This is what a camera check could look like on a bottling line like yours. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every crown cap is on, straight and crimped down. A loose or crooked cap lets the beer go flat and shows up as a complaint long after the bottle has left Regency Park.",
+ "labelLede": "Pale Ale and Sparkling Ale bottles look almost the same until you read the label. The camera checks every bottle carries the right label for the run, straight and intact.",
+ "codeLede": "The best-before and batch code has to be right and readable on every bottle. The system reads the printed code and compares it with the beer and date set at changeover.",
+ "objectLede": "Glass fragments, crown caps and carton offcuts can end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "bottle",
+  "units": "bottles",
+  "c1": "Crown caps",
+  "c1h": "Crown caps on, straight and crimped",
+  "chips": [
+   "Missing caps",
+   "Crooked caps",
+   "Caps not crimped down"
+  ],
+  "r1": [
+   "Cap crooked",
+   "Cap missing",
+   "Cap not crimped down"
+  ],
+  "tag1": "CAP",
+  "ok": "Cap, label and code OK",
+  "lidder": "Crowner",
+  "filler": "Filler",
+  "coder": "Date coder",
+  "alert": "Four crooked caps in fifteen minutes on Line 1. Check the crowner.",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected"
+ },
+ "extra": [
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"250000\">$250,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a brewery: stock destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 150000,
+  "days": 250,
+  "hours": 40,
+  "rate": 50,
+  "recall": 250000,
+  "recalls": 1,
+  "penalty": 50000,
+  "escape": 6
+ },
+ "slug": "coopers"
+}

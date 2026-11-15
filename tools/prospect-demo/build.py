@@ -540,6 +540,8 @@ if SHAPE != 'tub':
 if 'body' in C:
     s = s.replace("var tubMat = lam(0xf1f4f9);", "var tubMat = lam(0x%s);" % C['body'].lstrip('#'))
     s = s.replace("sx.fillStyle = '#eef1f6';\n  sx.beginPath(); sx.moveTo(cx - wt / 2, top);", "sx.fillStyle = '%s';\n  sx.beginPath(); sx.moveTo(cx - wt / 2, top);" % C['body'])
+if 'codeInk' in C:
+    s = s.replace("else { sx.fillStyle = '#121212'; sx.fillText(d === 'codeWrong'", "else { sx.fillStyle = '%s'; sx.fillText(d === 'codeWrong'" % C['codeInk'])
 if 'fill' in C:
     s = s.replace("var curdMat = lam(0xfbf7ee);", "var curdMat = lam(0x%s);" % C['fill'].lstrip('#'))
 for a, b in C.get('extra', []):

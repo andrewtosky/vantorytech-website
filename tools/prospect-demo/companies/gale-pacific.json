@@ -1,0 +1,165 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "GALE Pacific Fabric Roll Check",
+ "company": "GALE Pacific",
+ "short": "GALE",
+ "site": "Australia",
+ "shape": "roll",
+ "productName": "Shade fabric 3 m x 50 m",
+ "productShort": "rolls",
+ "headline": "Every roll checked before it is wrapped and shipped.",
+ "formProduct": "Technical fabric rolls",
+ "labelTop": "SHADE FABRIC",
+ "labelMain": "CHARCOAL",
+ "labelSize": "3 m x 50 m",
+ "wrongTop": "SHADE FABRIC",
+ "wrongMain": "OLIVE",
+ "code": "BATCH 26-0412 ROLL 017",
+ "codeWrong": "BATCH 26-0411 ROLL 017",
+ "lid": "#d8c23a",
+ "label": "#FFFFFF",
+ "labelInk": "#2F3437",
+ "wrongLabel": "#E4EBD6",
+ "body": "#3a3f44",
+ "fill": "#c9b48a",
+ "lineType": "fabric roll finishing line",
+ "vatsLabel": "Knitting",
+ "visitLine": "Call and site visit",
+ "heroLede": "GALE Pacific has made technical fabrics for 75 years and made the world's first knitted shade fabric in the 1970s. Once fabric is rolled, wrapped and labelled, the label is all your customer has to go on. This is what a camera check could look like at the end of a roll finishing line, as an example. The same kind of camera can also watch the fabric itself as it runs, for holes, snags and colour changes. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every roll is wrapped and taped, with no loose ends or torn wrap. A roll that unwinds or gets dirty in transit is a claim from the customer.",
+ "labelLede": "Charcoal and olive shade fabric can look much the same under the wrap. The camera checks every roll carries the right label for the colour, width and length inside, straight and complete.",
+ "codeLede": "Batch and roll numbers tie every roll back to its production run. The system reads the ticket on every roll and compares it with the batch set at changeover.",
+ "objectLede": "Core offcuts, tape and loose packaging can end up on the conveyor. The camera over the line spots anything that should not be there before rolls are palletised.",
+ "vocab": {
+  "unit": "roll",
+  "units": "rolls",
+  "c1": "Wrap and tape",
+  "c1h": "Wrapped and taped, no loose ends",
+  "chips": [
+   "Unwrapped rolls",
+   "Loose tape",
+   "Torn wrap"
+  ],
+  "r1": [
+   "Tape not down",
+   "Tape missing",
+   "Wrap torn"
+  ],
+  "tag1": "WRAP",
+  "ok": "Wrap, label and batch OK",
+  "lidder": "Roll wrapper",
+  "filler": "Winder",
+  "coder": "Ticket printer",
+  "alert": "Four rolls with loose tape in fifteen minutes. Check the wrapper.",
+  "codes": "Batch tickets",
+  "codesLong": "Batch and roll numbers",
+  "code1": "Batch ticket",
+  "codeLower": "batch number",
+  "codeShort": "batch",
+  "smudge": "BATCH 2?-04?? ROLL 0??",
+  "wrongCode": "Wrong batch: 0411 printed, 0412 expected",
+  "audits": "customer and quality audits",
+  "retailer": "customer",
+  "labelWrong": "Wrong label: %(wrong)s on a %(right)s run"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the roll</h2>"
+  ],
+  [
+   "['Case packer', X_PACK + 0.9",
+   "['Palletiser', X_PACK + 0.9"
+  ],
+  [
+   "<span class=\"live\">Camera 1 · after the coder</span>",
+   "<span class=\"live\">Camera 1 · after the wrapper</span>"
+  ],
+  [
+   "The on-site AI reads the code",
+   "The on-site AI checks the wrap, label and batch"
+  ],
+  [
+   "Half a day in a maintenance window, rated for washdown areas.",
+   "Half a day in a maintenance window, clear of the winder."
+  ],
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   "<p class=\"fact\">A roll with the wrong colour or width label is found on a building site or a farm, a long way from the factory. That is when it costs the most to fix.</p>"
+  ],
+  [
+   "<p class=\"fact\">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC</a></p>",
+   ""
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"20000\">$20,000</span><span class=\"per\">per rejected shipment avoided</span></p>\n        <p class=\"calc\">Example cost of one shipment sent back by a customer: freight both ways, re-pick and a credit. Use your own figure below.</p>"
+  ],
+  [
+   "Cost of one recall or withdrawal",
+   "Cost of one shipment rejected by a customer"
+  ],
+  [
+   "Recalls or withdrawals in the past 5 years",
+   "Shipments rejected in the past 5 years"
+  ],
+  [
+   "['Recall risk',",
+   "['Rejected shipments',"
+  ],
+  [
+   "how often recalls happen",
+   "how often shipments are rejected"
+  ],
+  [
+   "manual label and code checks",
+   "manual label and wrap checks"
+  ],
+  [
+   "Staff hours a week on label and code checks",
+   "Staff hours a week on label and wrap checks"
+  ],
+  [
+   "How are labels and codes checked today?",
+   "How are rolls checked today?"
+  ],
+  [
+   "Tubs a day on the busiest line",
+   "Rolls a day on the busiest line"
+  ],
+  [
+   "the product labels are generic",
+   "the roll labels shown are generic"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Sources: <a href=\"https://www.australianmanufacturing.com.au/?p=191166\">Australian Manufacturing, GALE Pacific marks 75 years</a>.</p>"
+  ],
+  [
+   "Retailer penalties and rejected loads a year",
+   "Customer claims and credits a year"
+  ],
+  [
+   "['Retailer penalties',",
+   "['Customer claims',"
+  ],
+  [
+   "retailer penalties a year",
+   "customer claims a year"
+  ]
+ ],
+ "est": {
+  "packs": 600,
+  "days": 250,
+  "hours": 16,
+  "rate": 45,
+  "recall": 20000,
+  "recalls": 2,
+  "penalty": 30000,
+  "escape": 150
+ },
+ "slug": "gale-pacific"
+}

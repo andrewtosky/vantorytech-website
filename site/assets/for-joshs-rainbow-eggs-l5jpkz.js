@@ -193,9 +193,9 @@ function drawShot(it){
     else sx.fillRect(-half, -lh / 2, half * 2, lh);
     sx.fillStyle = wrong ? '#24476b' : '#8A4B16';
     sx.textAlign = 'center';
-    sx.font = '600 11px Inter, sans-serif'; sx.fillText(wrong ? 'FREE RANGE · 18 EGGS' : 'FREE RANGE · 18 EGGS', 0, -20);
-    sx.font = '700 19px Inter, sans-serif'; sx.fillText(wrong ? '800 G' : '700 G', 0, 2);
-    sx.font = '600 12px Inter, sans-serif'; sx.fillText('Large', 0, 22);
+    sx.font = '600 11px Inter, sans-serif'; sx.fillText(wrong ? 'FREE RANGE EGGS' : 'FREE RANGE EGGS', 0, -20);
+    sx.font = '700 19px Inter, sans-serif'; sx.fillText(wrong ? '12 PACK' : '18 PACK', 0, 2);
+    sx.font = '600 12px Inter, sans-serif'; sx.fillText('Free range', 0, 22);
     sx.restore();
   }
   /* code */
@@ -220,7 +220,7 @@ var REASONS = {
   labelMissing: ['Label missing', 'Labels'],
   labelCrooked: ['Label crooked: 5° off', 'Labels'],
   labelTorn: ['Label torn', 'Labels'],
-  labelWrong: ['Wrong label: 800 G on a 700 G run', 'Labels'],
+  labelWrong: ['Wrong label: 12 Pack on an 18 Pack run', 'Labels'],
   codeSmudged: ['Best-before date unreadable', 'Best-before dates'],
   codeMissing: ['Best-before date missing', 'Best-before dates'],
   codeWrong: ['Wrong year: 25 printed, 26 expected', 'Best-before dates'],

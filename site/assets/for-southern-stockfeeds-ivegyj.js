@@ -194,8 +194,8 @@ function drawShot(it){
     sx.fillStyle = wrong ? '#24476b' : '#245C2F';
     sx.textAlign = 'center';
     sx.font = '600 11px Inter, sans-serif'; sx.fillText(wrong ? 'STOCKFEED PELLETS' : 'STOCKFEED PELLETS', 0, -20);
-    sx.font = '700 19px Inter, sans-serif'; sx.fillText(wrong ? 'SHEEP' : 'DAIRY', 0, 2);
-    sx.font = '600 12px Inter, sans-serif'; sx.fillText('20 kg', 0, 22);
+    sx.font = '700 19px Inter, sans-serif'; sx.fillText(wrong ? 'CALF REARER' : 'DAIRY MILKER', 0, 2);
+    sx.font = '600 12px Inter, sans-serif'; sx.fillText('Bagged feed', 0, 22);
     sx.restore();
   }
   /* code */
@@ -220,7 +220,7 @@ var REASONS = {
   labelMissing: ['Label missing', 'Labels'],
   labelCrooked: ['Label crooked: 5° off', 'Labels'],
   labelTorn: ['Label torn', 'Labels'],
-  labelWrong: ['Wrong label: Sheep on a Dairy run', 'Labels'],
+  labelWrong: ['Wrong label: Calf Rearer on a Dairy Milker run', 'Labels'],
   codeSmudged: ['Batch code unreadable', 'Batch codes'],
   codeMissing: ['Batch code missing', 'Batch codes'],
   codeWrong: ['Wrong year: 25 printed, 26 expected', 'Batch codes'],
@@ -409,7 +409,7 @@ var lastFailTxt = '';
 function drawScreen(){
   var c = scrCtx; c.fillStyle = '#0b1424'; c.fillRect(0, 0, 512, 300);
   c.fillStyle = '#8ea6ff'; c.font = '600 22px Inter, sans-serif'; c.fillText('LINE 1  ·  CHANGEOVER SET 05:30', 24, 42);
-  c.fillStyle = '#eef1f6'; c.font = '700 34px Inter, sans-serif'; c.fillText('Dairy pellets 20 kg', 24, 92);
+  c.fillStyle = '#eef1f6'; c.font = '700 34px Inter, sans-serif'; c.fillText('Dairy milker pellets', 24, 92);
   c.font = '600 28px "JetBrains Mono", monospace'; c.fillText(CODE_OK, 24, 138);
   c.fillStyle = '#a9b5d0'; c.font = '500 24px Inter, sans-serif';
   var total = 0; for (var k in report.cats) total += report.cats[k];

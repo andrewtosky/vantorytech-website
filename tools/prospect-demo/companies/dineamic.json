@@ -1,0 +1,79 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Chilled dispatch",
+ "pageTitle": "Dineamic Ready Meal Line",
+ "company": "Dineamic",
+ "short": "Dineamic",
+ "site": "Melbourne, VIC",
+ "shape": "tray",
+ "productName": "Chicken curry 350 g",
+ "productShort": "ready meals",
+ "headline": "Every ready meal checked, not a sample.",
+ "formProduct": "Ready meals in sugarcane trays",
+ "labelTop": "READY MEAL",
+ "labelMain": "CHICKEN CURRY",
+ "labelSize": "350 g",
+ "wrongTop": "READY MEAL",
+ "wrongMain": "BEEF RAGU",
+ "code": "USE BY 28 NOV 26 L0331",
+ "codeWrong": "USE BY 28 NOV 25 L0331",
+ "lid": "#e7eef3",
+ "label": "#FFFFFF",
+ "labelInk": "#2F4A2A",
+ "wrongLabel": "#F6DCCB",
+ "body": "#e8dcc2",
+ "fill": "#c9822f",
+ "lineType": "ready meal packing line",
+ "vatsLabel": "Kitchen",
+ "visitLine": "Call and visit to your kitchen",
+ "heroLede": "Dineamic cooks ready meals in its own commercial kitchen and packs them in sugarcane-pulp trays, vacuum sealed, for Coles, its own foodstores and stockists. With many recipes going into the same tray, the label is the main thing that tells one meal from another. This is what a camera check could look like on a ready meal line like yours. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every tray is sealed, with the film flat and no food caught in the seal. Sugarcane trays look different to plastic ones, so the check is set up on your own trays during the trial.",
+ "labelLede": "A curry and a ragu can look alike under the film, and the wrong label can mean an undeclared allergen. The camera checks every meal carries the right label for the recipe, straight and intact.",
+ "codeLede": "Chilled meals have a short use-by window, so the date has to be right on every tray. The system reads the printed date and batch code and compares them with the recipe and date set at changeover.",
+ "objectLede": "Glove pieces, film offcuts and utensil parts are all close at hand in a busy kitchen. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "meal",
+  "units": "meals",
+  "c1": "Film and seals",
+  "c1h": "Film on and sealed all round",
+  "chips": [
+   "Missing film",
+   "Creased seals",
+   "Food in the seal"
+  ],
+  "r1": [
+   "Seal creased",
+   "Film missing",
+   "Food caught in the seal"
+  ],
+  "tag1": "SEAL",
+  "ok": "Seal, label and code OK",
+  "lidder": "Vacuum sealer",
+  "filler": "Tray filler",
+  "alert": "Four creased seals in fifteen minutes on Line 1. Check the sealer.",
+  "smudge": "USE BY 2? N?V 2? L03??"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the recipe</h2>"
+  ],
+  [
+   "Operator sets product and use-by date at changeover",
+   "Operator sets recipe and use-by date at changeover"
+  ]
+ ],
+ "est": {
+  "packs": 8000,
+  "days": 250,
+  "hours": 20,
+  "rate": 45,
+  "recall": 200000,
+  "recalls": 1,
+  "penalty": 25000,
+  "escape": 10
+ },
+ "slug": "dineamic"
+}

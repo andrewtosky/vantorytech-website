@@ -14,6 +14,10 @@ C.setdefault('headline', 'Every tub of %s checked, not a sample.' % C['productSh
 C.setdefault('lineType', 'fresh cheese tub line')
 C.setdefault('vatsLabel', 'Cheese vats')
 C.setdefault('dispatchLabel', 'Chilled dispatch')
+sys.path.insert(0, HERE)
+import shapes
+SHAPE = C.get('shape', 'tub')
+V = dict(shapes.VOCAB); V.update(C.get('vocab', {}))
 
 def cut(s, start, end):
     i = s.index(start); j = s.index(end, i)
@@ -436,7 +440,7 @@ for (var lz = 0; lz < 6; lz++){ var lidc = new THREE.Mesh(new THREE.CylinderGeom
 a, _, b = cut(s, '/* capper */', '/* labeller */')
 s = a + lidder + b
 s = s.replace("c.fillText('LINE 2  ·  CHANGEOVER SET 06:00', 24, 42);", "c.fillText('LINE 1  ·  CHANGEOVER SET 05:30', 24, 42);")
-s = s.replace("c.fillText('Sparkling Lemon 600 mL', 24, 92);", "c.fillText('%s', 24, 92);" % C['productName'].capitalize())
+s = s.replace("c.fillText('Sparkling Lemon 600 mL', 24, 92);", "c.fillText('%s', 24, 92);" % (C['productName'][:1].upper() + C['productName'][1:]))
 s = s.replace("box(1.8, 2.0, 2.4, lam(0x2350f5), 4.0, 0.4, 0, true, truck);", "box(1.8, 2.0, 2.4, lam(0x2350f5), 4.0, 0.4, 0, true, truck);\nbox(0.6, 0.6, 1.6, lam(0x9fb3d6), -3.2, 2.6, 0, false, truck);")
 
 # ---------- tubs instead of bottles ----------
@@ -518,6 +522,30 @@ s = s.replace("capHead.rotation.y += dt * speed * 6;\n", "")
 s = s.replace("laterLabs.forEach(function(l){ placeLabel(l, act[7]); });\n", "")
 
 s = s.replace('aria-label="What happens to a flagged bottle"', 'aria-label="What happens to a flagged tub"')
+
+# ---------- shape and wording for this page ----------
+if SHAPE != 'tub':
+    i = s.index('var RT = 0.27, RB = 0.215, TH = 0.32;')
+    j = s.index("return { kind: 'bottle', g: g, liquid: liquid", i); j = s.index('\n}\n', j) + 3
+    s = s[:i] + shapes.geometry_js(SHAPE) + s[j:]
+    top, bot, wt, wb, ly, lh, cy = shapes.INSET[SHAPE]
+    s = s.replace("cx = W / 2, top = 120, bot = 300, wt = 214, wb = 168;", "cx = W / 2, top = %d, bot = %d, wt = %d, wb = %d;" % (top, bot, wt, wb))
+    s = s.replace("var ly = 150, lh = 92;", "var ly = %d, lh = %d;" % (ly, lh))
+    s = s.replace("  var cy = 272;", "  var cy = %d;" % cy)
+    s = s.replace("sx.fillStyle = '#fbf7ee'; sx.beginPath(); sx.ellipse(cx, top, wt / 2, 16, 0, 0, Math.PI * 2); sx.fill();",
+                  "sx.fillStyle = '#fbf7ee'; sx.fillRect(cx - wt / 2, top - 6, wt, 12);")
+    lw = 70 if SHAPE == 'bottle' else wt + 6
+    s = s.replace("rr(-wt / 2 - 8, -14, wt + 16, 24, 6); sx.fill();", "rr(-%d / 2, -14, %d, 24, 6); sx.fill();" % (lw, lw))
+    s = s.replace("sx.fillRect(-wt / 2 - 4, -11, wt + 8, 4);", "sx.fillRect(-%d / 2 + 4, -11, %d - 8, 4);" % (lw, lw))
+if 'body' in C:
+    s = s.replace("var tubMat = lam(0xf1f4f9);", "var tubMat = lam(0x%s);" % C['body'].lstrip('#'))
+    s = s.replace("sx.fillStyle = '#eef1f6';\n  sx.beginPath(); sx.moveTo(cx - wt / 2, top);", "sx.fillStyle = '%s';\n  sx.beginPath(); sx.moveTo(cx - wt / 2, top);" % C['body'])
+if 'fill' in C:
+    s = s.replace("var curdMat = lam(0xfbf7ee);", "var curdMat = lam(0x%s);" % C['fill'].lstrip('#'))
+for a, b in C.get('extra', []):
+    assert a in s, 'extra text not found: ' + a
+    s = s.replace(a, b)
+s = shapes.apply_vocab(s, V, C)
 s = s.replace('{{LOGO}}', logo)
 open(sys.argv[2], 'w').write(s)
 print('ok', len(s))

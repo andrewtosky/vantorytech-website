@@ -1,0 +1,113 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Wholesale dispatch",
+ "pageTitle": "Seven Seeds Coffee Bag Line",
+ "company": "Seven Seeds",
+ "short": "Seven Seeds",
+ "site": "Fairfield, VIC",
+ "shape": "pouch",
+ "productName": "Espresso blend 1 kg",
+ "productShort": "coffee bags",
+ "headline": "Every bag of coffee checked, not a sample.",
+ "formProduct": "Roasted coffee in valve bags",
+ "labelTop": "SPECIALTY COFFEE",
+ "labelMain": "ESPRESSO",
+ "labelSize": "1 kg · whole bean",
+ "wrongTop": "SPECIALTY COFFEE",
+ "wrongMain": "DECAF",
+ "code": "ROASTED 12 11 26 B07",
+ "codeWrong": "ROASTED 12 10 26 B07",
+ "lid": "#b9976b",
+ "label": "#F7F3EC",
+ "labelInk": "#3A2A1E",
+ "wrongLabel": "#D8E6EF",
+ "body": "#c9a97e",
+ "fill": "#5a3a22",
+ "lineType": "coffee bagging line",
+ "vatsLabel": "Roasters",
+ "visitLine": "Call and visit to Fairfield",
+ "heroLede": "Seven Seeds roasts at its Fairfield roastery on Montefiore Street and supplies cafés through its wholesale portal. When several coffees go into bags that look the same, a quick check by eye can miss a mix-up. This is what a camera check could look like on a coffee bagging line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every bag is sealed straight across with the one-way valve in place. A bag that is not sealed properly lets the coffee go stale long before the café opens it.",
+ "labelLede": "Bags of different coffees look the same until you read the label. The camera checks every bag carries the right label for the blend, so a decaf drinker never gets a full-strength bag.",
+ "codeLede": "Cafés and home brewers look for the roast date before anything else. The system reads the printed roast date and batch code on every bag and compares them with the blend and date set at changeover.",
+ "objectLede": "Loose beans, valve backing papers and tape can all end up on the belt. The camera over the conveyor spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "bag",
+  "units": "bags",
+  "c1": "Seals and valves",
+  "c1h": "Bags sealed, valves in place",
+  "chips": [
+   "Open seals",
+   "Creased seals",
+   "Missing valves"
+  ],
+  "r1": [
+   "Seal creased",
+   "Bag not sealed",
+   "Valve missing"
+  ],
+  "tag1": "SEAL",
+  "ok": "Seal, label and roast date OK",
+  "lidder": "Heat sealer",
+  "filler": "Bag filler",
+  "coder": "Roast date coder",
+  "alert": "Four creased seals in fifteen minutes. Check the heat sealer.",
+  "codes": "Roast dates",
+  "codesLong": "Roast dates and batch codes",
+  "code1": "Roast date",
+  "codeLower": "roast date",
+  "codeShort": "roast date",
+  "smudge": "ROASTED 1? 1? 2? B0?",
+  "wrongCode": "Wrong roast date: 12 10 printed, 12 11 expected",
+  "audits": "wholesale customers",
+  "retailer": "café",
+  "tag3": "DATE"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the blend</h2>"
+  ],
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   ""
+  ],
+  [
+   "Half a day in a maintenance window, rated for washdown areas.",
+   "Half a day in a maintenance window, with no change to your roaster or bag filler."
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"30000\">$30,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a specialty roaster: stock destroyed, freight, customer credits and lost sales. Use your own figure below.</p>"
+  ],
+  [
+   "Retailer penalties and rejected loads a year",
+   "Wholesale credits and returns a year"
+  ],
+  [
+   "['Retailer penalties',",
+   "['Wholesale credits',"
+  ],
+  [
+   "retailer penalties a year",
+   "wholesale credits a year"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Sources: <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 1500,
+  "days": 250,
+  "hours": 10,
+  "rate": 45,
+  "recall": 30000,
+  "recalls": 1,
+  "penalty": 8000,
+  "escape": 25
+ },
+ "slug": "seven-seeds"
+}

@@ -276,7 +276,7 @@ $('tighten').addEventListener('submit', function(e){
   if (!$('t-email').value.trim() || !$('t-email').checkValidity()){ st.className = 'status err'; st.textContent = 'Please enter a valid work email, like name@company.com.'; $('t-email').focus(); return; }
   if (!$('t-consent').checked){ st.className = 'status err'; st.textContent = 'Please tick the box to agree to our Privacy Policy.'; $('t-consent').focus(); return; }
   var first = $('t-name').value.trim().split(' ')[0];
-  /* On vantorytech.com this sends the form, the estimate inputs and "page: for/%(slug)s" to the enquiries sheet and Web3Forms, and a trial plan is drafted within the hour. */
+  /* On vantorytech.com this sends the form, the estimate inputs and "page: for/<slug>" to the enquiries sheet and Web3Forms, and a trial plan is drafted within the hour. */
   st.className = 'status ok';
   st.textContent = 'Thanks, ' + first + '. This is a preview, so nothing was sent. On the live page your details go straight to the Vantory team.';
 });

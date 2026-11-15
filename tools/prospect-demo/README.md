@@ -43,6 +43,12 @@ Packaging supported today: **tubs** (ricotta, dips, yoghurt, cream cheese, sprea
 - Never mention ADTTech, China, Suzhou or partner companies. No em dashes. Amounts in AUD.
 - Keep `<meta name="robots" content="noindex, nofollow">` so prospect pages stay out of search results.
 
-## Going live on vantorytech.com (not done yet)
+## Going live on vantorytech.com
 
-The site's security rules block outside scripts and inline scripts, so a page needs three changes before it can go under `site/for/<slug>/`: the three.js file copied into `site/assets/`, the page script moved into a file under `site/assets/`, and the form wired to the enquiry pipeline with `page: for/<slug>`. Until then, review and share pages as previews.
+```
+python3 publish.py out/<slug>.html <slug>-<code> "<Company name>"
+```
+
+Use a random code of 6 letters or numbers after the slug (for example `spc-kkuq9b`) so the address can't be guessed. This writes `site/for/<slug>-<code>/index.html` and `site/assets/for-<slug>-<code>.js`. The script swaps Google Fonts for the site's own Inter fonts, loads three.js from `site/assets/three-r128.min.js`, moves the page script into its own file (the site's security rules block inline scripts), adds visitor analytics, and sends the trial-plan form through Web3Forms tagged `page: for/<slug>-<code>`.
+
+Prospect pages are link-only. Nothing on the site links to them, they are not in `sitemap.xml`, and both the page and `site/_headers` (`/for/*`) tell search engines not to index them. Never add them to the menu or sitemap.

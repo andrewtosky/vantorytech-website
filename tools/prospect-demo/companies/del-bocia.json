@@ -1,0 +1,89 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Chilled dispatch",
+ "pageTitle": "Del Bocia Butter Line",
+ "company": "Del Bocia",
+ "short": "Del Bocia",
+ "site": "Melbourne, VIC",
+ "shape": "block",
+ "productName": "Anchovy butter 250 g",
+ "productShort": "butter",
+ "headline": "Every pack of butter checked, not a sample.",
+ "formProduct": "Butter, 250 g packs",
+ "labelTop": "CULTURED BUTTER",
+ "labelMain": "ANCHOVY",
+ "labelSize": "250 g",
+ "wrongTop": "CULTURED BUTTER",
+ "wrongMain": "SALTED",
+ "code": "BB 20 JAN 27 L112",
+ "codeWrong": "BB 20 JAN 26 L112",
+ "lid": "#d9cc9f",
+ "label": "#FFFFFF",
+ "labelInk": "#1E3A5F",
+ "wrongLabel": "#F3E3B0",
+ "body": "#e9dfbf",
+ "fill": "#f3e3a0",
+ "lineType": "butter packing line",
+ "vatsLabel": "Churn",
+ "visitLine": "Call and visit to your dairy",
+ "heroLede": "Del Bocia makes butter in Melbourne in eight varieties, from unsalted and salted to truffle, crispy chilli and anchovy, sold in 250 g packs. With that many flavours going into the same pack, the label is what keeps a fish allergen out of a plain butter fridge. This is what a camera check could look like on a butter line like yours. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every pack is wrapped and closed, with no open folds or torn corners. A loose wrap lets butter pick up fridge flavours and comes back as a complaint.",
+ "labelLede": "Salted and anchovy butter look the same in the pack, but anchovy contains fish, an allergen that must be declared. The camera checks every pack carries the right label for the variety, straight and intact.",
+ "codeLede": "The best-before code has to be right and readable on every pack. The system reads the printed code and compares it with the variety and date set at changeover.",
+ "objectLede": "Foil offcuts, glove pieces and bits of packaging are all close at hand at packing. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "pack",
+  "units": "packs",
+  "c1": "Wraps and folds",
+  "c1h": "Wrapped, folded and closed",
+  "chips": [
+   "Open folds",
+   "Loose wraps",
+   "Torn corners"
+  ],
+  "r1": [
+   "Fold not tucked",
+   "Wrap open",
+   "Corner lifted"
+  ],
+  "tag1": "WRAP",
+  "ok": "Wrap, label and code OK",
+  "lidder": "Wrapper",
+  "filler": "Butter former",
+  "coder": "Best-before coder",
+  "alert": "Four folds not tucked in fifteen minutes. Check the wrapper.",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 2? J?N 2? L1??"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the variety</h2>"
+  ],
+  [
+   "'Wrong label: Salted on a Anchovy run'",
+   "'Wrong label: Salted on an Anchovy run'"
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"100000\">$100,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a smaller maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 4000,
+  "days": 240,
+  "hours": 10,
+  "rate": 45,
+  "recall": 100000,
+  "recalls": 1,
+  "penalty": 10000,
+  "escape": 8
+ },
+ "slug": "del-bocia"
+}

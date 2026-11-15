@@ -1,0 +1,176 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "BEV Plastics Blow Moulding Check",
+ "company": "BEV Plastics",
+ "short": "BEV",
+ "site": "Braeside, VIC",
+ "shape": "bottle",
+ "productName": "HDPE bottle 1 L",
+ "productShort": "bottles",
+ "headline": "Every bottle checked as it leaves the moulder.",
+ "formProduct": "Blow-moulded bottles",
+ "labelTop": "",
+ "labelMain": "",
+ "labelSize": "",
+ "wrongTop": "",
+ "wrongMain": "",
+ "code": "CAV 04 · 26",
+ "codeWrong": "CAV 04 · 25",
+ "lid": "#eef1ec",
+ "label": "#e3e7e1",
+ "labelInk": "#555555",
+ "wrongLabel": "#D9A54A",
+ "body": "#eef1ec",
+ "fill": "#eef1ec",
+ "lineType": "blow moulding cell",
+ "vatsLabel": "Resin and regrind",
+ "visitLine": "Call and visit to Braeside",
+ "heroLede": "BEV Plastics has been injection and blow moulding in Braeside since starting as a mould maker in 2003, with ISO 9001 certification since 2009. Short shots, flash and warped walls are easy to miss when bottles drop off the machine all shift. This is what a camera check could look like at the outfeed of a blow moulder. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks the neck of every bottle as it leaves the machine: a full, round finish with no flash and no short shot. A bad neck finish is the fault your customer finds when the cap will not seal on their filler.",
+ "labelLede": "Warped walls, thin spots, blemishes and the wrong colour after a resin change are easy to miss at the outfeed. The camera compares every bottle with good examples your QC team supplies.",
+ "codeLede": "Where your moulds carry cavity numbers and date inserts, the system reads them on every bottle, so a date insert left unchanged or one faulty cavity shows up straight away.",
+ "objectLede": "Flash trimmings, regrind and loose parts can end up on the outfeed conveyor. The camera spots anything that should not be there before bottles are bagged or boxed.",
+ "vocab": {
+  "unit": "bottle",
+  "units": "bottles",
+  "c1": "Neck finish",
+  "c1h": "Neck finish full and round",
+  "chips": [
+   "Short shots",
+   "Flash on the neck",
+   "Out-of-round necks"
+  ],
+  "r1": [
+   "Neck out of round",
+   "Short shot at the neck",
+   "Flash on the neck"
+  ],
+  "tag1": "NECK",
+  "ok": "Neck, walls and marks OK",
+  "lidder": "Deflasher",
+  "filler": "Blow moulder",
+  "coder": "Outfeed conveyor",
+  "alert": "Four short shots in fifteen minutes on Machine 1. Check the parison.",
+  "c2": "Walls and colour",
+  "r2": [
+   "Wall warped: 5° lean",
+   "Thin spot in the wall",
+   "Wall panel missing"
+  ],
+  "tag2": "WALL",
+  "tag3": "MARK",
+  "codes": "Mould marks",
+  "codesLong": "Cavity and date marks",
+  "code1": "Mould mark",
+  "codeLower": "date insert",
+  "codeShort": "date insert",
+  "smudge": "CAV 0? · 2?",
+  "wrongCode": "Date insert not changed: 25 moulded, 26 expected",
+  "audits": "ISO 9001 audits",
+  "retailer": "customer"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">Walls, shape and colour</h2>"
+  ],
+  [
+   "'Wrong label:  on a  run'",
+   "'Wrong colour: amber resin on a natural run'"
+  ],
+  [
+   "<span class=\"live\">Camera 1 · after the coder</span>",
+   "<span class=\"live\">Camera 1 · at the outfeed</span>"
+  ],
+  [
+   "['Labeller', X_LABEL",
+   "['Leak tester', X_LABEL"
+  ],
+  [
+   "The on-site AI reads the code",
+   "The on-site AI checks the neck, walls and marks"
+  ],
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   "<p class=\"fact\">BEV Plastics has been ISO 9001 certified since 2009. A photo of every bottle checked adds to the records you already keep. <a href=\"https://www.bevplastics.com.au/\">BEV Plastics</a></p>"
+  ],
+  [
+   "<p class=\"fact\">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC</a></p>",
+   ""
+  ],
+  [
+   "Half a day in a maintenance window, rated for washdown areas.",
+   "Half a day in a maintenance window, clear of the moulder's moving parts."
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"15000\">$15,000</span><span class=\"per\">per rejected batch avoided</span></p>\n        <p class=\"calc\">Example cost of one batch sent back by a customer: resin, machine time, freight and rework. Use your own figure below.</p>"
+  ],
+  [
+   "Cost of one recall or withdrawal",
+   "Cost of one batch rejected by a customer"
+  ],
+  [
+   "Recalls or withdrawals in the past 5 years",
+   "Batches rejected in the past 5 years"
+  ],
+  [
+   "Retailer penalties and rejected loads a year",
+   "Customer claims and credits a year"
+  ],
+  [
+   "['Recall risk',",
+   "['Rejected batches',"
+  ],
+  [
+   "['Retailer penalties',",
+   "['Customer claims',"
+  ],
+  [
+   "retailer penalties a year",
+   "customer claims a year"
+  ],
+  [
+   "how often recalls happen",
+   "how often batches are rejected"
+  ],
+  [
+   "manual label and code checks",
+   "manual visual checks"
+  ],
+  [
+   "Staff hours a week on label and code checks",
+   "Staff hours a week on visual checks"
+  ],
+  [
+   "How are labels and codes checked today?",
+   "How are bottles checked today?"
+  ],
+  [
+   "Tubs a day on the busiest line",
+   "Bottles a day on the busiest machine"
+  ],
+  [
+   "the product labels are generic",
+   "the bottles shown are generic"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Sources: <a href=\"https://www.bevplastics.com.au/\">BEV Plastics website</a>.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 20000,
+  "days": 250,
+  "hours": 20,
+  "rate": 45,
+  "recall": 15000,
+  "recalls": 2,
+  "penalty": 15000,
+  "escape": 3
+ },
+ "slug": "bev-plastics"
+}

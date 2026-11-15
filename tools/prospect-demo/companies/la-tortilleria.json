@@ -1,0 +1,85 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "La Tortilleria Tortilla Line",
+ "company": "La Tortilleria",
+ "short": "La Tortilleria",
+ "site": "Melbourne, VIC",
+ "shape": "flatbag",
+ "productName": "Corn tortillas taco size",
+ "productShort": "tortillas",
+ "headline": "Every pack of tortillas checked, not a sample.",
+ "formProduct": "Corn tortillas in sealed bags",
+ "labelTop": "CORN TORTILLAS",
+ "labelMain": "TACO SIZE",
+ "labelSize": "Nixtamal corn",
+ "wrongTop": "CORN TORTILLAS",
+ "wrongMain": "LARGE",
+ "code": "BB 02 DEC 26 L045",
+ "codeWrong": "BB 02 DEC 25 L045",
+ "lid": "#dfe6ec",
+ "label": "#FFFFFF",
+ "labelInk": "#1F6F43",
+ "wrongLabel": "#FDE3B6",
+ "body": "#f1dfae",
+ "fill": "#efd9a2",
+ "lineType": "tortilla packing line",
+ "vatsLabel": "Nixtamal and press",
+ "visitLine": "Call and visit to your outer-west site",
+ "heroLede": "La Tortilleria has made fresh nixtamal corn tortillas from scratch since 2013, starting in Kensington and now with a second tortilla-making site in Melbourne’s outer west. As your tortillas reach more grocery stores, every pack needs the same check, whoever is on shift. This is what a camera check could look like on a tortilla packing line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every bag is sealed straight across, with no creases and no tortilla caught in the seal. A bag that is not sealed properly dries out or spoils before its date.",
+ "labelLede": "Packs of different sizes or products can look the same on a busy line. The camera checks every bag carries the right label for the product, straight and intact.",
+ "codeLede": "Fresh tortillas have a short shelf life, so the best-before code has to be right and readable. The system reads the printed code on every bag and compares it with the product and date set at changeover.",
+ "objectLede": "Dough scraps, glove pieces and bag offcuts are all close at hand at packing. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "pack",
+  "units": "packs",
+  "c1": "Bag seals",
+  "c1h": "Bags sealed straight across",
+  "chips": [
+   "Open seals",
+   "Creased seals",
+   "Tortilla in the seal"
+  ],
+  "r1": [
+   "Seal creased",
+   "Bag not sealed",
+   "Tortilla caught in the seal"
+  ],
+  "tag1": "SEAL",
+  "ok": "Seal, label and code OK",
+  "lidder": "Bag sealer",
+  "filler": "Counter and bagger",
+  "coder": "Date coder",
+  "alert": "Four creased seals in fifteen minutes on Line 1. Check the bag sealer.",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 0? D?C 2? L0??"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the product</h2>"
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"100000\">$100,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a smaller maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 6000,
+  "days": 260,
+  "hours": 12,
+  "rate": 45,
+  "recall": 100000,
+  "recalls": 1,
+  "penalty": 10000,
+  "escape": 6
+ },
+ "slug": "la-tortilleria"
+}

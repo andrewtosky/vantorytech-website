@@ -1,0 +1,116 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Southern Stockfeeds Bag Line",
+ "company": "Southern Stockfeeds",
+ "short": "Southern Stockfeeds",
+ "site": "Bridgewater, VIC",
+ "shape": "flatbag",
+ "productName": "Dairy pellets 20 kg",
+ "productShort": "feed bags",
+ "headline": "Every bag of feed checked, not a sample.",
+ "formProduct": "Bagged pellet feed",
+ "labelTop": "STOCKFEED PELLETS",
+ "labelMain": "DAIRY",
+ "labelSize": "20 kg",
+ "wrongTop": "STOCKFEED PELLETS",
+ "wrongMain": "SHEEP",
+ "code": "B26-1142 12 NOV 26",
+ "codeWrong": "B26-1142 12 NOV 25",
+ "lid": "#d8d0bb",
+ "label": "#FFFFFF",
+ "labelInk": "#245C2F",
+ "wrongLabel": "#E3EEF7",
+ "body": "#ece6d6",
+ "fill": "#8a6a3c",
+ "lineType": "feed bagging line",
+ "vatsLabel": "Mill and pellet press",
+ "visitLine": "Call and visit to Bridgewater",
+ "heroLede": "Southern Stockfeeds makes over 180,000 tonnes of tailored pellet feed a year at its Bridgewater mill and is Feedsafe accredited. Most of it leaves in bulk, but wherever feed goes into bags, every bag needs the right ration label and batch code. This is what a camera check could look like after a bagger. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every bag is closed straight across, with no open corners or split tops. A bag that opens in the truck or the shed means wasted feed and a call from the farm.",
+ "labelLede": "Rations for different stock look the same in the bag, and some minerals that suit cattle can harm sheep. The camera checks every bag carries the right label for the ration, straight and intact.",
+ "codeLede": "The batch code is how a bag is traced back to the mill. The system reads the printed batch code and date on every bag and compares them with the ration and batch set at changeover.",
+ "objectLede": "String, bag offcuts and pallet splinters can all end up on the bag conveyor. The camera spots anything that should not be there before bags are stacked.",
+ "vocab": {
+  "unit": "bag",
+  "units": "bags",
+  "c1": "Bag closures",
+  "c1h": "Bags closed straight across",
+  "chips": [
+   "Open bags",
+   "Crooked closures",
+   "Split tops"
+  ],
+  "r1": [
+   "Closure crooked",
+   "Bag not closed",
+   "Top split"
+  ],
+  "tag1": "CLOSURE",
+  "ok": "Closure, label and batch OK",
+  "lidder": "Bag closer",
+  "filler": "Bagger",
+  "coder": "Batch coder",
+  "alert": "Four crooked closures in fifteen minutes. Check the bag closer.",
+  "codes": "Batch codes",
+  "codesLong": "Batch and date codes",
+  "code1": "Batch code",
+  "codeLower": "batch number",
+  "codeShort": "batch",
+  "smudge": "B2?-11?? 1? N?V 2?",
+  "audits": "Feedsafe audits",
+  "retailer": "farm",
+  "tag3": "BATCH"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the ration</h2>"
+  ],
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   ""
+  ],
+  [
+   "<p class=\"fact\">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC</a></p>",
+   ""
+  ],
+  [
+   "Half a day in a maintenance window, rated for washdown areas.",
+   "Half a day in a maintenance window, built for a dusty mill."
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"30000\">$30,000</span><span class=\"per\">per returned load avoided</span></p>\n        <p class=\"calc\">Example cost of one feed recall or returned load: feed destroyed, freight, farm credits and time on the phone. Use your own figure below.</p>"
+  ],
+  [
+   "Retailer penalties and rejected loads a year",
+   "Customer claims and returned loads a year"
+  ],
+  [
+   "['Retailer penalties',",
+   "['Customer claims',"
+  ],
+  [
+   "retailer penalties a year",
+   "customer claims a year"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Sources: <a href=\"https://southernstockfeeds.com.au/pages/our-story\">Southern Stockfeeds, Our story</a>.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 2000,
+  "days": 280,
+  "hours": 10,
+  "rate": 45,
+  "recall": 30000,
+  "recalls": 1,
+  "penalty": 10000,
+  "escape": 20
+ },
+ "slug": "southern-stockfeeds"
+}

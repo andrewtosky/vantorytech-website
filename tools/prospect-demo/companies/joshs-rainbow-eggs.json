@@ -1,0 +1,89 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Josh's Rainbow Eggs Carton Line",
+ "company": "Josh's Rainbow Eggs",
+ "short": "Josh's",
+ "site": "Monegeetta, VIC",
+ "shape": "carton",
+ "productName": "Free range eggs 18 pack",
+ "productShort": "egg cartons",
+ "headline": "Every carton of eggs checked, not a sample.",
+ "formProduct": "Free-range eggs, 18-egg cartons",
+ "labelTop": "FREE RANGE · 18 EGGS",
+ "labelMain": "700 G",
+ "labelSize": "Large",
+ "wrongTop": "FREE RANGE · 18 EGGS",
+ "wrongMain": "800 G",
+ "code": "BB 28 DEC 26",
+ "codeWrong": "BB 28 DEC 25",
+ "lid": "#cec6b4",
+ "label": "#FFFFFF",
+ "labelInk": "#8A4B16",
+ "wrongLabel": "#F7E1B5",
+ "body": "#d6cfbf",
+ "fill": "#efe2c8",
+ "lineType": "egg grading and packing line",
+ "vatsLabel": "Egg collection",
+ "visitLine": "Call and visit to Monegeetta",
+ "heroLede": "Josh's Rainbow Eggs collects free-range eggs at Monegeetta and packs them in 18-egg cartons, sold in select Coles, Woolworths, IGA, Foodworks and La Manna stores. Your grading room already uses a light under the eggs to take out cracked ones. A camera after the grader can then check every finished carton. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every carton is closed and latched, with no egg holding the lid up. An open carton on a shelf usually means broken eggs and a complaint.",
+ "labelLede": "Cartons from different grades look the same from a distance. The camera checks every carton carries the right label for the grade being packed that day, straight and intact.",
+ "codeLede": "Eggs carry a best-before date that has to be right on every carton. The system reads the printed date and compares it with the date set for the day.",
+ "objectLede": "Feathers, straw and bits of packaging find their way into any grading room. The camera over the belt spots anything that should not be there before cartons are boxed.",
+ "vocab": {
+  "unit": "carton",
+  "units": "cartons",
+  "c1": "Lids closed",
+  "c1h": "Lids closed and latched",
+  "chips": [
+   "Open lids",
+   "Lids not latched",
+   "Lids caught on an egg"
+  ],
+  "r1": [
+   "Lid not latched",
+   "Lid open",
+   "Lid caught on an egg"
+  ],
+  "ok": "Lid, label and date OK",
+  "lidder": "Carton closer",
+  "filler": "Grader",
+  "coder": "Date printer",
+  "alert": "Four lids not latched in fifteen minutes. Check the carton closer.",
+  "codes": "Best-before dates",
+  "codesLong": "Best-before dates",
+  "code1": "Best-before date",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 2? D?C 2?",
+  "tag3": "DATE"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the grade</h2>"
+  ],
+  [
+   "Half a day in a maintenance window, rated for washdown areas.",
+   "Half a day in a maintenance window, beside the grader."
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"100000\">$100,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a smaller producer: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 3000,
+  "days": 360,
+  "hours": 12,
+  "rate": 45,
+  "recall": 100000,
+  "recalls": 1,
+  "penalty": 10000,
+  "escape": 6
+ },
+ "slug": "joshs-rainbow-eggs"
+}

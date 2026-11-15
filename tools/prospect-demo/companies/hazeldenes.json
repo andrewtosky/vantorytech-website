@@ -1,0 +1,77 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Chilled dispatch",
+ "pageTitle": "Hazeldene's Chicken Tray Line",
+ "company": "Hazeldene's",
+ "short": "Hazeldene's",
+ "site": "Lockwood, VIC",
+ "shape": "tray",
+ "productName": "Breast fillet 1 kg",
+ "productShort": "chicken trays",
+ "headline": "Every tray of chicken checked, not a sample.",
+ "formProduct": "Fresh chicken in sealed trays",
+ "labelTop": "FRESH CHICKEN",
+ "labelMain": "BREAST FILLET",
+ "labelSize": "1 kg",
+ "wrongTop": "FRESH CHICKEN",
+ "wrongMain": "THIGH FILLET",
+ "code": "USE BY 24 NOV 26 L0412",
+ "codeWrong": "USE BY 24 OCT 26 L0412",
+ "lid": "#dfe8f0",
+ "label": "#FFFFFF",
+ "labelInk": "#8A2318",
+ "wrongLabel": "#FDE2C4",
+ "body": "#dfe3ea",
+ "fill": "#efc3b2",
+ "lineType": "chicken tray packing line",
+ "vatsLabel": "Portioning",
+ "visitLine": "Call and visit to Lockwood",
+ "heroLede": "Hazeldene's has been a family-run chicken business in Victoria since 1938 and processes about 900,000 birds a week. At that volume, a tray with a lifted seal or the wrong cut on the label is hard to catch by eye. This is what a camera check could look like on a chicken tray line like yours. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every tray has its film on, sealed all the way round, with no chicken caught in the seal. A leaking tray of raw chicken is the kind of fault that comes back as a retailer complaint.",
+ "labelLede": "Breast fillets and thigh fillets look much the same through the film. The camera checks every tray carries the right label for the cut, straight and intact, so the shopper gets what the label says.",
+ "codeLede": "Fresh chicken has a short shelf life, so the use-by date has to be right on every tray. The system reads the printed date and batch code and compares them with the product and date set at changeover.",
+ "objectLede": "Glove pieces, blue plastic and tray offcuts are all close at hand in a processing plant. The camera over the belt spots anything that should not be there before it reaches a crate.",
+ "vocab": {
+  "unit": "tray",
+  "units": "trays",
+  "c1": "Film and seals",
+  "c1h": "Film on and sealed all round",
+  "chips": [
+   "Missing film",
+   "Creased seals",
+   "Chicken in the seal"
+  ],
+  "r1": [
+   "Seal creased",
+   "Film missing",
+   "Chicken caught in the seal"
+  ],
+  "tag1": "SEAL",
+  "ok": "Seal, label and code OK",
+  "lidder": "Tray sealer",
+  "filler": "Tray loader",
+  "coder": "Label and code printer",
+  "alert": "Four creased seals in fifteen minutes on Line 1. Check the tray sealer.",
+  "smudge": "USE BY 2? N?V 2? L04??",
+  "wrongCode": "Wrong month: OCT printed, NOV expected"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the cut</h2>"
+  ]
+ ],
+ "est": {
+  "packs": 60000,
+  "days": 260,
+  "hours": 40,
+  "rate": 50,
+  "recall": 400000,
+  "recalls": 1,
+  "penalty": 60000,
+  "escape": 10
+ },
+ "slug": "hazeldenes"
+}

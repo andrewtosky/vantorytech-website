@@ -369,6 +369,8 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
 .solution.has-media:hover p, .solution.has-media:focus p { color: #C9D3E8; }
 .solution.has-media:hover .tag, .solution.has-media:focus .tag { color: var(--cobalt-soft); }
 .solution.has-media:hover .hint, .solution.has-media:focus .hint { opacity: 0; }
+.solution .see-line { margin-top: auto; padding-top: 8px; font-size: 14px; font-weight: 600; color: var(--cobalt); }
+.solution.has-media:hover .see-line, .solution.has-media:focus-within .see-line { color: var(--cobalt-soft); }
 @media (hover: none) {
   .solution .media { position: relative; inset: auto; opacity: 1; height: 180px; margin: -30px -26px 8px; }
   .solution .media::after { display: none; }
@@ -432,7 +434,7 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
     </div>
     <div class="solutions reveal">
       <article class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/platform-night.jpg" alt="" loading="lazy" style="object-position: left center"></div><span class="tag">Safety</span><h3>Safety checks</h3><p>Cameras, robot dogs and drones watch for missing safety gear, people in danger zones, fire, smoke and leaks, day and night.</p><span class="hint">Hover to see it</span></article>
-      <article class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/shot-64.jpg" alt="" loading="lazy" style="object-position: center"></div><span class="tag">Quality</span><h3>Quality checks</h3><p>AI cameras and robots find faulty products, missing parts and wrong labels before anything leaves your site.</p><span class="hint">Hover to see it</span></article>
+      <article class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/shot-64.jpg" alt="" loading="lazy" style="object-position: center"></div><span class="tag">Quality</span><h3>Quality checks</h3><p>AI cameras and robots find faulty products, missing parts and wrong labels before anything leaves your site.</p><a class="see-line" href="food-and-beverage.html">See it on a bottling line</a></article>
       <article class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><video autoplay muted loop playsinline preload="none" poster="assets/mos-logistics.jpg"><source src="assets/mos-logistics.mp4" type="video/mp4"></video></div><span class="tag">Logistics</span><h3>Lifting and moving</h3><p>Robots carry, lift and load goods, working safely alongside your people and vehicles.</p><span class="hint">Hover to watch</span></article>
       <article class="solution"><span class="tag">Construction</span><h3>Faster quotes</h3><p>Upload your building plans and AI measures them and prepares a quote. Your estimator checks and approves it.</p></article>
       <article class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/sol-workstation.jpg" alt="" loading="lazy" style="object-position: center top"></div><span class="tag">Operations</span><h3>Smarter workstations</h3><p>An AI camera at each station checks every step is done right, counts output and shows where work slows down.</p><span class="hint">Hover to see it</span></article>

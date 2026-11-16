@@ -8,6 +8,8 @@ and can override any wording key under "vocab". Defaults are the original tub wo
 SHAPES = {
     'tub':    dict(kind='cyl'),
     'bottle': dict(kind='bottle'),
+    'can':    dict(kind='can'),
+    'roll':   dict(kind='roll'),
     'tray':   dict(kind='box', w=0.52, h=0.12, d=0.36, lid='film', label='top'),
     'flatbag':dict(kind='box', w=0.52, h=0.09, d=0.34, lid='end', label='top'),
     'pouch':  dict(kind='box', w=0.34, h=0.50, d=0.18, lid='strip', label='front'),
@@ -19,6 +21,8 @@ SHAPES = {
 INSET = {
     'tub':    (120, 300, 214, 168, 150, 92, 272),
     'bottle': (70, 316, 150, 150, 150, 100, 296),
+    'can':    (100, 304, 170, 170, 140, 110, 286),
+    'roll':   (150, 290, 236, 236, 172, 74, 272),
     'tray':   (150, 290, 236, 220, 172, 74, 272),
     'flatbag':(150, 290, 236, 236, 172, 74, 272),
     'pouch':  (96, 312, 190, 200, 140, 110, 284),
@@ -106,12 +110,58 @@ function makeBottle(){
 }
 '''
 
+CAN_JS = '''var CR = 0.16, CH = 0.46, TH = CH;
+var gTub = new THREE.CylinderGeometry(CR, CR, CH, 24); gTub.translate(0, CH / 2, 0);
+var gCurd = new THREE.CircleGeometry(CR * 0.8, 20);
+var gLid = new THREE.CylinderGeometry(CR * 0.92, CR * 0.92, 0.035, 24);
+var gLabel = new THREE.CylinderGeometry(CR + 0.004, CR + 0.004, 0.3, 24, 1, true);
+var gLabelTorn = new THREE.CylinderGeometry(CR + 0.004, CR + 0.004, 0.3, 24, 1, true, 0, Math.PI * 0.6);
+var gCode = new THREE.PlaneGeometry(0.16, 0.03);
+var flagGeo = new THREE.EdgesGeometry(new THREE.BoxGeometry(0.6, 0.8, 0.6));
+function makeBottle(){
+  var g = new THREE.Group();
+  g.add(new THREE.Mesh(gTub, tubMat));
+  var liquid = new THREE.Mesh(gCurd, curdMat); liquid.rotation.x = -Math.PI / 2; liquid.position.y = CH + 0.001; g.add(liquid);
+  var cap = new THREE.Mesh(gLid, lidMat); cap.position.y = TH + 0.02; g.add(cap);
+  var label = new THREE.Mesh(gLabel, labelMat); label.position.y = 0.25; g.add(label);
+  var code = new THREE.Mesh(gCode, codeMat); code.position.set(0, 0.05, CR + 0.006); g.add(code);
+  var flag = new THREE.LineSegments(flagGeo, new THREE.LineBasicMaterial({ color: C.alert, transparent: true, opacity: 0 })); flag.position.y = 0.3; g.add(flag);
+  scene.add(g);
+  return { kind: 'bottle', g: g, liquid: liquid, cap: cap, label: label, code: code, flag: flag, x: 0, defect: null, checked: false, out: null, t: 0 };
+}
+'''
+
+ROLL_JS = '''var RR = 0.17, RL = 0.62, TH = RR * 2 - 0.014;
+var gTub = new THREE.CylinderGeometry(RR, RR, RL, 24); gTub.rotateZ(Math.PI / 2); gTub.translate(0, RR, 0);
+var gCurd = new THREE.CircleGeometry(0.05, 12);
+var gLid = new THREE.BoxGeometry(0.05, 0.012, 0.36);
+var gLabel = new THREE.PlaneGeometry(0.24, 0.16); var gLabelTorn = new THREE.PlaneGeometry(0.13, 0.16);
+var gCode = new THREE.PlaneGeometry(0.26, 0.03);
+var flagGeo = new THREE.EdgesGeometry(new THREE.BoxGeometry(0.8, 0.5, 0.5));
+function makeBottle(){
+  var g = new THREE.Group();
+  g.add(new THREE.Mesh(gTub, tubMat));
+  var liquid = new THREE.Mesh(gCurd, curdMat); liquid.rotation.y = Math.PI / 2; liquid.position.set(RL / 2 + 0.002, RR, 0); g.add(liquid);
+  var cap = new THREE.Mesh(gLid, lidMat); cap.position.set(0.2, TH + 0.02, 0); g.add(cap);
+  var lg = new THREE.Group(); lg.position.set(-0.165, RR * 2 + 0.004, 0); lg.rotation.x = -Math.PI / 2; g.add(lg);
+  var label = new THREE.Mesh(gLabel, labelMat); lg.add(label);
+  var code = new THREE.Mesh(gCode, codeMat); code.position.set(0, RR, RR + 0.004); g.add(code);
+  var flag = new THREE.LineSegments(flagGeo, new THREE.LineBasicMaterial({ color: C.alert, transparent: true, opacity: 0 })); flag.position.y = RR; g.add(flag);
+  scene.add(g);
+  return { kind: 'bottle', g: g, liquid: liquid, cap: cap, label: label, code: code, flag: flag, x: 0, defect: null, checked: false, out: null, t: 0 };
+}
+'''
+
 def geometry_js(shape):
     p = SHAPES[shape]
     if p['kind'] == 'box':
         return box_js(p)
     if p['kind'] == 'bottle':
         return BOTTLE_JS
+    if p['kind'] == 'can':
+        return CAN_JS
+    if p['kind'] == 'roll':
+        return ROLL_JS
     return None
 
 def apply_vocab(s, V, C):

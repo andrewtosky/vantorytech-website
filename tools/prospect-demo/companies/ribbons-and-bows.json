@@ -1,0 +1,76 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Chilled dispatch",
+ "pageTitle": "Ribbons and Bows Cake Pack Line",
+ "company": "Ribbons and Bows Cakes",
+ "short": "Ribbons and Bows",
+ "site": "Coburg North, VIC",
+ "shape": "carton",
+ "productName": "Chocolate cake 1 kg",
+ "productShort": "cake packs",
+ "headline": "Every cake pack checked, not a sample.",
+ "formProduct": "Packed cakes and desserts",
+ "labelTop": "CAKE",
+ "labelMain": "CHOCOLATE MUD",
+ "labelSize": "1 kg",
+ "wrongTop": "CAKE",
+ "wrongMain": "CARROT & WALNUT",
+ "code": "USE BY 24 NOV 26 L0412",
+ "codeWrong": "USE BY 24 OCT 26 L0412",
+ "lid": "#e9edf2",
+ "label": "#FFFFFF",
+ "labelInk": "#8A2A5A",
+ "wrongLabel": "#FDF0D2",
+ "body": "#f2ece4",
+ "fill": "#5a3a24",
+ "lineType": "cake packing line",
+ "vatsLabel": "Bakery",
+ "visitLine": "Call and visit to Coburg North",
+ "heroLede": "Ribbons and Bows has grown a lot over the past ten years and built a purpose-designed cake and dessert facility in Coburg North. With many cakes going into similar packs, the label is what tells the customer what they are buying. This is what a camera check could look like on a cake packing line, shown here with boxed packs. We would match it to your own packaging. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every pack has its lid on and closed properly. A lid that pops open damages the cake and comes back as a complaint.",
+ "labelLede": "A chocolate mud cake and a carrot and walnut cake are easy to tell apart by eye, but not always by label at line speed, and one of them carries tree nuts. The camera checks every pack carries the right label for the cake inside, straight and intact.",
+ "codeLede": "Fresh cakes have a short use-by window, so the date has to be right on every pack. The system reads the printed date and batch code and compares them with the cake and date set at changeover.",
+ "objectLede": "Glove pieces, board offcuts and loose parts can end up close to the line. The camera over the belt spots anything that should not be there before it reaches a crate.",
+ "vocab": {
+  "unit": "pack",
+  "units": "packs",
+  "c1": "Lids closed",
+  "c1h": "Lids on and closed",
+  "chips": [
+   "Open lids",
+   "Lids not closed",
+   "Lids crushed"
+  ],
+  "r1": [
+   "Lid not closed",
+   "Lid open",
+   "Lid crushed"
+  ],
+  "ok": "Lid, label and date OK",
+  "lidder": "Lidder",
+  "filler": "Cake loader",
+  "coder": "Date coder",
+  "alert": "Four lids not closed in fifteen minutes. Check the lidder.",
+  "smudge": "USE BY 2? N?V 2? L04??",
+  "wrongCode": "Wrong month: OCT printed, NOV expected"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the cake</h2>"
+  ]
+ ],
+ "est": {
+  "packs": 4000,
+  "days": 300,
+  "hours": 15,
+  "rate": 40,
+  "recall": 100000,
+  "recalls": 1,
+  "penalty": 15000,
+  "escape": 10
+ },
+ "slug": "ribbons-and-bows"
+}

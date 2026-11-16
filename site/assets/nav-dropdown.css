@@ -1,0 +1,28 @@
+/* Solutions dropdown in the main navigation. Desktop: panel under the chevron. Mobile (hamburger menu): nested list. */
+.nav-sol{position:relative;display:flex;align-items:center;gap:2px}
+.nav-sol-btn{all:unset;box-sizing:border-box;cursor:pointer;width:28px;height:28px;display:inline-grid;place-items:center;border-radius:6px;color:var(--ink)}
+.nav-sol-btn:hover,.nav-sol.open .nav-sol-btn{color:var(--cobalt);background:var(--mist)}
+.nav-sol-btn:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}
+.nav-sol-btn svg{width:16px;height:16px;transition:transform .2s}
+.nav-sol.open .nav-sol-btn svg{transform:rotate(180deg)}
+.nav-sol-menu{position:absolute;top:calc(100% + 18px);left:-22px;width:360px;background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px rgba(14,21,48,.16);padding:8px;display:none;flex-direction:column;gap:2px;z-index:60;text-align:left}
+.nav-sol-menu::before{content:"";position:absolute;left:0;right:0;top:-20px;height:20px}
+.nav-sol.open .nav-sol-menu{display:flex}
+.nav .nav-sol-menu a{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:10px;font-size:15px;font-weight:600;line-height:1.3;color:var(--ink);box-shadow:none}
+.nav .nav-sol-menu a span{font-size:13px;font-weight:400;color:var(--slate)}
+.nav .nav-sol-menu a:hover,.nav .nav-sol-menu a:focus-visible{background:var(--mist);color:var(--cobalt)}
+.nav .nav-sol .nav-sol-menu a[aria-current="page"]{background:#F4F6FF;color:var(--cobalt);box-shadow:none;padding-block:10px}
+.nav .nav-sol-menu a.all{margin-bottom:4px;border-bottom:1px solid var(--line);border-radius:10px 10px 0 0}
+@media (max-width:880px){
+  .nav-sol{flex-wrap:wrap;gap:0;border-bottom:1px solid var(--mist)}
+  .nav .nav-sol > a{flex:1 1 auto;border-bottom:0}
+  .nav-sol-btn{width:48px;height:48px;border-radius:8px}
+  .nav-sol-menu{position:static;flex-basis:100%;width:auto;box-shadow:none;border:0;border-radius:0;padding:0 0 6px 18px;gap:0;background:transparent}
+  .nav-sol-menu::before{display:none}
+  .nav .nav-sol-menu a,.nav .nav-sol .nav-sol-menu a[aria-current="page"]{padding:14px 0;border-radius:0;border-bottom:1px solid var(--mist);font-weight:500;line-height:1.6}
+  .nav .nav-sol-menu a span{display:none}
+  .nav .nav-sol-menu a:last-child{border-bottom:0}
+  .nav .nav-sol-menu a.all{margin-bottom:0;border-radius:0}
+  .nav .nav-sol-menu a:hover,.nav .nav-sol-menu a:focus-visible,.nav .nav-sol .nav-sol-menu a[aria-current="page"]{background:transparent}
+}
+@media (prefers-reduced-motion:reduce){.nav-sol-btn svg{transition:none}}

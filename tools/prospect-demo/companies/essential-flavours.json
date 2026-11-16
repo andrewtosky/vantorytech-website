@@ -1,0 +1,96 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Essential Flavours Filling Line",
+ "company": "Essential Flavours",
+ "short": "Essential Flavours",
+ "site": "Carrum Downs, VIC",
+ "shape": "bottle",
+ "productName": "Strawberry flavour 5 L",
+ "productShort": "flavours",
+ "headline": "Every container of flavour checked, not a sample.",
+ "formProduct": "Liquid flavours",
+ "labelTop": "NATURAL FLAVOUR",
+ "labelMain": "STRAWBERRY",
+ "labelSize": "5 L",
+ "wrongTop": "NATURAL FLAVOUR",
+ "wrongMain": "RASPBERRY",
+ "code": "BATCH 26-0412 BB 11/27",
+ "codeWrong": "BATCH 26-0412 BB 11/26",
+ "lid": "#E04B3A",
+ "label": "#FFFFFF",
+ "labelInk": "#8A1C2B",
+ "wrongLabel": "#F3D9E6",
+ "body": "#eef0ec",
+ "fill": "#eef0ec",
+ "lineType": "liquid flavour filling line",
+ "vatsLabel": "Blending",
+ "visitLine": "Call and visit to Carrum Downs",
+ "heroLede": "Essential Flavours has made liquid and powder flavours in Carrum Downs since 1989, with several thousand flavours for beverage, ice cream, plant protein and supplement makers, including more than 85 certified organic ones. With that many flavours filled into similar containers, the label is what your customer relies on. This is what a camera check could look like on a liquid flavour filling line, shown here with a bottle. We would match it to your own containers. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every container has its cap on, straight and fully closed. A loose cap means a leak in transit and a claim from the customer.",
+ "labelLede": "Strawberry and raspberry look the same in a white container. The camera checks every container carries the right label for the flavour inside, straight and intact, so your customer never gets the wrong flavour or a wrong organic claim.",
+ "codeLede": "Your customers trace every ingredient by batch. The system reads the printed batch and best-before code on every container and compares it with the flavour and batch set at changeover.",
+ "objectLede": "Cap offcuts, label backing and loose parts can end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "container",
+  "units": "containers",
+  "c1": "Caps",
+  "c1h": "Caps on, straight and closed",
+  "chips": [
+   "Missing caps",
+   "Crooked caps",
+   "Caps not closed"
+  ],
+  "r1": [
+   "Cap crooked",
+   "Cap missing",
+   "Cap not closed"
+  ],
+  "tag1": "CAP",
+  "ok": "Cap, label and code OK",
+  "lidder": "Capper",
+  "filler": "Filler",
+  "coder": "Batch coder",
+  "alert": "Four crooked caps in fifteen minutes. Check the capper.",
+  "codes": "Batch codes",
+  "codesLong": "Batch and best-before codes",
+  "code1": "Batch code",
+  "codeLower": "batch number",
+  "codeShort": "batch",
+  "smudge": "BATCH 2?-04?? BB ??/2?",
+  "wrongCode": "Wrong year: BB 11/26 printed, 11/27 expected",
+  "retailer": "customer",
+  "audits": "food safety and organic audits"
+ },
+ "extra": [
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"50000\">$50,000</span><span class=\"per\">per batch recalled</span></p>\n        <p class=\"calc\">Example cost of recalling one batch from food makers: product destroyed, freight, customer credits and their own costs passed back. Use your own figure below.</p>"
+  ],
+  [
+   "Retailer penalties and rejected loads a year",
+   "Customer claims and credits a year"
+  ],
+  [
+   "['Retailer penalties',",
+   "['Customer claims',"
+  ],
+  [
+   "retailer penalties a year",
+   "customer claims a year"
+  ]
+ ],
+ "est": {
+  "packs": 3000,
+  "days": 240,
+  "hours": 15,
+  "rate": 45,
+  "recall": 50000,
+  "recalls": 1,
+  "penalty": 15000,
+  "escape": 40
+ },
+ "slug": "essential-flavours"
+}

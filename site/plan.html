@@ -415,6 +415,11 @@ form.enquiry .plan-switch + fieldset { padding-top: 0; border-top: 0; }
 @media (max-width: 520px) { .plan-card { padding: 22px; } .plan-switch { grid-template-columns: minmax(0, 1fr) !important; } }
 @media (prefers-reduced-motion: reduce) { .plan-thumb img { transition: none; } }
 form.enquiry [data-full][hidden], form.enquiry fieldset[hidden] { display: none !important; }
+.plan-pick { margin-top: 48px; font-size: clamp(24px, 2.6vw, 30px); font-weight: 800; letter-spacing: -0.02em; }
+.plan-pick + .plan-options { margin-top: 24px; }
+.plan-card .price { display: flex; align-items: baseline; gap: 10px; margin: -4px 0 0; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.plan-card .price b { font-size: 34px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1; }
+.plan-card .price span { font-size: 15px; color: var(--slate); }
 </style>
 </head>
 <body>
@@ -439,12 +444,14 @@ form.enquiry [data-full][hidden], form.enquiry fieldset[hidden] { display: none 
     <p class="eyebrow">Free solution plan</p>
     <h1 id="page-title">See how AI would work on your line, before you spend a cent.</h1>
     <p class="lead">Tell us about one job that is slow, unsafe or repetitive. We send back a plan built around your product, your line and your numbers.</p>
-    <p class="plan-free"><span>Free</span><span>No obligation</span><span>No site visit needed</span><span>Checked by a person before it is sent</span></p>
+    <p class="plan-free"><span>Both plans are free</span><span>No obligation</span><span>No site visit needed</span><span>Checked by a person before it is sent</span></p>
 
+    <h2 class="plan-pick">Two plans. Both free.</h2>
     <div class="plan-options">
       <article class="plan-card" aria-labelledby="quick-title">
         <p class="kicker"><span>2 minute form</span><span>Ready in 2 business days</span></p>
         <h2 id="quick-title">Quick plan</h2>
+        <p class="price"><b>Free</b><span>No obligation</span></p>
         <p>A first look, to see whether it is worth a conversation.</p>
         <ul>
           <li>A 3D preview of a line like yours, made for your company and product</li>
@@ -452,22 +459,23 @@ form.enquiry [data-full][hidden], form.enquiry fieldset[hidden] { display: none 
           <li>A savings range you can adjust to your own numbers</li>
         </ul>
         <a class="plan-thumb" href="example/preview/"><img src="assets/plan-example-preview.jpg" alt="Example preview: a 3D juice bottling line with a camera checking each bottle" width="1280" height="720" loading="lazy"><span>See an example preview</span></a>
-        <a class="btn btn-line" href="#form" data-plan="quick">Start a quick plan</a>
+        <a class="btn btn-line" href="#form" data-plan="quick">Start a free quick plan</a>
       </article>
       <article class="plan-card featured" aria-labelledby="full-title">
-        <span class="badge">Most useful</span>
+        <span class="badge">Most detailed</span>
         <p class="kicker"><span>About 10 minute form</span><span>Ready in 5 business days</span></p>
         <h2 id="full-title">Full plan</h2>
+        <p class="price"><b>Free</b><span>No obligation</span></p>
         <p>A plan you can take to your manager or board.</p>
         <ul>
-          <li class="plus">Everything in the quick plan</li>
-          <li>A diagram of your line showing where each camera goes</li>
-          <li>What it checks first, and what can be added later</li>
-          <li>A week-by-week path to a working trial, with dates</li>
-          <li>Indicative trial costs, and what we have assumed</li>
+          <li class="plus">Everything in the quick plan, including your 3D preview and savings estimate</li>
+          <li>A layout of your line showing each camera station and what it sees</li>
+          <li>Every check, the faults it catches and the trial targets</li>
+          <li>A week-by-week timeline to a working trial, with your team's hours</li>
+          <li>Itemised costs for each station, and the payback</li>
         </ul>
         <a class="plan-thumb" href="example/plan.html"><img src="assets/plan-example-full.jpg" alt="Example full plan: line diagram, checks and trial timeline for a juice bottling line" width="1280" height="720" loading="lazy"><span>See an example full plan</span></a>
-        <a class="btn btn-primary" href="#form" data-plan="full">Start a full plan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-primary" href="#form" data-plan="full">Start a free full plan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </article>
     </div>
     <p class="plan-note">Both examples were made for Riverbend Drinks, a made-up juice maker.</p>
@@ -500,8 +508,8 @@ form.enquiry [data-full][hidden], form.enquiry fieldset[hidden] { display: none 
       <p hidden><label>Leave this empty <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label></p>
       <fieldset class="plan-switch">
         <legend>Which plan would you like?</legend>
-        <input type="radio" name="plan" id="plan-quick" value="Quick plan"><label for="plan-quick">Quick plan<span>2 minutes · ready in 2 business days</span></label>
-        <input type="radio" name="plan" id="plan-full" value="Full plan" checked><label for="plan-full">Full plan<span>About 10 minutes · ready in 5 business days</span></label>
+        <input type="radio" name="plan" id="plan-quick" value="Quick plan"><label for="plan-quick">Quick plan<span>Free · 2 minutes · ready in 2 business days</span></label>
+        <input type="radio" name="plan" id="plan-full" value="Full plan" checked><label for="plan-full">Full plan<span>Free · about 10 minutes · ready in 5 business days</span></label>
       </fieldset>
       <fieldset>
         <legend>About you</legend>

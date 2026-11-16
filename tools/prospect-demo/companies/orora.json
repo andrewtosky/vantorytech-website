@@ -1,0 +1,180 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Palletiser",
+ "pageTitle": "Orora Can Line Check",
+ "company": "Orora",
+ "short": "Orora",
+ "site": "Dandenong, VIC",
+ "shape": "can",
+ "productName": "Printed can 375 mL",
+ "productShort": "cans",
+ "headline": "Every can checked before it is palletised.",
+ "formProduct": "Printed aluminium beverage cans",
+ "labelTop": "CRAFT LAGER",
+ "labelMain": "SUMMER RELEASE",
+ "labelSize": "375 mL",
+ "wrongTop": "CRAFT LAGER",
+ "wrongMain": "CORE RANGE",
+ "code": "DN3 26-0412 1406",
+ "codeWrong": "DN3 26-0411 1406",
+ "lid": "#B9C0C8",
+ "label": "#F4EAD5",
+ "labelInk": "#1F3E73",
+ "wrongLabel": "#E3EEF5",
+ "body": "#c9ced6",
+ "fill": "#b9c0c8",
+ "lineType": "beverage can line",
+ "vatsLabel": "Coil and cupper",
+ "visitLine": "Call and visit to Dandenong",
+ "heroLede": "Orora's $80 million multi-size can line at Dandenong makes cans from 200 mL to 500 mL, and its Helio direct-to-can digital printing makes short runs and limited editions possible. More designs in shorter runs means more changeovers where the wrong print can slip through. This is what a camera check could look like near the end of a can line, as an example. We would match it to your own line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every can for dents, creases and damaged flanges that can be seen from outside. A damaged flange is the fault your customer finds when the can will not seam on their filler.",
+ "labelLede": "A limited edition and the core range design can look much the same at line speed. The camera checks every can carries the right print for the order, straight, clean and complete.",
+ "codeLede": "The line code ties every can back to its line and shift. The system reads the code on every can and compares it with the order set at changeover.",
+ "objectLede": "Can scrap, spoilage and loose parts can end up on the conveyor. The camera over the line spots anything that should not be there before cans are palletised.",
+ "vocab": {
+  "unit": "can",
+  "units": "cans",
+  "c1": "Can body and flange",
+  "c1h": "No dents, creases or damaged flanges",
+  "chips": [
+   "Dented cans",
+   "Damaged flanges",
+   "Creased walls"
+  ],
+  "r1": [
+   "Flange damaged",
+   "Can dented",
+   "Wall creased"
+  ],
+  "tag1": "BODY",
+  "ok": "Body, print and code OK",
+  "lidder": "Necker and flanger",
+  "filler": "Bodymaker",
+  "coder": "Line coder",
+  "alert": "Four damaged flanges in fifteen minutes. Check the flanger.",
+  "c2": "Print",
+  "r2": [
+   "Print skewed: 5° off",
+   "Print smudged",
+   "Print missing"
+  ],
+  "tag2": "PRINT",
+  "codes": "Line codes",
+  "codesLong": "Line and shift codes",
+  "code1": "Line code",
+  "codeLower": "order number",
+  "codeShort": "code",
+  "smudge": "DN3 2?-04?? 1???",
+  "wrongCode": "Wrong date: 0411 printed, 0412 expected",
+  "audits": "customer audits",
+  "retailer": "customer",
+  "labelWrong": "Wrong print: %(wrong)s on a %(right)s order"
+ },
+ "extra": [
+  [
+   "'Wrong label: Core Range on a Summer Release run'",
+   "'Wrong print: Core Range on a Summer Release order'"
+  ],
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right print for the order</h2>"
+  ],
+  [
+   "['Labeller', X_LABEL",
+   "['Printer', X_LABEL"
+  ],
+  [
+   "['Case packer', X_PACK + 0.9",
+   "['Palletiser', X_PACK + 0.9"
+  ],
+  [
+   "<span class=\"live\">Camera 1 · after the coder</span>",
+   "<span class=\"live\">Camera 1 · after the printer</span>"
+  ],
+  [
+   "The on-site AI reads the code",
+   "The on-site AI checks the can, print and code"
+  ],
+  [
+   "Half a day in a maintenance window, rated for washdown areas.",
+   "Half a day in a maintenance window, clear of the line."
+  ],
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   "<p class=\"fact\">A wrong print or damaged cans are found by your customer on their own filler, often on a launch date. That is when it costs the most to replace.</p>"
+  ],
+  [
+   "<p class=\"fact\">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC</a></p>",
+   ""
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"50000\">$50,000</span><span class=\"per\">per rejected order avoided</span></p>\n        <p class=\"calc\">Example cost of one order sent back by a customer: cans scrapped, line time, freight and a rushed rerun. Use your own figure below.</p>"
+  ],
+  [
+   "Cost of one recall or withdrawal",
+   "Cost of one order rejected by a customer"
+  ],
+  [
+   "Recalls or withdrawals in the past 5 years",
+   "Orders rejected in the past 5 years"
+  ],
+  [
+   "['Recall risk',",
+   "['Rejected orders',"
+  ],
+  [
+   "how often recalls happen",
+   "how often orders are rejected"
+  ],
+  [
+   "manual label and code checks",
+   "manual print and can checks"
+  ],
+  [
+   "Staff hours a week on label and code checks",
+   "Staff hours a week on print and can checks"
+  ],
+  [
+   "How are labels and codes checked today?",
+   "How are cans checked today?"
+  ],
+  [
+   "Tubs a day on the busiest line",
+   "Cans a day on the busiest line"
+  ],
+  [
+   "the product labels are generic",
+   "the can designs shown are generic"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Sources: <a href=\"https://www.premier.vic.gov.au/victoria-cracks-open-new-manufacturing-tech-orora\">Premier of Victoria, Orora Dandenong</a>.</p>"
+  ],
+  [
+   "Retailer penalties and rejected loads a year",
+   "Customer claims and credits a year"
+  ],
+  [
+   "['Retailer penalties',",
+   "['Customer claims',"
+  ],
+  [
+   "retailer penalties a year",
+   "customer claims a year"
+  ]
+ ],
+ "est": {
+  "packs": 2000000,
+  "days": 300,
+  "hours": 24,
+  "rate": 50,
+  "recall": 50000,
+  "recalls": 2,
+  "penalty": 100000,
+  "escape": 2
+ },
+ "slug": "orora"
+}

@@ -1,0 +1,82 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Frozen dispatch",
+ "pageTitle": "Patties Bairnsdale Pie Pack Line",
+ "company": "Patties Foods",
+ "short": "Patties",
+ "site": "Bairnsdale, VIC",
+ "shape": "carton",
+ "productName": "Beef pies 4 pack",
+ "productShort": "pie packs",
+ "headline": "Every pack of pies checked, not a sample.",
+ "formProduct": "Frozen pies in cartons",
+ "labelTop": "4 PIES",
+ "labelMain": "BEEF",
+ "labelSize": "4 x 175 g",
+ "wrongTop": "4 PIES",
+ "wrongMain": "BEEF & CHEESE",
+ "code": "BB 14 MAY 27 L2317",
+ "codeWrong": "BB 14 MAY 26 L2317",
+ "lid": "#e9edf2",
+ "label": "#FFFFFF",
+ "labelInk": "#B5121B",
+ "wrongLabel": "#FFF1C2",
+ "body": "#f2ece4",
+ "fill": "#c8945a",
+ "lineType": "pie packing line",
+ "vatsLabel": "Bakery ovens",
+ "visitLine": "Call and visit to Bairnsdale",
+ "heroLede": "Patties has made pies in Bairnsdale since 1985, for brands like Four'N Twenty, Patties, Herbert Adams and Nanna's. With that many pies going into similar cartons, the label is what tells one from the next. This is what a camera check could look like at the end of a pie packing line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every carton is closed and glued, flaps down and square. An open carton in a freezer means damaged pies and a complaint from the store.",
+ "labelLede": "A beef pack and a beef and cheese pack look much the same at line speed, and one of them carries milk. The camera checks every carton carries the right label for the pies inside, straight and intact.",
+ "codeLede": "The best-before and batch code has to be right and readable on every carton. The system reads the printed code and compares it with the product and date set at changeover.",
+ "objectLede": "Pastry offcuts, glove pieces and loose parts can end up close to the line. The camera over the belt spots anything that should not be there before it reaches a case.",
+ "vocab": {
+  "unit": "pack",
+  "units": "packs",
+  "c1": "Cartons closed",
+  "c1h": "Closed, glued and square",
+  "chips": [
+   "Open flaps",
+   "Flaps not glued",
+   "Crushed cartons"
+  ],
+  "r1": [
+   "Flap not glued",
+   "Flap open",
+   "Carton crushed"
+  ],
+  "tag1": "CARTON",
+  "ok": "Carton, label and code OK",
+  "lidder": "Cartoner",
+  "filler": "Pie loader",
+  "coder": "Date coder",
+  "alert": "Four open flaps in fifteen minutes. Check the cartoner.",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the pies</h2>"
+  ]
+ ],
+ "est": {
+  "packs": 100000,
+  "days": 250,
+  "hours": 20,
+  "rate": 45,
+  "recall": 300000,
+  "recalls": 1,
+  "penalty": 50000,
+  "escape": 8
+ },
+ "slug": "patties"
+}

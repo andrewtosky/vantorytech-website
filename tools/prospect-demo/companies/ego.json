@@ -1,0 +1,155 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Ego Braeside Cream Filling Line",
+ "company": "Ego Pharmaceuticals",
+ "short": "Ego",
+ "site": "Braeside, VIC",
+ "shape": "bottle",
+ "productName": "Moisturising cream 500 g",
+ "productShort": "bottles of cream",
+ "headline": "Every unit checked, not a sample.",
+ "formProduct": "Skincare creams and washes",
+ "labelTop": "SKIN CARE",
+ "labelMain": "MOISTURISING CREAM",
+ "labelSize": "500 g",
+ "wrongTop": "SKIN CARE",
+ "wrongMain": "GENTLE WASH",
+ "codes": "Batch codes",
+ "codesLong": "Batch and expiry codes",
+ "code1": "Batch code",
+ "codeLower": "batch number",
+ "codeShort": "batch",
+ "smudge": "BATCH 26?? EXP ??/29",
+ "wrongCode": "Wrong batch: 2603 printed, 2604 expected",
+ "code": "BATCH 2604 EXP 04/29",
+ "codeWrong": "BATCH 2603 EXP 04/29",
+ "lid": "#FFFFFF",
+ "label": "#FFFFFF",
+ "labelInk": "#1E4E8C",
+ "wrongLabel": "#E4EEF8",
+ "body": "#f4f6f8",
+ "fill": "#f4f6f8",
+ "lineType": "cream filling line",
+ "vatsLabel": "Mixing",
+ "visitLine": "Call and visit to Braeside",
+ "heroLede": "Ego's $35 million Braeside expansion adds a new cream and tube filling line and takes yearly output of therapeutic skincare from 25 million to 50 million units. Twice the units means twice the labels and codes to get right. This is what a camera check could look like on a filling line, shown here with pump bottles. We would match it to your own packs, including tubes. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every unit has its cap or pump on, straight and fully closed. A loose cap means a leak in the carton and a complaint from the pharmacy.",
+ "labelLede": "A moisturising cream and a gentle wash can share a pack and look much the same at line speed. The camera checks every unit carries the right label for the product, straight and intact.",
+ "codeLede": "The batch and expiry code ties every unit back to its batch. The system reads the printed code on every unit and compares it with the product and batch set at changeover.",
+ "objectLede": "Cap offcuts, glove pieces and loose parts can end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "unit",
+  "units": "units",
+  "c1": "Caps",
+  "c1h": "Caps on, straight and closed",
+  "chips": [
+   "Missing caps",
+   "Crooked caps",
+   "Caps not closed"
+  ],
+  "r1": [
+   "Cap crooked",
+   "Cap missing",
+   "Cap not closed"
+  ],
+  "tag1": "CAP",
+  "ok": "Cap, label and batch OK",
+  "lidder": "Capper",
+  "filler": "Filler",
+  "coder": "Batch coder",
+  "alert": "Four crooked caps in fifteen minutes. Check the capper.",
+  "codes": "Batch codes",
+  "codesLong": "Batch and expiry codes",
+  "code1": "Batch code",
+  "codeLower": "batch number",
+  "codeShort": "batch",
+  "smudge": "BATCH 26?? EXP ??/29",
+  "wrongCode": "Wrong batch: 2603 printed, 2604 expected",
+  "audits": "GMP audits",
+  "retailer": "customer"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the product</h2>"
+  ],
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   "<p class=\"fact\">A wrong label or unreadable batch code on a skincare product can mean pulling stock from every pharmacy shelf it went to.</p>"
+  ],
+  [
+   "<p class=\"fact\">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC</a></p>",
+   ""
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one product recall: stock destroyed, retrieval, pharmacy fees and lost sales. Use your own figure below.</p>"
+  ],
+  [
+   "Cost of one recall or withdrawal",
+   "Cost of one recall"
+  ],
+  [
+   "Recalls or withdrawals in the past 5 years",
+   "Recalls in the past 5 years"
+  ],
+  [
+   "['Recall risk',",
+   "['Recall risk',"
+  ],
+  [
+   "how often recalls happen",
+   "how often recalls happen"
+  ],
+  [
+   "manual label and code checks",
+   "manual label and code checks"
+  ],
+  [
+   "Staff hours a week on label and code checks",
+   "Staff hours a week on label and code checks"
+  ],
+  [
+   "How are labels and codes checked today?",
+   "How are labels and codes checked today?"
+  ],
+  [
+   "Tubs a day on the busiest line",
+   "Units a day on the busiest line"
+  ],
+  [
+   "the product labels are generic",
+   "the product labels are generic"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Sources: <a href=\"https://www.premier.vic.gov.au/ego-pharmaceuticals-doubles-down-skincare-line\">Premier of Victoria, Ego Braeside expansion</a>.</p>"
+  ],
+  [
+   "Retailer penalties and rejected loads a year",
+   "Customer claims and credits a year"
+  ],
+  [
+   "['Retailer penalties',",
+   "['Customer claims',"
+  ],
+  [
+   "retailer penalties a year",
+   "customer claims a year"
+  ]
+ ],
+ "est": {
+  "packs": 100000,
+  "days": 250,
+  "hours": 16,
+  "rate": 45,
+  "recall": 200000,
+  "recalls": 1,
+  "penalty": 30000,
+  "escape": 8
+ },
+ "slug": "ego"
+}

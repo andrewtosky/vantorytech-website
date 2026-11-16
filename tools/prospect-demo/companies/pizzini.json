@@ -1,0 +1,83 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Pizzini Bottling Line",
+ "company": "Pizzini Wines",
+ "short": "Pizzini",
+ "site": "Whitfield, King Valley, VIC",
+ "shape": "bottle",
+ "productName": "Sangiovese 750 mL",
+ "productShort": "bottles",
+ "headline": "Every bottle checked, not a sample.",
+ "formProduct": "Bottled wine and prosecco",
+ "labelTop": "KING VALLEY",
+ "labelMain": "SANGIOVESE",
+ "labelSize": "750 mL",
+ "wrongTop": "KING VALLEY",
+ "wrongMain": "NEBBIOLO",
+ "code": "LOT 26-0412",
+ "codeWrong": "LOT 25-0412",
+ "lid": "#d8c9a3",
+ "label": "#F7F2E6",
+ "labelInk": "#7A1F2A",
+ "wrongLabel": "#F1E3D0",
+ "body": "#2f4a2a",
+ "fill": "#2f4a2a",
+ "codeInk": "#F2F2F2",
+ "lineType": "wine bottling line",
+ "vatsLabel": "Tanks",
+ "visitLine": "Call and visit to Whitfield",
+ "heroLede": "The Pizzini family makes wine at Whitfield in the King Valley and is known for Italian varieties like prosecco, sangiovese and nebbiolo. With that many wines going into similar bottles, the label is what tells them apart. This is what a camera check could look like on a bottling line, wherever your wine is bottled. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every bottle has its closure on, straight and fully seated. A crooked screw cap lets air in, and the wine is spoiled by the time someone opens it.",
+ "labelLede": "A sangiovese and a nebbiolo go into the same bottle and look much the same at line speed. The camera checks every bottle carries the right label for the wine inside, straight and intact.",
+ "codeLede": "The lot code ties every bottle back to its tank and vintage. The system reads the printed code on every bottle and compares it with the wine and lot set at changeover.",
+ "objectLede": "Glass fragments, capsule offcuts and loose parts can end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "bottle",
+  "units": "bottles",
+  "c1": "Closures",
+  "c1h": "Closures on, straight and seated",
+  "chips": [
+   "Missing closures",
+   "Crooked closures",
+   "Closures not seated"
+  ],
+  "r1": [
+   "Closure crooked",
+   "Closure missing",
+   "Closure not seated"
+  ],
+  "tag1": "CLOSURE",
+  "ok": "Closure, label and lot OK",
+  "lidder": "Closer",
+  "filler": "Filler",
+  "coder": "Lot coder",
+  "alert": "Four crooked closures in fifteen minutes. Check the closer.",
+  "codes": "Lot codes",
+  "codesLong": "Lot codes",
+  "code1": "Lot code",
+  "codeLower": "lot number",
+  "codeShort": "lot",
+  "smudge": "LOT 2?-04??",
+  "wrongCode": "Wrong vintage: 25 printed, 26 expected"
+ },
+ "extra": [
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"50000\">$50,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a family winery: stock destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 5000,
+  "days": 60,
+  "hours": 8,
+  "rate": 45,
+  "recall": 50000,
+  "recalls": 1,
+  "penalty": 10000,
+  "escape": 20
+ },
+ "slug": "pizzini"
+}

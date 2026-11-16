@@ -1,0 +1,95 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Mars Petcare Wodonga Pouch Line",
+ "company": "Mars Petcare",
+ "short": "Mars",
+ "site": "Wodonga, VIC",
+ "shape": "pouch",
+ "productName": "Cat food 85 g",
+ "productShort": "pouches",
+ "headline": "Every pouch checked, all 290 million a year.",
+ "formProduct": "Wet cat food pouches",
+ "labelTop": "CAT FOOD",
+ "labelMain": "CHICKEN IN GRAVY",
+ "labelSize": "85 g",
+ "wrongTop": "CAT FOOD",
+ "wrongMain": "TUNA IN JELLY",
+ "code": "BB 14 MAY 27 L2317",
+ "codeWrong": "BB 14 MAY 26 L2317",
+ "lid": "#d9dde3",
+ "label": "#FFFFFF",
+ "labelInk": "#6B2A7A",
+ "wrongLabel": "#D8EAF3",
+ "body": "#e6e2ea",
+ "fill": "#e6e2ea",
+ "lineType": "wet pet food pouch line",
+ "vatsLabel": "Kitchen",
+ "visitLine": "Call and visit to Wodonga",
+ "heroLede": "Mars Petcare's $112.6 million wet cat food site at Wodonga is built to make 290 million pouches a year, mostly 85 g, for brands like Whiskas, Dine, Optimum and Advance, with robots moving stock and AI planning the flavour changes. With that many flavours through one site, the label is what tells one pouch from the next. This is what a camera check could look like on a pouch line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every pouch is sealed straight across, with no crease and no food caught in the seal. A weak seal on a retorted pouch is a spoiled pouch in someone’s pantry.",
+ "labelLede": "Chicken in gravy and tuna in jelly pouches look much the same at line speed. The camera checks every pouch carries the right label for the flavour inside, straight and intact, so the pet owner gets what the pack says.",
+ "codeLede": "The best-before and batch code has to be right and readable on every pouch. The system reads the printed code and compares it with the flavour and date set at changeover.",
+ "objectLede": "Film offcuts, glove pieces and loose parts can end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a case.",
+ "vocab": {
+  "unit": "pouch",
+  "units": "pouches",
+  "c1h": "Pouches sealed straight across",
+  "chips": [
+   "Open seals",
+   "Creased seals",
+   "Food in the seal"
+  ],
+  "r1": [
+   "Seal creased",
+   "Pouch not sealed",
+   "Food caught in the seal"
+  ],
+  "filler": "Pouch filler",
+  "coder": "Date coder",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected",
+  "audits": "quality audits",
+  "c1": "Seals",
+  "tag1": "SEAL",
+  "ok": "Seal, label and code OK",
+  "alert": "Four creased seals in fifteen minutes on Line 1. Check the pouch sealer.",
+  "lidder": "Pouch sealer"
+ },
+ "extra": [
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   "<p class=\"fact\">With hundreds of millions of pouches a year, even one wrong label in ten thousand is tens of thousands of pouches. That is our example figure, not yours.</p>"
+  ],
+  [
+   "<p class=\"fact\">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC</a></p>",
+   ""
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"1000000\">$1,000,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one pet food recall at national scale: stock destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Sources: <a href=\"https://www.mars.com/\">Mars website</a>.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 900000,
+  "days": 300,
+  "hours": 24,
+  "rate": 50,
+  "recall": 1000000,
+  "recalls": 1,
+  "penalty": 150000,
+  "escape": 3
+ },
+ "slug": "mars"
+}

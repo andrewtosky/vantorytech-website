@@ -1,0 +1,82 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Stone & Wood Can Line",
+ "company": "Stone & Wood",
+ "short": "Stone & Wood",
+ "site": "Murwillumbah, NSW",
+ "shape": "can",
+ "productName": "Pacific Ale 375 mL",
+ "productShort": "cans",
+ "headline": "Every can of Pacific Ale checked, not a sample.",
+ "formProduct": "Canned beer",
+ "labelTop": "STONE & WOOD",
+ "labelMain": "PACIFIC ALE",
+ "labelSize": "375 mL",
+ "wrongTop": "STONE & WOOD",
+ "wrongMain": "LAGER",
+ "code": "BB 14 MAY 27 L2317",
+ "codeWrong": "BB 14 MAY 26 L2317",
+ "lid": "#B9C0C8",
+ "label": "#E8F3F2",
+ "labelInk": "#1D5C6B",
+ "wrongLabel": "#F6E7C8",
+ "body": "#c9ced6",
+ "fill": "#b9c0c8",
+ "lineType": "beer canning line",
+ "vatsLabel": "Brewhouse",
+ "visitLine": "Call and visit to Murwillumbah",
+ "heroLede": "Stone & Wood brews most of its beer at Murwillumbah, and Pacific Ale has been in cans since January 2019. On a can line the label and the date are what tell one beer and one batch from the next, and they have to be right on every can. This is what a camera check could look like on your can line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every can has its end on and seated, with no visible damage around the seam. It looks at what can be seen from outside, so it adds to your seam checks rather than replacing them.",
+ "labelLede": "Different beers in the same can size look much the same at line speed. The camera checks every can carries the right label for the beer inside, straight and intact.",
+ "codeLede": "Pacific Ale is best fresh, so the date matters. The system reads the printed best-before and batch code on every can and compares them with the beer and date set at changeover.",
+ "objectLede": "Can ends, label backing and carton offcuts can all end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "can",
+  "units": "cans",
+  "c1": "Can ends",
+  "c1h": "Ends on, seated and undamaged",
+  "chips": [
+   "Missing ends",
+   "Ends not seated",
+   "Visible seam damage"
+  ],
+  "r1": [
+   "End not seated",
+   "End missing",
+   "Visible seam damage"
+  ],
+  "tag1": "END",
+  "ok": "End, label and code OK",
+  "lidder": "Seamer",
+  "filler": "Can filler",
+  "coder": "Date coder",
+  "alert": "Four ends not seated in fifteen minutes. Check the seamer.",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected"
+ },
+ "extra": [
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"150000\">$150,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a brewery: stock destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 100000,
+  "days": 250,
+  "hours": 20,
+  "rate": 45,
+  "recall": 150000,
+  "recalls": 1,
+  "penalty": 30000,
+  "escape": 5
+ },
+ "slug": "stone-wood"
+}

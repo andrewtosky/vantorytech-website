@@ -350,6 +350,12 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
 @media (max-width: 880px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 720px) { .cases { grid-template-columns: minmax(0, 1fr); } .inspect .media { height: 200px; } }
 @media (max-width: 520px) { .inspects { grid-template-columns: minmax(0, 1fr); } .facts li { padding: 20px 18px; } }
+.behind { margin-top: 56px; }
+.behind h3.behind-title { font-size: 22px; font-weight: 700; text-align: center; margin-bottom: 24px; }
+.behind .solutions { margin-top: 0; }
+.behind .solution { text-decoration: none; color: inherit; transition: background .2s; }
+.behind .solution:hover { background: var(--mist); }
+.behind .solution .more { margin-top: auto; padding-top: 8px; font-size: 14px; font-weight: 600; color: var(--cobalt); }
 </style>
 <style>
 /* Homepage sections, in the site's own white and cobalt look. Dark midnight bands for the hero, "One system" and results, as on the other pages. */
@@ -521,42 +527,11 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
       <p class="lead">We supply the software, the robots and the people to make it work, so you only need one partner from start to finish.</p>
     </div>
     <div class="tabs" role="group" aria-label="Choose an industry">
-      <button type="button" class="tab" data-tab="timber" aria-pressed="true">Timber frame and truss</button>
-      <button type="button" class="tab" data-tab="food" aria-pressed="false">Food and beverage</button>
+      <button type="button" class="tab" data-tab="food" aria-pressed="true">Food and beverage</button>
       <button type="button" class="tab" data-tab="goods" aria-pressed="false">Moving and lifting</button>
     </div>
 
-    <div class="scene" data-scene="timber">
-      <div class="scene-card">
-        <p class="label">In development · founding customers wanted</p>
-        <h3>Faster quotes from plans</h3>
-        <p>AI reads building plans, measures them and prepares a quote for your estimator to check. Designed to work alongside MiTek or Pryda.</p>
-        <ol class="scene-steps">
-          <li><button type="button" data-step="0" aria-pressed="true"><span class="num">1</span><span>Upload the plans</span></button><p>Send the builder's CAD files, such as DWG or DXF.</p></li>
-          <li><button type="button" data-step="1" aria-pressed="false"><span class="num">2</span><span>AI does the take-off</span></button><p hidden>It reads the measurements and materials from the drawing.</p></li>
-          <li><button type="button" data-step="2" aria-pressed="false"><span class="num">3</span><span>A draft quote appears</span></button><p hidden>Pricing uses your own rates, rules and labour costs.</p></li>
-          <li><button type="button" data-step="3" aria-pressed="false"><span class="num">4</span><span>Your estimator approves</span></button><p hidden>A person checks every quote before it goes out.</p></li>
-        </ol>
-        <a class="text-link" href="#visit">Become a founding customer</a>
-      </div>
-      <div class="map">
-        <img src="assets/map-timber.webp" alt="Illustrated cutaway of a timber frame plant with an estimating office, saw line and truss tables" width="1142" height="780" loading="lazy">
-        <svg viewBox="0 0 1142 780" aria-hidden="true">
-          <g>
-            <polygon points="-24,-6 0,-18 24,-6 24,4 0,16 -24,4" fill="#2350F5"/>
-            <polygon points="-24,-6 0,-18 24,-6 0,6" fill="#FFC629"/>
-            <polygon points="-20,-12 0,-22 20,-12 0,-2" fill="#D6B081"/>
-            <animateMotion dur="22s" repeatCount="indefinite" path="M270.1 434.7 L407 355.6 L868.8 622.2 L407 355.6 L270.1 434.7"/>
-          </g>
-        </svg>
-        <button type="button" class="chip-pin" data-step="0" aria-pressed="true" aria-label="Upload the plans" style="left: 39.9%; top: 18.2%"><span class="tag"><span>1</span><span class="chip-text">Plans uploaded</span></span><span class="stem"></span><span class="dot"></span></button>
-        <button type="button" class="chip-pin" data-step="1" aria-pressed="false" aria-label="AI does the take-off" style="left: 55.4%; top: 20.2%"><span class="tag"><span>2</span><span class="chip-text">AI take-off</span></span><span class="stem"></span><span class="dot"></span></button>
-        <button type="button" class="chip-pin" data-step="2" aria-pressed="false" aria-label="A draft quote appears" style="left: 50.9%; top: 34.3%"><span class="tag"><span>3</span><span class="chip-text">Draft quote</span></span><span class="stem"></span><span class="dot"></span></button>
-        <button type="button" class="chip-pin" data-step="3" aria-pressed="false" aria-label="Your estimator approves" style="left: 33.8%; top: 25.3%"><span class="tag"><span>4</span><span class="chip-text">Estimator sign-off</span></span><span class="stem"></span><span class="dot"></span></button>
-      </div>
-    </div>
-
-    <div class="scene" data-scene="food" hidden>
+    <div class="scene" data-scene="food">
       <div class="scene-card">
         <p class="label">Quality checks on the line</p>
         <h3>Catch faults before a pallet ships</h3>
@@ -610,6 +585,16 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
       </div>
     </div>
     <p class="caption">Concept illustrations.</p>
+
+    <div class="behind reveal">
+      <h3 class="behind-title">AI also works behind the scenes.</h3>
+      <div class="solutions">
+        <a class="solution" href="solutions.html#maintenance"><span class="tag">Maintenance</span><h3>Warn before machines break</h3><p>AI learns from your machine data and warns before something fails.</p><span class="more">How it works</span></a>
+        <a class="solution" href="solutions.html#energy"><span class="tag">Energy</span><h3>See where your power goes</h3><p>Energy use by machine or area, with an alert when it jumps.</p><span class="more">How it works</span></a>
+        <a class="solution" href="solutions.html#assistants"><span class="tag">Reports</span><h3>Assistants that write and report</h3><p>Morning summaries and procedures drafted for a person to check.</p><span class="more">How it works</span></a>
+        <a class="solution" href="solutions.html#training"><span class="tag">Training</span><h3>Train new staff faster</h3><p>Answers from your own manuals, and practice before the first shift.</p><span class="more">How it works</span></a>
+      </div>
+    </div>
 
     <div class="partner-strip" aria-label="Our technology partner's customers">
       <div><span class="label">Our technology partner's customers include</span><span class="name">ZF</span><span class="name">Denso</span><span class="name">BorgWarner</span><span class="name">Johnson &amp; Johnson</span></div>

@@ -1,0 +1,82 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Frozen dispatch",
+ "pageTitle": "G.F.B Foods Frozen Pack Line",
+ "company": "G.F.B Foods",
+ "short": "G.F.B",
+ "site": "Melbourne, VIC",
+ "shape": "flatbag",
+ "productName": "Gluten free battered fish 1 kg",
+ "productShort": "bags of frozen food",
+ "headline": "Every bag checked, not a sample.",
+ "formProduct": "Frozen gluten free battered and crumbed foods",
+ "labelTop": "GLUTEN FREE",
+ "labelMain": "BATTERED FISH",
+ "labelSize": "1 kg",
+ "wrongTop": "GLUTEN FREE",
+ "wrongMain": "CRUMBED CALAMARI",
+ "code": "BB 14 MAY 27 L2317",
+ "codeWrong": "BB 14 MAY 26 L2317",
+ "lid": "#e9edf2",
+ "label": "#FFFFFF",
+ "labelInk": "#1E4E8C",
+ "wrongLabel": "#E3EEF5",
+ "body": "#e9edf2",
+ "fill": "#e8c26a",
+ "lineType": "frozen food packing line",
+ "vatsLabel": "Batter and fryer",
+ "visitLine": "Call and visit",
+ "heroLede": "G.F.B Foods makes frozen gluten free battered and crumbed foods in Melbourne. For gluten free food, the label and the date are the promise the customer relies on. This is what a camera check could look like at the end of a packing line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every bag is sealed straight across, with no crease and no crumb caught in the seal. An open bag in a freezer means freezer burn and a complaint.",
+ "labelLede": "A battered fish bag and a crumbed calamari bag can look much the same at line speed, and they carry different allergens. The camera checks every bag carries the right label for the run, straight and intact.",
+ "codeLede": "The best-before and batch code has to be right and readable on every bag. The system reads the printed code and compares it with the product and date set at changeover.",
+ "objectLede": "Film offcuts, glove pieces and loose parts can end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "bag",
+  "units": "bags",
+  "c1h": "Bags sealed straight across",
+  "chips": [
+   "Open seals",
+   "Creased seals",
+   "Crumb in the seal"
+  ],
+  "r1": [
+   "Seal creased",
+   "Bag not sealed",
+   "Crumb caught in the seal"
+  ],
+  "filler": "Bagger",
+  "coder": "Date coder",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected",
+  "c1": "Seals",
+  "tag1": "SEAL",
+  "ok": "Seal, label and code OK",
+  "alert": "Four creased seals in fifteen minutes on Line 1. Check the bag sealer.",
+  "lidder": "Bag sealer"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the run</h2>"
+  ]
+ ],
+ "est": {
+  "packs": 3000,
+  "days": 250,
+  "hours": 8,
+  "rate": 40,
+  "recall": 100000,
+  "recalls": 1,
+  "penalty": 10000,
+  "escape": 10
+ },
+ "slug": "gfb-foods"
+}

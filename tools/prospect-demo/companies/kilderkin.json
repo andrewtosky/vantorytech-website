@@ -1,0 +1,90 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Kilderkin Gin Bottling",
+ "company": "Kilderkin Distillery",
+ "short": "Kilderkin",
+ "site": "Ballarat, VIC",
+ "shape": "bottle",
+ "productName": "Australian gin 700 mL",
+ "productShort": "bottles of gin",
+ "headline": "Every bottle of gin checked, not a sample.",
+ "formProduct": "Gin and whisky",
+ "labelTop": "LARRIKIN",
+ "labelMain": "AUSTRALIAN GIN",
+ "labelSize": "700 mL",
+ "wrongTop": "LARRIKIN",
+ "wrongMain": "NAVY STRENGTH",
+ "code": "LOT 26-0412",
+ "codeWrong": "LOT 25-0412",
+ "lid": "#2a2a2a",
+ "label": "#F7F2E6",
+ "labelInk": "#1F4E2C",
+ "wrongLabel": "#E3EEF5",
+ "body": "#e9eef2",
+ "fill": "#e9eef2",
+ "lineType": "gin bottling line",
+ "vatsLabel": "Still",
+ "visitLine": "Call and visit to Ballarat",
+ "heroLede": "Kilderkin opened in Ballarat in 2016, and its Larrikin gins are distilled, hand bottled and labelled there, from a classic dry gin to a 57% navy strength, with whisky now added. When gins of different strengths share a bottle, the label is what keeps the alcohol content right. This is what a camera check could look like when you bottle. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every bottle has its closure on, straight and fully seated, with the seal in place. A loose stopper means a leak in transit and a bottle that cannot be sold.",
+ "labelLede": "An Australian gin and a navy strength gin in the same bottle look much the same, but one is a lot stronger, and the wrong label is a wrong alcohol statement. The camera checks every bottle carries the right label for the gin inside, straight and intact.",
+ "codeLede": "The lot code ties every bottle back to its batch. The system reads the printed code on every bottle and compares it with the gin and lot set at changeover.",
+ "objectLede": "Glass fragments, capsule offcuts and loose parts can end up on the bench. The camera spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "bottle",
+  "units": "bottles",
+  "c1": "Closures",
+  "c1h": "Closures on, straight and seated",
+  "chips": [
+   "Missing closures",
+   "Crooked closures",
+   "Seals missing"
+  ],
+  "r1": [
+   "Closure crooked",
+   "Closure missing",
+   "Seal missing"
+  ],
+  "tag1": "CLOSURE",
+  "ok": "Closure, label and lot OK",
+  "lidder": "Capper",
+  "filler": "Filler",
+  "coder": "Lot coder",
+  "alert": "Four crooked closures in fifteen minutes. Check the capper.",
+  "codes": "Lot codes",
+  "codesLong": "Lot codes",
+  "code1": "Lot code",
+  "codeLower": "lot number",
+  "codeShort": "lot",
+  "smudge": "LOT 2?-04??",
+  "wrongCode": "Wrong batch: 25 printed, 26 expected"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the gin</h2>"
+  ],
+  [
+   "'Wrong label: Navy Strength on a Australian Gin run'",
+   "'Wrong label: Navy Strength on an Australian Gin run'"
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"20000\">$20,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a small distillery: stock destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 500,
+  "days": 100,
+  "hours": 6,
+  "rate": 40,
+  "recall": 20000,
+  "recalls": 1,
+  "penalty": 3000,
+  "escape": 40
+ },
+ "slug": "kilderkin"
+}

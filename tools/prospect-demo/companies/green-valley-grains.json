@@ -1,0 +1,152 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Green Valley Grains Bagging Line",
+ "company": "Green Valley Grains",
+ "short": "Green Valley Grains",
+ "site": "Beaconsfield, VIC",
+ "shape": "flatbag",
+ "productName": "Layer pellets 20 kg",
+ "productShort": "bags of feed",
+ "headline": "Every bag of feed checked, not a sample.",
+ "formProduct": "Stockfeed, grain mixes and pet food",
+ "labelTop": "POULTRY",
+ "labelMain": "LAYER PELLETS",
+ "labelSize": "20 kg",
+ "wrongTop": "POULTRY",
+ "wrongMain": "CHICK STARTER",
+ "code": "BATCH 26-0412 BB 04/27",
+ "codeWrong": "BATCH 26-0411 BB 04/27",
+ "lid": "#e9e2cf",
+ "label": "#FFFFFF",
+ "labelInk": "#2B5D34",
+ "wrongLabel": "#FDF0D2",
+ "body": "#e9e2cf",
+ "fill": "#c9a86a",
+ "lineType": "feed bagging line",
+ "vatsLabel": "Mill and mixer",
+ "visitLine": "Call and visit to Beaconsfield",
+ "heroLede": "Green Valley Grains is a family-owned boutique mill in Beaconsfield that makes stockfeed, grain and seed mixes and pet food for poultry, birds, small animals and horses, sold through stockfeed and pet stores, and audited each year under FeedSafe. With that many mixes going into similar bags, the label is what tells one feed from the next. This is what a camera check could look like at the end of a bagging line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every bag is stitched or sealed shut, straight across. An open bag spills in the truck and becomes a return from the store.",
+ "labelLede": "Layer pellets and chick starter look much the same in a bag at line speed, and the wrong feed for the wrong animal is a real problem for the customer. The camera checks every bag carries the right label for the run, straight and intact.",
+ "codeLede": "The batch code ties every bag back to its mix, which FeedSafe audits rely on. The system reads the printed code on every bag and compares it with the mix and date set at changeover.",
+ "objectLede": "String offcuts, bag scraps and loose parts can end up on the conveyor. The camera over the belt spots anything that should not be there before bags are palletised.",
+ "vocab": {
+  "unit": "bag",
+  "units": "bags",
+  "c1": "Closures",
+  "c1h": "Bags closed straight across",
+  "chips": [
+   "Open bags",
+   "Crooked stitching",
+   "Torn bags"
+  ],
+  "r1": [
+   "Stitching crooked",
+   "Bag not closed",
+   "Bag torn"
+  ],
+  "tag1": "CLOSE",
+  "ok": "Closure, label and batch OK",
+  "lidder": "Bag closer",
+  "filler": "Bag filler",
+  "coder": "Batch coder",
+  "alert": "Four crooked closures in fifteen minutes. Check the bag closer.",
+  "codes": "Batch codes",
+  "codesLong": "Batch and best-before codes",
+  "code1": "Batch code",
+  "codeLower": "batch number",
+  "codeShort": "batch",
+  "smudge": "BATCH 2?-04?? BB ??/27",
+  "wrongCode": "Wrong batch: 0411 printed, 0412 expected",
+  "audits": "FeedSafe audits",
+  "retailer": "store"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the feed</h2>"
+  ],
+  [
+   "['Case packer', X_PACK + 0.9",
+   "['Palletiser', X_PACK + 0.9"
+  ],
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   "<p class=\"fact\">A bag of the wrong feed is found by a farmer or pet owner, often after the animals have eaten it. That is when it costs the most to fix.</p>"
+  ],
+  [
+   "<p class=\"fact\">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC</a></p>",
+   ""
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"30000\">$30,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one feed recall: stock destroyed, retrieval, store credits and lost sales. Use your own figure below.</p>"
+  ],
+  [
+   "Cost of one recall or withdrawal",
+   "Cost of one feed recall"
+  ],
+  [
+   "Recalls or withdrawals in the past 5 years",
+   "Recalls or withdrawals in the past 5 years"
+  ],
+  [
+   "['Recall risk',",
+   "['Recall risk',"
+  ],
+  [
+   "how often recalls happen",
+   "how often recalls happen"
+  ],
+  [
+   "manual label and code checks",
+   "manual label and code checks"
+  ],
+  [
+   "Staff hours a week on label and code checks",
+   "Staff hours a week on label and code checks"
+  ],
+  [
+   "How are labels and codes checked today?",
+   "How are bags checked today?"
+  ],
+  [
+   "Tubs a day on the busiest line",
+   "Bags a day on the busiest line"
+  ],
+  [
+   "the product labels are generic",
+   "the bag labels shown are generic"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Sources: <a href=\"https://www.greenvalleygrains.com/\">Green Valley Grains website</a>.</p>"
+  ],
+  [
+   "Retailer penalties and rejected loads a year",
+   "Customer claims and credits a year"
+  ],
+  [
+   "['Retailer penalties',",
+   "['Customer claims',"
+  ],
+  [
+   "retailer penalties a year",
+   "customer claims a year"
+  ]
+ ],
+ "est": {
+  "packs": 2000,
+  "days": 250,
+  "hours": 8,
+  "rate": 40,
+  "recall": 30000,
+  "recalls": 1,
+  "penalty": 5000,
+  "escape": 20
+ },
+ "slug": "green-valley-grains"
+}

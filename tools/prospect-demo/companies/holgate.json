@@ -1,0 +1,82 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Holgate Brewhouse Can Line",
+ "company": "Holgate Brewhouse",
+ "short": "Holgate",
+ "site": "Woodend, VIC",
+ "shape": "can",
+ "productName": "Pale ale 375 mL",
+ "productShort": "cans",
+ "headline": "Every can checked, not a sample.",
+ "formProduct": "Canned beer and co-packed drinks",
+ "labelTop": "WOODEND",
+ "labelMain": "PALE ALE",
+ "labelSize": "375 mL",
+ "wrongTop": "WOODEND",
+ "wrongMain": "LAGER",
+ "code": "BB 14 MAY 27 L2317",
+ "codeWrong": "BB 14 MAY 26 L2317",
+ "lid": "#B9C0C8",
+ "label": "#F4EAD5",
+ "labelInk": "#2A3A2A",
+ "wrongLabel": "#E3EEF5",
+ "body": "#c9ced6",
+ "fill": "#b9c0c8",
+ "lineType": "beer canning line",
+ "vatsLabel": "Brewhouse",
+ "visitLine": "Call and visit to Woodend",
+ "heroLede": "Holgate Brewhouse has brewed in Woodend since 1999, and its packaging line now runs cans at up to 12,000 an hour, bottles at 8,500 an hour and up to 40 pallets a day, for its own beers and for the brands it co-packs. When the line switches between your beer and a client's, the label and the date are what keep each run right. This is what a camera check could look like on that line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every can has its end on and seated, with no visible damage around the seam. It looks at what can be seen from outside, so it adds to your seam checks rather than replacing them.",
+ "labelLede": "A pale ale and a lager in the same can size look much the same at line speed, and on a co-pack run the wrong can is another brand’s problem too. The camera checks every can carries the right label for the run, straight and intact.",
+ "codeLede": "The best-before and batch code has to be right and readable on every can. The system reads the printed code and compares it with the beer and date set at changeover.",
+ "objectLede": "Can ends, label backing and carton offcuts can all end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a pack.",
+ "vocab": {
+  "unit": "can",
+  "units": "cans",
+  "c1": "Can ends",
+  "c1h": "Ends on, seated and undamaged",
+  "chips": [
+   "Missing ends",
+   "Ends not seated",
+   "Visible seam damage"
+  ],
+  "r1": [
+   "End not seated",
+   "End missing",
+   "Visible seam damage"
+  ],
+  "tag1": "END",
+  "ok": "End, label and code OK",
+  "lidder": "Seamer",
+  "filler": "Can filler",
+  "coder": "Date coder",
+  "alert": "Four ends not seated in fifteen minutes. Check the seamer.",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected"
+ },
+ "extra": [
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"80000\">$80,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a regional brewery and co-packer: stock destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 60000,
+  "days": 220,
+  "hours": 16,
+  "rate": 45,
+  "recall": 80000,
+  "recalls": 1,
+  "penalty": 15000,
+  "escape": 5
+ },
+ "slug": "holgate"
+}

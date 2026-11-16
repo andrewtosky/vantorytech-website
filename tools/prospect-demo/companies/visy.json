@@ -1,0 +1,177 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Visy Smithfield Box Check",
+ "company": "Visy",
+ "short": "Visy",
+ "site": "Smithfield, NSW",
+ "shape": "carton",
+ "productName": "Produce box 10 kg",
+ "productShort": "boxes",
+ "headline": "Every box checked before it is bundled.",
+ "formProduct": "Corrugated boxes",
+ "labelTop": "PRODUCE BOX",
+ "labelMain": "ROMA TOMATOES",
+ "labelSize": "10 kg",
+ "wrongTop": "PRODUCE BOX",
+ "wrongMain": "CHERRY TOMATOES",
+ "code": "ORDER 26-0412 RUN 2",
+ "codeWrong": "ORDER 26-0413 RUN 2",
+ "lid": "#c79a63",
+ "label": "#efe3cf",
+ "labelInk": "#2B5D34",
+ "wrongLabel": "#F1D7D0",
+ "body": "#c79a63",
+ "fill": "#c79a63",
+ "lineType": "box converting line",
+ "vatsLabel": "Board from the corrugator",
+ "visitLine": "Call and visit to Smithfield",
+ "heroLede": "Visy is putting a new $30 million, 2.8 metre corrugator into its Smithfield board factory, which also makes boxes, and has supplied boxes to farmers and food and beverage brands for more than 40 years. A box with the wrong print or an open glue joint stops your customer's packing line, not just yours. This is what a camera check could look like at the end of a converting line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every box is glued, folded square and undamaged. An open glue joint or a crushed corner is the fault your customer finds when the box will not erect on their line.",
+ "labelLede": "Two print jobs for the same customer can look much the same at speed. The camera checks every box carries the right print for the order, straight, clean and complete.",
+ "codeLede": "The order and run marks tie every bundle back to its job. The system reads them on every box and compares them with the order set at changeover.",
+ "objectLede": "Board offcuts, strapping and loose parts can end up on the conveyor. The camera over the belt spots anything that should not be there before boxes are bundled.",
+ "vocab": {
+  "unit": "box",
+  "units": "boxes",
+  "c1": "Glue and folds",
+  "c1h": "Glued, folded square and undamaged",
+  "chips": [
+   "Open glue joints",
+   "Skewed flaps",
+   "Crushed corners"
+  ],
+  "r1": [
+   "Flap skewed",
+   "Glue joint open",
+   "Corner crushed"
+  ],
+  "tag1": "GLUE",
+  "ok": "Glue, print and marks OK",
+  "lidder": "Folder-gluer",
+  "filler": "Printer slotter",
+  "coder": "Order marker",
+  "alert": "Four skewed flaps in fifteen minutes on the folder-gluer. Check the guides.",
+  "c2": "Print",
+  "r2": [
+   "Print skewed: 5° off",
+   "Print smudged",
+   "Print missing"
+  ],
+  "tag2": "PRINT",
+  "tag3": "MARK",
+  "codes": "Order marks",
+  "codesLong": "Order and run marks",
+  "code1": "Order mark",
+  "codeLower": "order number",
+  "codeShort": "order",
+  "smudge": "ORDER 2?-04?? RUN ?",
+  "wrongCode": "Wrong order: 0413 marked, 0412 expected",
+  "audits": "customer and ISO audits",
+  "retailer": "customer",
+  "labelWrong": "Wrong print: %(wrong)s on a %(right)s order"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right print for the order</h2>"
+  ],
+  [
+   "['Labeller', X_LABEL",
+   "['Die cutter', X_LABEL"
+  ],
+  [
+   "['Case packer', X_PACK + 0.9",
+   "['Bundler', X_PACK + 0.9"
+  ],
+  [
+   "<span class=\"live\">Camera 1 · after the coder</span>",
+   "<span class=\"live\">Camera 1 · before the bundler</span>"
+  ],
+  [
+   "The on-site AI reads the code",
+   "The on-site AI checks the glue, print and marks"
+  ],
+  [
+   "Half a day in a maintenance window, rated for washdown areas.",
+   "Half a day in a maintenance window, clear of the converting line."
+  ],
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   "<p class=\"fact\">A wrong or faulty box is found by your customer on their own packing line, often on a busy harvest day. That is when it costs the most to replace.</p>"
+  ],
+  [
+   "<p class=\"fact\">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC</a></p>",
+   ""
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"25000\">$25,000</span><span class=\"per\">per rejected order avoided</span></p>\n        <p class=\"calc\">Example cost of one order sent back by a customer: board, machine time, freight and a rushed rerun. Use your own figure below.</p>"
+  ],
+  [
+   "Cost of one recall or withdrawal",
+   "Cost of one order rejected by a customer"
+  ],
+  [
+   "Recalls or withdrawals in the past 5 years",
+   "Orders rejected in the past 5 years"
+  ],
+  [
+   "['Recall risk',",
+   "['Rejected orders',"
+  ],
+  [
+   "how often recalls happen",
+   "how often orders are rejected"
+  ],
+  [
+   "manual label and code checks",
+   "manual print and glue checks"
+  ],
+  [
+   "Staff hours a week on label and code checks",
+   "Staff hours a week on print and glue checks"
+  ],
+  [
+   "How are labels and codes checked today?",
+   "How are boxes checked today?"
+  ],
+  [
+   "Tubs a day on the busiest line",
+   "Boxes a day on the busiest line"
+  ],
+  [
+   "the product labels are generic",
+   "the box print shown is generic"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Sources: <a href=\"https://www.visy.com.au/\">Visy website</a>.</p>"
+  ],
+  [
+   "Retailer penalties and rejected loads a year",
+   "Customer claims and credits a year"
+  ],
+  [
+   "['Retailer penalties',",
+   "['Customer claims',"
+  ],
+  [
+   "retailer penalties a year",
+   "customer claims a year"
+  ]
+ ],
+ "est": {
+  "packs": 150000,
+  "days": 250,
+  "hours": 20,
+  "rate": 45,
+  "recall": 25000,
+  "recalls": 2,
+  "penalty": 50000,
+  "escape": 2
+ },
+ "slug": "visy"
+}

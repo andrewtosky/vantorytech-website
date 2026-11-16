@@ -421,6 +421,10 @@ form.enquiry [data-full][hidden], form.enquiry fieldset[hidden] { display: none 
 .plan-card .price { display: flex; align-items: baseline; gap: 10px; margin: -4px 0 0; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
 .plan-card .price b { font-size: 34px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1; }
 .plan-card .price span { font-size: 15px; color: var(--slate); }
+.plan-thumb .duo-media { position: relative; }
+.plan-thumb .duo-media em { position: absolute; bottom: 10px; font-style: normal; font-size: 12px; font-weight: 700; padding: 4px 9px; border-radius: 999px; }
+.plan-thumb .duo-media em.l { left: 10px; background: var(--white); color: var(--ink); box-shadow: 0 1px 6px rgba(14,21,48,.15); }
+.plan-thumb .duo-media em.r { left: calc(62.8% + 10px); background: rgba(11,20,36,.85); color: var(--white); }
 </style>
 </head>
 <body>
@@ -475,7 +479,7 @@ form.enquiry [data-full][hidden], form.enquiry fieldset[hidden] { display: none 
           <li>A week-by-week timeline to a working trial, with your team's hours</li>
           <li>Itemised costs for each station, and the payback</li>
         </ul>
-        <a class="plan-thumb" href="example/plan.html"><img src="assets/plan-example-full.jpg" alt="Example full plan: line diagram, checks and trial timeline for a juice bottling line" width="1280" height="720" loading="lazy"><span>See an example full plan</span></a>
+        <a class="plan-thumb duo" href="example/plan.html"><div class="duo-media"><video autoplay muted loop playsinline preload="metadata" poster="assets/plan-example-full.jpg" width="1280" height="720" aria-label="Example full plan: a moving layout of the line beside the 3D preview"><source src="assets/plan-example-full.mp4" type="video/mp4"></video><em class="l">Line layout</em><em class="r">3D preview</em></div><span>See an example full plan</span></a>
         <a class="btn btn-primary" href="#form" data-plan="full">Start a free full plan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </article>
     </div>

@@ -1,6 +1,7 @@
 // Trial request extras for the enquiry form.
 // - Shows the "Your line" questions when Food and beverage is chosen.
 // - Gives each enquiry email a clear subject line.
+// - On the free solution plan page: switches between the quick and full plan forms.
 // - Sends a copy of each valid enquiry to the Vantory enquiries sheet (Google Apps Script),
 //   alongside the existing Web3Forms email. The inline script on each page still handles
 //   validation, the Web3Forms send and the on-page messages.
@@ -27,14 +28,47 @@
       return el ? el.value.trim() : '';
     }
 
+    var planInputs = form.querySelectorAll('input[name="plan"]');
+    var submitBtn = document.getElementById('plan-submit');
+    function planType() {
+      var c = form.querySelector('input[name="plan"]:checked');
+      return c ? c.value : '';
+    }
+    function isQuick() { return planType() === 'Quick plan'; }
+
     function toggleBlock() {
       if (!block || !industry) return;
-      block.hidden = industry.value !== 'Food and beverage';
+      block.hidden = industry.value !== 'Food and beverage' || isQuick();
     }
+
+    function togglePlan() {
+      if (!planInputs.length) return;
+      form.querySelectorAll('[data-full]').forEach(function (el) { el.hidden = isQuick(); });
+      if (submitBtn) submitBtn.firstChild.nodeValue = isQuick() ? 'Send and get my quick plan ' : 'Send and get my full plan ';
+      toggleBlock();
+    }
+
+    function choosePlan(kind) {
+      var el = document.getElementById(kind === 'quick' ? 'plan-quick' : 'plan-full');
+      if (!el) return;
+      el.checked = true;
+      togglePlan();
+      updateSubject();
+    }
+    document.querySelectorAll('[data-plan]').forEach(function (a) {
+      a.addEventListener('click', function () { choosePlan(a.getAttribute('data-plan')); });
+    });
+    if (/^#(quick|full)$/.test(location.hash)) {
+      choosePlan(location.hash.slice(1));
+      var target = document.getElementById('form');
+      if (target) setTimeout(function () { target.scrollIntoView(); }, 0);
+    }
+    planInputs.forEach(function (r) { r.addEventListener('change', togglePlan); });
+    form.addEventListener('reset', function () { setTimeout(function () { togglePlan(); updateSubject(); }, 0); });
 
     function updateSubject() {
       if (!subject) return;
-      var parts = ['Trial request: ' + (val('f-company') || 'New enquiry')];
+      var parts = [(planType() ? planType() + ' request: ' : 'Trial request: ') + (val('f-company') || 'New enquiry')];
       if (val('f-industry')) parts.push(val('f-industry'));
       if (val('f-timeline')) parts.push(val('f-timeline'));
       subject.value = parts.join(' · ');
@@ -43,6 +77,7 @@
       if (all) all.value = Array.prototype.map.call(form.querySelectorAll('input[name="check"]:checked'), function (c) { return c.value; }).join(', ');
     }
 
+    togglePlan();
     toggleBlock();
     updateSubject();
     if (industry) industry.addEventListener('change', toggleBlock);
@@ -71,6 +106,7 @@
       var foodLine = block && !block.hidden;
       var payload = {
         token: TOKEN,
+        plan: planType(),
         botcheck: data.get('botcheck') ? '1' : '',
         name: val('f-name'),
         company: val('f-company'),

@@ -154,7 +154,7 @@ ARR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="
 
 css = open(os.path.join(os.path.dirname(__file__), 'example-plan.css')).read()
 body = open(os.path.join(os.path.dirname(__file__), 'example-plan-body.html')).read()
-for k, v in {'{{LOGO}}': logo_dark, '{{DIAGRAM}}': diagram(), '{{STATIONS}}': station_cards(), '{{PATH}}': path_html(), '{{COSTS}}': COSTS, '{{LATER}}': LATER_T, '{{ARR}}': ARR}.items():
+for k, v in {'{{LOGO}}': logo_dark, '{{DIAGRAM}}': diagram(), '{{STATIONS}}': station_cards(), '{{PATH}}': path_html(), '{{COSTS}}': COSTS, '{{ARR}}': ARR}.items():
     assert k in body, k
     body = body.replace(k, v)
 page = '''<!DOCTYPE html>

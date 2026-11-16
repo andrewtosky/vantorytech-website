@@ -3,7 +3,7 @@
   'use strict';
   var form = document.getElementById('s-form');
   if (!form) return;
-  var INVEST_LOW = 24200 + 9000 + 6000, INVEST_HIGH = 38900 + 14000 + 9000; // trial plus phase 2
+  var INVEST_LOW = 24200, INVEST_HIGH = 38900; // the trial
   function v(id) { var n = parseFloat(document.getElementById(id).value); return isFinite(n) && n > 0 ? n : 0; }
   function money(n) { return 'A$' + Math.round(n).toLocaleString('en-AU'); }
   function k(n) { return Math.round(n / 1000) + 'k'; }
@@ -27,7 +27,7 @@
     var pb = document.getElementById('s-payback');
     if (total > 0) {
       var a = Math.max(1, Math.round(INVEST_LOW / (hi / 12))), b = Math.round(INVEST_HIGH / (lo / 12));
-      pb.innerHTML = 'Pays back in about <b>' + a + ' to ' + b + ' months</b>, counting the trial and phase 2.';
+      pb.innerHTML = 'Pays back in about <b>' + a + ' to ' + b + ' months</b>, counting the cost of the trial.';
     } else pb.textContent = '';
   }
   form.addEventListener('input', update);
@@ -52,7 +52,7 @@
   }
   function sx(x) { return L1 + ARC + (CX - x); } // distance along the belt for an x on the lower run
   var S_A = 315, S_B = sx(800), S_REJ = sx(680), S_PACK = sx(560), S_END_CASE = sx(330), S_C = sx(420);
-  var SPEED = 72, GAP = 32, mode = 'trial', paused = false, visible = true;
+  var SPEED = 34, GAP = 32, mode = 'trial', paused = false, visible = true;
   var bottles = [], cases = [], n = 0, packed = 0, checked = 1240, flagged = 0, last = 0, acc = GAP;
   var REASONS_A = ['Cap not seated', 'Fill below the line', 'Cap crooked'];
   var REASONS_B = ['Wrong best-before', 'Label crooked', 'Wrong label for the run'];
@@ -73,14 +73,14 @@
   function popup(letter, text) {
     var g = document.getElementById('pop-' + letter); if (!g) return;
     g.querySelector('text').textContent = text;
-    pulse('pop-' + letter, 'on', 1600);
+    pulse('pop-' + letter, 'on', 2200);
   }
   function seen(letter, bad, reason) {
     var st = document.getElementById('cone-' + letter).parentNode.querySelector('.st');
-    if (st) { st.classList.add(bad ? 'flag' : 'on'); setTimeout(function () { st.classList.remove('on', 'flag'); }, bad ? 700 : 220); }
-    pulse('cone-' + letter, 'on', 260);
-    pulse('net-' + letter, 'on', 260);
-    if (bad) { pulse('light-' + letter, 'bad', 1500); popup(letter, reason); pulse('net-S', 'on', 600); }
+    // only a fault is shown: a normal bottle passes quietly
+    if (!bad) return;
+    if (st) { st.classList.add('flag'); setTimeout(function () { st.classList.remove('flag'); }, 900); }
+    pulse('light-' + letter, 'bad', 1800); popup(letter, reason); pulse('net-' + letter, 'on', 900); pulse('net-S', 'on', 900);
   }
   function screen() {
     document.getElementById('scr-count').textContent = 'Checked ' + checked.toLocaleString('en-AU');
@@ -157,7 +157,7 @@
     requestAnimationFrame(frame);
   }
   // fill the belt so it starts mid-shift
-  function prime() { for (var t = 0; t < 26; t += 0.05) step(0.05); }
+  function prime() { for (var t = 0; t < 52; t += 0.05) step(0.05); }
 
   var note = document.getElementById('sim-note');
   var NOTES = {

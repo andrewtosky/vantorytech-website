@@ -3,7 +3,7 @@
   'use strict';
   var form = document.getElementById('s-form');
   if (!form) return;
-  var INVEST_LOW = 24200, INVEST_HIGH = 38900; // the trial
+  var INVEST_LOW = 17500, INVEST_HIGH = 21000; // step 3 purchase total, which includes the credited trial fee
   function v(id) { var n = parseFloat(document.getElementById(id).value); return isFinite(n) && n > 0 ? n : 0; }
   function money(n) { return 'A$' + Math.round(n).toLocaleString('en-AU'); }
   function k(n) { return Math.round(n / 1000) + 'k'; }
@@ -27,7 +27,7 @@
     var pb = document.getElementById('s-payback');
     if (total > 0) {
       var a = Math.max(1, Math.round(INVEST_LOW / (hi / 12))), b = Math.round(INVEST_HIGH / (lo / 12));
-      pb.innerHTML = 'Pays back in about <b>' + a + ' to ' + b + ' months</b>, counting the cost of the trial.';
+      pb.innerHTML = 'Pays back in about <b>' + a + ' to ' + b + ' months</b>, counting the purchase in step 3.';
     } else pb.textContent = '';
   }
   form.addEventListener('input', update);
@@ -119,7 +119,7 @@
       var b = bottles[k];
       if (b.out > 0) { b.out += d; place(b); if (b.out > 60) { b.g.remove(); bottles.splice(k, 1); } continue; }
       b.s += d;
-      if (!b.doneA && b.s >= S_A) { b.doneA = true; if (b.failA) { b.bad = true; b.g.classList.add('bad'); flagged++; screen(); } seen('A', !!b.failA, b.failA); }
+      if (!b.doneA && b.s >= S_A) { b.doneA = true; if (mode === 'p2' && b.failA) { b.bad = true; b.g.classList.add('bad'); flagged++; screen(); } if (mode === 'p2') seen('A', !!b.failA, b.failA); }
       if (!b.doneB && b.s >= S_B) {
         b.doneB = true; checked++;
         if (!b.bad && b.failB) { b.bad = true; b.g.classList.add('bad'); flagged++; seen('B', true, b.failB); } else seen('B', false);
@@ -161,15 +161,15 @@
 
   var note = document.getElementById('sim-note');
   var NOTES = {
-    trial: 'A flagged bottle lights the tower light and shows on the screen. Your team lifts it off the line.',
-    p2: 'Flagged bottles are blown into the reject bin, and station C checks every case before it is sealed.'
+    trial: 'Station B checks every label and code. A flagged bottle lights the tower light and shows on the screen, and your team lifts it off the line.',
+    p2: 'With stations A, B and C, flagged bottles are blown into the reject bin and every case is checked before it is sealed.'
   };
   document.querySelectorAll('.sim-mode button').forEach(function (btn) {
     btn.addEventListener('click', function () {
       mode = btn.getAttribute('data-mode');
       document.querySelectorAll('.sim-mode button').forEach(function (o) { o.setAttribute('aria-pressed', o === btn ? 'true' : 'false'); });
       wrap.classList.toggle('p2', mode === 'p2');
-      document.getElementById('rej-sub').textContent = mode === 'p2' ? 'air jet on' : 'phase 2';
+      document.getElementById('rej-sub').textContent = mode === 'p2' ? 'air jet on' : 'later';
       note.textContent = NOTES[mode];
     });
   });
@@ -187,4 +187,9 @@
   var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (still) { paused = true; pauseBtn.textContent = 'Play'; pauseBtn.setAttribute('aria-pressed', 'true'); }
   requestAnimationFrame(frame);
+})();
+
+(function () {
+  if (!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  document.querySelectorAll('video[autoplay]').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); });
 })();

@@ -5,12 +5,12 @@
     <div class="cover-top">{{LOGO}}<p class="ref">Full solution plan &middot; Ref VT-2611-RB &middot; 17 November 2026</p></div>
     <p class="eyebrow">Prepared for Daniel Moretti, Operations Manager, Riverbend Drinks</p>
     <h1>Every bottle on Line 1 checked for caps, fill, labels and codes.</h1>
-    <p class="lede">You told us best-before codes and labels are checked by eye on a sample of each run, and that a wrong code after a flavour change is your biggest worry. This plan adds three camera stations to Line 1. They clamp onto the conveyor and plug into existing power points, so there is no wiring and nothing connects to your machines. The first two run a four-week trial, alerts only.</p>
+    <p class="lede">You told us best-before codes and labels are checked by eye on a sample of each run, and that a wrong code after a flavour change is your biggest worry. This plan starts with a free check on your own bottles, then a four-week trial of one camera station for labels and codes, on equipment we lend you. It clamps onto the conveyor and plugs into a power point, so there is no wiring. If it works, the trial fee comes off the purchase and we add a station for caps and fill.</p>
     <dl class="kpis">
-      <div><dt>Camera stations</dt><dd>2 in the trial</dd><span>3 cameras, a third station later</span></div>
-      <div><dt>Trial running</dt><dd>2 Feb 2027</dd><span>Decision by 5 March</span></div>
-      <div><dt>Trial investment</dt><dd>A$24k&ndash;39k</dd><span>Excluding GST, see costs</span></div>
-      <div><dt>Estimated savings</dt><dd id="kpi-save">A$89k&ndash;134k</dd><span>A year, once running</span></div>
+      <div><dt>Step 1</dt><dd>Free check</dd><span>On your own sample bottles</span></div>
+      <div><dt>Step 2: trial fee</dt><dd>A$5.5k&ndash;7k</dd><span>One station on loan, from 2 Feb</span></div>
+      <div><dt>Step 3: if you go ahead</dt><dd>A$17.5k&ndash;21k</dd><span>Two stations, trial fee credited</span></div>
+      <div><dt>Estimated savings</dt><dd id="kpi-save">A$72k&ndash;108k</dd><span>A year, with both stations</span></div>
     </dl>
   </div>
 </header>
@@ -26,7 +26,7 @@
   <h2 id="h-preview">Your 3D preview</h2>
   <p class="sub">A scroll-through model of a juice line like yours, with your product on the belt. It shows each check as a bottle passes the camera, and ends with the savings estimate below.</p>
   <a class="preview-card" href="/example/preview/">
-    <img src="/assets/plan-example-preview.jpg" alt="3D juice bottling line with a camera flagging a cap that is not seated" width="1280" height="720" loading="lazy">
+    <video autoplay muted loop playsinline preload="metadata" poster="/assets/plan-example-preview.jpg" width="1280" height="720" aria-label="3D juice bottling line with bottles moving past a camera check"><source src="/assets/plan-example-preview.mp4" type="video/mp4"></video>
     <span class="play">Open the 3D preview {{ARR}}</span>
   </a>
 </section>
@@ -34,21 +34,21 @@
 <section id="layout" class="blk" aria-labelledby="h-layout">
   <p class="num">02</p>
   <h2 id="h-layout">Where the cameras go</h2>
-  <p class="sub">Line 1, 600 mL PET bottles, about 40,000 a day over two shifts. Positions are from your description and will be fixed on the site visit. Every station clamps on and plugs in, so no electrician is needed.</p>
+  <p class="sub">Line 1, 600 mL PET bottles, about 40,000 a day over two shifts. Positions are from your description and will be fixed on the site visit. The trial uses station B only. Every station clamps on and plugs in, so no electrician is needed.</p>
   <div class="sim">
     <div class="sim-bar">
       <div class="sim-mode" role="group" aria-label="Show the line during">
-        <button type="button" data-mode="trial" aria-pressed="true">Trial: alerts only</button>
-        <button type="button" data-mode="p2" aria-pressed="false">Phase 2: automatic reject</button>
+        <button type="button" data-mode="trial" aria-pressed="true">Trial: station B, alerts only</button>
+        <button type="button" data-mode="p2" aria-pressed="false">Later: all stations, automatic reject</button>
       </div>
-      <p class="sim-note" id="sim-note">A flagged bottle lights the tower light and shows on the screen. Your team lifts it off the line.</p>
+      <p class="sim-note" id="sim-note">Station B checks every label and code. A flagged bottle lights the tower light and shows on the screen, and your team lifts it off the line.</p>
       <button type="button" class="sim-pause" id="sim-pause" aria-pressed="false">Pause</button>
     </div>
     <div class="diagram">{{DIAGRAM}}</div>
   </div>
   <ul class="legend">
     <li><i class="lg-st"></i>Camera station in the trial</li>
-    <li><i class="lg-later"></i>Added in phase 2</li>
+    <li><i class="lg-later"></i>Added after the trial</li>
     <li><i class="lg-m"></i>Your existing equipment</li>
     <li><i class="lg-net"></i>Network to the AI unit</li>
   </ul>
@@ -58,16 +58,16 @@
 <section id="checks" class="blk" aria-labelledby="h-checks">
   <p class="num">03</p>
   <h2 id="h-checks">What gets checked</h2>
-  <p class="sub">Every bottle, at full line speed. In the trial a flagged bottle turns the tower light red and shows on the screen with a photo, so your team can pull it. Automatic reject comes in phase 2, when a licensed electrician connects it to your line.</p>
+  <p class="sub">Every bottle, at full line speed. In the trial a flagged bottle turns the tower light red and shows on the screen with a photo, so your team can pull it. Automatic reject can come later, when a licensed electrician connects it to your line.</p>
   <div class="tbl"><table class="matrix">
     <thead><tr><th scope="col">Check</th><th scope="col">Station</th><th scope="col">What it catches</th><th scope="col">When</th></tr></thead>
     <tbody>
       <tr><td><b>Best-before and batch code</b></td><td><span class="bdg sm">B</span></td><td>Missing, smudged or wrong date, compared with the product and date set at changeover</td><td><em class="tr">Trial</em></td></tr>
       <tr><td><b>Right label for the run</b></td><td><span class="bdg sm">B</span></td><td>An apple label on an orange run, read all the way round the bottle</td><td><em class="tr">Trial</em></td></tr>
       <tr><td><b>Label placement</b></td><td><span class="bdg sm">B</span></td><td>Crooked, torn, wrinkled or missing labels</td><td><em class="tr">Trial</em></td></tr>
-      <tr><td><b>Cap</b></td><td><span class="bdg sm">A</span></td><td>Missing, crooked or not seated</td><td><em class="tr">Trial</em></td></tr>
-      <tr><td><b>Fill level</b></td><td><span class="bdg sm">A</span></td><td>Bottles filled below the line, against a tolerance you set</td><td><em class="tr">Trial</em></td></tr>
-      <tr><td><b>Full cases</b></td><td><span class="bdg sm later">C</span></td><td>Missing or fallen bottles before the case is sealed</td><td><em class="ph2">Phase 2</em></td></tr>
+      <tr><td><b>Cap</b></td><td><span class="bdg sm later">A</span></td><td>Missing, crooked or not seated</td><td><em class="at">After trial</em></td></tr>
+      <tr><td><b>Fill level</b></td><td><span class="bdg sm later">A</span></td><td>Bottles filled below the line, against a tolerance you set</td><td><em class="at">After trial</em></td></tr>
+      <tr><td><b>Full cases</b></td><td><span class="bdg sm later">C</span></td><td>Missing or fallen bottles before the case is sealed</td><td><em class="ph2">Later</em></td></tr>
     </tbody>
   </table></div>
   <div class="targets">
@@ -89,39 +89,45 @@
 <section id="costs" class="blk" aria-labelledby="h-costs">
   <p class="num">05</p>
   <h2 id="h-costs">Indicative costs</h2>
-  <p class="sub">Ranges for two plug-in camera stations and three cameras, based on Australian prices for industrial vision equipment. No electrician or wiring is needed for the trial. We fix the price in writing after the feasibility check, before you commit.</p>
-  <div class="tbl">{{COSTS}}</div>
+  <p class="sub">Three steps, so you only pay for equipment once the trial has shown results on your own line. Estimates are at the lower end of Australian prices for industrial vision equipment, and we fix them in writing before you commit.</p>
+  <div class="steps3">
+    <div class="s3"><p class="s3-n">Step 1</p><b>Free feasibility check</b><p class="s3-p">A$0</p><span>We test your sample bottles and show the cameras catching your real faults.</span></div>
+    <div class="s3 hl"><p class="s3-n">Step 2</p><b>Four-week trial, one station</b><p class="s3-p">A$5,500&ndash;7,000</p><span>On equipment we lend you. Credited in full if you go ahead.</span></div>
+    <div class="s3"><p class="s3-n">Step 3</p><b>Keep it and add station A</b><p class="s3-p">A$17,500&ndash;21,000</p><span>You own the equipment. A$12,000&ndash;14,000 left to pay after the credit.</span></div>
+  </div>
+  <div class="tbl">{{TRIALCOSTS}}</div>
+  <div class="tbl">{{BUYCOSTS}}</div>
   <div class="compare">
     <p class="cmp-h">How this compares</p>
     <div class="cmp-row"><span>Typical installed cost of <b>one</b> vision inspection point in Australia</span><div class="cmp-bar"><i style="left:21%;width:46%"></i></div><b>A$50k&ndash;160k</b></div>
-    <div class="cmp-row us"><span>This trial: <b>two</b> plug-in stations, three cameras</span><div class="cmp-bar"><i style="left:10%;width:6%"></i></div><b>A$24k&ndash;39k</b></div>
-    <p class="fine-note">Industry figures from Australian guides to vision inspection costs. They usually include custom integration, wiring and a connection to the line controller, which this trial leaves out.</p>
+    <div class="cmp-row us"><span>Both stations here, after the trial</span><div class="cmp-bar"><i style="left:7.3%;width:1.5%"></i></div><b>A$17.5k&ndash;21k</b></div>
+    <p class="fine-note">Industry figures from Australian guides to vision inspection costs. They usually include custom integration, wiring and a connection to the line controller, which this plan leaves out.</p>
   </div>
 </section>
 
 <section id="savings" class="blk" aria-labelledby="h-savings">
   <p class="num">06</p>
   <h2 id="h-savings">What it could save</h2>
-  <p class="sub">Our estimate for a juice maker your size. Change any number to your own and the estimate updates. The trial measures the real figure.</p>
+  <p class="sub">Our cautious estimate for a juice maker your size. Change any number to your own and the estimate updates. The trial measures the real figure.</p>
   <div class="save">
     <div class="save-out">
-      <p class="save-range" id="s-range">A$89,000 to A$134,000</p>
-      <p class="save-per">a year, once running</p>
+      <p class="save-range" id="s-range">A$72,000 to A$108,000</p>
+      <p class="save-per">a year, with stations A and B</p>
       <ul class="save-bars" id="s-bars"></ul>
       <p class="payback" id="s-payback"></p>
     </div>
     <form class="save-in" id="s-form">
       <label>Bottles a day<input type="number" id="s-packs" value="40000" min="0" step="1000"></label>
       <label>Production days a year<input type="number" id="s-days" value="250" min="0"></label>
-      <label>Staff hours a week on label and code checks<input type="number" id="s-hours" value="30" min="0"></label>
+      <label>Staff hours a week on label and code checks<input type="number" id="s-hours" value="20" min="0"></label>
       <label>Hourly cost of that staff (A$)<input type="number" id="s-rate" value="55" min="0"></label>
       <label>Cost of one recall or withdrawal (A$)<input type="number" id="s-recall" value="200000" min="0" step="10000"></label>
       <label>Recalls or withdrawals in 5 years<input type="number" id="s-recalls" value="1" min="0"></label>
-      <label>Retailer penalties a year (A$)<input type="number" id="s-pen" value="15000" min="0" step="1000"></label>
+      <label>Retailer penalties a year (A$)<input type="number" id="s-pen" value="10000" min="0" step="1000"></label>
       <label>Cost per faulty bottle reaching a customer (A$)<input type="number" id="s-esc" value="4" min="0" step="0.5"></label>
     </form>
   </div>
-  <p class="fine-note">Assumes faulty bottles leaving the site drop from 0.05% to 0.01%, recall and penalty risk falls by 80%, and 60% of manual check time is freed. The range is our estimate &plusmn;20%. Payback counts the cost of the trial.</p>
+  <p class="fine-note">Assumes faulty bottles leaving the site drop from 0.05% to 0.01%, recall and penalty risk falls by 80%, and 60% of manual check time is freed. The range is our estimate &plusmn;20%. Payback counts the purchase total in step 3, which includes the trial fee.</p>
 </section>
 
 <section id="next" class="blk" aria-labelledby="h-next">
@@ -131,7 +137,7 @@
     <div><h3>Assumptions</h3><ul>
       <li>Bottles pass one at a time, at up to 60 a minute</li>
       <li>A standard power point within reach of each station. If there is none, your site electrician adds one</li>
-      <li>No connection to your IT network or line controller during the trial</li>
+      <li>No connection to your IT network or line controller</li>
       <li>Washdown covers (IP65) on the cameras near the filler and capper</li>
       <li>Three juices on Line 1, with changeovers set on the date coder</li>
     </ul></div>
@@ -139,6 +145,7 @@
       <li>Peak line speed and how often flavours change</li>
       <li>Date coder brand and the printed code format</li>
       <li>Where the nearest power points are on Line 1</li>
+      <li>Which sample bottles and faults to send for the free check</li>
       <li>Who in your team signs off the trial targets</li>
     </ul></div>
   </div>

@@ -7,19 +7,19 @@ fonts = '\n'.join(l for l in re.findall(r'@font-face \{[^}]*\}', open(SITE + '/c
 # One strip across the calendar, then one row per stage. Weeks start Monday 23 Nov 2026.
 WEEKS_TOTAL = 15
 STRIP = [  # (label, start week, end week, kind)
-  ('Visit', 0, 1, 'v'), ('Proposal', 1, 4, 'v'), ('Shutdown', 4, 7, 'shut'), ('Build', 7, 9, 'v'),
+  ('Visit', 0, 1, 'v'), ('Free check', 1, 4, 'b'), ('Shutdown', 4, 7, 'shut'), ('Prepare', 7, 9, 'v'),
   ('Set-up', 9, 10, 'b'), ('Trial', 10, 14, 't'), ('Decide', 14, 15, 'v'),
 ]
 MONTHS = [('Nov', 0), ('Dec', 1.3), ('Jan', 5.7), ('Feb', 10), ('Mar', 14)]
-MILESTONES = [('Proposal signed', 2.6), ('Trial starts', 10), ('Decision', 14.6)]
+MILESTONES = [('Trial agreed', 3), ('Trial starts', 10), ('Decision', 14.6)]
 STAGES = [  # (dates, title, what happens, who, your time, milestone)
   ('Week of 23 Nov', 'Call and site visit', 'We watch Line 1 run, check the power points and mark where each camera goes.', 'v', '2 hours', ''),
-  ('30 Nov to 18 Dec', 'Proposal and sample bottles', 'We test lighting on your bottles and send a fixed price with trial targets. You send good bottles and known faults for each juice.', 'b', '5 hours', 'Proposal signed by 11 Dec'),
-  ('21 Dec to 8 Jan', 'Your Christmas shutdown', 'Nothing needed from you. Hardware ordered in December arrives.', 'shut', 'None', ''),
-  ('11 to 22 Jan', 'Build and train', 'We test the cameras and AI unit in Melbourne and train the checks on your sample bottles.', 'v', 'None', ''),
-  ('27 to 30 Jan', 'Set-up day and tuning', 'One day on site to clamp on and plug in both stations while the line runs, then a few days cutting false alarms.', 'b', '3 hours', ''),
-  ('2 to 27 Feb', 'Four-week trial, alerts only', 'Every bottle checked. Your QC lead reviews flagged bottles on the screen, about 15 minutes a shift. A report every Friday.', 't', '10 hours', 'Trial starts 2 Feb'),
-  ('2 to 5 Mar', 'Review and decide', 'We go through the results against the agreed targets. You decide whether to keep it and add phase 2.', 'v', '1.5 hours', 'Decision by 5 Mar'),
+  ('30 Nov to 18 Dec', 'Free feasibility check', 'You send good bottles and known faults for each juice. We show the cameras catching them, then send a fixed price for the trial.', 'b', '4 hours', 'Trial agreed by 18 Dec'),
+  ('21 Dec to 8 Jan', 'Your Christmas shutdown', 'Nothing needed from you.', 'shut', 'None', ''),
+  ('11 to 22 Jan', 'Prepare the trial kit', 'We set up a loan kit for station B and train the label and code checks on your sample bottles.', 'v', 'None', ''),
+  ('27 to 30 Jan', 'Set-up day and tuning', 'One day on site to clamp on and plug in station B while the line runs, then a few days cutting false alarms.', 'b', '3 hours', ''),
+  ('2 to 27 Feb', 'Four-week trial, alerts only', 'Every bottle&rsquo;s label and code checked. Your QC lead reviews flagged bottles on the screen, about 15 minutes a shift. A report every Friday.', 't', '10 hours', 'Trial starts 2 Feb'),
+  ('2 to 5 Mar', 'Review and decide', 'We go through the results against the agreed targets. If you go ahead, the trial fee comes off the purchase, station B stays and we add station A.', 'v', '1.5 hours', 'Decision by 5 Mar'),
 ]
 WHO = {'v': 'Vantory', 'b': 'Together', 't': 'Trial running', 'shut': 'Site shutdown'}
 
@@ -38,47 +38,48 @@ def path_html():
 
 # ---------------- costs ----------------
 def money(n): return 'A$' + format(n, ',')
-TRIAL = [
+TRIAL = [  # one station on loaned equipment
+  ('Loan of the camera kit for 6 weeks', '2 cameras, lights, clamp-on mounts, AI unit, tower light and screen. We take it back if you stop', 800, 1200),
+  ('Setting up the label and code checks', 'Teaching the system your 3 juices, labels and best-before codes', 2500, 3000),
+  ('Set-up day on site', 'Clamp on, plug in and test station B while the line runs', 800, 1000),
+  ('Four-week trial, weekly reports and results review', 'Remote monitoring, tuning and a review on site', 1400, 1800),
+]
+BUY = [  # both stations, owned by the client
   ('Hardware', [
-    ('Industrial cameras and lenses', '3 cameras: 1 at station A, 2 at station B to read labels all the way round', '3 &times; A$1,200 to A$2,000', 3600, 6000),
-    ('Lighting', 'Backlight for fill level at A; two bar lights at B', '', 1200, 2400),
-    ('Clamp-on mounts and washdown covers', 'Clamp to the conveyor frame. No drilling, welding or wiring', '2 stations', 900, 1500),
-    ('On-site AI unit', 'Runs all checks beside the line and plugs into a power point. Takes up to 6 cameras', '', 3500, 5500),
-    ('Plug-in power hub, sensors, tower lights and screen', 'One hub powers the cameras over their data cables, so nothing is hardwired', '', 1500, 2500),
+    ('Industrial cameras and lenses', '3 cameras: 2 at station B, 1 at station A', '3 &times; A$1,200 to A$1,500', 3600, 4500),
+    ('Lighting', 'Two bar lights at B; a backlight for fill level at A', '', 1200, 1600),
+    ('Clamp-on mounts and washdown covers', 'Both stations. No drilling, welding or wiring', '', 900, 1100),
+    ('On-site AI unit', 'Runs every check beside the line and plugs into a power point. Takes up to 6 cameras', '', 3500, 4000),
+    ('Plug-in power hub, sensors, tower lights and screen', 'One hub powers the cameras over their data cables, so nothing is hardwired', '', 1500, 1800),
   ]),
-  ('Set-up and trial', [
-    ('Setting up the checks', 'Teaching the system your 3 juices, labels, codes and known faults', '', 5000, 8000),
-    ('Set-up day on site', 'Mount, plug in and test both stations while the line runs', '', 1500, 2500),
-    ('Four-week trial and weekly reports', 'Remote monitoring, tuning and a results review on site', '', 3000, 4500),
-  ]),
-  ('Software', [
-    ('Software licence, first 12 months', 'Covers 3 cameras, updates and new labels as you add products', '', 4000, 6000),
+  ('Set-up and software', [
+    ('Setting up station A', 'Cap and fill checks. Station B&rsquo;s checks carry over from the trial', '', 2000, 2500),
+    ('Set-up day for station A', 'Clamp on and plug in while the line runs', '', 800, 1000),
+    ('Software licence, first 12 months', 'Covers 3 cameras, updates and new labels as you add products', '', 4000, 4500),
   ]),
 ]
-LATER = [
-  ('Automatic reject', 'Air-jet rejectors connected to your line controller. Optional. Needs your site electrician to connect it', 9000, 14000),
-  ('Station C: case check', '1 camera over the case packer, clamp-on and plug-in like A and B', 6000, 9000),
-  ('Software and support from year 2', 'For 4 cameras, including new products and labels', 5000, 7500),
-]
+def money(n): return 'A$' + format(n, ',')
 def costs():
-    out = ['<table class="costs"><thead><tr><th scope="col">Item</th><th scope="col" class="amt">Low</th><th scope="col" class="amt">High</th></tr></thead>']
-    lo_t = hi_t = 0
-    for grp, items in TRIAL:
-        lo_g = sum(i[3] for i in items); hi_g = sum(i[4] for i in items)
-        lo_t += lo_g; hi_t += hi_g
-        out.append('<tbody><tr class="grp"><th scope="rowgroup" colspan="3">%s</th></tr>' % grp)
+    tlo = sum(i[2] for i in TRIAL); thi = sum(i[3] for i in TRIAL)
+    t = ['<table class="costs"><thead><tr><th scope="col">Step 2: the trial</th><th scope="col" class="amt">Low</th><th scope="col" class="amt">High</th></tr></thead><tbody>']
+    for name, det, lo, hi in TRIAL:
+        t.append('<tr><td class="item"><b>%s</b><span>%s</span></td><td class="amt">%s</td><td class="amt">%s</td></tr>' % (name, det, money(lo), money(hi)))
+    t.append('</tbody><tbody><tr class="total"><td>Trial fee, excluding GST</td><td class="amt">%s</td><td class="amt">%s</td></tr></tbody></table>' % (money(tlo), money(thi)))
+    blo = bhi = 0
+    p = ['<table class="costs"><thead><tr><th scope="col">Step 3: if you go ahead</th><th scope="col" class="amt">Low</th><th scope="col" class="amt">High</th></tr></thead>']
+    for grp, items in BUY:
+        p.append('<tbody><tr class="grp"><th scope="rowgroup" colspan="3">%s</th></tr>' % grp)
         for name, det, unit, lo, hi in items:
             u = '<em>%s</em>' % unit if unit else ''
-            out.append('<tr><td class="item"><b>%s</b><span>%s</span>%s</td><td class="amt">%s</td><td class="amt">%s</td></tr>' % (name, det, u, money(lo), money(hi)))
-        out.append('<tr class="sub"><td>%s subtotal</td><td class="amt">%s</td><td class="amt">%s</td></tr></tbody>' % (grp, money(lo_g), money(hi_g)))
-    out.append('<tbody><tr class="total"><td>Trial total, excluding GST</td><td class="amt">%s</td><td class="amt">%s</td></tr></tbody></table>' % (money(lo_t), money(hi_t)))
-    later = ['<table class="costs later"><thead><tr><th scope="col">After the trial, if you go ahead</th><th scope="col" class="amt">Low</th><th scope="col" class="amt">High</th></tr></thead><tbody>']
-    for name, det, lo, hi in LATER:
-        later.append('<tr><td class="item"><b>%s</b><span>%s</span></td><td class="amt">%s</td><td class="amt">%s</td></tr>' % (name, det, money(lo), money(hi)))
-    later.append('</tbody></table>')
-    return ''.join(out), ''.join(later), lo_t, hi_t
-COSTS, LATER_T, TLO, THI = costs()
-assert (TLO, THI) == (24200, 38900), (TLO, THI)
+            p.append('<tr><td class="item"><b>%s</b><span>%s</span>%s</td><td class="amt">%s</td><td class="amt">%s</td></tr>' % (name, det, u, money(lo), money(hi)))
+            blo += lo; bhi += hi
+        p.append('</tbody>')
+    p.append('<tbody><tr class="sub"><td>Purchase total, excluding GST</td><td class="amt">%s</td><td class="amt">%s</td></tr>' % (money(blo), money(bhi)))
+    p.append('<tr class="sub credit"><td>Less your trial fee</td><td class="amt">&minus;%s</td><td class="amt">&minus;%s</td></tr>' % (money(tlo), money(thi)))
+    p.append('<tr class="total"><td>Left to pay after the trial</td><td class="amt">%s</td><td class="amt">%s</td></tr></tbody></table>' % (money(blo - tlo), money(bhi - thi)))
+    return ''.join(t), ''.join(p), tlo, thi, blo, bhi
+TRIAL_T, BUY_T, TLO, THI, BLO, BHI = costs()
+assert (TLO, THI, BLO, BHI) == (5500, 7000, 17500, 21000), (TLO, THI, BLO, BHI)
 
 # ---------------- line diagram ----------------
 def machine(x, y, w, label, sub=''):
@@ -120,15 +121,15 @@ def diagram():
     p.append('<text x="40" y="%d" class="lab">BOTTLE INFEED</text>' % (y1 - 40))
     p.append(machine(130, y1, 100, 'Filler', '3 juices'))
     p.append(machine(240, y1, 90, 'Capper'))
-    g, pop = station(355, y1, 'A', 'Cap and fill', '1 camera'); p.append(g); pops.append(pop)
+    g, pop = station(355, y1, 'A', 'Cap and fill', '1 camera &middot; after trial', later=True); p.append(g); pops.append(pop)
     p.append(machine(500, y1, 100, 'Labeller'))
     p.append(machine(630, y1, 110, 'Date coder', 'BB and batch'))
     p.append('<text x="780" y="%d" class="speed">&asymp; 50 bottles a minute</text>' % (y1 - 30))
     g, pop = station(800, y2, 'B', 'Label and code', '2 cameras', up=False, cams=2); p.append(g); pops.append(pop)
-    p.append('<g class="rej" id="rej"><rect x="640" y="%d" width="80" height="54" rx="9"/><text x="680" y="%d" class="ml">Reject</text><text x="680" y="%d" class="ms" id="rej-sub">phase 2</text></g>' % (y2 - 27, y2 - 1, y2 + 15))
+    p.append('<g class="rej" id="rej"><rect x="640" y="%d" width="80" height="54" rx="9"/><text x="680" y="%d" class="ml">Reject</text><text x="680" y="%d" class="ms" id="rej-sub">later</text></g>' % (y2 - 27, y2 - 1, y2 + 15))
     p.append('<g class="bin"><rect x="656" y="%d" width="48" height="26" rx="5"/><text x="680" y="%d">bin</text></g>' % (y2 - 66, y2 - 49))
     p.append(machine(540, y2, 110, 'Case packer', '12 per case'))
-    g, pop = station(420, y2, 'C', 'Case check', '1 camera &middot; phase 2', later=True, up=False); p.append(g); pops.append(pop)
+    g, pop = station(420, y2, 'C', 'Case check', '1 camera &middot; later', later=True, up=False); p.append(g); pops.append(pop)
     p.append(machine(270, y2, 110, 'Palletiser'))
     p.append('<text x="80" y="%d" class="lab">CHILLED DISPATCH</text>' % (y2 + 44))
     p.append('<g class="ai" id="ai"><rect x="%d" y="%d" width="150" height="62" rx="11"/><text x="%d" y="%d" class="ml w">On-site AI unit</text><text x="%d" y="%d" class="ms w">plugs into a power point</text></g>' % (ai[0] - 75, ai[1] - 31, ai[0], ai[1] - 3, ai[0], ai[1] + 15))
@@ -138,15 +139,15 @@ def diagram():
     return ''.join(p)
 
 STATIONS = [
-  ('A', 'Cap and fill', 'After the capper', '1 camera on a clamp-on mount, side view with a backlight', ['Cap missing or not seated', 'Cap crooked', 'Fill below the line'], 'Trial'),
   ('B', 'Label and code', 'After the date coder', '2 cameras on one clamp-on frame, front and back, so the label is read all the way round', ['Wrong label for the run', 'Label crooked, torn or missing', 'Best-before date and batch code missing, smudged or wrong'], 'Trial'),
-  ('C', 'Case check', 'Over the case packer', '1 camera, top view, clamp-on and plug-in', ['Missing or fallen bottles in a case', 'Wrong count before sealing'], 'Phase 2'),
+  ('A', 'Cap and fill', 'After the capper', '1 camera on a clamp-on mount, side view with a backlight', ['Cap missing or not seated', 'Cap crooked', 'Fill below the line'], 'After trial'),
+  ('C', 'Case check', 'Over the case packer', '1 camera, top view, clamp-on and plug-in', ['Missing or fallen bottles in a case', 'Wrong count before sealing'], 'Later'),
 ]
 def station_cards():
     o = []
     for l, n, where, cam, faults, ph in STATIONS:
         o.append('<article class="stc%s"><header><span class="bdg">%s</span><div><b>%s</b><span>%s</span></div><em class="%s">%s</em></header><p>%s</p><ul>%s</ul></article>' % (
-            ' later' if ph != 'Trial' else '', l, n, where, 'ph2' if ph != 'Trial' else 'tr', ph, cam, ''.join('<li>%s</li>' % f for f in faults)))
+            ' later' if ph != 'Trial' else '', l, n, where, {'Trial': 'tr', 'After trial': 'at'}.get(ph, 'ph2'), ph, cam, ''.join('<li>%s</li>' % f for f in faults)))
     return ''.join(o)
 
 logo_dark = '<img src="/assets/vantory-logo-dark.svg" alt="Vantory Technologies" width="190" height="31">'
@@ -154,7 +155,7 @@ ARR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="
 
 css = open(os.path.join(os.path.dirname(__file__), 'example-plan.css')).read()
 body = open(os.path.join(os.path.dirname(__file__), 'example-plan-body.html')).read()
-for k, v in {'{{LOGO}}': logo_dark, '{{DIAGRAM}}': diagram(), '{{STATIONS}}': station_cards(), '{{PATH}}': path_html(), '{{COSTS}}': COSTS, '{{ARR}}': ARR}.items():
+for k, v in {'{{LOGO}}': logo_dark, '{{DIAGRAM}}': diagram(), '{{STATIONS}}': station_cards(), '{{PATH}}': path_html(), '{{TRIALCOSTS}}': TRIAL_T, '{{BUYCOSTS}}': BUY_T, '{{ARR}}': ARR}.items():
     assert k in body, k
     body = body.replace(k, v)
 page = '''<!DOCTYPE html>

@@ -1,4 +1,4 @@
-/* Solutions dropdown in the main navigation. Desktop: panel under the chevron. Mobile (hamburger menu): nested list. */
+/* Dropdowns in the main navigation (Solutions, Industries). Desktop: panel under the chevron. Mobile (hamburger menu): nested list. */
 .nav-sol{position:relative;display:flex;align-items:center;gap:2px}
 .nav-sol-btn{all:unset;box-sizing:border-box;cursor:pointer;width:28px;height:28px;display:inline-grid;place-items:center;border-radius:6px;color:var(--ink)}
 .nav-sol-btn:hover,.nav-sol.open .nav-sol-btn{color:var(--cobalt);background:var(--mist)}

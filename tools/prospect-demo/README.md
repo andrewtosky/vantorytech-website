@@ -52,3 +52,7 @@ python3 publish.py out/<slug>.html <slug>-<code> "<Company name>"
 Use a random code of 6 letters or numbers after the slug (for example `spc-kkuq9b`) so the address can't be guessed. This writes `site/for/<slug>-<code>/index.html` and `site/assets/for-<slug>-<code>.js`. The script swaps Google Fonts for the site's own Inter fonts, loads three.js from `site/assets/three-r128.min.js`, moves the page script into its own file (the site's security rules block inline scripts), adds visitor analytics, and sends the trial-plan form through Web3Forms tagged `page: for/<slug>-<code>`.
 
 Prospect pages are link-only. Nothing on the site links to them, they are not in `sitemap.xml`, and both the page and `site/_headers` (`/for/*`) tell search engines not to index them. Never add them to the menu or sitemap.
+
+## The public example
+
+`companies/riverbend-example.json` builds the example preview linked from the free solution plan page (`site/plan.html`). Riverbend Drinks is a made-up company and the page says so. It lives at `site/example/preview/` (script in `site/assets/example-preview.js`), next to the example full plan at `site/example/plan.html`. If you rebuild it, run `publish.py` with the slug `example-preview`, move the output from `site/for/example-preview/` to `site/example/preview/`, rename the script to `example-preview.js`, and keep the "made-up company" wording and the links to `/plan.html` in place of the form.

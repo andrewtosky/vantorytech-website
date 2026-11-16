@@ -365,10 +365,25 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
 .chooser label { font-size: 16px; font-weight: 600; color: var(--white); }
 .chooser select { font: inherit; font-size: 16px; min-height: 50px; min-width: 300px; max-width: 100%; padding: 0 44px 0 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,.35); background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232350F5' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center / 18px; color: var(--ink); appearance: none; -webkit-appearance: none; cursor: pointer; }
 .chooser select:focus-visible { outline: 3px solid var(--cobalt-soft); outline-offset: 2px; }
+.solutions.core { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.solutions.also { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 24px; }
+.plan-band { margin-top: 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding: 22px 26px; border-radius: var(--radius); background: var(--midnight); color: var(--white); }
+.plan-band div { flex: 1 1 380px; min-width: 0; }
+.plan-band b { display: block; font-size: 19px; }
+.plan-band span { color: var(--slate-on-dark); font-size: 16px; }
+body[data-filtered] .plan-band { display: none; }
+.also-head { margin-top: 64px; max-width: 640px; }
+.also-head h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+.also-head p { margin-top: 6px; color: var(--slate); }
+a.solution { color: inherit; text-decoration: none; }
+a.solution:hover h3 { color: var(--cobalt); }
+body[data-filtered] .also-head { display: none; }
+@media (max-width: 1024px) { .solutions.core, .solutions.also { grid-template-columns: repeat(2, minmax(0, 1fr)); } .solutions.core > :last-child { grid-column: 1 / -1; } }
+@media (max-width: 520px) { .solutions.core, .solutions.also { grid-template-columns: minmax(0, 1fr); } }
 .solutions.one { grid-template-columns: minmax(0, 1fr); max-width: 640px; }
 .solutions.one .solution { min-height: 260px; justify-content: flex-end; }
 .deep.one { grid-template-columns: minmax(0, 1fr); max-width: 760px; }
-[data-part][hidden], .solutions [hidden], .deep [hidden] { display: none !important; }
+[data-part][hidden], .solutions[hidden], .solutions [hidden], .deep [hidden] { display: none !important; }
 </style>
 <style>
 /* Announcement strip, shared with the homepage */
@@ -442,7 +457,7 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
 <body>
 <div class="strip">
   <div class="wrap">
-    <span>Now taking founding customers in Australia. <a href="index.html#visit">Tell us your challenge</a></span>
+    <span><a href="plan.html">Get a free solution plan for your site</a></span>
     <span>Melbourne, Australia · <a href="mailto:enquiries@vantorytech.com">enquiries@vantorytech.com</a></span>
   </div>
 </div>
@@ -452,7 +467,7 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
     <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
-    <nav class="nav" id="nav" aria-label="Main"><a href="index.html">Home</a><div class="nav-sol"><a href="solutions.html" aria-current="page">Solutions</a><button type="button" class="nav-sol-btn" aria-expanded="false" aria-controls="sol-menu" aria-label="Show solutions pages"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="nav-sol-menu" id="sol-menu"><a class="all" href="solutions.html" aria-current="page">All solutions<span>Everything we do, on one page</span></a><a href="food-and-beverage.html">Quality checks<span>A camera checks every pack for fill, labels and codes</span></a><a href="machine-maintenance.html">Warn before machines break<span>Machine readings flag wear before a stoppage</span></a><a href="energy-use.html">See where your power goes<span>Live energy use by area and machine</span></a></div></div><a href="robotics.html">Robotics</a><a href="technology.html">Technology</a><a href="careers.html">Careers</a><a href="contact.html" class="btn btn-primary">Contact us</a></nav>
+    <nav class="nav" id="nav" aria-label="Main"><div class="nav-sol"><a href="solutions.html" aria-current="page">Solutions</a><button type="button" class="nav-sol-btn" aria-expanded="false" aria-controls="sol-menu" aria-label="Show solutions pages"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="nav-sol-menu" id="sol-menu"><a class="all" href="solutions.html" aria-current="page">All solutions<span>Everything we do, on one page</span></a><a href="food-and-beverage.html">Quality checks<span>A camera checks every pack for fill, labels and codes</span></a><a href="machine-maintenance.html">Warn before machines break<span>Machine readings flag wear before a stoppage</span></a><a href="energy-use.html">See where your power goes<span>Live energy use by area and machine</span></a><a href="robotics.html">Robots<span>Lifting, moving and loading goods</span></a><a href="solutions.html#also">Also possible<span>Safety, assistants, training and more</span></a></div></div><div class="nav-sol"><a href="food-and-beverage.html">Industries</a><button type="button" class="nav-sol-btn" aria-expanded="false" aria-controls="ind-menu" aria-label="Show industry pages"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="nav-sol-menu" id="ind-menu"><a href="food-and-beverage.html">Food and beverage<span>Bottling, filling and packing lines</span></a><a href="contact.html">Other industries<span>Tell us about your site and we will look at it</span></a></div></div><a href="technology.html">How it works</a><a href="careers.html">Careers</a><a href="contact.html" class="btn btn-primary">Contact us</a></nav>
   </div>
 </header>
 <main>
@@ -460,31 +475,55 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
   <img class="bg" src="assets/shot-76.jpg" alt="" aria-hidden="true" width="1280" height="576">
   <div class="wrap">
     <p class="eyebrow">Solutions</p>
-    <h1 id="page-title">AI that works in any business.</h1>
-    <p class="lead">One system connects your cameras, sensors, robots and software, then puts AI to work on safety, quality, moving goods and more.</p>
+    <h1 id="page-title">AI that keeps your line running.</h1>
+    <p class="lead">Quality checks on every pack, warnings before machines break and a clear view of your energy use, all from one AI system on your site. More is possible when you need it.</p>
     <div class="chooser">
       <label for="topic">What do you want to see?</label>
       <select id="topic">
         <option value="">Everything</option>
-        <optgroup label="Cameras and robots">
-          <option value="safety">Safety checks</option>
+        <optgroup label="Core solutions">
           <option value="quality">Quality checks</option>
-          <option value="lifting">Lifting and moving</option>
-          <option value="workstations">Smarter workstations</option>
-          <option value="entertainment">Robots that entertain</option>
-        </optgroup>
-        <optgroup label="Behind the scenes">
           <option value="maintenance">Warn before machines break</option>
           <option value="energy">See where your power goes</option>
+        </optgroup>
+        <optgroup label="Also possible">
+          <option value="safety">Safety checks</option>
+          <option value="lifting">Lifting and moving</option>
+          <option value="workstations">Smarter workstations</option>
           <option value="assistants">AI assistants that write and report</option>
           <option value="training">Train new staff faster</option>
           <option value="buildings">3D building models</option>
-        </optgroup>
-        <optgroup label="Something else">
+          <option value="entertainment">Robots that entertain</option>
           <option value="custom">Custom AI built for you</option>
         </optgroup>
       </select>
     </div>
+  </div>
+</section>
+
+<section class="section mist" aria-labelledby="solutions-title" data-part="cards">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Core solutions</p>
+      <h2 id="solutions-title">Three jobs we start with.</h2>
+      <p class="lead">Most projects begin with one of these. Each has its own page showing how it works on a real line.</p>
+    </div>
+    <div class="solutions core reveal">
+      <article data-topic="quality" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/shot-64.jpg" alt="" loading="lazy" style="object-position: center"></div><span class="tag">Quality</span><h3>Quality checks</h3><p>AI cameras and robots find faulty products, missing parts and wrong labels before anything leaves your site, and check new labels against the approved artwork.</p><a class="see-line" href="food-and-beverage.html">See it on a bottling line</a></article>
+      <article data-topic="maintenance" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/sol-maintenance.jpg" alt="" loading="lazy" style="object-position: left center"></div><span class="tag">Maintenance</span><h3>Warn before machines break</h3><p>AI reads your machine data and warns you before something breaks. Robots can read gauges and meters for you.</p><a class="see-line" href="machine-maintenance.html">See how it works</a></article>
+      <article data-topic="energy" class="solution"><span class="tag">Energy</span><h3>See where your power goes</h3><p>AI shows where your power goes, by machine or area, and warns you when energy use jumps.</p><a class="see-line" href="energy-use.html">See how it works</a></article>
+    </div>
+    <div class="plan-band reveal"><div><b>Not sure which fits your site?</b><span>Get a free solution plan: a 3D preview of your line, the checks we would start with and a trial cost range.</span></div><a class="btn btn-primary" href="plan.html">Get my free plan</a></div>
+    <div class="also-head reveal" id="also"><h3>Also possible</h3><p>The same system can take on other jobs once it is running at your site.</p></div>
+    <div class="solutions also reveal">
+      <article data-topic="safety" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/platform-night.jpg" alt="" loading="lazy" style="object-position: left center"></div><span class="tag">Safety</span><h3>Safety checks</h3><p>Cameras, robot dogs and drones watch for missing safety gear, people in danger zones, fire, smoke and leaks, day and night.</p><span class="hint">Hover to see it</span></article>
+      <article data-topic="lifting" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><video autoplay muted loop playsinline preload="none" poster="assets/mos-logistics.jpg"><source src="assets/mos-logistics.mp4" type="video/mp4"></video></div><span class="tag">Logistics</span><h3>Lifting and moving</h3><p>Robots carry, lift and load goods, working safely alongside your people and vehicles.</p><span class="hint">Hover to watch</span></article>
+      <article data-topic="workstations" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/sol-workstation.jpg" alt="" loading="lazy" style="object-position: center top"></div><span class="tag">Operations</span><h3>Smarter workstations</h3><p>An AI camera at each station checks every step is done right, counts output and shows where work slows down.</p><span class="hint">Hover to see it</span></article>
+      <article data-topic="buildings" class="solution"><span class="tag">Buildings</span><h3>3D building models</h3><p>Turn flat plans into 3D models you can walk through, and track energy, water and air-conditioning use each day.</p></article>
+      <article data-topic="entertainment" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><video autoplay muted loop playsinline preload="none" poster="assets/nix-dance.jpg"><source src="assets/nix-dance.mp4" type="video/mp4"></video></div><span class="tag">Experiences</span><h3>Robots that entertain</h3><p>Robot shows and friendly greeters for venues, events, cellar doors and showrooms.</p><span class="hint">Hover to watch</span></article>
+      <a data-topic="more" class="solution" href="#custom"><span class="tag">Custom</span><h3>Something else</h3><p>If the AI your business needs does not exist yet, we can build it for you.</p><span class="see-line">See custom AI</span></a>
+    </div>
+    <p class="fine">Some images are from our technology partner and show example projects.</p>
   </div>
 </section>
 
@@ -531,28 +570,7 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
   </div>
 </section>
 
-<section class="section mist" aria-labelledby="solutions-title" data-part="cards">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">What it can do</p>
-      <h2 id="solutions-title">Jobs AI and robots can take off your hands.</h2>
-      <p class="lead">These are the jobs people ask us about most. If yours is not listed, just ask.</p>
-    </div>
-    <div class="solutions reveal">
-      <article data-topic="safety" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/platform-night.jpg" alt="" loading="lazy" style="object-position: left center"></div><span class="tag">Safety</span><h3>Safety checks</h3><p>Cameras, robot dogs and drones watch for missing safety gear, people in danger zones, fire, smoke and leaks, day and night.</p><span class="hint">Hover to see it</span></article>
-      <article data-topic="quality" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/shot-64.jpg" alt="" loading="lazy" style="object-position: center"></div><span class="tag">Quality</span><h3>Quality checks</h3><p>AI cameras and robots find faulty products, missing parts and wrong labels before anything leaves your site, and check new labels against the approved artwork.</p><a class="see-line" href="food-and-beverage.html">See it on a bottling line</a></article>
-      <article data-topic="lifting" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><video autoplay muted loop playsinline preload="none" poster="assets/mos-logistics.jpg"><source src="assets/mos-logistics.mp4" type="video/mp4"></video></div><span class="tag">Logistics</span><h3>Lifting and moving</h3><p>Robots carry, lift and load goods, working safely alongside your people and vehicles.</p><span class="hint">Hover to watch</span></article>
-      <article data-topic="energy" class="solution"><span class="tag">Energy</span><h3>Track energy use</h3><p>AI shows where your power goes, by machine or area, and warns you when energy use jumps.</p><a class="see-line" href="energy-use.html">See how it works</a></article>
-      <article data-topic="workstations" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/sol-workstation.jpg" alt="" loading="lazy" style="object-position: center top"></div><span class="tag">Operations</span><h3>Smarter workstations</h3><p>An AI camera at each station checks every step is done right, counts output and shows where work slows down.</p><span class="hint">Hover to see it</span></article>
-      <article data-topic="maintenance" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/sol-maintenance.jpg" alt="" loading="lazy" style="object-position: left center"></div><span class="tag">Maintenance</span><h3>Fix problems early</h3><p>AI reads your machine data and warns you before something breaks. Robots can read gauges and meters for you.</p><a class="see-line" href="machine-maintenance.html">See how it works</a><span class="hint">Hover to see it</span></article>
-      <article data-topic="buildings" class="solution"><span class="tag">Buildings</span><h3>3D building models</h3><p>Turn flat plans into 3D models you can walk through, and track energy, water and air-conditioning use each day.</p></article>
-      <article data-topic="entertainment" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><video autoplay muted loop playsinline preload="none" poster="assets/nix-dance.jpg"><source src="assets/nix-dance.mp4" type="video/mp4"></video></div><span class="tag">Experiences</span><h3>Robots that entertain</h3><p>Robot shows and friendly greeters for venues, events, cellar doors and showrooms.</p><span class="hint">Hover to watch</span></article>
-    </div>
-    <p class="fine">Some images are from our technology partner and show example projects.</p>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="behind-title" id="behind" data-part="deep">
+<section class="section mist" aria-labelledby="behind-title" id="behind" data-part="deep">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Behind the scenes</p>
@@ -690,9 +708,9 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
   <div class="wrap">
     <div class="reveal">
       <h2 id="cta-title">Got a job that is slow, unsafe or repetitive?</h2>
-      <p>Tell us about it. We will look over your details and book a call to talk about how AI and robots could help.</p>
+      <p>Tell us about it and we will send you a free plan: where the cameras or robots go, how a trial would run and what it would cost.</p>
     </div>
-    <a href="contact.html" class="btn btn-primary">Contact us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="plan.html" class="btn btn-primary">Get a free solution plan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -700,7 +718,7 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
 <footer class="site-footer">
   <div class="wrap">
     <a href="index.html" aria-label="Vantory Technologies home"><img src="assets/vantory-logo-dark.svg" alt="Vantory Technologies" width="210" height="34"></a>
-    <nav class="footer-nav" aria-label="Footer"><a href="index.html">Home</a><a href="solutions.html">Solutions</a><a href="robotics.html">Robotics</a><a href="technology.html">Our technology</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></nav>
+    <nav class="footer-nav" aria-label="Footer"><a href="index.html">Home</a><a href="solutions.html">Solutions</a><a href="robotics.html">Robotics</a><a href="technology.html">How it works</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a><a href="plan.html">Free solution plan</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></nav>
     <div class="footer-legal">
       <span>© 2026 Vantory Technologies. All rights reserved.</span>
       <span><a href="mailto:enquiries@vantorytech.com" style="color: #C9D3E8">enquiries@vantorytech.com</a></span>

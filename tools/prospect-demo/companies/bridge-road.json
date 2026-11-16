@@ -1,0 +1,86 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Bridge Road Brewers Can Line",
+ "company": "Bridge Road Brewers",
+ "short": "Bridge Road",
+ "site": "Beechworth, VIC",
+ "shape": "can",
+ "productName": "Pale ale 355 mL",
+ "productShort": "cans",
+ "headline": "Every can checked, not a sample.",
+ "formProduct": "Canned beer",
+ "labelTop": "BEECHWORTH",
+ "labelMain": "PALE ALE",
+ "labelSize": "355 mL",
+ "wrongTop": "BEECHWORTH",
+ "wrongMain": "XPA",
+ "code": "BB 14 MAY 27 L2317",
+ "codeWrong": "BB 14 MAY 26 L2317",
+ "lid": "#B9C0C8",
+ "label": "#F4EAD5",
+ "labelInk": "#3B2A1A",
+ "wrongLabel": "#D9ECF2",
+ "body": "#c9ced6",
+ "fill": "#b9c0c8",
+ "lineType": "beer canning line",
+ "vatsLabel": "Brewhouse",
+ "visitLine": "Call and visit to Beechworth",
+ "heroLede": "Bridge Road started in a backyard shed in 2005 and now brews in the old Cobb & Co building on Ford Street in Beechworth, with beers like Beechworth Pale Ale going out in 355 mL cans. With a long and changing range, the label is what tells one can from the next. This is what a camera check could look like on a can line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every can has its end on and seated, with no visible damage around the seam. It looks at what can be seen from outside, so it adds to your seam checks rather than replacing them.",
+ "labelLede": "A pale ale and an XPA in the same can size look much the same at line speed. The camera checks every can carries the right label for the beer inside, straight and intact.",
+ "codeLede": "Your beer is unpasteurised, so freshness and the date matter. The system reads the printed best-before and batch code on every can and compares them with the beer and date set at changeover.",
+ "objectLede": "Can ends, label backing and carton offcuts can all end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "can",
+  "units": "cans",
+  "c1": "Can ends",
+  "c1h": "Ends on, seated and undamaged",
+  "chips": [
+   "Missing ends",
+   "Ends not seated",
+   "Visible seam damage"
+  ],
+  "r1": [
+   "End not seated",
+   "End missing",
+   "Visible seam damage"
+  ],
+  "tag1": "END",
+  "ok": "End, label and code OK",
+  "lidder": "Seamer",
+  "filler": "Can filler",
+  "coder": "Date coder",
+  "alert": "Four ends not seated in fifteen minutes. Check the seamer.",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected"
+ },
+ "extra": [
+  [
+   "'Wrong label: Xpa on a Pale Ale run'",
+   "'Wrong label: XPA on a Pale Ale run'"
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"60000\">$60,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a regional brewery: stock destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 20000,
+  "days": 200,
+  "hours": 15,
+  "rate": 45,
+  "recall": 60000,
+  "recalls": 1,
+  "penalty": 10000,
+  "escape": 5
+ },
+ "slug": "bridge-road"
+}

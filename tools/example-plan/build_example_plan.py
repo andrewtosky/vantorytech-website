@@ -3,52 +3,38 @@ import re, os
 SITE = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'site'))
 fonts = '\n'.join(l for l in re.findall(r'@font-face \{[^}]*\}', open(SITE + '/contact.html').read()))
 
-# ---------------- trial path (Gantt) ----------------
-WEEKS = ['23 Nov', '30 Nov', '7 Dec', '14 Dec', '21 Dec', '28 Dec', '4 Jan', '11 Jan', '18 Jan', '25 Jan', '1 Feb', '8 Feb', '15 Feb', '22 Feb', '1 Mar']
-SHUT = {4, 5}  # site shutdown over Christmas
-PHASES = [
-  ('Prepare', [
-    ('Call and site visit', 'We watch Line 1 run and mark the three camera positions', 'v', 0, 0, '2 h'),
-    ('Feasibility check and fixed proposal', 'Lighting and lens tests on your bottles; fixed trial price and targets', 'v', 1, 2, '1 h'),
-    ('Sample bottles and fault examples', 'Good bottles plus known faults for each of your three juices', 'c', 3, 3, '4 h'),
-  ]),
-  ('Build', [
-    ('Hardware ordered, built and bench tested', 'Cameras, lights and AI unit staged in Melbourne. Lead time runs through the shutdown', 'v', 3, 7, ''),
-    ('Checks trained on your products', 'Cap, fill, label and code models trained and tested off the line', 'v', 6, 8, ''),
-  ]),
-  ('Install', [
-    ('Set up stations A and B', 'One day on site: clamp-on mounts, plugged into existing power points. No wiring', 'b', 8, 8, '2 h'),
-    ('Tune and cut false alarms', 'Running on live production, alerts only', 'v', 9, 9, '1 h'),
-  ]),
-  ('Trial', [
-    ('Four-week trial, alerts only', 'Every bottle checked. Weekly report: bottles checked, faults caught, false alarms', 't', 10, 13, ''),
-    ('QC lead reviews flagged bottles', 'About 15 minutes a shift, using the line-side screen', 'c', 10, 13, '10 h'),
-  ]),
-  ('Decide', [
-    ('Results review and decision', 'Results against the agreed targets, then the phase 2 option', 'v', 14, 14, '1.5 h'),
-  ]),
+# ---------------- trial path ----------------
+# One strip across the calendar, then one row per stage. Weeks start Monday 23 Nov 2026.
+WEEKS_TOTAL = 15
+STRIP = [  # (label, start week, end week, kind)
+  ('Visit', 0, 1, 'v'), ('Proposal', 1, 4, 'v'), ('Shutdown', 4, 7, 'shut'), ('Build', 7, 9, 'v'),
+  ('Set-up', 9, 10, 'b'), ('Trial', 10, 14, 't'), ('Decide', 14, 15, 'v'),
 ]
-MILESTONES = {2: 'Proposal signed', 10: 'Trial starts', 14: 'Decision'}
+MONTHS = [('Nov', 0), ('Dec', 1.3), ('Jan', 5.7), ('Feb', 10), ('Mar', 14)]
+MILESTONES = [('Proposal signed', 2.6), ('Trial starts', 10), ('Decision', 14.6)]
+STAGES = [  # (dates, title, what happens, who, your time, milestone)
+  ('Week of 23 Nov', 'Call and site visit', 'We watch Line 1 run, check the power points and mark where each camera goes.', 'v', '2 hours', ''),
+  ('30 Nov to 18 Dec', 'Proposal and sample bottles', 'We test lighting on your bottles and send a fixed price with trial targets. You send good bottles and known faults for each juice.', 'b', '5 hours', 'Proposal signed by 11 Dec'),
+  ('21 Dec to 8 Jan', 'Your Christmas shutdown', 'Nothing needed from you. Hardware ordered in December arrives.', 'shut', 'None', ''),
+  ('11 to 22 Jan', 'Build and train', 'We test the cameras and AI unit in Melbourne and train the checks on your sample bottles.', 'v', 'None', ''),
+  ('27 to 30 Jan', 'Set-up day and tuning', 'One day on site to clamp on and plug in both stations while the line runs, then a few days cutting false alarms.', 'b', '3 hours', ''),
+  ('2 to 27 Feb', 'Four-week trial, alerts only', 'Every bottle checked. Your QC lead reviews flagged bottles on the screen, about 15 minutes a shift. A report every Friday.', 't', '10 hours', 'Trial starts 2 Feb'),
+  ('2 to 5 Mar', 'Review and decide', 'We go through the results against the agreed targets. You decide whether to keep it and add phase 2.', 'v', '1.5 hours', 'Decision by 5 Mar'),
+]
+WHO = {'v': 'Vantory', 'b': 'Together', 't': 'Trial running', 'shut': 'Site shutdown'}
 
-def gantt():
-    head = '<tr><th class="step" scope="col">Step</th>' + ''.join(
-        '<th class="wk%s" scope="col"><span>%s</span><span>%s</span></th>' % (' shut' if i in SHUT else '', w.split()[0], w.split()[1]) for i, w in enumerate(WEEKS)) + '<th class="you" scope="col">Your team</th></tr>'
-    ms = '<tr class="ms"><td class="step"></td>' + ''.join(
-        '<td class="%s">%s</td>' % ('shut' if i in SHUT else '', ('<span class="dia" title="%s"></span><em>%s</em>' % (MILESTONES[i], MILESTONES[i])) if i in MILESTONES else '') for i in range(len(WEEKS))) + '<td></td></tr>'
+def path_html():
+    pct = lambda w: '%.2f%%' % (w / WEEKS_TOTAL * 100)
+    seg = ''.join('<span class="sg %s" style="left:%s;width:%s"><b>%s</b></span>' % (k, pct(a), pct(b - a), l) for l, a, b, k in STRIP)
+    ms = ''.join('<span class="mk" style="left:%s"><i></i><em>%s</em></span>' % (pct(w), l) for l, w in MILESTONES)
+    mo = ''.join('<span style="left:%s">%s</span>' % (pct(w), m) for m, w in MONTHS)
+    strip = '<div class="strip" aria-hidden="true"><div class="months">%s</div><div class="bar">%s</div><div class="marks">%s</div></div>' % (mo, seg, ms)
     rows = []
-    for ph, steps in PHASES:
-        rows.append('<tr class="phase"><th colspan="%d" scope="rowgroup">%s</th></tr>' % (len(WEEKS) + 2, ph))
-        for t, d, who, a, b, hrs in steps:
-            cells = []
-            for i in range(len(WEEKS)):
-                cls = 'shut' if i in SHUT else ''
-                inner = ''
-                if a <= i <= b:
-                    edge = (' s' if i == a else '') + (' e' if i == b else '')
-                    inner = '<i class="bar %s%s"></i>' % (who, edge)
-                cells.append('<td class="c %s">%s</td>' % (cls, inner))
-            rows.append('<tr><td class="step"><b>%s</b><span>%s</span></td>%s<td class="you">%s</td></tr>' % (t, d, ''.join(cells), hrs or '<span>&ndash;</span>'))
-    return '<table><thead>' + head + ms + '</thead><tbody>' + ''.join(rows) + '</tbody></table>'
+    for i, (d, t, w, who, you, m) in enumerate(STAGES):
+        mtag = '<span class="ms-tag">%s</span>' % m if m else ''
+        rows.append('<li class="stg %s"><p class="when">%s</p><span class="dot" aria-hidden="true">%d</span><div class="what"><h3>%s</h3><p>%s</p><p class="tags"><span class="who %s">%s</span><span class="you">Your team: <b>%s</b></span>%s</p></div></li>' % (
+            who, d, i + 1, t, w, who, WHO[who], you, mtag))
+    return strip + '<ol class="stages">' + ''.join(rows) + '</ol>'
 
 # ---------------- costs ----------------
 def money(n): return 'A$' + format(n, ',')
@@ -104,49 +90,50 @@ def station(x, y, letter, label, sub, later=False, up=True, cams=1):
     cone_y0 = y - 27 if up else y + 27
     cam_y = y - 78 if up else y + 78
     d = 1 if up else -1
-    cone = '<path class="cone" d="M%d %d L%d %d L%d %d L%d %d Z"/>' % (x - 10, cam_y + 12 * d, x + 10, cam_y + 12 * d, x + 40, cone_y0 + 6 * d, x - 40, cone_y0 + 6 * d)
+    cone = '<path class="cone" id="cone-%s" d="M%d %d L%d %d L%d %d L%d %d Z"/>' % (letter, x - 10, cam_y + 12 * d, x + 10, cam_y + 12 * d, x + 40, cone_y0 + 6 * d, x - 40, cone_y0 + 6 * d)
     camicons = ''
-    offs = [0] if cams == 1 else [-16, 16]
-    for o in offs:
+    for o in ([0] if cams == 1 else [-16, 16]):
         camicons += '<g class="cam"><rect x="%d" y="%d" width="22" height="16" rx="3"/><circle cx="%d" cy="%d" r="4.5"/></g>' % (x + o - 11, cam_y - 8, x + o, cam_y)
     badge = '<g class="badge"><circle cx="%d" cy="%d" r="13"/><text x="%d" y="%d">%s</text></g>' % (x + 52, cam_y, x + 52, cam_y + 5, letter)
+    light = '<g class="tower"><rect x="%d" y="%d" width="10" height="26" rx="3"/><circle class="lt" id="light-%s" cx="%d" cy="%d" r="4"/></g>' % (x - 82, cam_y - 13, letter, x - 77, cam_y)
     body = '<g class="%s"><rect x="%d" y="%d" width="104" height="54" rx="9"/><text x="%d" y="%d" class="ml">%s</text><text x="%d" y="%d" class="ms">%s</text></g>' % (cls, x - 52, y - 27, x, y - 1, label, x, y + 15, sub)
-    return '<g>' + cone + camicons + badge + body + '</g>'
+    pop_y = cam_y - 34 if up else cam_y + 22
+    pop = '<g class="pop" id="pop-%s"><rect x="%d" y="%d" width="150" height="26" rx="13"/><text x="%d" y="%d"></text></g>' % (letter, x - 75, pop_y, x, pop_y + 17)
+    return '<g>' + cone + camicons + badge + light + body + '</g>', pop
 
 def diagram():
     W, H = 1040, 520
     y1, y2 = 150, 380
-    p = ['<svg viewBox="0 0 %d %d" role="img" aria-labelledby="dg-t dg-d" xmlns="http://www.w3.org/2000/svg"><title id="dg-t">Line 1 layout with camera stations</title><desc id="dg-d">Bottles run left to right past the filler, capper, station A, labeller and date coder, turn, then run right to left past station B, the reject point, the case packer, station C and the palletiser. An on-site AI unit in the middle connects to every station and to a line-side screen.</desc>' % (W, H)]
+    pops = []
+    p = ['<svg id="line-svg" viewBox="0 0 %d %d" role="img" aria-labelledby="dg-t dg-d" xmlns="http://www.w3.org/2000/svg"><title id="dg-t">Line 1 layout with camera stations</title><desc id="dg-d">Bottles run left to right past the filler, capper, station A, labeller and date coder, turn, then run right to left past station B, the reject point, the case packer, station C and the palletiser. An on-site AI unit in the middle connects to every station and to a line-side screen.</desc>' % (W, H)]
     p.append('<defs><pattern id="belt" width="18" height="22" patternUnits="userSpaceOnUse"><rect width="18" height="22" fill="#E3E8F2"/><path d="M5 5 L11 11 L5 17" fill="none" stroke="#C3CBDB" stroke-width="2"/></pattern><pattern id="beltL" width="18" height="22" patternUnits="userSpaceOnUse"><rect width="18" height="22" fill="#E3E8F2"/><path d="M13 5 L7 11 L13 17" fill="none" stroke="#C3CBDB" stroke-width="2"/></pattern><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#E9EDF5" stroke-width="1"/></pattern></defs>')
     p.append('<rect width="%d" height="%d" fill="url(#grid)"/>' % (W, H))
-    # conveyors
     p.append('<rect x="40" y="%d" width="900" height="22" rx="4" fill="url(#belt)"/>' % (y1 - 11))
     p.append('<rect x="80" y="%d" width="860" height="22" rx="4" fill="url(#beltL)"/>' % (y2 - 11))
     p.append('<path d="M940 %d a 115 115 0 0 1 0 %d" fill="none" stroke="#E3E8F2" stroke-width="22"/>' % (y1, y2 - y1))
-    # network lines (drawn first)
     ai = (520, 265)
-    for (x, y) in [(330, y1 - 78), (800, y2 + 78), (420, y2 + 78), (680, y2 - 40)]:
-        p.append('<path class="net" d="M%d %d L%d %d"/>' % (ai[0], ai[1], x, y))
-    p.append('<path class="net" d="M%d %d L%d %d"/>' % (ai[0], ai[1], 760, 265))
-    # row 1, left to right
+    for nid, (x, y) in [('A', (330, y1 - 78)), ('B', (800, y2 + 78)), ('C', (420, y2 + 78)), ('R', (680, y2 - 40))]:
+        p.append('<path class="net" id="net-%s" d="M%d %d L%d %d"/>' % (nid, ai[0], ai[1], x, y))
+    p.append('<path class="net" id="net-S" d="M%d %d L%d %d"/>' % (ai[0], ai[1], 760, 265))
+    # moving bottles and cases sit on the belt, under the machines
+    p.append('<g id="bottles"></g><g id="cases"></g>')
     p.append('<text x="40" y="%d" class="lab">BOTTLE INFEED</text>' % (y1 - 40))
     p.append(machine(130, y1, 100, 'Filler', '3 juices'))
     p.append(machine(240, y1, 90, 'Capper'))
-    p.append(station(330 + 25, y1, 'A', 'Cap and fill', '1 camera'))
+    g, pop = station(355, y1, 'A', 'Cap and fill', '1 camera'); p.append(g); pops.append(pop)
     p.append(machine(500, y1, 100, 'Labeller'))
     p.append(machine(630, y1, 110, 'Date coder', 'BB and batch'))
     p.append('<text x="780" y="%d" class="speed">&asymp; 50 bottles a minute</text>' % (y1 - 30))
-    # row 2, right to left
-    p.append(station(800, y2, 'B', 'Label and code', '2 cameras', up=False, cams=2))
-    p.append('<g class="rej"><rect x="640" y="%d" width="80" height="54" rx="9"/><text x="680" y="%d" class="ml">Reject</text><text x="680" y="%d" class="ms">phase 2</text></g>' % (y2 - 27, y2 - 1, y2 + 15))
+    g, pop = station(800, y2, 'B', 'Label and code', '2 cameras', up=False, cams=2); p.append(g); pops.append(pop)
+    p.append('<g class="rej" id="rej"><rect x="640" y="%d" width="80" height="54" rx="9"/><text x="680" y="%d" class="ml">Reject</text><text x="680" y="%d" class="ms" id="rej-sub">phase 2</text></g>' % (y2 - 27, y2 - 1, y2 + 15))
     p.append('<g class="bin"><rect x="656" y="%d" width="48" height="26" rx="5"/><text x="680" y="%d">bin</text></g>' % (y2 - 66, y2 - 49))
     p.append(machine(540, y2, 110, 'Case packer', '12 per case'))
-    p.append(station(420, y2, 'C', 'Case check', '1 camera &middot; phase 2', later=True, up=False))
+    g, pop = station(420, y2, 'C', 'Case check', '1 camera &middot; phase 2', later=True, up=False); p.append(g); pops.append(pop)
     p.append(machine(270, y2, 110, 'Palletiser'))
     p.append('<text x="80" y="%d" class="lab">CHILLED DISPATCH</text>' % (y2 + 44))
-    # AI unit and screen
-    p.append('<g class="ai"><rect x="%d" y="%d" width="150" height="62" rx="11"/><text x="%d" y="%d" class="ml w">On-site AI unit</text><text x="%d" y="%d" class="ms w">plugs into a power point</text></g>' % (ai[0] - 75, ai[1] - 31, ai[0], ai[1] - 3, ai[0], ai[1] + 15))
-    p.append('<g class="scr"><rect x="760" y="240" width="120" height="50" rx="8"/><text x="820" y="262" class="ml">Line-side screen</text><text x="820" y="278" class="ms">+ tower lights</text></g>')
+    p.append('<g class="ai" id="ai"><rect x="%d" y="%d" width="150" height="62" rx="11"/><text x="%d" y="%d" class="ml w">On-site AI unit</text><text x="%d" y="%d" class="ms w">plugs into a power point</text></g>' % (ai[0] - 75, ai[1] - 31, ai[0], ai[1] - 3, ai[0], ai[1] + 15))
+    p.append('<g class="scr"><rect x="760" y="236" width="128" height="58" rx="8"/><text x="824" y="256" class="ml">Line-side screen</text><text x="824" y="274" class="ms" id="scr-count">Checked 0</text><text x="824" y="288" class="ms flagtxt" id="scr-flag">Flagged 0</text></g>')
+    p.extend(pops)
     p.append('</svg>')
     return ''.join(p)
 
@@ -167,7 +154,7 @@ ARR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="
 
 css = open(os.path.join(os.path.dirname(__file__), 'example-plan.css')).read()
 body = open(os.path.join(os.path.dirname(__file__), 'example-plan-body.html')).read()
-for k, v in {'{{LOGO}}': logo_dark, '{{DIAGRAM}}': diagram(), '{{STATIONS}}': station_cards(), '{{GANTT}}': gantt(), '{{COSTS}}': COSTS, '{{LATER}}': LATER_T, '{{ARR}}': ARR}.items():
+for k, v in {'{{LOGO}}': logo_dark, '{{DIAGRAM}}': diagram(), '{{STATIONS}}': station_cards(), '{{PATH}}': path_html(), '{{COSTS}}': COSTS, '{{LATER}}': LATER_T, '{{ARR}}': ARR}.items():
     assert k in body, k
     body = body.replace(k, v)
 page = '''<!DOCTYPE html>

@@ -35,7 +35,17 @@
   <p class="num">02</p>
   <h2 id="h-layout">Where the cameras go</h2>
   <p class="sub">Line 1, 600 mL PET bottles, about 40,000 a day over two shifts. Positions are from your description and will be fixed on the site visit. Every station clamps on and plugs in, so no electrician is needed.</p>
-  <div class="diagram">{{DIAGRAM}}</div>
+  <div class="sim">
+    <div class="sim-bar">
+      <div class="sim-mode" role="group" aria-label="Show the line during">
+        <button type="button" data-mode="trial" aria-pressed="true">Trial: alerts only</button>
+        <button type="button" data-mode="p2" aria-pressed="false">Phase 2: automatic reject</button>
+      </div>
+      <p class="sim-note" id="sim-note">A flagged bottle lights the tower light and shows on the screen. Your team lifts it off the line.</p>
+      <button type="button" class="sim-pause" id="sim-pause" aria-pressed="false">Pause</button>
+    </div>
+    <div class="diagram">{{DIAGRAM}}</div>
+  </div>
   <ul class="legend">
     <li><i class="lg-st"></i>Camera station in the trial</li>
     <li><i class="lg-later"></i>Added in phase 2</li>
@@ -71,17 +81,9 @@
 <section id="path" class="blk" aria-labelledby="h-path">
   <p class="num">04</p>
   <h2 id="h-path">The path to a working trial</h2>
-  <p class="sub">About 12 working weeks from our first call to a decision, allowing for your Christmas shutdown. Set-up takes one day with clamp-on mounts and plug-in power, while the line keeps running.</p>
-  <div class="gantt">{{GANTT}}</div>
-  <ul class="legend">
-    <li><i class="lg-v"></i>Vantory</li>
-    <li><i class="lg-c"></i>Your team</li>
-    <li><i class="lg-b"></i>Together</li>
-    <li><i class="lg-t"></i>Trial running</li>
-    <li><i class="lg-shut"></i>Site shutdown</li>
-    <li><i class="lg-dia"></i>Milestone</li>
-  </ul>
-  <p class="fine-note">Your team's time over the whole trial: about 22 hours, most of it 15 minutes a shift reviewing flagged bottles.</p>
+  <p class="sub">Seven steps over about 15 weeks, including your Christmas shutdown. Here is what happens at each step and how much of your team's time it takes.</p>
+  <div class="path">{{PATH}}</div>
+  <p class="fine-note">Your team's time over the whole project: about 22 hours, most of it 15 minutes a shift during the trial.</p>
 </section>
 
 <section id="costs" class="blk" aria-labelledby="h-costs">

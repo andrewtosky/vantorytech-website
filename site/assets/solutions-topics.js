@@ -3,7 +3,7 @@
   var select = document.getElementById('topic');
   if (!select) return;
   var parts = document.querySelectorAll('[data-part]');
-  var cardsGrid = document.querySelector('.solutions');
+  var cardGrids = Array.prototype.slice.call(document.querySelectorAll('.solutions'));
   var deepGrid = document.querySelector('.deep');
   var topics = Array.prototype.map.call(select.options, function (o) { return o.value; }).filter(Boolean);
 
@@ -19,12 +19,15 @@
         (part === 'custom' && topic === 'custom');
       sec.hidden = !visible;
     });
-    [cardsGrid, deepGrid].forEach(function (grid) {
-      if (!grid) return;
+    cardGrids.concat(deepGrid ? [deepGrid] : []).forEach(function (grid) {
+      var any = false;
       grid.classList.toggle('one', !all);
       grid.querySelectorAll('[data-topic]').forEach(function (el) {
         el.hidden = !all && el.getAttribute('data-topic') !== topic;
+        if (!el.hidden) any = true;
       });
+      // The core and "Also possible" grids: hide whichever has nothing to show
+      if (grid !== deepGrid) grid.hidden = !all && !any;
     });
   }
 

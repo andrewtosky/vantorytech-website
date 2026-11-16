@@ -17,7 +17,7 @@ PHASES = [
     ('Checks trained on your products', 'Cap, fill, label and code models trained and tested off the line', 'v', 6, 8, ''),
   ]),
   ('Install', [
-    ('Install stations A and B', 'Two half-day maintenance windows, with your maintenance team', 'b', 8, 8, '4 h'),
+    ('Set up stations A and B', 'One day on site: clamp-on mounts, plugged into existing power points. No wiring', 'b', 8, 8, '2 h'),
     ('Tune and cut false alarms', 'Running on live production, alerts only', 'v', 9, 9, '1 h'),
   ]),
   ('Trial', [
@@ -54,25 +54,25 @@ def gantt():
 def money(n): return 'A$' + format(n, ',')
 TRIAL = [
   ('Hardware', [
-    ('Industrial cameras and lenses', '3 cameras: 1 at station A, 2 at station B to read labels all the way round', '3 &times; A$3,000 to A$4,500', 9000, 13500),
-    ('Lighting', 'Backlight for fill level at A; two bar lights at B', '', 3000, 5000),
-    ('Mounts, hoods and washdown enclosures', 'Stainless brackets and IP65 housings for both stations', '2 stations', 4000, 6000),
-    ('On-site AI unit', 'Runs all checks beside the line. Takes up to 6 cameras, so station C needs no second unit', '', 4000, 6500),
-    ('Sensors, tower lights and line-side screen', 'Bottle triggers, a red/green light per station and one screen for the QC lead', '', 2000, 3000),
+    ('Industrial cameras and lenses', '3 cameras: 1 at station A, 2 at station B to read labels all the way round', '3 &times; A$1,200 to A$2,000', 3600, 6000),
+    ('Lighting', 'Backlight for fill level at A; two bar lights at B', '', 1200, 2400),
+    ('Clamp-on mounts and washdown covers', 'Clamp to the conveyor frame. No drilling, welding or wiring', '2 stations', 900, 1500),
+    ('On-site AI unit', 'Runs all checks beside the line and plugs into a power point. Takes up to 6 cameras', '', 3500, 5500),
+    ('Plug-in power hub, sensors, tower lights and screen', 'One hub powers the cameras over their data cables, so nothing is hardwired', '', 1500, 2500),
   ]),
   ('Set-up and trial', [
-    ('Setting up the checks', 'Teaching the system your 3 juices, labels, codes and known faults', '', 8000, 12000),
-    ('Install and commissioning', 'Two half-day windows on site, licensed electrician included', '', 6000, 9000),
-    ('Four-week trial and weekly reports', 'Remote monitoring, tuning and a results review on site', '', 4000, 6000),
+    ('Setting up the checks', 'Teaching the system your 3 juices, labels, codes and known faults', '', 5000, 8000),
+    ('Set-up day on site', 'Mount, plug in and test both stations while the line runs', '', 1500, 2500),
+    ('Four-week trial and weekly reports', 'Remote monitoring, tuning and a results review on site', '', 3000, 4500),
   ]),
   ('Software', [
-    ('Software licence, first 12 months', 'Covers 3 cameras, updates and new labels as you add products', '', 6000, 9000),
+    ('Software licence, first 12 months', 'Covers 3 cameras, updates and new labels as you add products', '', 4000, 6000),
   ]),
 ]
 LATER = [
-  ('Automatic reject', '2 air-jet rejectors and reject bins, connected to your line controller', 9000, 14000),
-  ('Station C: case check', '1 camera over the case packer: missing or fallen bottles before a case is sealed', 12000, 18000),
-  ('Software and support from year 2', 'For 4 cameras, including new products and labels', 7500, 11000),
+  ('Automatic reject', 'Air-jet rejectors connected to your line controller. Optional. Needs your site electrician to connect it', 9000, 14000),
+  ('Station C: case check', '1 camera over the case packer, clamp-on and plug-in like A and B', 6000, 9000),
+  ('Software and support from year 2', 'For 4 cameras, including new products and labels', 5000, 7500),
 ]
 def costs():
     out = ['<table class="costs"><thead><tr><th scope="col">Item</th><th scope="col" class="amt">Low</th><th scope="col" class="amt">High</th></tr></thead>']
@@ -92,7 +92,7 @@ def costs():
     later.append('</tbody></table>')
     return ''.join(out), ''.join(later), lo_t, hi_t
 COSTS, LATER_T, TLO, THI = costs()
-assert (TLO, THI) == (46000, 70000), (TLO, THI)
+assert (TLO, THI) == (24200, 38900), (TLO, THI)
 
 # ---------------- line diagram ----------------
 def machine(x, y, w, label, sub=''):
@@ -145,15 +145,15 @@ def diagram():
     p.append(machine(270, y2, 110, 'Palletiser'))
     p.append('<text x="80" y="%d" class="lab">CHILLED DISPATCH</text>' % (y2 + 44))
     # AI unit and screen
-    p.append('<g class="ai"><rect x="%d" y="%d" width="150" height="62" rx="11"/><text x="%d" y="%d" class="ml w">On-site AI unit</text><text x="%d" y="%d" class="ms w">footage stays on site</text></g>' % (ai[0] - 75, ai[1] - 31, ai[0], ai[1] - 3, ai[0], ai[1] + 15))
+    p.append('<g class="ai"><rect x="%d" y="%d" width="150" height="62" rx="11"/><text x="%d" y="%d" class="ml w">On-site AI unit</text><text x="%d" y="%d" class="ms w">plugs into a power point</text></g>' % (ai[0] - 75, ai[1] - 31, ai[0], ai[1] - 3, ai[0], ai[1] + 15))
     p.append('<g class="scr"><rect x="760" y="240" width="120" height="50" rx="8"/><text x="820" y="262" class="ml">Line-side screen</text><text x="820" y="278" class="ms">+ tower lights</text></g>')
     p.append('</svg>')
     return ''.join(p)
 
 STATIONS = [
-  ('A', 'Cap and fill', 'After the capper', '1 camera, side view with a backlight', ['Cap missing or not seated', 'Cap crooked', 'Fill below the line'], 'Trial'),
-  ('B', 'Label and code', 'After the date coder', '2 cameras, front and back, so the label is read all the way round', ['Wrong label for the run', 'Label crooked, torn or missing', 'Best-before date and batch code missing, smudged or wrong'], 'Trial'),
-  ('C', 'Case check', 'Over the case packer', '1 camera, top view', ['Missing or fallen bottles in a case', 'Wrong count before sealing'], 'Phase 2'),
+  ('A', 'Cap and fill', 'After the capper', '1 camera on a clamp-on mount, side view with a backlight', ['Cap missing or not seated', 'Cap crooked', 'Fill below the line'], 'Trial'),
+  ('B', 'Label and code', 'After the date coder', '2 cameras on one clamp-on frame, front and back, so the label is read all the way round', ['Wrong label for the run', 'Label crooked, torn or missing', 'Best-before date and batch code missing, smudged or wrong'], 'Trial'),
+  ('C', 'Case check', 'Over the case packer', '1 camera, top view, clamp-on and plug-in', ['Missing or fallen bottles in a case', 'Wrong count before sealing'], 'Phase 2'),
 ]
 def station_cards():
     o = []

@@ -3,7 +3,7 @@
   'use strict';
   var form = document.getElementById('s-form');
   if (!form) return;
-  var INVEST_LOW = 46000 + 9000 + 12000, INVEST_HIGH = 70000 + 14000 + 18000; // trial plus phase 2
+  var INVEST_LOW = 24200 + 9000 + 6000, INVEST_HIGH = 38900 + 14000 + 9000; // trial plus phase 2
   function v(id) { var n = parseFloat(document.getElementById(id).value); return isFinite(n) && n > 0 ? n : 0; }
   function money(n) { return 'A$' + Math.round(n).toLocaleString('en-AU'); }
   function k(n) { return Math.round(n / 1000) + 'k'; }

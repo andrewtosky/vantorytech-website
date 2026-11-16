@@ -21,6 +21,7 @@
 <meta name="twitter:image" content="https://vantorytech.com/assets/og-image.jpg">
 <!-- Privacy-friendly analytics by Plausible -->
 <script src="assets/plausible-init.js"></script>
+<script src="assets/solutions-topics.js" defer></script>
 <script async src="https://plausible.io/js/pa-cBmSDXMl1zdkkjd0z-Frh.js"></script>
 <meta name="description" content="The Vantory AI platform and what it can do: safety, quality, logistics, quoting, maintenance and more.">
 <link rel="icon" href="assets/vantory-favicon.svg" type="image/svg+xml">
@@ -349,6 +350,23 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
 @media (max-width: 880px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 720px) { .cases { grid-template-columns: minmax(0, 1fr); } .inspect .media { height: 200px; } }
 @media (max-width: 520px) { .inspects { grid-template-columns: minmax(0, 1fr); } .facts li { padding: 20px 18px; } }
+.deep { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 56px; }
+.deep article { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 28px; display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 110px; }
+.deep .tag { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cobalt); }
+.deep h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+.deep p { font-size: 15px; color: var(--slate); }
+.deep ul { margin: 0; padding-left: 20px; font-size: 15px; color: var(--slate); display: flex; flex-direction: column; gap: 6px; }
+.deep .result { margin-top: auto; padding: 14px 16px; border-radius: 10px; background: var(--mist); font-size: 14px; color: var(--ink); }
+.deep .result b { color: var(--cobalt); font-weight: 600; }
+@media (max-width: 760px) { .deep { grid-template-columns: minmax(0, 1fr); } }
+.chooser { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 4px; }
+.chooser label { font-size: 16px; font-weight: 600; color: var(--white); }
+.chooser select { font: inherit; font-size: 16px; min-height: 50px; min-width: 300px; max-width: 100%; padding: 0 44px 0 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,.35); background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232350F5' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center / 18px; color: var(--ink); appearance: none; -webkit-appearance: none; cursor: pointer; }
+.chooser select:focus-visible { outline: 3px solid var(--cobalt-soft); outline-offset: 2px; }
+.solutions.one { grid-template-columns: minmax(0, 1fr); max-width: 640px; }
+.solutions.one .solution { min-height: 260px; justify-content: flex-end; }
+.deep.one { grid-template-columns: minmax(0, 1fr); max-width: 760px; }
+[data-part][hidden], .solutions [hidden], .deep [hidden] { display: none !important; }
 </style>
 <style>
 /* Announcement strip, shared with the homepage */
@@ -402,10 +420,33 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
     <p class="eyebrow">Solutions</p>
     <h1 id="page-title">AI that works in any business.</h1>
     <p class="lead">One system connects your cameras, sensors, robots and software, then puts AI to work on safety, quality, moving goods and more.</p>
+    <div class="chooser">
+      <label for="topic">What do you want to see?</label>
+      <select id="topic">
+        <option value="">Everything</option>
+        <optgroup label="Cameras and robots">
+          <option value="safety">Safety checks</option>
+          <option value="quality">Quality checks</option>
+          <option value="lifting">Lifting and moving</option>
+          <option value="workstations">Smarter workstations</option>
+          <option value="entertainment">Robots that entertain</option>
+        </optgroup>
+        <optgroup label="Behind the scenes">
+          <option value="maintenance">Warn before machines break</option>
+          <option value="energy">See where your power goes</option>
+          <option value="assistants">AI assistants that write and report</option>
+          <option value="training">Train new staff faster</option>
+          <option value="buildings">3D building models</option>
+        </optgroup>
+        <optgroup label="Something else">
+          <option value="custom">Custom AI built for you</option>
+        </optgroup>
+      </select>
+    </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="platform-title">
+<section class="section" aria-labelledby="platform-title" data-part="platform">
   <div class="wrap stack-lg">
     <div class="section-head reveal">
       <p class="eyebrow">The AI system</p>
@@ -425,7 +466,7 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
   </div>
 </section>
 
-<section class="section mist" aria-labelledby="solutions-title">
+<section class="section mist" aria-labelledby="solutions-title" data-part="cards">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">What it can do</p>
@@ -433,20 +474,78 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
       <p class="lead">These are the jobs people ask us about most. If yours is not listed, just ask.</p>
     </div>
     <div class="solutions reveal">
-      <article class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/platform-night.jpg" alt="" loading="lazy" style="object-position: left center"></div><span class="tag">Safety</span><h3>Safety checks</h3><p>Cameras, robot dogs and drones watch for missing safety gear, people in danger zones, fire, smoke and leaks, day and night.</p><span class="hint">Hover to see it</span></article>
-      <article class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/shot-64.jpg" alt="" loading="lazy" style="object-position: center"></div><span class="tag">Quality</span><h3>Quality checks</h3><p>AI cameras and robots find faulty products, missing parts and wrong labels before anything leaves your site.</p><a class="see-line" href="food-and-beverage.html">See it on a bottling line</a></article>
-      <article class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><video autoplay muted loop playsinline preload="none" poster="assets/mos-logistics.jpg"><source src="assets/mos-logistics.mp4" type="video/mp4"></video></div><span class="tag">Logistics</span><h3>Lifting and moving</h3><p>Robots carry, lift and load goods, working safely alongside your people and vehicles.</p><span class="hint">Hover to watch</span></article>
-      <article class="solution"><span class="tag">Construction</span><h3>Faster quotes</h3><p>Upload your building plans and AI measures them and prepares a quote. Your estimator checks and approves it.</p></article>
-      <article class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/sol-workstation.jpg" alt="" loading="lazy" style="object-position: center top"></div><span class="tag">Operations</span><h3>Smarter workstations</h3><p>An AI camera at each station checks every step is done right, counts output and shows where work slows down.</p><span class="hint">Hover to see it</span></article>
-      <article class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/sol-maintenance.jpg" alt="" loading="lazy" style="object-position: left center"></div><span class="tag">Maintenance</span><h3>Fix problems early</h3><p>AI reads your machine data and warns you before something breaks. Robots can read gauges and meters for you.</p><span class="hint">Hover to see it</span></article>
-      <article class="solution"><span class="tag">Buildings</span><h3>3D building models</h3><p>Turn flat plans into 3D models you can walk through, and track energy, water and air-conditioning use each day.</p></article>
-      <article class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><video autoplay muted loop playsinline preload="none" poster="assets/nix-dance.jpg"><source src="assets/nix-dance.mp4" type="video/mp4"></video></div><span class="tag">Experiences</span><h3>Robots that entertain</h3><p>Robot shows and friendly greeters for venues, events, cellar doors and showrooms.</p><span class="hint">Hover to watch</span></article>
+      <article data-topic="safety" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/platform-night.jpg" alt="" loading="lazy" style="object-position: left center"></div><span class="tag">Safety</span><h3>Safety checks</h3><p>Cameras, robot dogs and drones watch for missing safety gear, people in danger zones, fire, smoke and leaks, day and night.</p><span class="hint">Hover to see it</span></article>
+      <article data-topic="quality" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/shot-64.jpg" alt="" loading="lazy" style="object-position: center"></div><span class="tag">Quality</span><h3>Quality checks</h3><p>AI cameras and robots find faulty products, missing parts and wrong labels before anything leaves your site, and check new labels against the approved artwork.</p><a class="see-line" href="food-and-beverage.html">See it on a bottling line</a></article>
+      <article data-topic="lifting" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><video autoplay muted loop playsinline preload="none" poster="assets/mos-logistics.jpg"><source src="assets/mos-logistics.mp4" type="video/mp4"></video></div><span class="tag">Logistics</span><h3>Lifting and moving</h3><p>Robots carry, lift and load goods, working safely alongside your people and vehicles.</p><span class="hint">Hover to watch</span></article>
+      <article data-topic="energy" class="solution"><span class="tag">Energy</span><h3>Track energy use</h3><p>AI shows where your power goes, by machine or area, and warns you when energy use jumps.</p><a class="see-line" href="#energy">How it works</a></article>
+      <article data-topic="workstations" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/sol-workstation.jpg" alt="" loading="lazy" style="object-position: center top"></div><span class="tag">Operations</span><h3>Smarter workstations</h3><p>An AI camera at each station checks every step is done right, counts output and shows where work slows down.</p><span class="hint">Hover to see it</span></article>
+      <article data-topic="maintenance" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><img src="assets/sol-maintenance.jpg" alt="" loading="lazy" style="object-position: left center"></div><span class="tag">Maintenance</span><h3>Fix problems early</h3><p>AI reads your machine data and warns you before something breaks. Robots can read gauges and meters for you.</p><a class="see-line" href="#maintenance">How it works</a><span class="hint">Hover to see it</span></article>
+      <article data-topic="buildings" class="solution"><span class="tag">Buildings</span><h3>3D building models</h3><p>Turn flat plans into 3D models you can walk through, and track energy, water and air-conditioning use each day.</p></article>
+      <article data-topic="entertainment" class="solution has-media" tabindex="0"><div class="media" aria-hidden="true"><video autoplay muted loop playsinline preload="none" poster="assets/nix-dance.jpg"><source src="assets/nix-dance.mp4" type="video/mp4"></video></div><span class="tag">Experiences</span><h3>Robots that entertain</h3><p>Robot shows and friendly greeters for venues, events, cellar doors and showrooms.</p><span class="hint">Hover to watch</span></article>
     </div>
     <p class="fine">Some images are from our technology partner and show example projects.</p>
   </div>
 </section>
 
-<section class="section dark" aria-labelledby="custom-title">
+<section class="section" aria-labelledby="behind-title" id="behind" data-part="deep">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Behind the scenes</p>
+      <h2 id="behind-title">AI that keeps machines, energy and people running.</h2>
+      <p class="lead">Not every job needs a new camera or robot. These tools learn from the data your machines, buildings and documents already hold.</p>
+    </div>
+    <div class="deep">
+      <article class="reveal" id="maintenance" data-topic="maintenance">
+        <span class="tag">Maintenance</span>
+        <h3>Warn before machines break</h3>
+        <p>AI learns from data your machines already record and warns before equipment fails, so repairs happen between runs, not during them.</p>
+        <ul>
+          <li>Service machines when they need it, not on a fixed schedule.</li>
+          <li>Turn warnings into maintenance jobs, with spare parts and service history in one place.</li>
+          <li>Patrol robots and cameras read gauges and meters, and feed the same warnings.</li>
+        </ul>
+        <p class="result"><b>Partner projects:</b> equipment downtime down 20% at one plant, and unexpected machine faults down 30% at another.</p>
+      </article>
+      <article class="reveal" id="energy" data-topic="energy">
+        <span class="tag">Energy</span>
+        <h3>See where your power goes</h3>
+        <p>AI shows energy use by site, area or machine, forecasts next month's use and flags unusual spikes as they happen.</p>
+        <ul>
+          <li>Find which equipment is behind a rise in the power bill.</li>
+          <li>Spot waste, such as cooling or air conditioning running when no one needs it.</li>
+          <li>Replace manual meter reading.</li>
+        </ul>
+        <p class="result"><b>Partner project:</b> a pharmaceutical maker halved the time it took to respond to energy problems.</p>
+      </article>
+      <article class="reveal" id="assistants" data-topic="assistants">
+        <span class="tag">Reports and procedures</span>
+        <h3>AI assistants that write and report</h3>
+        <p>AI assistants draft procedures, daily summaries and reports from your own documents and data, for a person to check.</p>
+        <ul>
+          <li>A one-page morning summary of output, maintenance jobs and energy use.</li>
+          <li>Standard procedures drafted and kept up to date, for a manager to approve.</li>
+          <li>Warnings before stock or materials run short.</li>
+          <li>Help finding the likely cause of faults, and the machine settings that improve output.</li>
+        </ul>
+        <p class="result"><b>Partner project:</b> a computer maker wrote its standard procedures more than 80% faster.</p>
+      </article>
+      <article class="reveal" id="training" data-topic="training">
+        <span class="tag">Training</span>
+        <h3>Train new staff faster</h3>
+        <p>An assistant answers new starters' questions from your own manuals and lets them practise before their first shift.</p>
+        <ul>
+          <li>Suits seasonal and casual crews who need to be ready quickly.</li>
+          <li>Staff can practise a task in a simulation before doing it for real.</li>
+          <li>Answers come from your own procedures, so everyone learns the same way.</li>
+        </ul>
+        <p class="result"><b>Partner projects:</b> training cost down 50% at one manufacturer, and new-starter training time halved at another.</p>
+      </article>
+    </div>
+    <p class="fine">Projects delivered by our technology partner. Results as reported by them for their customers.</p>
+  </div>
+</section>
+
+<section class="section dark" aria-labelledby="custom-title" id="custom" data-part="custom" data-topic="custom">
   <div class="wrap stack-lg">
     <div class="section-head reveal">
       <p class="eyebrow">Custom AI</p>
@@ -468,7 +567,7 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
     <div class="section-head reveal">
       <p class="eyebrow">How a trial works</p>
       <h2 id="trial-title">Start small, see real results, then decide.</h2>
-      <p class="lead">Every project starts with a trial on one job at one site, so you see real results before going further. Each trial is shaped around your business, the AI you need and how far you want to take it.</p>
+      <p class="lead">Every project starts with a trial on one job at one site, so you see real results before going further. We don't promise results until we have seen your site and your systems. Each trial is shaped around your business, the AI you need and how far you want to take it.</p>
     </div>
     <ol class="steps four">
       <li class="step reveal"><h3>Talk and agree the goal</h3><p>We learn about the job, visit or call, and agree what success looks like, such as fewer faults or faster checks.</p></li>
@@ -476,11 +575,12 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
       <li class="step reveal"><h3>Run the trial</h3><p>The system runs on the real job, and we measure the results against where you started.</p></li>
       <li class="step reveal"><h3>Review and decide</h3><p>We go through the results together. You choose to roll out, adjust the plan, or stop there.</p></li>
     </ol>
+    <div class="note reveal"><span><strong>Not sure where to start?</strong> Start with a workshop. Your own team builds its first AI use case with our help, and a longer 14-week programme is there for teams that want to go further.</span><a class="text-link" href="contact.html">Ask about a workshop</a></div>
     <p class="reveal" style="margin-top: 40px"><a class="text-link" href="contact.html">Start with a trial <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
   </div>
 </section>
 
-<section class="section mist" aria-labelledby="faq-title" id="faq">
+<section class="section mist" aria-labelledby="faq-title" id="faq" data-part="faq">
   <div class="wrap faq-wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Questions and answers</p>
@@ -492,16 +592,18 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
       <details class="faq-item"><summary>Where is my data kept?</summary><p>The AI can run on equipment at your own site, so video and data stay with you. Where hosting is needed, it is in Australia. Our <a href="privacy.html">Privacy Policy</a> has the details.</p></details>
       <details class="faq-item"><summary>Do I need technical staff to use it?</summary><p>No. The software includes no-code tools, so your team can set up new checks by dragging and dropping steps instead of writing code. We set everything up, connect it to your equipment, train your team and support you after launch.</p></details>
       <details class="faq-item"><summary>How does a trial work?</summary><p>We start with one job at one site. We agree what success looks like, set up the system, run it on the real job and measure the results against where you started. Then you decide what happens next. See <a href="#trial">how a trial works</a> above.</p></details>
-      <details class="faq-item"><summary>Can the AI help with workplace safety?</summary><p>Yes. It can spot missing hard hats, hi-vis vests and other safety gear, people entering danger zones, blocked aisles, smoke and equipment faults, and send a real-time alert to the right person. Every alert is saved with the time, place and a snapshot, so you can look back later.</p></details>
+      <details class="faq-item"><summary>Can the AI help with workplace safety?</summary><p>Yes. It can spot missing hard hats, hi-vis vests and other safety gear, people entering danger zones, forklifts and trucks breaking site rules, falls, blocked aisles, smoke and equipment faults, and send a real-time alert to the right person. Every alert is saved with the time, place and a snapshot, so you can look back later.</p></details>
+      <details class="faq-item"><summary>Do you use face recognition?</summary><p>No. We use cameras as safety and quality tools, not to identify people. We take you through how video is handled before anything is installed.</p></details>
+      <details class="faq-item"><summary>Does it need a constant internet connection?</summary><p>No. Cameras connect to a computer at your site that runs the AI, so video does not have to go to the cloud and checks keep running when the connection is weak.</p></details>
       <details class="faq-item"><summary>Will AI and robots replace my staff?</summary><p>Our systems are designed to take on the dull, heavy and risky tasks, so your people can focus on skilled work. People stay in control, and anything the AI is not sure about goes to a person to decide.</p></details>
       <details class="faq-item"><summary>Is it safe to have robots working near people?</summary><p>Safety comes first. We look at the job and the work area with you before any robot is used, choose a robot that suits it, and train your team on working safely alongside it.</p></details>
       <details class="faq-item"><summary>Which industries do you work with?</summary><p>Almost any. The technology was proven in electronics, automotive and medical device factories, and it suits food and beverage, warehousing, construction, agriculture, mining, energy, venues and more. If you have a job that is slow, unsafe or repetitive, we would like to hear about it.</p></details>
     </div>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does it work with the cameras and machines I already have?", "acceptedAnswer": {"@type": "Answer", "text": "In most cases, yes. The AI system connects to the CCTV cameras you already have, as well as drones, inspection robots, sensors and business software, so you usually do not need to replace your equipment. We check your setup with you before anything is installed."}}, {"@type": "Question", "name": "Where is my data kept?", "acceptedAnswer": {"@type": "Answer", "text": "The AI can run on equipment at your own site, so video and data stay with you. Where hosting is needed, it is in Australia. Our Privacy Policy has the details."}}, {"@type": "Question", "name": "Do I need technical staff to use it?", "acceptedAnswer": {"@type": "Answer", "text": "No. The software includes no-code tools, so your team can set up new checks by dragging and dropping steps instead of writing code. We set everything up, connect it to your equipment, train your team and support you after launch."}}, {"@type": "Question", "name": "How does a trial work?", "acceptedAnswer": {"@type": "Answer", "text": "We start with one job at one site. We agree what success looks like, set up the system, run it on the real job and measure the results against where you started. Then you decide what happens next. See how a trial works above."}}, {"@type": "Question", "name": "Can the AI help with workplace safety?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It can spot missing hard hats, hi-vis vests and other safety gear, people entering danger zones, blocked aisles, smoke and equipment faults, and send a real-time alert to the right person. Every alert is saved with the time, place and a snapshot, so you can look back later."}}, {"@type": "Question", "name": "Will AI and robots replace my staff?", "acceptedAnswer": {"@type": "Answer", "text": "Our systems are designed to take on the dull, heavy and risky tasks, so your people can focus on skilled work. People stay in control, and anything the AI is not sure about goes to a person to decide."}}, {"@type": "Question", "name": "Is it safe to have robots working near people?", "acceptedAnswer": {"@type": "Answer", "text": "Safety comes first. We look at the job and the work area with you before any robot is used, choose a robot that suits it, and train your team on working safely alongside it."}}, {"@type": "Question", "name": "Which industries do you work with?", "acceptedAnswer": {"@type": "Answer", "text": "Almost any. The technology was proven in electronics, automotive and medical device factories, and it suits food and beverage, warehousing, construction, agriculture, mining, energy, venues and more. If you have a job that is slow, unsafe or repetitive, we would like to hear about it."}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does it work with the cameras and machines I already have?", "acceptedAnswer": {"@type": "Answer", "text": "In most cases, yes. The AI system connects to the CCTV cameras you already have, as well as drones, inspection robots, sensors and business software, so you usually do not need to replace your equipment. We check your setup with you before anything is installed."}}, {"@type": "Question", "name": "Where is my data kept?", "acceptedAnswer": {"@type": "Answer", "text": "The AI can run on equipment at your own site, so video and data stay with you. Where hosting is needed, it is in Australia. Our Privacy Policy has the details."}}, {"@type": "Question", "name": "Do I need technical staff to use it?", "acceptedAnswer": {"@type": "Answer", "text": "No. The software includes no-code tools, so your team can set up new checks by dragging and dropping steps instead of writing code. We set everything up, connect it to your equipment, train your team and support you after launch."}}, {"@type": "Question", "name": "How does a trial work?", "acceptedAnswer": {"@type": "Answer", "text": "We start with one job at one site. We agree what success looks like, set up the system, run it on the real job and measure the results against where you started. Then you decide what happens next. See how a trial works above."}}, {"@type": "Question", "name": "Can the AI help with workplace safety?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It can spot missing hard hats, hi-vis vests and other safety gear, people entering danger zones, forklifts and trucks breaking site rules, falls, blocked aisles, smoke and equipment faults, and send a real-time alert to the right person. Every alert is saved with the time, place and a snapshot, so you can look back later."}}, {"@type": "Question", "name": "Do you use face recognition?", "acceptedAnswer": {"@type": "Answer", "text": "No. We use cameras as safety and quality tools, not to identify people. We take you through how video is handled before anything is installed."}}, {"@type": "Question", "name": "Does it need a constant internet connection?", "acceptedAnswer": {"@type": "Answer", "text": "No. Cameras connect to a computer at your site that runs the AI, so video does not have to go to the cloud and checks keep running when the connection is weak."}}, {"@type": "Question", "name": "Will AI and robots replace my staff?", "acceptedAnswer": {"@type": "Answer", "text": "Our systems are designed to take on the dull, heavy and risky tasks, so your people can focus on skilled work. People stay in control, and anything the AI is not sure about goes to a person to decide."}}, {"@type": "Question", "name": "Is it safe to have robots working near people?", "acceptedAnswer": {"@type": "Answer", "text": "Safety comes first. We look at the job and the work area with you before any robot is used, choose a robot that suits it, and train your team on working safely alongside it."}}, {"@type": "Question", "name": "Which industries do you work with?", "acceptedAnswer": {"@type": "Answer", "text": "Almost any. The technology was proven in electronics, automotive and medical device factories, and it suits food and beverage, warehousing, construction, agriculture, mining, energy, venues and more. If you have a job that is slow, unsafe or repetitive, we would like to hear about it."}}]}</script>
   </div>
 </section>
 
-<section class="section" aria-labelledby="trust-title">
+<section class="section" aria-labelledby="trust-title" data-part="trust">
   <div class="wrap split">
     <div class="copy reveal">
       <p class="eyebrow">Why choose us</p>

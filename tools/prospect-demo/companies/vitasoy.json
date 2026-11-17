@@ -1,0 +1,95 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Vitasoy Wodonga Carton Line",
+ "company": "Vitasoy Australia",
+ "short": "Vitasoy",
+ "site": "Wodonga, VIC",
+ "shape": "pouch",
+ "productName": "Oat milk 1 L",
+ "productShort": "cartons",
+ "headline": "Every carton checked, not a sample.",
+ "formProduct": "Plant milk cartons, 1 L",
+ "labelTop": "PLANT MILK",
+ "labelMain": "OAT",
+ "labelSize": "1 L",
+ "wrongTop": "PLANT MILK",
+ "wrongMain": "ALMOND",
+ "code": "BB 14 MAY 27 L2317",
+ "codeWrong": "BB 14 MAY 26 L2317",
+ "lid": "#2F6FB3",
+ "label": "#FFFFFF",
+ "labelInk": "#1E4E86",
+ "wrongLabel": "#F3E7D3",
+ "body": "#f2f2ee",
+ "fill": "#f2f2ee",
+ "lineType": "plant milk carton filling line",
+ "vatsLabel": "Blending",
+ "visitLine": "Call and visit to Wodonga",
+ "heroLede": "Vitasoy's Wodonga plant has been making plant milk since 2002, and its output has grown about sevenfold since then, to around 70 million litres a year. The range now covers soy, oat, almond, coconut and rice milks. With that many varieties going into similar 1 litre cartons, the label is what tells one from the next, and allergens like soy and almond make a mix-up serious. This is what a camera check could look like on a plant milk carton line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every carton has its cap on, straight and fully closed, and the carton top is sealed. A loose cap or a weak top seal means a leak in transit and a claim from the retailer.",
+ "labelLede": "Oat and almond cartons look much the same at line speed. The camera checks every carton carries the right print for the milk inside, so nobody with an almond allergy gets almond in an oat carton.",
+ "codeLede": "The best-before and batch code has to be right and readable on every carton. The system reads the printed code and compares it with the variety and date set at changeover.",
+ "objectLede": "Cap offcuts, straw wrappers and loose parts can end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a tray.",
+ "vocab": {
+  "unit": "carton",
+  "units": "cartons",
+  "c1h": "Caps on and tops sealed",
+  "chips": [
+   "Missing caps",
+   "Crooked caps",
+   "Open top seals"
+  ],
+  "r1": [
+   "Cap crooked",
+   "Cap missing",
+   "Top seal open"
+  ],
+  "filler": "Carton filler",
+  "coder": "Date coder",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected",
+  "audits": "food safety audits",
+  "c1": "Caps and seals",
+  "tag1": "CAP",
+  "ok": "Cap, print and code OK",
+  "alert": "Four crooked caps in fifteen minutes on Line 1. Check the capper.",
+  "lidder": "Capper"
+ },
+ "extra": [
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   "<p class=\"fact\">With around 70 million litres a year, even one wrong carton in ten thousand is thousands of cartons. That is our example figure, not yours.</p>"
+  ],
+  [
+   "<p class=\"fact\">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC</a></p>",
+   ""
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"500000\">$500,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one national allergen recall: stock destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Sources: <a href=\"https://soy.com.au/our-process\">Vitasoy, our process</a>; <a href=\"https://vegconomist.com/food-and-beverage/milk-and-dairy-alternatives/vitasoy-australia-highest-ever-production\">vegconomist, Nov 2023</a>; <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ 2025 recall statistics</a>.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 250000,
+  "days": 300,
+  "hours": 20,
+  "rate": 50,
+  "recall": 500000,
+  "recalls": 1,
+  "penalty": 60000,
+  "escape": 4
+ },
+ "slug": "vitasoy"
+}

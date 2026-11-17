@@ -1,0 +1,82 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Michaelona Flavour Filling Line",
+ "company": "Michaelona Flavours",
+ "short": "Michaelona",
+ "site": "Carrum Downs, VIC",
+ "shape": "bottle",
+ "productName": "Vanilla flavour 1 L",
+ "productShort": "bottles of flavour",
+ "headline": "Every bottle of flavour checked, not a sample.",
+ "formProduct": "Flavours, colours and seasonings",
+ "labelTop": "NATURAL FLAVOUR",
+ "labelMain": "VANILLA",
+ "labelSize": "1 L",
+ "wrongTop": "NATURAL FLAVOUR",
+ "wrongMain": "HAZELNUT",
+ "code": "BB 14 MAY 27 L2317",
+ "codeWrong": "BB 14 MAY 26 L2317",
+ "lid": "#FFFFFF",
+ "label": "#FFFFFF",
+ "labelInk": "#5A3A24",
+ "wrongLabel": "#F1E3D0",
+ "body": "#e9d9b6",
+ "fill": "#d9b77a",
+ "lineType": "flavour filling line",
+ "vatsLabel": "Blending",
+ "visitLine": "Call and visit to Carrum Downs",
+ "heroLede": "Michaelona is a family-owned Melbourne company, established in 2000, that makes flavours, colours, seasonings and fragrances at Carrum Downs and supplies food makers here and overseas from SQF-approved premises. With hundreds of flavours going into similar containers, the label is what tells your customer what they are adding to their product. This is what a camera check could look like on a filling line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every bottle has its cap on, straight and fully closed. A loose cap means a leak in the carton and a complaint from the customer.",
+ "labelLede": "A vanilla and a hazelnut flavour can look the same in the bottle, and the wrong one can put an allergen into your customer’s product. The camera checks every bottle carries the right label for the run, straight and intact.",
+ "codeLede": "The best-before and batch code has to be right and readable on every bottle. The system reads the printed code and compares it with the flavour and date set at changeover.",
+ "objectLede": "Cap offcuts, label backing and loose parts can end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "bottle",
+  "units": "bottles",
+  "c1": "Caps",
+  "c1h": "Caps on, straight and closed",
+  "chips": [
+   "Missing caps",
+   "Crooked caps",
+   "Caps not closed"
+  ],
+  "r1": [
+   "Cap crooked",
+   "Cap missing",
+   "Cap not closed"
+  ],
+  "tag1": "CAP",
+  "ok": "Cap, label and code OK",
+  "lidder": "Capper",
+  "filler": "Filler",
+  "coder": "Date coder",
+  "alert": "Four crooked caps in fifteen minutes. Check the capper.",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the flavour</h2>"
+  ]
+ ],
+ "est": {
+  "packs": 3000,
+  "days": 250,
+  "hours": 8,
+  "rate": 45,
+  "recall": 100000,
+  "recalls": 1,
+  "penalty": 15000,
+  "escape": 20
+ },
+ "slug": "michaelona"
+}

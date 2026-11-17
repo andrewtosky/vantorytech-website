@@ -1,0 +1,77 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "andrew.tosky@vantorytech.com",
+ "dispatchLabel": "Chilled dispatch",
+ "pageTitle": "Nick's Gnocchi Pack Line",
+ "company": "Nick's Gnocchi & Pasta",
+ "short": "Nick's",
+ "site": "Mill Park, VIC",
+ "shape": "flatbag",
+ "productName": "Potato gnocchi 500 g",
+ "productShort": "packs of gnocchi",
+ "headline": "Every pack of gnocchi checked, not a sample.",
+ "formProduct": "Fresh gnocchi and pasta",
+ "labelTop": "FRESH",
+ "labelMain": "POTATO GNOCCHI",
+ "labelSize": "500 g",
+ "wrongTop": "FRESH",
+ "wrongMain": "PUMPKIN GNOCCHI",
+ "code": "USE BY 24 NOV 26 L0412",
+ "codeWrong": "USE BY 24 OCT 26 L0412",
+ "lid": "#e9edf2",
+ "label": "#FFFFFF",
+ "labelInk": "#1F4E2C",
+ "wrongLabel": "#FDE9C4",
+ "body": "#e9edf2",
+ "fill": "#efe2b8",
+ "lineType": "fresh pasta packing line",
+ "vatsLabel": "Kitchen",
+ "visitLine": "Call and visit to Mill Park",
+ "heroLede": "Nick's makes gnocchi and pasta in Mill Park. Fresh pasta has a short use-by and many shapes and flavours going into similar packs, so the seal, the label and the date are what keep each run right. This is what a camera check could look like at the end of a packing line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every pack is sealed straight across, with no crease and no product caught in the seal. A weak seal on fresh pasta means it spoils before the use-by.",
+ "labelLede": "A potato gnocchi and a pumpkin gnocchi pack can look much the same at line speed. The camera checks every pack carries the right label for the run, straight and intact.",
+ "codeLede": "Fresh pasta has a short use-by window, so the date has to be right on every pack. The system reads the printed date and batch code and compares them with the product and date set at changeover.",
+ "objectLede": "Film offcuts, glove pieces and loose parts can end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "pack",
+  "units": "packs",
+  "c1h": "Packs sealed straight across",
+  "chips": [
+   "Open seals",
+   "Creased seals",
+   "Product in the seal"
+  ],
+  "r1": [
+   "Seal creased",
+   "Pack not sealed",
+   "Product caught in the seal"
+  ],
+  "filler": "Pack filler",
+  "coder": "Date coder",
+  "smudge": "USE BY 2? N?V 2? L04??",
+  "wrongCode": "Wrong month: OCT printed, NOV expected",
+  "c1": "Seals",
+  "tag1": "SEAL",
+  "ok": "Seal, label and code OK",
+  "alert": "Four creased seals in fifteen minutes on Line 1. Check the pack sealer.",
+  "lidder": "Pack sealer"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the run</h2>"
+  ]
+ ],
+ "est": {
+  "packs": 3000,
+  "days": 250,
+  "hours": 8,
+  "rate": 40,
+  "recall": 80000,
+  "recalls": 1,
+  "penalty": 10000,
+  "escape": 10
+ },
+ "slug": "nicks-gnocchi"
+}

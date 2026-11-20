@@ -210,6 +210,7 @@ img, video { max-width: 100%; height: auto; display: block; }
 form.enquiry { border: 1px solid var(--line); border-radius: 18px; padding: 36px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; background: var(--white); box-shadow: 0 20px 60px rgba(14,21,48,.06); }
 form.enquiry fieldset { grid-column: 1 / -1; border: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 form.enquiry legend { grid-column: 1 / -1; padding: 0; margin-bottom: 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cobalt); }
+form.enquiry fieldset[hidden] { display: none; }
 form.enquiry fieldset + fieldset { padding-top: 24px; border-top: 1px solid var(--line); }
 .field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .field.full { grid-column: 1 / -1; }
@@ -383,11 +384,11 @@ form.enquiry .full-hint { grid-column: 1 / -1; margin: -8px 0 0; font-size: 14px
     <aside class="contact-aside">
       <p class="eyebrow">Contact us</p>
       <h1 id="page-title" style="font-size: clamp(34px, 4.4vw, 52px); font-weight: 700">Tell us what is holding you back.</h1>
-      <p class="lead">The more you tell us, the more useful our first call will be. We read every message before we call, so we can get straight to the point.</p>
+      <p class="lead">A few short questions is all it takes. We read every message before we call, so the first conversation is useful.</p>
       <ol class="next-steps">
-        <li><div><h3>You tell us the problem</h3><p>Fill in the form: what the job is, what makes it hard and how it is done now.</p></div></li>
-        <li><div><h3>We do our homework</h3><p>We work out which AI and robots could help and what a trial might look like.</p></div></li>
-        <li><div><h3>We book a call</h3><p>We email you to pick a time, then bring real ideas to the call, not a sales pitch.</p></div></li>
+        <li><div><h3>You tell us the problem</h3><p>Two minutes: who you are and what you would like to improve.</p></div></li>
+        <li><div><h3>We do our homework</h3><p>We work out what could help and what a trial might look like.</p></div></li>
+        <li><div><h3>We book a call</h3><p>We email you to pick a time and bring real ideas, not a sales pitch.</p></div></li>
       </ol>
       <p>Prefer email? Write to us at <a href="mailto:enquiries@vantorytech.com">enquiries@vantorytech.com</a>.</p>
     </aside>
@@ -398,74 +399,60 @@ form.enquiry .full-hint { grid-column: 1 / -1; margin: -8px 0 0; font-size: 14px
       <input type="hidden" name="from_name" value="Vantory website">
       <p hidden><label>Leave this empty <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label></p>
       <fieldset>
-        <legend>About you</legend>
+        <legend>1. About you</legend>
         <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" autocomplete="organization" required></div>
-        <div class="field"><label for="f-role">Your role <span class="opt">(optional)</span></label><input id="f-role" name="role" autocomplete="organization-title" placeholder="e.g. Operations manager"></div>
         <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         <div class="field"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
-        <div class="field"><label for="f-country">Country</label><input id="f-country" name="country" autocomplete="country-name"></div>
-        <div class="field"><label for="f-site">Site location <span class="opt">(optional)</span></label><input id="f-site" name="site" placeholder="e.g. Thomastown, VIC"></div>
       </fieldset>
 
       <fieldset>
-        <legend>Your challenge</legend>
-        <div class="field full">
+        <legend>2. What you need</legend>
+        <div class="field">
           <label for="f-industry">Industry</label>
           <select id="f-industry" name="industry">
-            <option value="">Choose your industry</option>
-            <option>Manufacturing</option><option>Food and beverage</option><option>Warehousing and logistics</option><option>Construction and building</option><option>Agriculture</option><option>Mining and energy</option><option>Hotels, venues and events</option><option>Healthcare and aged care</option><option>Utilities and infrastructure</option><option>Other</option>
+            <option value="">Choose one</option>
+            <option>Food and beverage</option><option>Manufacturing</option><option>Warehousing and logistics</option><option>Building materials</option><option>Agriculture</option><option>Other</option>
           </select>
-        </div>
-        <div class="field full">
-          <label for="f-process">Which job would you like to improve?</label>
-          <p class="hint" id="f-process-hint">For example: checking every box on our packing line for damaged labels.</p>
-          <textarea id="f-process" name="process" aria-describedby="f-process-hint" required></textarea>
-        </div>
-        <div class="field full" role="group" aria-labelledby="pain-label">
-          <span class="label" id="pain-label">What makes it hard right now? <span class="opt">(choose any)</span></span>
-          <div class="chips">
-            <span class="chip"><input type="checkbox" id="p-slow" name="pain" value="Slow"><label for="p-slow">Too slow</label></span>
-            <span class="chip"><input type="checkbox" id="p-risk" name="pain" value="Risky"><label for="p-risk">Risky or unsafe</label></span>
-            <span class="chip"><input type="checkbox" id="p-rep" name="pain" value="Repetitive"><label for="p-rep">Repetitive</label></span>
-            <span class="chip"><input type="checkbox" id="p-cost" name="pain" value="Costly"><label for="p-cost">Costly</label></span>
-            <span class="chip"><input type="checkbox" id="p-err" name="pain" value="Errors"><label for="p-err">Mistakes and redoing work</label></span>
-            <span class="chip"><input type="checkbox" id="p-staff" name="pain" value="Staffing"><label for="p-staff">Hard to staff</label></span>
-            <span class="chip"><input type="checkbox" id="p-vis" name="pain" value="Visibility"><label for="p-vis">Hard to see what is going on</label></span>
-          </div>
-        </div>
-        <div class="field full">
-          <label for="f-today">How is it done now? <span class="opt">(optional)</span></label>
-          <p class="hint" id="f-today-hint">Who does it, how many people or shifts, and any machines, cameras or software you use.</p>
-          <textarea id="f-today" name="today" aria-describedby="f-today-hint"></textarea>
         </div>
         <div class="field">
           <label for="f-timeline">When would you like to start?</label>
           <select id="f-timeline" name="timeline">
-            <option value="">Choose a timeframe</option>
+            <option value="">Choose one</option>
             <option>As soon as possible</option><option>Within 3 months</option><option>In 3 to 12 months</option><option>Just looking for now</option>
           </select>
         </div>
-        <div class="field">
-          <label for="f-times">Best times for a call <span class="opt">(optional)</span></label>
-          <input id="f-times" name="times" placeholder="e.g. Weekday mornings, AEST">
+        <div class="field full">
+          <label for="f-process">What would you like to improve?</label>
+          <p class="hint" id="f-process-hint">A sentence or two is plenty. For example: checking date codes on every pack, or spotting missing hard hats in the yard.</p>
+          <textarea id="f-process" name="process" aria-describedby="f-process-hint" required></textarea>
+        </div>
+        <div class="field full" role="group" aria-labelledby="pain-label">
+          <span class="label" id="pain-label">What makes it hard? <span class="opt">(optional, choose any)</span></span>
+          <div class="chips">
+            <span class="chip"><input type="checkbox" id="p-err" name="pain" value="Errors"><label for="p-err">Mistakes</label></span>
+            <span class="chip"><input type="checkbox" id="p-risk" name="pain" value="Risky"><label for="p-risk">Safety risk</label></span>
+            <span class="chip"><input type="checkbox" id="p-slow" name="pain" value="Slow"><label for="p-slow">Too slow</label></span>
+            <span class="chip"><input type="checkbox" id="p-staff" name="pain" value="Staffing"><label for="p-staff">Hard to staff</label></span>
+            <span class="chip"><input type="checkbox" id="p-cost" name="pain" value="Costly"><label for="p-cost">Too costly</label></span>
+          </div>
         </div>
       </fieldset>
 
       <fieldset id="fb-block" hidden>
-        <legend>Your line</legend>
-        <p class="hint full-hint">A few details about the line help us send you a trial plan and cost range for it.</p>
+        <legend>3. Your line</legend>
+        <p class="hint full-hint">Optional. These help us price a trial for your line.</p>
         <div class="field">
           <label for="f-packaging">What do you pack?</label>
           <select id="f-packaging" name="packaging">
-            <option value="">Choose packaging</option>
+            <option value="">Choose one</option>
             <option>Bottles</option><option>Cans</option><option>Jars</option><option>Tubs or pots</option><option>Bags or pouches</option><option>Trays</option><option>Cartons or boxes</option><option>Other</option>
           </select>
         </div>
         <div class="field">
           <label for="f-volume">Packs a day on the busiest line</label>
           <select id="f-volume" name="volume">
-            <option value="">Choose a range</option>
+            <option value="">Choose one</option>
             <option>Under 5,000</option><option>5,000 to 20,000</option><option>20,000 to 50,000</option><option>50,000 to 100,000</option><option>Over 100,000</option><option>Not sure</option>
           </select>
         </div>
@@ -477,43 +464,14 @@ form.enquiry .full-hint { grid-column: 1 / -1; margin: -8px 0 0; font-size: 14px
             <span class="chip"><input type="checkbox" id="c-code" name="check" value="Date and batch codes"><label for="c-code">Date and batch codes</label></span>
             <span class="chip"><input type="checkbox" id="c-fill" name="check" value="Fill level and caps"><label for="c-fill">Fill level and caps</label></span>
             <span class="chip"><input type="checkbox" id="c-seal" name="check" value="Seals and leaks"><label for="c-seal">Seals and leaks</label></span>
-            <span class="chip"><input type="checkbox" id="c-obj" name="check" value="Foreign objects"><label for="c-obj">Foreign objects</label></span>
             <span class="chip"><input type="checkbox" id="c-other" name="check" value="Something else"><label for="c-other">Something else</label></span>
           </div>
-        </div>
-        <div class="field">
-          <label for="f-checked">How are they checked today?</label>
-          <select id="f-checked" name="checkedNow">
-            <option value="">Choose one</option>
-            <option>Staff check every pack</option><option>Staff check a sample</option><option>We have a camera or vision system</option><option>Not checked regularly</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="f-lines">How many packing or filling lines?</label>
-          <select id="f-lines" name="lines">
-            <option value="">Choose one</option>
-            <option>1</option><option>2 to 3</option><option>4 to 6</option><option>More than 6</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="f-plc">Line controller brand <span class="opt">(optional)</span></label>
-          <select id="f-plc" name="plc">
-            <option value="">Not sure</option>
-            <option>Siemens</option><option>Allen-Bradley (Rockwell)</option><option>Mitsubishi</option><option>Omron</option><option>Schneider</option><option>Other</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="f-photos">Could you share photos of the line?</label>
-          <select id="f-photos" name="photos">
-            <option value="">Choose one</option>
-            <option>Yes</option><option>After we talk</option><option>No</option>
-          </select>
         </div>
       </fieldset>
 
       <div class="consent"><input type="checkbox" id="f-consent" name="consent" required><label for="f-consent">I agree to Vantory Technologies using these details to reply to my enquiry, as set out in the <a href="privacy.html">Privacy Policy</a>.</label></div>
-      <button class="btn btn-primary" type="submit">Send my details</button>
-      <p class="form-note">We reply within one business day, usually with a draft trial plan for your line. We never sell your details. We only use them to reply to you, as set out in our <a href="privacy.html">Privacy Policy</a>.</p>
+      <button class="btn btn-primary" type="submit">Send</button>
+      <p class="form-note">We reply within one business day. We never sell your details.</p>
       <p class="form-status" id="form-status" role="status"></p>
     </form>
   </div>

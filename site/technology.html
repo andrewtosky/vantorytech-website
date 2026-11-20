@@ -338,6 +338,31 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
 .case dl { margin: 0; display: flex; flex-direction: column; gap: 6px; }
 .case dt { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-top: 8px; }
 .case dd { margin: 0; font-size: 15px; color: var(--slate); }
+.feature { margin-top: 56px; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.feature .story { padding: 44px 44px 40px; display: flex; flex-direction: column; gap: 16px; }
+.dateline { font-size: 14px; color: var(--slate); }
+.dateline b { color: var(--ink); font-weight: 600; }
+.feature h3 { font-size: clamp(24px, 2.6vw, 32px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; max-width: 22ch; }
+.feature .story p { color: var(--slate); font-size: 17px; max-width: 58ch; }
+.feature .numbers { background: var(--ink); color: var(--white); padding: 44px 40px; display: flex; flex-direction: column; justify-content: center; gap: 28px; }
+.feature .numbers div { display: flex; flex-direction: column; gap: 4px; }
+.feature .numbers strong { font-size: clamp(44px, 5vw, 64px); font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+.feature .numbers span { color: #C9D3E8; font-size: 15px; }
+.case-list { list-style: none; margin: 40px 0 0; padding: 0; border-top: 1px solid var(--ink); }
+.case-list li { display: grid; grid-template-columns: 200px minmax(0, 1fr) 220px; gap: 32px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.case-list .meta { font-size: 14px; color: var(--slate); line-height: 1.5; }
+.case-list .meta b { display: block; color: var(--ink); font-weight: 600; font-size: 15px; }
+.case-list h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 6px; }
+.case-list p { color: var(--slate); font-size: 16px; max-width: 62ch; }
+.case-list .result { font-size: 15px; color: var(--slate); line-height: 1.4; }
+.case-list .result strong { display: block; font-size: 26px; font-weight: 700; color: var(--cobalt); letter-spacing: -0.02em; margin-bottom: 4px; }
+.case-list .result.qual { color: var(--ink); font-weight: 500; }
+.invite-line { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; padding: 24px 28px; border: 1px solid var(--cobalt); border-radius: var(--radius); background: var(--white); }
+.invite-line p { font-size: 16px; color: var(--ink); max-width: 70ch; }
+.invite-line p b { font-weight: 700; }
+@media (max-width: 1024px) { .case-list li { grid-template-columns: 160px minmax(0, 1fr); } .case-list .result { grid-column: 2; } }
+@media (max-width: 880px) { .feature { grid-template-columns: minmax(0, 1fr); } .feature .story, .feature .numbers { padding: 28px 24px; } .feature .numbers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; } }
+@media (max-width: 720px) { .case-list li { grid-template-columns: minmax(0, 1fr); gap: 10px; } .case-list .result { grid-column: auto; } }
 .fine { margin-top: 24px; font-size: 13px; color: var(--slate); }
 /* Inspection robots */
 .inspects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 56px; }
@@ -349,7 +374,7 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
 .inspect p { font-size: 15px; color: var(--slate); }
 @media (max-width: 1024px) { .cases, .inspects { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 880px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 720px) { .cases { grid-template-columns: minmax(0, 1fr); } .inspect .media { height: 200px; } }
+@media (max-width: 720px) { .cases, .case-group .cases { grid-template-columns: minmax(0, 1fr); } .inspect .media { height: 200px; } }
 @media (max-width: 520px) { .inspects { grid-template-columns: minmax(0, 1fr); } .facts li { padding: 20px 18px; } }
 </style>
 <style>
@@ -391,10 +416,10 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
       <p class="eyebrow">Technology partner</p>
       <h2 id="partner-title">Backed by a factory-born AI partner.</h2>
       <p class="lead">Vantory delivers industrial AI from ADTTech, our technology partner. Our partner is part of Taiwan's AUO Group, one of the world's largest display makers, and brings more than 20 years of factory experience into the software we supply.</p>
-      <p>Around 170 specialists, over half of them in research and development, build the AI inspection, vision and robot control platforms behind Vantory. In January 2026 Mitsubishi Electric took an investment stake in the company.</p>
+      <p>Around 200 staff, more than 100 of them engineers, build the AI inspection, vision and robot control platforms behind Vantory. In January 2026 Mitsubishi Electric took an investment stake in the company.</p>
     </div>
     <ul class="facts reveal">
-      <li><strong>~170</strong><span>specialists, over half in research and development</span></li>
+      <li><strong>~200</strong><span>staff, more than 100 of them engineers</span></li>
       <li><strong>20+</strong><span>years of manufacturing know-how</span></li>
       <li><strong>1,200+</strong><span>customers in automotive, medical and electronics</span></li>
       <li><strong>2026</strong><span>Mitsubishi Electric invests in our partner</span></li>
@@ -407,33 +432,50 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
     <div class="section-head reveal">
       <p class="eyebrow">Proven results</p>
       <h2 id="cases-title">What the technology has already done.</h2>
-      <p class="lead">Our partner's customers include manufacturers such as ZF, Denso, BorgWarner and Johnson &amp; Johnson. Here are three of its projects.</p>
+      <p class="lead">Our partner&#8217;s customers include ZF, Denso, BorgWarner and Johnson &amp; Johnson. A selection of its projects.</p>
     </div>
-    <div class="cases">
-      <article class="case reveal">
-        <span class="tag">Partner project</span>
-        <h3>Medical manufacturer: A$182,000 a year less scrap</h3>
-        <dl>
-          <dt>Before</dt><dd>The plant's existing inspection machines wrongly rejected so many blood-glucose test strips that throwing away good product became a major cost.</dd>
-          <dt>After</dt><dd>AI now re-checks the rejected strips, cutting scrap by about A$182,000 a year.</dd>
-        </dl>
-      </article>
-      <article class="case reveal">
-        <span class="tag">Partner project</span>
-        <h3>Optoelectronics plant: 70% more capacity</h3>
-        <dl>
-          <dt>Before</dt><dd>Defects were being missed, manual checks were slow and the old inspection supplier charged high yearly fees.</dd>
-          <dt>After</dt><dd>AI-assisted inspection lifted capacity by 70% and cut false rejects by 62%, so fewer people were needed to re-check parts.</dd>
-        </dl>
-      </article>
-      <article class="case reveal">
-        <span class="tag">Partner project</span>
-        <h3>Automotive electronics: fewer people, more uptime</h3>
-        <dl>
-          <dt>Before</dt><dd>Staff watched a soldering machine by eye to catch the moment it started making bad joints.</dd>
-          <dt>After</dt><dd>An AI camera now watches it all the time. The line runs with two fewer people and machine use rose 12%.</dd>
-        </dl>
-      </article>
+    <article class="feature reveal">
+      <div class="story">
+        <p class="dateline"><b>Automotive electronics</b> &middot; Process monitoring</p>
+        <h3>A camera took over the job of watching a soldering machine.</h3>
+        <p>Operators at this plant spent their shifts beside a soldering machine, watching for the moment it started producing bad joints. It was tiring work, and it tied up people on every shift.</p>
+        <p>An AI camera now watches the machine continuously and alerts the team as soon as joint quality starts to drift.</p>
+      </div>
+      <div class="numbers">
+        <div><strong>+12%</strong><span>machine utilisation</span></div>
+        <div><strong>2</strong><span>fewer operators needed on the line</span></div>
+      </div>
+    </article>
+    <ul class="case-list">
+      <li class="reveal">
+        <div class="meta"><b>Medical devices</b>Quality inspection</div>
+        <div><h3>Rejected test strips get a second look.</h3><p>The plant&#8217;s inspection machines were rejecting so many good blood-glucose test strips that scrap had become a major cost. AI now re-checks every reject and sends the good strips back to production.</p></div>
+        <div class="result"><strong>A$182,000</strong>a year less scrap</div>
+      </li>
+      <li class="reveal">
+        <div class="meta"><b>Optoelectronics</b>Quality inspection</div>
+        <div><h3>Faster inspection without a bigger team.</h3><p>Defects were slipping through, manual checks were slow and the previous inspection supplier charged high yearly fees. AI-assisted inspection now reviews each part, so fewer people re-check the line.</p></div>
+        <div class="result"><strong>+70%</strong>inspection capacity, with 62% fewer false rejects</div>
+      </li>
+      <li class="reveal">
+        <div class="meta"><b>Auto parts</b>Site safety</div>
+        <div><h3>An automated warehouse, watched aisle by aisle.</h3><p>Driverless vehicles and conveyors shared a storage area too large for supervisors to cover. Cameras in every aisle now feed one AI unit on site, which flags people near moving vehicles, objects left in racking and conveyor jams as they happen.</p></div>
+        <div class="result qual">The whole area monitored around the clock</div>
+      </li>
+      <li class="reveal">
+        <div class="meta"><b>Tobacco</b>Site safety</div>
+        <div><h3>Patrol rounds replaced by automatic detection.</h3><p>Meters were read by hand, and leaks or unsafe work were only noticed if someone walked past. Fixed cameras, inspection robots and vehicle-mounted AI now cover work at height, hot work, gas and steam leaks, meter readings and warehouse loads.</p></div>
+        <div class="result qual">Issues reported in real time and tracked until closed</div>
+      </li>
+      <li class="reveal">
+        <div class="meta"><b>Packing</b>Process monitoring &middot; example setup</div>
+        <div><h3>Every packing step checked.</h3><p>An overhead AI camera follows each station through scan, bag, box, label and tape, and alerts the packer the moment a step is missed. Each pack is recorded on video, so a customer complaint can be checked in minutes.</p></div>
+        <div class="result qual">Live pass and defect rates for every station</div>
+      </li>
+    </ul>
+    <div class="invite-line reveal">
+      <p><b>Food and beverage manufacturers:</b> we are looking for our first Australian label and date-code trial. One camera, one line, every pack checked, at reduced founding-client pricing.</p>
+      <a class="btn btn-primary" href="plan.html">Get a free solution plan</a>
     </div>
     <p class="fine reveal">Projects delivered by our technology partner. Results as reported by them for their customers.</p>
   </div>

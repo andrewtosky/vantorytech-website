@@ -1,6 +1,6 @@
 # Example full plan
 
-Builds `site/example/plan.html`, the example full solution plan linked from `site/plan.html`. Riverbend Drinks and Daniel Moretti are made up, and the page says so.
+Builds `site/example/plan.html`, the example full solution plan linked from `site/plan.html`. It is written for the juice bottling industry and names no business or person.
 
 ```
 python3 build_example_plan.py

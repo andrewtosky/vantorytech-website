@@ -88,7 +88,7 @@ $('tighten').addEventListener('submit', function(e){
   var first = $('t-name').value.trim().split(' ')[0];
   var st2 = st, btn = this.querySelector('button[type="submit"]');
   var data = new FormData();
-  data.append('access_key', '176ecaec-132e-4afe-a8f7-e59067f331f9');
+  data.append('token', 'vantory-site-2026');
   data.append('subject', 'Demo page enquiry: Pact Group');
   data.append('from_name', 'Vantory demo page');
   data.append('page', 'for/pact-uj6rkx');
@@ -102,16 +102,16 @@ $('tighten').addEventListener('submit', function(e){
   ['c-packs','c-days','c-hours','c-rate','c-recall','c-recalls','c-penalty','c-escape'].forEach(function(id){ data.append(id.slice(2), $(id).value); });
   data.append('estimate', $('r-range').textContent);
   btn.disabled = true; st2.className = 'status'; st2.textContent = 'Sending...';
-  fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
+  fetch('https://script.google.com/macros/s/AKfycbzi5j4yWk1y53HibXQxnsSc7mN-UivqlgG_SugqmqijTkWoIpDJs4at8_8Il_UaR8Ui/exec', { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(Object.fromEntries(data)) })
     .then(function(r){ return r.json(); })
     .then(function(res){
-      if (!res.success) throw new Error(res.message);
+      if (!res || !res.ok) throw new Error(res && res.message ? res.message : 'not sent');
       st2.className = 'status ok';
       st2.textContent = 'Thanks, ' + first + '. We have your details and will email you a trial plan within one business day.';
     })
     .catch(function(err){
       st2.className = 'status err';
-      st2.textContent = 'Sorry, that did not send (' + (err && err.message ? err.message : 'no reply') + '). Please try again, or email andrew.tosky@vantorytech.com.';
+      st2.textContent = 'Sorry, that did not send (' + (err && err.message ? err.message : 'no reply') + '). Please try again, or email enquiries@vantorytech.com.';
     })
     .then(function(){ btn.disabled = false; });
 });

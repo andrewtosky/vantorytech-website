@@ -19,7 +19,7 @@ If something breaks after a merge, Netlify keeps every earlier version: in Netli
 - **The inline `<script>` at the bottom of each page.** `site/_headers` only allows it by its exact SHA-256 hash. Changing even one character in that script blocks it (the menu, videos and contact form stop working) unless the hash in `_headers` is updated to match. Put new code in a file under `site/assets/` instead.
 - **`site/_headers`** holds the site's security rules (Content-Security-Policy and others). Any new outside script, font or service must be added there, or the browser will block it.
 - **`site/assets/plausible-init.js`** and the Plausible script tag in each page's `<head>` run the visitor analytics. Don't add a second copy.
-- **The contact forms** (`index.html`, `contact.html`) send through Web3Forms. Its `access_key` is meant to be public. Keep the field IDs (`f-name`, `f-company`, `f-email`, `f-process`, `f-consent`) as they are, because the inline script checks them.
+- **The contact forms** (`index.html`, `contact.html`, `plan.html` and the demo pages in `site/for/`) send to Vantory's own enquiries script in Google Apps Script, which emails each enquiry to Vantory and saves it in the enquiries sheet. No outside form service is used. The script's web app URL is in `assets/enquiry-plus.js` and in each demo page script; it is public by design. `assets/enquiry-plus.js` also checks the fields and shows the messages, and it stops the old inline form code from running. Keep the field IDs (`f-name`, `f-company`, `f-email`, `f-process`, `f-consent`) as they are. Only `enquiries@vantorytech.com` is shown on the site.
 
 ## Who can publish
 

@@ -2,13 +2,12 @@
 // - Shows the "Your line" questions when Food and beverage is chosen.
 // - Gives each enquiry email a clear subject line.
 // - On the free solution plan page: switches between the quick and full plan forms.
-// - Sends a copy of each valid enquiry to the Vantory enquiries sheet (Google Apps Script),
-//   alongside the existing Web3Forms email. The inline script on each page still handles
-//   validation, the Web3Forms send and the on-page messages.
+// - Sends each enquiry to the Vantory enquiries script (Google Apps Script), which emails it to
+//   Vantory and saves it in the enquiries sheet. It also checks the fields and shows the messages.
 (function () {
   'use strict';
-  // Paste the Apps Script web app URL here once it is deployed. Empty means no copy is sent.
-  var INTAKE_URL = '';
+  // The Vantory enquiries web app (Google Apps Script). Code and setup steps are kept outside the site.
+  var INTAKE_URL = 'https://script.google.com/macros/s/AKfycbzi5j4yWk1y53HibXQxnsSc7mN-UivqlgG_SugqmqijTkWoIpDJs4at8_8Il_UaR8Ui/exec';
   var TOKEN = 'vantory-site-2026';
 
   function ready(fn) {
@@ -84,61 +83,66 @@
     form.addEventListener('input', updateSubject);
     form.addEventListener('change', updateSubject);
 
-    // Same checks as the inline script, so only enquiries that will send are copied.
-    function isValid() {
-      var ids = ['f-name', 'f-company', 'f-email', 'f-process'];
-      for (var i = 0; i < ids.length; i++) {
-        var el = document.getElementById(ids[i]);
-        if (!el || !el.value.trim() || !el.checkValidity()) return false;
-      }
-      var consent = document.getElementById('f-consent');
-      return !!(consent && consent.checked);
-    }
+    // Sending: every enquiry goes to the Vantory enquiries script in Google Apps Script, which emails it
+    // to Vantory and saves it in the enquiries sheet. This listener runs first (capture phase) and stops the
+    // older inline form code from running, so no outside form service is used.
+    var checks = [['f-name', 'Please add your name.'], ['f-company', 'Please add your company name.'],
+                  ['f-email', 'Please enter a valid work email, like name@company.com.'],
+                  ['f-process', 'Please tell us which process or job you would like to improve.']];
+    var status = document.getElementById('form-status');
+    var button = form.querySelector('button[type="submit"]');
 
     function isPreview() {
       return location.protocol === 'file:' || /claude/.test(location.hostname);
     }
 
-    form.addEventListener('submit', function () {
+    document.addEventListener('submit', function (e) {
+      if (e.target !== form) return;
+      e.preventDefault();
+      e.stopPropagation();
       updateSubject();
-      if (!INTAKE_URL || isPreview() || !isValid()) return;
+      status.className = 'form-status';
+      for (var i = 0; i < checks.length; i++) {
+        var el = document.getElementById(checks[i][0]);
+        if (!el.value.trim() || !el.checkValidity()) { status.textContent = checks[i][1]; el.focus(); return; }
+      }
+      var consent = document.getElementById('f-consent');
+      if (!consent.checked) { status.textContent = 'Please tick the box to agree to our Privacy Policy.'; consent.focus(); return; }
+      var first = val('f-name').split(' ')[0];
+      if (isPreview()) {
+        status.className = 'form-status ok';
+        status.textContent = 'Thanks, ' + first + '. This is a preview, so nothing was sent. On the live site, your details go straight to the Vantory team.';
+        return;
+      }
       var data = new FormData(form);
-      var foodLine = block && !block.hidden;
-      var payload = {
-        token: TOKEN,
-        plan: planType(),
-        botcheck: data.get('botcheck') ? '1' : '',
-        name: val('f-name'),
-        company: val('f-company'),
-        role: val('f-role'),
-        email: val('f-email'),
-        phone: val('f-phone'),
-        country: val('f-country'),
-        site: val('f-site'),
-        industry: val('f-industry'),
-        process: val('f-process'),
-        pain: data.getAll('pain').join(', '),
-        today: val('f-today'),
-        packaging: foodLine ? val('f-packaging') : '',
-        volume: foodLine ? val('f-volume') : '',
-        checks: foodLine ? val('f-checks') : '',
-        checkedNow: foodLine ? val('f-checked') : '',
-        lines: foodLine ? val('f-lines') : '',
-        plc: foodLine ? val('f-plc') : '',
-        photos: foodLine ? val('f-photos') : '',
-        timeline: val('f-timeline'),
-        times: val('f-times'),
-        page: location.pathname
-      };
-      try {
-        fetch(INTAKE_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify(payload),
-          keepalive: true
-        }).catch(function () {});
-      } catch (e) { /* the Web3Forms email still goes, so a failed copy is not shown to the visitor */ }
-    });
+      var payload = { token: TOKEN, page: location.pathname };
+      data.forEach(function (v, k) {
+        if (k === 'access_key' || k === 'from_name') return;
+        if (typeof v !== 'string') return;
+        if (payload[k] !== undefined) payload[k] = payload[k] + ', ' + v;
+        else payload[k] = v;
+      });
+      payload.botcheck = data.get('botcheck') ? '1' : '';
+      if (block && block.hidden) ['packaging', 'volume', 'checks', 'check', 'checkedNow', 'checked', 'lines', 'plc', 'photos'].forEach(function (k) { delete payload[k]; });
+      button.disabled = true;
+      status.textContent = 'Sending...';
+      fetch(INTAKE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (!res || !res.ok) throw new Error(res && res.message ? res.message : 'not sent');
+          form.reset();
+          status.className = 'form-status ok';
+          status.textContent = 'Thanks, ' + first + '. We have your details. We will read them and email you to book a call.';
+        })
+        .catch(function (err) {
+          status.className = 'form-status';
+          status.textContent = 'Sorry, your message could not be sent (' + (err && err.message ? err.message : 'no reply from the server') + '). Please try again in a minute, or email enquiries@vantorytech.com.';
+        })
+        .then(function () { button.disabled = false; });
+    }, true);
   });
 })();

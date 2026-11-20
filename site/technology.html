@@ -348,6 +348,10 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
 .feature .numbers div { display: flex; flex-direction: column; gap: 4px; }
 .feature .numbers strong { font-size: clamp(44px, 5vw, 64px); font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
 .feature .numbers span { color: #C9D3E8; font-size: 15px; }
+.feature .numbers ul { list-style: none; margin: 0; padding: 20px 0 0; border-top: 1px solid rgba(255,255,255,.16); display: flex; flex-direction: column; gap: 10px; }
+.feature .numbers li { color: #C9D3E8; font-size: 15px; padding-left: 18px; position: relative; }
+.feature .numbers li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 7px; height: 7px; border-radius: 2px; background: var(--cobalt-soft); }
+.feature .story p.applies { color: var(--ink); font-size: 16px; padding-left: 14px; border-left: 3px solid var(--cobalt); }
 .case-list { list-style: none; margin: 40px 0 0; padding: 0; border-top: 1px solid var(--ink); }
 .case-list li { display: grid; grid-template-columns: 200px minmax(0, 1fr) 220px; gap: 32px; padding: 28px 0; border-bottom: 1px solid var(--line); }
 .case-list .meta { font-size: 14px; color: var(--slate); line-height: 1.5; }
@@ -361,7 +365,7 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
 .invite-line p { font-size: 16px; color: var(--ink); max-width: 70ch; }
 .invite-line p b { font-weight: 700; }
 @media (max-width: 1024px) { .case-list li { grid-template-columns: 160px minmax(0, 1fr); } .case-list .result { grid-column: 2; } }
-@media (max-width: 880px) { .feature { grid-template-columns: minmax(0, 1fr); } .feature .story, .feature .numbers { padding: 28px 24px; } .feature .numbers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; } }
+@media (max-width: 880px) { .feature { grid-template-columns: minmax(0, 1fr); } .feature .story, .feature .numbers { padding: 28px 24px; } }
 @media (max-width: 720px) { .case-list li { grid-template-columns: minmax(0, 1fr); gap: 10px; } .case-list .result { grid-column: auto; } }
 .fine { margin-top: 24px; font-size: 13px; color: var(--slate); }
 /* Inspection robots */
@@ -437,12 +441,17 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
     <article class="feature reveal">
       <div class="story">
         <p class="dateline"><b>Medical devices</b> &middot; Quality inspection</p>
-        <h3>Good product was going in the bin. Now it goes back on the line.</h3>
-        <p>This plant&#8217;s inspection machines were rejecting so many blood-glucose test strips in error that throwing away good product had become a major cost.</p>
-        <p>AI now re-checks every strip the machines reject and sends the good ones back to production, so only genuine faults are scrapped.</p>
+        <h3>Cutting false rejects on a medical test strip line.</h3>
+        <p>A manufacturer of blood-glucose test strips relied on automated inspection machines to catch faulty strips. The machines flagged far more strips than were actually faulty, and every rejected strip was scrapped. Throwing away good product had become a major cost for the plant.</p>
+        <p>An AI inspection step was added after the existing machines. It reviews the image of every rejected strip, confirms the genuine defects and sends good strips back into production.</p>
+        <p class="applies">The same approach works wherever an existing check rejects too much good product, such as label, seal or fill inspection on a packing line.</p>
       </div>
       <div class="numbers">
-        <div><strong>A$182,000</strong><span>a year less scrap</span></div>
+        <div><strong>A$182,000</strong><span>saved each year in scrapped product</span></div>
+        <ul>
+          <li>Every rejected strip re-checked by AI</li>
+          <li>Added on top of the existing inspection machines</li>
+        </ul>
       </div>
     </article>
     <ul class="case-list">

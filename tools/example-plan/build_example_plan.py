@@ -1,4 +1,4 @@
-"""Builds site/example/plan.html: the example full solution plan for Riverbend Drinks (a made-up company)."""
+"""Builds site/example/plan.html: the example full solution plan for the juice bottling industry."""
 import re, os
 SITE = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'site'))
 fonts = '\n'.join(l for l in re.findall(r'@font-face \{[^}]*\}', open(SITE + '/contact.html').read()))

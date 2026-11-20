@@ -89,7 +89,7 @@ $('tighten').addEventListener('submit', function(e){
   var st2 = st, btn = this.querySelector('button[type="submit"]');
   var data = new FormData();
   data.append('access_key', '176ecaec-132e-4afe-a8f7-e59067f331f9');
-  data.append('subject', 'Demo page enquiry: Riverbend Drinks (example)');
+  data.append('subject', 'Demo page enquiry: juice bottling example');
   data.append('from_name', 'Vantory demo page');
   data.append('page', 'for/example-preview');
   data.append('name', $('t-name').value.trim());

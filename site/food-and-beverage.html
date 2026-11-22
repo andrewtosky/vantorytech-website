@@ -462,7 +462,8 @@ form.enquiry .btn { grid-column: 1 / -1; width: 100%; min-height: 54px; font-siz
 .fbx .calc{margin:0;font:500 12px/1.55 var(--mono);color:var(--fb-muted)}
 
 .fbx .fb-steps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;counter-reset:s}
-.fbx .fb-steps li{counter-increment:s;display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:center;font-size:13.5px;color:var(--fb-muted);padding:6px 8px;border-radius:8px;transition:background .2s,color .2s}
+.fbx .fb-steps li{counter-increment:s;display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:center;font-size:13.5px;color:var(--fb-muted);padding:6px 8px;border-radius:8px;transition:background .25s,color .25s}
+.fbx .fb-steps li::before{transition:background .25s,border-color .25s,color .25s}
 .fbx .fb-steps li::before{content:counter(s);width:22px;height:22px;border-radius:50%;border:1.5px solid var(--fb-line);display:grid;place-items:center;font:600 11px/1 var(--mono);color:var(--fb-muted)}
 .fbx .fb-steps li.done::before{content:"✓";border-color:var(--ok);color:var(--ok)}
 .fbx .fb-steps li.on{background:var(--midnight-2);color:var(--fb-text)}

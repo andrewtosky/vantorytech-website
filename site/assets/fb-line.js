@@ -206,6 +206,7 @@ function capture(it){
 var canvas = $('scene'), renderer;
 var activeStop = 0;
 var stepEls = Array.prototype.slice.call(document.querySelectorAll('#steps li'));
+var STEP_CYCLE = 2.4, stepClock = STEP_CYCLE + 1, stepShown = -1, stepFailShown = false;
 var camEl = $('cam');
 var scrimEl = $('scrim');
 function setActive(i){
@@ -575,7 +576,7 @@ function moveItem(it, dt, speed){
   if (!it.out){
     it.x += SPEED * speed * dt;
     if (!it.checked && it.x >= X_CAM){
-      it.checked = true; capture(it); captureFlash = 1;
+      it.checked = true; capture(it); captureFlash = 1; if (stepClock > STEP_CYCLE) stepClock = 0;
       if (it.defect){ towerRed = 2.2; lastFlagged = it; lastFailTxt = REASONS[it.defect][0]; drawScreen(); it.flag.material.color.setHex(C.alert); it.flag.material.opacity = 1; }
       else { it.flag.material.color.setHex(C.ok); it.flag.material.opacity = 0.9; it.t = -0.35; }
     }
@@ -662,9 +663,16 @@ function frame(){
   scrTimer -= dt; if (scrTimer <= 0){ scrTimer = 1; drawScreen(); }
 
   /* step tracker */
+  /* Each photographed bottle plays the steps in order at a readable pace, then holds on the result.
+     A new cycle only starts once the last one has finished, so the highlight never flickers. */
+  stepClock += dt;
   if (activeStop === 3){
-    var stepOn = nextD < 0.55 ? 1 : (towerRed > 1.6 || captureFlash > 0.35) ? 2 : 3;
-    stepEls.forEach(function(el, j){ el.classList.toggle('on', j === stepOn); el.classList.toggle('fail', j === 3 && towerRed > 0); });
+    var stepOn = stepClock < 0.7 ? 1 : stepClock < 1.4 ? 2 : 3;
+    var stepFail = stepOn === 3 && towerRed > 0;
+    if (stepOn !== stepShown || stepFail !== stepFailShown){
+      stepShown = stepOn; stepFailShown = stepFail;
+      stepEls.forEach(function(el, j){ el.classList.toggle('on', j === stepOn); el.classList.toggle('fail', j === 3 && stepFail); });
+    }
   }
 
   /* cases + pallet */

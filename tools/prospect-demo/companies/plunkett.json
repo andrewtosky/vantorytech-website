@@ -1,0 +1,152 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Cool store and dispatch",
+ "pageTitle": "Plunkett Orchards Packing Line",
+ "company": "Plunkett Orchards",
+ "short": "Plunkett",
+ "site": "Ardmona, VIC",
+ "shape": "carton",
+ "productName": "Granny Smith apples 12 kg",
+ "productShort": "boxes of fruit",
+ "headline": "Every box of fruit checked, not a sample.",
+ "formProduct": "Apples and pears",
+ "labelTop": "APPLES",
+ "labelMain": "GRANNY SMITH",
+ "labelSize": "12 kg",
+ "wrongTop": "APPLES",
+ "wrongMain": "PINK LADY",
+ "code": "PACKED 14 MAR 27 G041",
+ "codeWrong": "PACKED 14 MAR 26 G041",
+ "lid": "#c9a86a",
+ "label": "#FFFFFF",
+ "labelInk": "#2B5D34",
+ "wrongLabel": "#F6DDE3",
+ "body": "#c9a86a",
+ "fill": "#8cc152",
+ "lineType": "fruit packing line",
+ "vatsLabel": "Pre-sizer",
+ "visitLine": "Call and visit to Ardmona",
+ "heroLede": "With your own fruit and fruit from about 40 other growers going through the Ardmona shed, every box needs the right variety, grade and grower code. Here's what a camera check could look like on your packing line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every box is closed square, with the lid on and nothing caught in the flaps. A box that opens on the pallet means bruised fruit and a rejected load.",
+ "labelLede": "A box of Granny Smith and a box of Pink Lady are easy to tell apart when open, but not once the lid is on and the label is all anyone sees. The camera checks every box carries the right label for the variety and grade inside, straight and intact.",
+ "codeLede": "The packed date and grower code tie every box back to the orchard it came from. The system reads the printed code on every box and compares it with the grower, variety and date set for the run.",
+ "objectLede": "Stems, leaves, tray offcuts and loose parts can end up on the line. The camera over the belt spots anything that should not be there before boxes are palletised.",
+ "vocab": {
+  "unit": "box",
+  "units": "boxes",
+  "c1": "Boxes closed",
+  "c1h": "Closed square, lids on",
+  "chips": [
+   "Open lids",
+   "Lids not seated",
+   "Crushed boxes"
+  ],
+  "r1": [
+   "Lid not seated",
+   "Lid open",
+   "Box crushed"
+  ],
+  "tag1": "BOX",
+  "ok": "Box, label and code OK",
+  "lidder": "Box lidder",
+  "filler": "Packing line",
+  "coder": "Label printer",
+  "alert": "Four lids not seated in fifteen minutes. Check the lidder.",
+  "codes": "Packed dates and grower codes",
+  "codesLong": "Packed dates and grower codes",
+  "code1": "Grower code",
+  "codeLower": "packed date",
+  "codeShort": "packed date",
+  "smudge": "PACKED 1? M?R 2? G0??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected",
+  "audits": "buyer audits",
+  "retailer": "buyer"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the variety</h2>"
+  ],
+  [
+   "['Case packer', X_PACK + 0.9",
+   "['Palletiser', X_PACK + 0.9"
+  ],
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   "<p class=\"fact\">A box with the wrong variety, grade or grower code is usually found by the buyer at the distribution centre, and the whole load can come back.</p>"
+  ],
+  [
+   "<p class=\"fact\">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC</a></p>",
+   ""
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"20000\">$20,000</span><span class=\"per\">per rejected load avoided</span></p>\n        <p class=\"calc\">Example cost of one rejected load: freight both ways, repacking and lost price. Use your own figure below.</p>"
+  ],
+  [
+   "Cost of one recall or withdrawal",
+   "Cost of one rejected load"
+  ],
+  [
+   "Recalls or withdrawals in the past 5 years",
+   "Rejected loads in the past 5 years"
+  ],
+  [
+   "['Recall risk',",
+   "['Rejected load risk',"
+  ],
+  [
+   "how often recalls happen",
+   "how often loads are rejected"
+  ],
+  [
+   "manual label and code checks",
+   "manual label and code checks"
+  ],
+  [
+   "Staff hours a week on label and code checks",
+   "Staff hours a week on label and code checks"
+  ],
+  [
+   "How are labels and codes checked today?",
+   "How are boxes checked today?"
+  ],
+  [
+   "Tubs a day on the busiest line",
+   "Boxes a day in peak season"
+  ],
+  [
+   "the product labels are generic",
+   "the box labels shown are generic"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Sources: <a href=\"https://www.countrynews.com.au/horticulture/farm-smart-photographing-fruit/\">Country News, Farm Smart: photographing fruit</a>.</p>"
+  ],
+  [
+   "Retailer penalties and rejected loads a year",
+   "Customer claims and credits a year"
+  ],
+  [
+   "['Retailer penalties',",
+   "['Customer claims',"
+  ],
+  [
+   "retailer penalties a year",
+   "customer claims a year"
+  ]
+ ],
+ "est": {
+  "packs": 5000,
+  "days": 150,
+  "hours": 15,
+  "rate": 35,
+  "recall": 20000,
+  "recalls": 2,
+  "penalty": 10000,
+  "escape": 15
+ },
+ "slug": "plunkett"
+}

@@ -1,0 +1,86 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Saz Foods Packing Line",
+ "company": "Saz Foods",
+ "short": "Saz Foods",
+ "site": "Campbellfield, VIC",
+ "shape": "flatbag",
+ "productName": "Falafel 500 g",
+ "productShort": "packs of falafel",
+ "headline": "Every pack checked, not a sample.",
+ "formProduct": "Falafel, kibbeh and protein bars",
+ "labelTop": "HALAL",
+ "labelMain": "FALAFEL",
+ "labelSize": "500 g",
+ "wrongTop": "HALAL",
+ "wrongMain": "KIBBEH",
+ "code": "BB 14 MAY 27 L2317",
+ "codeWrong": "BB 14 MAY 26 L2317",
+ "lid": "#e9edf2",
+ "label": "#FFFFFF",
+ "labelInk": "#2B5D34",
+ "wrongLabel": "#F6E2C8",
+ "body": "#e9edf2",
+ "fill": "#8a6a3a",
+ "lineType": "packing line",
+ "vatsLabel": "Kitchen",
+ "visitLine": "Call and visit to Campbellfield",
+ "heroLede": "With falafel, kibbeh, protein bars and contract work going through Campbellfield, every pack needs the right label and date for what is inside. Here's what a camera check could look like on your packing line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every pack is sealed straight across, with no crease and no crumbs caught in the seal. An open pack means a short shelf life and a complaint.",
+ "labelLede": "A falafel pack and a kibbeh pack can look much the same at line speed, but kibbeh is usually made with wheat and meat, and falafel is often bought as a vegetarian choice. The camera checks every pack carries the right label for the run, straight and intact.",
+ "codeLede": "The best-before and batch code has to be right and readable on every pack. The system reads the printed code and compares it with the product and date set at changeover.",
+ "objectLede": "Film offcuts, glove pieces and loose parts can end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "pack",
+  "units": "packs",
+  "c1h": "Packs sealed straight across",
+  "chips": [
+   "Open seals",
+   "Creased seals",
+   "Crumbs in the seal"
+  ],
+  "r1": [
+   "Seal creased",
+   "Pack not sealed",
+   "Crumbs caught in the seal"
+  ],
+  "filler": "Bagger",
+  "coder": "Date coder",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected",
+  "c1": "Seals",
+  "tag1": "SEAL",
+  "ok": "Seal, label and code OK",
+  "alert": "Four creased seals in fifteen minutes on Line 1. Check the pack sealer.",
+  "lidder": "Pack sealer"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the run</h2>"
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"100000\">$100,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a smaller maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 5000,
+  "days": 250,
+  "hours": 10,
+  "rate": 40,
+  "recall": 100000,
+  "recalls": 1,
+  "penalty": 10000,
+  "escape": 10
+ },
+ "slug": "saz-foods"
+}

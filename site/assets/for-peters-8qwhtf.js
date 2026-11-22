@@ -117,7 +117,7 @@ $('tighten').addEventListener('submit', function(e){
 });
 
 /* ---------- shift report ---------- */
-var report = { checked: 14820, cats: { 'Lids and seals': 8, 'Labels': 6, 'Use-by codes': 4, 'Foreign objects': 1 } };
+var report = { checked: 14820, cats: { 'Lids and seals': 8, 'Labels': 6, 'Best-before codes': 4, 'Foreign objects': 1 } };
 function drawReport(){
   var total = 0; for (var k in report.cats) total += report.cats[k];
   $('rp-checked').textContent = num(report.checked);
@@ -202,7 +202,7 @@ function drawShot(it){
   var cy = 272;
   if (d !== 'codeMissing'){
     sx.save(); sx.font = '600 11.5px "JetBrains Mono", monospace'; sx.textAlign = 'center';
-    if (d === 'codeSmudged'){ sx.filter = 'blur(2.2px)'; sx.fillStyle = 'rgba(20,20,20,.75)'; sx.fillText('USE BY 0? D?C 2? L3?', cx, cy); }
+    if (d === 'codeSmudged'){ sx.filter = 'blur(2.2px)'; sx.fillStyle = 'rgba(20,20,20,.75)'; sx.fillText('BB 1? M?Y 2? L23??', cx, cy); }
     else { sx.fillStyle = '#121212'; sx.fillText(d === 'codeWrong' ? CODE_WRONG : CODE_OK, cx, cy); }
     sx.restore();
   }
@@ -221,9 +221,9 @@ var REASONS = {
   labelCrooked: ['Label crooked: 5° off', 'Labels'],
   labelTorn: ['Label torn', 'Labels'],
   labelWrong: ['Wrong label: Cookies & Cream on a Vanilla run', 'Labels'],
-  codeSmudged: ['Use-by code unreadable', 'Use-by codes'],
-  codeMissing: ['Use-by code missing', 'Use-by codes'],
-  codeWrong: ['Wrong year: 25 printed, 26 expected', 'Use-by codes'],
+  codeSmudged: ['Best-before code unreadable', 'Best-before codes'],
+  codeMissing: ['Best-before code missing', 'Best-before codes'],
+  codeWrong: ['Wrong year: 27 printed, 28 expected', 'Best-before codes'],
   glove: ['Foreign object: blue glove fragment', 'Foreign objects'],
   washer: ['Foreign object: loose washer', 'Foreign objects']
 };
@@ -553,13 +553,13 @@ var labelRoot = $('labels');
 function mkLabel(stops, cls){ var el = document.createElement('div'); el.className = 'tag3d ' + (cls || ''); el.innerHTML = '<i></i><span></span>'; labelRoot.appendChild(el); return { el: el, txt: el.lastChild, stops: stops, pos: new THREE.Vector3(), state: cls || '', text: '', w: 0 }; }
 function setLabel(l, state, text){ if (l.state !== state){ l.el.className = 'tag3d ' + state; l.state = state; } if (l.text !== text){ l.txt.textContent = text; l.text = text; l.w = 0; } }
 var stationLabels = [
-  ['Mix and freeze', -23.5, 2.2], ['Tub filler', X_FILLER, 3.4], ['Lidder', X_CAP, 2.8], ['Labeller', X_LABEL, 2.4], ['Use-by coder', X_CODE, 2.6], ['Camera check', X_CAM, 3.0], ['Case packer', X_PACK + 0.9, 2.6], ['Frozen dispatch', 21.5, 3.6]
+  ['Mix and freeze', -23.5, 2.2], ['Tub filler', X_FILLER, 3.4], ['Lidder', X_CAP, 2.8], ['Labeller', X_LABEL, 2.4], ['Date coder', X_CODE, 2.6], ['Camera check', X_CAM, 3.0], ['Case packer', X_PACK + 0.9, 2.6], ['Frozen dispatch', 21.5, 3.6]
 ].map(function(s){ var l = mkLabel([0], 'station'); setLabel(l, 'station', s[0]); l.pos.set(s[1], s[2], 0); return l; });
 var det = mkLabel([1, 2, 3, 4]);
 var phaseLab = mkLabel([3, 4]);
 phaseLab.pos.set(X_REJ, 2.4, 1.2);
 var unitLab = mkLabel([5]); setLabel(unitLab, '', 'On-site AI unit · footage stays on site'); unitLab.pos.set(2.4, 2.1, -2.3);
-var scrLab = mkLabel([5]); setLabel(scrLab, '', 'Line screen · product and use-by set at changeover'); scrLab.pos.set(-1.6, 2.75, -1.62);
+var scrLab = mkLabel([5]); setLabel(scrLab, '', 'Line screen · product and best-before set at changeover'); scrLab.pos.set(-1.6, 2.75, -1.62);
 var trialLab = mkLabel([6]); setLabel(trialLab, 'ok', 'Camera station · bolts on in half a day'); trialLab.pos.set(X_CAM, 3.2, 0);
 var trialLab2 = mkLabel([6]); setLabel(trialLab2, '', 'Phase 1: no connection to your machines'); trialLab2.pos.set(X_REJ, 1.9, 1.2);
 var laterLabs = [];

@@ -135,7 +135,7 @@ $('ph2').addEventListener('click', function(){ setPhase(2); });
 
 /* ---------- camera inset drawing ---------- */
 var shot = $('shot'), sx = shot.getContext('2d');
-var CODE_OK = 'PACKED 14 MAR 27 G041', CODE_WRONG = 'PACKED 14 MAR 26 G041';
+var CODE_OK = 'PACKED 14 MAR 26 G041', CODE_WRONG = 'PACKED 14 MAR 25 G041';
 function rr(x, y, w, h, r){ sx.beginPath(); sx.moveTo(x + r, y); sx.arcTo(x + w, y, x + w, y + h, r); sx.arcTo(x + w, y + h, x, y + h, r); sx.arcTo(x, y + h, x, y, r); sx.arcTo(x, y, x + w, y, r); sx.closePath(); }
 function tagBox(x, y, w, h, bad, text){
   sx.strokeStyle = bad ? '#FF5A4E' : '#3DDC97'; sx.lineWidth = bad ? 4 : 2.5;
@@ -223,7 +223,7 @@ var REASONS = {
   labelWrong: ['Wrong label: Pink Lady on a Granny Smith run', 'Labels'],
   codeSmudged: ['Grower code unreadable', 'Packed dates and grower codes'],
   codeMissing: ['Grower code missing', 'Packed dates and grower codes'],
-  codeWrong: ['Wrong year: 26 printed, 27 expected', 'Packed dates and grower codes'],
+  codeWrong: ['Wrong year: 25 printed, 26 expected', 'Packed dates and grower codes'],
   glove: ['Foreign object: blue glove fragment', 'Foreign objects'],
   washer: ['Foreign object: loose washer', 'Foreign objects']
 };

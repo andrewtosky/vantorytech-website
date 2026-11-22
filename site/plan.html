@@ -511,8 +511,8 @@ form.enquiry [data-full][hidden], form.enquiry fieldset[hidden] { display: none 
       <p hidden><label>Leave this empty <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label></p>
       <fieldset class="plan-switch">
         <legend>Which plan would you like?</legend>
-        <input type="radio" name="plan" id="plan-quick" value="Quick plan"><label for="plan-quick">Quick plan<span>Free · 2 minutes · ready in 2 business days</span></label>
-        <input type="radio" name="plan" id="plan-full" value="Full plan" checked><label for="plan-full">Full plan<span>Free · about 10 minutes · ready in 5 business days</span></label>
+        <input type="radio" name="plan" id="plan-quick" value="Quick plan" checked><label for="plan-quick">Quick plan<span>Free · 2 minutes · ready in 2 business days</span></label>
+        <input type="radio" name="plan" id="plan-full" value="Full plan"><label for="plan-full">Full plan<span>Free · about 10 minutes · ready in 5 business days</span></label>
       </fieldset>
       <fieldset>
         <legend>About you</legend>
@@ -521,7 +521,6 @@ form.enquiry [data-full][hidden], form.enquiry fieldset[hidden] { display: none 
         <div class="field" data-full><label for="f-role">Your role <span class="opt">(optional)</span></label><input id="f-role" name="role" autocomplete="organization-title" placeholder="e.g. Operations manager"></div>
         <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         <div class="field" data-full><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
-        <div class="field" data-full><label for="f-country">Country</label><input id="f-country" name="country" autocomplete="country-name"></div>
         <div class="field"><label for="f-site">Site location <span class="opt">(optional)</span></label><input id="f-site" name="site" placeholder="e.g. Thomastown, VIC"></div>
       </fieldset>
 
@@ -544,8 +543,6 @@ form.enquiry [data-full][hidden], form.enquiry fieldset[hidden] { display: none 
           <div class="chips">
             <span class="chip"><input type="checkbox" id="p-slow" name="pain" value="Slow"><label for="p-slow">Too slow</label></span>
             <span class="chip"><input type="checkbox" id="p-risk" name="pain" value="Risky"><label for="p-risk">Risky or unsafe</label></span>
-            <span class="chip"><input type="checkbox" id="p-rep" name="pain" value="Repetitive"><label for="p-rep">Repetitive</label></span>
-            <span class="chip"><input type="checkbox" id="p-cost" name="pain" value="Costly"><label for="p-cost">Costly</label></span>
             <span class="chip"><input type="checkbox" id="p-err" name="pain" value="Errors"><label for="p-err">Mistakes and redoing work</label></span>
             <span class="chip"><input type="checkbox" id="p-staff" name="pain" value="Staffing"><label for="p-staff">Hard to staff</label></span>
             <span class="chip"><input type="checkbox" id="p-vis" name="pain" value="Visibility"><label for="p-vis">Hard to see what is going on</label></span>
@@ -562,10 +559,6 @@ form.enquiry [data-full][hidden], form.enquiry fieldset[hidden] { display: none 
             <option value="">Choose a timeframe</option>
             <option>As soon as possible</option><option>Within 3 months</option><option>In 3 to 12 months</option><option>Just looking for now</option>
           </select>
-        </div>
-        <div class="field" data-full>
-          <label for="f-times">Best times for a call <span class="opt">(optional)</span></label>
-          <input id="f-times" name="times" placeholder="e.g. Weekday mornings, AEST">
         </div>
       </fieldset>
 
@@ -610,13 +603,6 @@ form.enquiry [data-full][hidden], form.enquiry fieldset[hidden] { display: none 
           <select id="f-lines" name="lines">
             <option value="">Choose one</option>
             <option>1</option><option>2 to 3</option><option>4 to 6</option><option>More than 6</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="f-plc">Line controller brand <span class="opt">(optional)</span></label>
-          <select id="f-plc" name="plc">
-            <option value="">Not sure</option>
-            <option>Siemens</option><option>Allen-Bradley (Rockwell)</option><option>Mitsubishi</option><option>Omron</option><option>Schneider</option><option>Other</option>
           </select>
         </div>
         <div class="field">

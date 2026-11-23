@@ -1,0 +1,86 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Chilled dispatch",
+ "pageTitle": "Saputo Cheese Packing Line",
+ "company": "Saputo Dairy Australia",
+ "short": "Saputo",
+ "site": "Victoria",
+ "shape": "block",
+ "productName": "Tasty cheddar 500 g",
+ "productShort": "blocks of cheese",
+ "headline": "Every block of cheese checked, not a sample.",
+ "formProduct": "Cheese blocks and dairy packs",
+ "labelTop": "CHEDDAR",
+ "labelMain": "TASTY",
+ "labelSize": "500 g",
+ "wrongTop": "CHEDDAR",
+ "wrongMain": "LIGHT",
+ "code": "BB 14 MAY 27 L2317",
+ "codeWrong": "BB 14 MAY 26 L2317",
+ "lid": "#f3d77a",
+ "label": "#FFFFFF",
+ "labelInk": "#1E3A5F",
+ "wrongLabel": "#DCEBF5",
+ "body": "#f3d77a",
+ "fill": "#f0cf6a",
+ "lineType": "cheese packing line",
+ "vatsLabel": "Cheese make",
+ "visitLine": "Call and visit to your site",
+ "heroLede": "With several dairy plants across Victoria and many cheeses in similar packs, the seal, the label and the date have to be right on every block at every site. Here's what a camera check could look like on your cheese packing line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every block is sealed tight, with no open seals, loose film or torn corners. A seal that lets air in means mould on the shelf and a complaint from the store.",
+ "labelLede": "A tasty block and a light block look the same in the pack, and the wrong label is a wrong fat claim. The camera checks every block carries the right label for the cheese inside, straight and intact.",
+ "codeLede": "The best-before and batch code has to be right and readable on every block. The system reads the printed code and compares it with the cheese and date set at changeover.",
+ "objectLede": "Film offcuts, glove pieces and loose parts can end up close to the line. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "block",
+  "units": "blocks",
+  "ok": "Seal, label and code OK",
+  "lidder": "Vacuum sealer",
+  "filler": "Block cutter",
+  "coder": "Date coder",
+  "alert": "Four open seals in fifteen minutes. Check the vacuum sealer.",
+  "c1": "Seals",
+  "c1h": "Sealed tight, no loose film",
+  "chips": [
+   "Open seals",
+   "Loose film",
+   "Torn corners"
+  ],
+  "r1": [
+   "Seal open",
+   "Film loose",
+   "Corner torn"
+  ],
+  "tag1": "SEAL",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the cheese</h2>"
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"300000\">$300,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a large dairy maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 40000,
+  "days": 300,
+  "hours": 30,
+  "rate": 45,
+  "recall": 300000,
+  "recalls": 1,
+  "penalty": 40000,
+  "escape": 6
+ },
+ "slug": "saputo"
+}

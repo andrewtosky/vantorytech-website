@@ -1,0 +1,52 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Chilled dispatch",
+ "pageTitle": "Floridia Ricotta Line",
+ "company": "Floridia Cheese",
+ "short": "Floridia",
+ "site": "Thomastown, VIC",
+ "shape": "tub",
+ "productName": "Fresh ricotta 375 g",
+ "productShort": "cheese tubs",
+ "headline": "Every tub of cheese checked, not a sample.",
+ "formProduct": "Fresh cheese tubs",
+ "labelTop": "FRESH",
+ "labelMain": "RICOTTA",
+ "labelSize": "375 g",
+ "wrongTop": "FRESH",
+ "wrongMain": "MASCARPONE",
+ "code": "USE BY 03 DEC 26 L319",
+ "codeWrong": "USE BY 03 DEC 25 L319",
+ "lid": "#2E7D5B",
+ "label": "#F7F3E6",
+ "labelInk": "#2E5A3F",
+ "wrongLabel": "#C9DDF2",
+ "lineType": "fresh cheese tub line",
+ "vatsLabel": "Cheese make",
+ "visitLine": "Call and visit to Thomastown",
+ "heroLede": "Fresh cheeses like ricotta, bocconcini and burrata are finished by hand, so checking lids, labels and use-by codes takes your team’s time. Here's what a camera check could look like on your ricotta tub line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every tub has its lid on, sitting flat, with the seal intact. A loose lid on fresh cheese is a short shelf life problem waiting in a retailer’s fridge.",
+ "labelLede": "With ricotta, mascarpone and other fresh cheeses on similar tubs, a label left over from the last run is easy to miss by eye. The camera checks every tub carries the right label, straight and intact.",
+ "codeLede": "Fresh cheese has a short use-by window, so the date has to be right and readable on every tub. The system reads the printed date and batch code and compares them with the product and date set at changeover.",
+ "objectLede": "With hand finishing come gloves, cloths and small parts near the line. The camera over the belt spots anything that should not be there before it reaches a case.",
+ "vocab": {},
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the cheese</h2>"
+  ]
+ ],
+ "est": {
+  "packs": 15000,
+  "days": 250,
+  "hours": 20,
+  "rate": 45,
+  "recall": 200000,
+  "recalls": 1,
+  "penalty": 15000,
+  "escape": 12
+ },
+ "slug": "floridia"
+}

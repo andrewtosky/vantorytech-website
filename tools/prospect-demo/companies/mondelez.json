@@ -1,0 +1,86 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Ringwood Chocolate Wrapping Line",
+ "company": "Mondelez",
+ "short": "Ringwood",
+ "site": "Ringwood, VIC",
+ "shape": "block",
+ "productName": "Milk chocolate block 180 g",
+ "productShort": "blocks of chocolate",
+ "headline": "Every block of chocolate checked, not a sample.",
+ "formProduct": "Chocolate blocks and bars",
+ "labelTop": "CHOCOLATE",
+ "labelMain": "MILK",
+ "labelSize": "180 g",
+ "wrongTop": "CHOCOLATE",
+ "wrongMain": "FRUIT & NUT",
+ "code": "BB 14 MAY 27 L2317",
+ "codeWrong": "BB 14 MAY 26 L2317",
+ "lid": "#5a3a24",
+ "label": "#F3E9DA",
+ "labelInk": "#5A3A24",
+ "wrongLabel": "#E6E0D2",
+ "body": "#5a3a24",
+ "fill": "#4a2c1f",
+ "lineType": "chocolate wrapping line",
+ "vatsLabel": "Moulding",
+ "visitLine": "Call and visit to Ringwood",
+ "heroLede": "At the volumes Ringwood runs, a wrapping fault, a wrong label or a bad code on one block in thousands is easy to miss. Here's what a camera check could look like on your chocolate wrapping line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every block is wrapped and sealed, with no open ends or torn wrappers. An open wrapper lets chocolate bloom and comes back as a complaint.",
+ "labelLede": "A milk chocolate block and a fruit and nut block look much the same in the wrapper, and one of them carries tree nuts. The camera checks every block carries the right wrapper for the chocolate inside, straight and intact.",
+ "codeLede": "The best-before and batch code has to be right and readable on every block. The system reads the printed code and compares it with the product and date set at changeover.",
+ "objectLede": "Foil offcuts, glove pieces and loose parts can end up close to the line. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "block",
+  "units": "blocks",
+  "c1": "Wrappers",
+  "c1h": "Wrapped and sealed, ends closed",
+  "chips": [
+   "Open ends",
+   "Torn wrappers",
+   "Loose seals"
+  ],
+  "r1": [
+   "End open",
+   "Wrapper torn",
+   "Seal loose"
+  ],
+  "tag1": "WRAP",
+  "ok": "Wrap, label and code OK",
+  "lidder": "Wrapper",
+  "filler": "Moulding",
+  "coder": "Date coder",
+  "alert": "Four open ends in fifteen minutes. Check the wrapper.",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right wrapper for the run</h2>"
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"500000\">$500,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a large chocolate maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 200000,
+  "days": 280,
+  "hours": 30,
+  "rate": 45,
+  "recall": 500000,
+  "recalls": 1,
+  "penalty": 80000,
+  "escape": 4
+ },
+ "slug": "mondelez"
+}

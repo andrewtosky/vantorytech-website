@@ -19,7 +19,7 @@
  "label": "#FFF6E0",
  "labelInk": "#7A3E12",
  "wrongLabel": "#F4D9C6",
- "preparedOn": "16 November 2026",
+ "preparedOn": "November 2026",
  "preparedBy": "Andrew Tosky",
  "contact": "enquiries@vantorytech.com",
  "lineType": "fruit cup filling line",
@@ -40,5 +40,41 @@
   "recalls": 1,
   "penalty": 40000,
   "escape": 8
- }
+ },
+ "shape": "tub",
+ "vocab": {
+  "unit": "fruit cup",
+  "units": "fruit cups",
+  "c1": "Seals",
+  "c1h": "Cups sealed, lids flat",
+  "chips": [
+   "Missing seals",
+   "Lifted film",
+   "Lids not flat"
+  ],
+  "r1": [
+   "Film lifted at the edge",
+   "Seal missing",
+   "Lid not flat"
+  ],
+  "tag1": "SEAL",
+  "ok": "Seal, label and code OK",
+  "lidder": "Cup sealer",
+  "filler": "Cup filler",
+  "coder": "Date coder",
+  "alert": "Four lifted seals in fifteen minutes on Line 1. Check the cup sealer.",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? O?T 2? L3??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected"
+ },
+ "extra": [
+  [
+   "'Wrong label: Apple on a Apple Pear run'",
+   "'Wrong label: Apple puree on an Apple and pear run'"
+  ]
+ ]
 }

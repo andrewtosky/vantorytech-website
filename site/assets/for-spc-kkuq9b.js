@@ -65,7 +65,7 @@ function roi(){
       ['QC time', val('c-hours') * 52 * val('c-rate') * qc],
       ['Recall risk', val('c-recalls') / 5 * val('c-recall') * 0.8 * rec],
       ['Retailer penalties', val('c-penalty') * pen],
-      ['Faulty tubs', packs * esc * val('c-escape')]
+      ['Faulty fruit cups', packs * esc * val('c-escape')]
     ];
   }
   var lo = calc(0.4, 0.0002, 0.5, 0.6), hi = calc(0.6, 0.0004, 1, 0.8);
@@ -117,7 +117,7 @@ $('tighten').addEventListener('submit', function(e){
 });
 
 /* ---------- shift report ---------- */
-var report = { checked: 14820, cats: { 'Lids and seals': 8, 'Labels': 6, 'Use-by codes': 4, 'Foreign objects': 1 } };
+var report = { checked: 14820, cats: { 'Seals': 8, 'Labels': 6, 'Best-before codes': 4, 'Foreign objects': 1 } };
 function drawReport(){
   var total = 0; for (var k in report.cats) total += report.cats[k];
   $('rp-checked').textContent = num(report.checked);
@@ -164,7 +164,7 @@ function drawShot(it){
     return;
   }
   var d = it.defect || '', cx = W / 2, top = 120, bot = 300, wt = 214, wb = 168;
-  /* tub body */
+  /* fruit cup body */
   sx.fillStyle = '#eef1f6';
   sx.beginPath(); sx.moveTo(cx - wt / 2, top); sx.lineTo(cx + wt / 2, top); sx.lineTo(cx + wb / 2, bot); sx.lineTo(cx - wb / 2, bot); sx.closePath(); sx.fill();
   sx.strokeStyle = 'rgba(0,0,0,.18)'; sx.lineWidth = 2; sx.stroke();
@@ -202,11 +202,11 @@ function drawShot(it){
   var cy = 272;
   if (d !== 'codeMissing'){
     sx.save(); sx.font = '600 11.5px "JetBrains Mono", monospace'; sx.textAlign = 'center';
-    if (d === 'codeSmudged'){ sx.filter = 'blur(2.2px)'; sx.fillStyle = 'rgba(20,20,20,.75)'; sx.fillText('USE BY 0? D?C 2? L3?', cx, cy); }
+    if (d === 'codeSmudged'){ sx.filter = 'blur(2.2px)'; sx.fillStyle = 'rgba(20,20,20,.75)'; sx.fillText('BB 1? O?T 2? L3??', cx, cy); }
     else { sx.fillStyle = '#121212'; sx.fillText(d === 'codeWrong' ? CODE_WRONG : CODE_OK, cx, cy); }
     sx.restore();
   }
-  tagBox(cx - wt / 2 - 12, top - 32, wt + 24, 46, /^(lid|seal)/.test(d), /^(lid|seal)/.test(d) ? 'LID' : null);
+  tagBox(cx - wt / 2 - 12, top - 32, wt + 24, 46, /^(lid|seal)/.test(d), /^(lid|seal)/.test(d) ? 'SEAL' : null);
   tagBox(cx - 92, ly - 8, 184, lh + 16, /^label/.test(d), /^label/.test(d) ? 'LABEL' : null);
   tagBox(cx - 82, cy - 17, 164, 25, /^code/.test(d), /^code/.test(d) ? 'CODE' : null);
   if (!d){ sx.fillStyle = '#3DDC97'; sx.font = '700 15px "JetBrains Mono", monospace'; sx.textAlign = 'left'; sx.fillText('PASS', 10, 24); }
@@ -214,16 +214,16 @@ function drawShot(it){
 drawShot(null);
 
 var REASONS = {
-  lidSkew: ['Lid not seated', 'Lids and seals'],
-  lidMissing: ['Lid missing', 'Lids and seals'],
-  sealLifted: ['Seal lifted', 'Lids and seals'],
+  lidSkew: ['Film lifted at the edge', 'Seals'],
+  lidMissing: ['Seal missing', 'Seals'],
+  sealLifted: ['Lid not flat', 'Seals'],
   labelMissing: ['Label missing', 'Labels'],
   labelCrooked: ['Label crooked: 5° off', 'Labels'],
   labelTorn: ['Label torn', 'Labels'],
-  labelWrong: ['Wrong label: Apple on a Apple Pear run', 'Labels'],
-  codeSmudged: ['Use-by code unreadable', 'Use-by codes'],
-  codeMissing: ['Use-by code missing', 'Use-by codes'],
-  codeWrong: ['Wrong year: 25 printed, 26 expected', 'Use-by codes'],
+  labelWrong: ['Wrong label: Apple puree on an Apple and pear run', 'Labels'],
+  codeSmudged: ['Best-before code unreadable', 'Best-before codes'],
+  codeMissing: ['Best-before code missing', 'Best-before codes'],
+  codeWrong: ['Wrong year: 26 printed, 27 expected', 'Best-before codes'],
   glove: ['Foreign object: blue glove fragment', 'Foreign objects'],
   washer: ['Foreign object: loose washer', 'Foreign objects']
 };
@@ -234,7 +234,7 @@ function capture(it){
   var bad = !!it.defect;
   var st = $('cam-status');
   st.textContent = bad ? 'Fail' : 'Pass'; st.className = 'chip ' + (bad ? 'fail' : 'pass');
-  $('cam-reason').textContent = bad ? REASONS[it.defect][0] : 'Lid, label and code OK';
+  $('cam-reason').textContent = bad ? REASONS[it.defect][0] : 'Seal, label and code OK';
   var rd = $('cam-read');
   var code = it.kind === 'object' ? '-' : it.defect === 'codeMissing' ? 'No code found' : it.defect === 'codeSmudged' ? 'Unreadable' : it.defect === 'codeWrong' ? CODE_WRONG : CODE_OK;
   rd.textContent = code; rd.className = /^code/.test(it.defect || '') ? 'bad' : (it.kind === 'object' ? '' : 'good');
@@ -355,7 +355,7 @@ var stripeMat = new THREE.MeshBasicMaterial({ color: 0x3a4766 });
 var stripes = [];
 for (var si = 0; si < 28; si++){ var s = new THREE.Mesh(new THREE.PlaneGeometry(0.06, 0.9), stripeMat); s.rotation.x = -Math.PI / 2; s.position.set(X_START + si * 1, BELT_Y + 0.002, 0); scene.add(s); stripes.push(s); }
 
-/* tub filler: hopper over a filling head */
+/* fruit cup filler: hopper over a filling head */
 var filler = new THREE.Group(); filler.position.set(X_FILLER, 0, 0); scene.add(filler);
 box(2.4, 1.0, 1.6, C.steelDark, 0, 0, 0, true, filler);
 var hopper = new THREE.Mesh(new THREE.CylinderGeometry(0.95, 0.35, 1.1, 24, 1, true), new THREE.MeshLambertMaterial({ color: C.steel, side: THREE.DoubleSide }));
@@ -451,7 +451,7 @@ var opScreen = person(-2.4, -2.5, 0.6);
 var opHold = person(X_REJ + 0.4, -3.0, 0);
 var opDoor = person(-16.6, -4.5, -1.2);
 
-/* ---------- tubs ---------- */
+/* ---------- fruit cups ---------- */
 var tubMat = lam(0xf1f4f9);
 var lidMat = lam(new THREE.Color('#6FA83A').getHex());
 var curdMat = lam(0xfbf7ee);
@@ -553,13 +553,13 @@ var labelRoot = $('labels');
 function mkLabel(stops, cls){ var el = document.createElement('div'); el.className = 'tag3d ' + (cls || ''); el.innerHTML = '<i></i><span></span>'; labelRoot.appendChild(el); return { el: el, txt: el.lastChild, stops: stops, pos: new THREE.Vector3(), state: cls || '', text: '', w: 0 }; }
 function setLabel(l, state, text){ if (l.state !== state){ l.el.className = 'tag3d ' + state; l.state = state; } if (l.text !== text){ l.txt.textContent = text; l.text = text; l.w = 0; } }
 var stationLabels = [
-  ['Fruit prep', -23.5, 2.2], ['Tub filler', X_FILLER, 3.4], ['Lidder', X_CAP, 2.8], ['Labeller', X_LABEL, 2.4], ['Use-by coder', X_CODE, 2.6], ['Camera check', X_CAM, 3.0], ['Case packer', X_PACK + 0.9, 2.6], ['Dispatch', 21.5, 3.6]
+  ['Fruit prep', -23.5, 2.2], ['Cup filler', X_FILLER, 3.4], ['Cup sealer', X_CAP, 2.8], ['Labeller', X_LABEL, 2.4], ['Date coder', X_CODE, 2.6], ['Camera check', X_CAM, 3.0], ['Case packer', X_PACK + 0.9, 2.6], ['Dispatch', 21.5, 3.6]
 ].map(function(s){ var l = mkLabel([0], 'station'); setLabel(l, 'station', s[0]); l.pos.set(s[1], s[2], 0); return l; });
 var det = mkLabel([1, 2, 3, 4]);
 var phaseLab = mkLabel([3, 4]);
 phaseLab.pos.set(X_REJ, 2.4, 1.2);
 var unitLab = mkLabel([5]); setLabel(unitLab, '', 'On-site AI unit · footage stays on site'); unitLab.pos.set(2.4, 2.1, -2.3);
-var scrLab = mkLabel([5]); setLabel(scrLab, '', 'Line screen · product and use-by set at changeover'); scrLab.pos.set(-1.6, 2.75, -1.62);
+var scrLab = mkLabel([5]); setLabel(scrLab, '', 'Line screen · product and best-before set at changeover'); scrLab.pos.set(-1.6, 2.75, -1.62);
 var trialLab = mkLabel([6]); setLabel(trialLab, 'ok', 'Camera station · bolts on in half a day'); trialLab.pos.set(X_CAM, 3.2, 0);
 var trialLab2 = mkLabel([6]); setLabel(trialLab2, '', 'Phase 1: no connection to your machines'); trialLab2.pos.set(X_REJ, 1.9, 1.2);
 var laterLabs = [];
@@ -741,10 +741,10 @@ function frame(){
     if (lastFlagged.out === 'done' || !lastFlagged.g.visible) lastFlagged = null;
   } else {
     det.pos.set(X_CAM, BELT_Y + 2.1, 0);
-    setLabel(det, 'ok', 'Lid, label and code OK');
+    setLabel(det, 'ok', 'Seal, label and code OK');
   }
   placeLabel(det, dA);
-  setLabel(phaseLab, phase === 2 ? 'ok' : 'warn', phase === 2 ? 'Phase 2: air jet rejects flagged tubs' : 'Phase 1: staff remove flagged tubs');
+  setLabel(phaseLab, phase === 2 ? 'ok' : 'warn', phase === 2 ? 'Phase 2: air jet rejects flagged fruit cups' : 'Phase 1: staff remove flagged fruit cups');
   placeLabel(phaseLab, labelAct(phaseLab));
   [unitLab, scrLab, trialLab, trialLab2].forEach(function(l){ placeLabel(l, labelAct(l)); });
   

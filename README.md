@@ -29,6 +29,10 @@ Ryan and Andrew can both merge pull requests and publish the site. Whoever merge
 
 Ryan and Andrew may use Claude to prepare changes. Claude always works on a new branch and opens a pull request. It merges only when Ryan or Andrew asks it to in that conversation, after the Deploy Preview has been checked.
 
+## Hidden pages
+
+The careers page (`site/careers.html`) is hidden while we are not hiring. To bring it back: delete the two careers lines in `site/_redirects`, add `<a href="careers.html">Careers</a>` back to the header and footer menus before the Contact link, and add the page back to `site/sitemap.xml`.
+
 ## Commit messages
 
 This repository is public, so keep commit messages and pull request descriptions short and factual, for example "Update Solutions page wording".

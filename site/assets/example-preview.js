@@ -89,7 +89,7 @@ $('tighten').addEventListener('submit', function(e){
   var st2 = st, btn = this.querySelector('button[type="submit"]');
   var data = new FormData();
   data.append('token', 'vantory-site-2026');
-  data.append('subject', 'Demo page enquiry: Riverbend Drinks (example)');
+  data.append('subject', 'Demo page enquiry: juice bottling example');
   data.append('from_name', 'Vantory demo page');
   data.append('page', 'for/example-preview');
   data.append('name', $('t-name').value.trim());

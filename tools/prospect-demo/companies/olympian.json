@@ -1,0 +1,82 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Olympian Foods Biscuit Pack Line",
+ "company": "Olympian Foods",
+ "short": "Olympian",
+ "site": "Melbourne, VIC",
+ "shape": "flatbag",
+ "productName": "Vanilla koulourakia 250 g",
+ "productShort": "biscuit packs",
+ "headline": "Every biscuit pack checked, not a sample.",
+ "formProduct": "Greek biscuits, koulourakia and biscota",
+ "labelTop": "KOULOURAKIA",
+ "labelMain": "VANILLA",
+ "labelSize": "250 g",
+ "wrongTop": "BISCOTA",
+ "wrongMain": "SESAME",
+ "code": "BB 14 MAY 27 L2317",
+ "codeWrong": "BB 14 MAY 26 L2317",
+ "lid": "#e9edf2",
+ "label": "#FFFFFF",
+ "labelInk": "#7A3A1A",
+ "wrongLabel": "#F6E7C8",
+ "body": "#e9edf2",
+ "fill": "#c8945a",
+ "lineType": "biscuit packing line",
+ "vatsLabel": "Ovens",
+ "visitLine": "Call and visit to your bakery",
+ "heroLede": "Koulourakia and biscota in several flavours go into similar packs, so the label is what tells them apart. Here's what a camera check could look like on your packing line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every pack is sealed straight across, with no crease and no crumbs caught in the seal. A weak seal means stale biscuits and a complaint.",
+ "labelLede": "A vanilla pack and a sesame pack can look much the same at line speed, and sesame is a declared allergen. The camera checks every pack carries the right label for the run, straight and intact.",
+ "codeLede": "The best-before and batch code has to be right and readable on every pack. The system reads the printed code and compares it with the product and date set at changeover.",
+ "objectLede": "Film offcuts, glove pieces and loose parts can end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "pack",
+  "units": "packs",
+  "c1h": "Packs sealed straight across",
+  "chips": [
+   "Open seals",
+   "Creased seals",
+   "Crumbs in the seal"
+  ],
+  "r1": [
+   "Seal creased",
+   "Pack not sealed",
+   "Crumbs caught in the seal"
+  ],
+  "filler": "Flow wrapper",
+  "coder": "Date coder",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected",
+  "c1": "Seals",
+  "tag1": "SEAL",
+  "ok": "Seal, label and code OK",
+  "alert": "Four creased seals in fifteen minutes. Check the wrapper.",
+  "lidder": "Flow wrapper"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the run</h2>"
+  ]
+ ],
+ "est": {
+  "packs": 8000,
+  "days": 250,
+  "hours": 10,
+  "rate": 45,
+  "recall": 100000,
+  "recalls": 1,
+  "penalty": 10000,
+  "escape": 5
+ },
+ "slug": "olympian"
+}

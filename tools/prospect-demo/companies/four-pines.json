@@ -1,0 +1,82 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "4 Pines Brookvale Can Line",
+ "company": "4 Pines Brewing",
+ "short": "4 Pines",
+ "site": "Brookvale, NSW",
+ "shape": "can",
+ "productName": "Pacific ale 375 mL",
+ "productShort": "cans",
+ "headline": "Every can checked, not a sample.",
+ "formProduct": "Canned beer",
+ "labelTop": "BROOKVALE",
+ "labelMain": "PACIFIC ALE",
+ "labelSize": "375 mL",
+ "wrongTop": "BROOKVALE",
+ "wrongMain": "PALE ALE",
+ "code": "BB 14 MAY 27 L2317",
+ "codeWrong": "BB 14 MAY 26 L2317",
+ "lid": "#B9C0C8",
+ "label": "#F4EAD5",
+ "labelInk": "#2A3A2A",
+ "wrongLabel": "#E3EEF5",
+ "body": "#c9ced6",
+ "fill": "#b9c0c8",
+ "lineType": "beer canning line",
+ "vatsLabel": "Brewhouse",
+ "visitLine": "Call and visit to Brookvale",
+ "heroLede": "With several beers in the same can size and the line running fast, the label and the date are what keep each run right. Here's what a camera check could look like on your canning line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every can has its end on and seated, with no visible damage around the seam. It looks at what can be seen from outside, so it adds to your seam checks rather than replacing them.",
+ "labelLede": "A pacific ale and a pale ale in the same can size look much the same at line speed. The camera checks every can carries the right label for the run, straight and intact.",
+ "codeLede": "The best-before and batch code has to be right and readable on every can. The system reads the printed code and compares it with the beer and date set at changeover.",
+ "objectLede": "Can ends, label backing and carton offcuts can all end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a pack.",
+ "vocab": {
+  "unit": "can",
+  "units": "cans",
+  "c1": "Can ends",
+  "c1h": "Ends on, seated and undamaged",
+  "chips": [
+   "Missing ends",
+   "Ends not seated",
+   "Visible seam damage"
+  ],
+  "r1": [
+   "End not seated",
+   "End missing",
+   "Visible seam damage"
+  ],
+  "tag1": "END",
+  "ok": "End, label and code OK",
+  "lidder": "Seamer",
+  "filler": "Can filler",
+  "coder": "Date coder",
+  "alert": "Four ends not seated in fifteen minutes. Check the seamer.",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected"
+ },
+ "extra": [
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"250000\">$250,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a large brewery: stock destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 80000,
+  "days": 220,
+  "hours": 16,
+  "rate": 45,
+  "recall": 250000,
+  "recalls": 1,
+  "penalty": 15000,
+  "escape": 5
+ },
+ "slug": "four-pines"
+}

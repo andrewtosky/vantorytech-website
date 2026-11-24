@@ -1,0 +1,176 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Daikin Circuit Board Check",
+ "company": "Daikin Australia",
+ "short": "Daikin",
+ "site": "Chipping Norton, NSW",
+ "shape": "block",
+ "productName": "Control board",
+ "productShort": "circuit boards",
+ "headline": "Every board checked, not a sample.",
+ "formProduct": "Circuit boards for air conditioners",
+ "labelTop": "",
+ "labelMain": "",
+ "labelSize": "",
+ "wrongTop": "",
+ "wrongMain": "",
+ "code": "SN 26-0412 REV C",
+ "codeWrong": "SN 26-0412 REV B",
+ "lid": "#2f6b3a",
+ "label": "#e9efe9",
+ "labelInk": "#555555",
+ "wrongLabel": "#f3d9a8",
+ "body": "#2f6b3a",
+ "fill": "#2f6b3a",
+ "lineType": "circuit board line",
+ "vatsLabel": "Board stock",
+ "visitLine": "Call and visit to Chipping Norton",
+ "heroLede": "A missing or reversed part, or a poor solder joint, is hard to see by eye and costly once a unit is built. Here's what a camera check could look like on your board line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every part is fitted and the right way round, against the board design. A reversed diode is easy to miss at line speed.",
+ "labelLede": "Solder bridges, dry joints and lifted parts are hard to catch by eye. The camera learns from boards your team has already passed and failed, and works alongside your existing inspection.",
+ "codeLede": "Every board carries a serial and revision label. The system reads it and checks it matches the revision being built, so an old revision shows up straight away.",
+ "objectLede": "Solder balls, offcuts and loose parts can end up on a board. The camera spots anything that should not be there before the board moves on.",
+ "vocab": {
+  "unit": "board",
+  "units": "boards",
+  "c1": "Components",
+  "c1h": "Every part fitted and the right way round",
+  "chips": [
+   "Missing parts",
+   "Reversed parts",
+   "Lifted parts"
+  ],
+  "r1": [
+   "Capacitor missing",
+   "Diode reversed",
+   "Resistor lifted"
+  ],
+  "tag1": "PARTS",
+  "ok": "Parts, solder and label OK",
+  "lidder": "Reflow oven",
+  "filler": "Pick and place",
+  "coder": "Label printer",
+  "alert": "Three reversed diodes in fifteen minutes. Check the feeder.",
+  "c2": "Solder joints",
+  "r2": [
+   "Solder bridge",
+   "Dry joint",
+   "Too little solder"
+  ],
+  "tag2": "SOLDER",
+  "tag3": "LABEL",
+  "codes": "Board labels",
+  "codesLong": "Serial and revision labels",
+  "code1": "Board label",
+  "codeLower": "revision",
+  "codeShort": "revision",
+  "smudge": "SN 26-0??? REV ?",
+  "wrongCode": "Wrong revision: rev B fitted, rev C expected",
+  "audits": "quality records",
+  "retailer": "customer"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">Solder joints</h2>"
+  ],
+  [
+   "'Wrong label:  on a  run'",
+   "'Wrong revision: rev B board on a rev C run'"
+  ],
+  [
+   "<span class=\"live\">Camera 1 · after the coder</span>",
+   "<span class=\"live\">Camera 1 · after the reflow oven</span>"
+  ],
+  [
+   "['Labeller', X_LABEL",
+   "['Leak tester', X_LABEL"
+  ],
+  [
+   "The on-site AI reads the code",
+   "The on-site AI checks parts, solder and labels"
+  ],
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   "<p class=\"fact\">A photo of every board checked gives your team a record of each batch.</p>"
+  ],
+  [
+   "<p class=\"fact\">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC</a></p>",
+   ""
+  ],
+  [
+   "Half a day in a maintenance window, rated for washdown areas.",
+   "Half a day in a maintenance window, clear of the line's moving parts."
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"15000\">$15,000</span><span class=\"per\">per rejected batch avoided</span></p>\n        <p class=\"calc\">Example cost of one batch sent back by a customer: parts, labour and rework. Use your own figure below.</p>"
+  ],
+  [
+   "Cost of one recall or withdrawal",
+   "Cost of one batch rejected by a customer"
+  ],
+  [
+   "Recalls or withdrawals in the past 5 years",
+   "Batches rejected in the past 5 years"
+  ],
+  [
+   "Retailer penalties and rejected loads a year",
+   "Customer claims and credits a year"
+  ],
+  [
+   "['Recall risk',",
+   "['Rejected batches',"
+  ],
+  [
+   "['Retailer penalties',",
+   "['Customer claims',"
+  ],
+  [
+   "retailer penalties a year",
+   "customer claims a year"
+  ],
+  [
+   "how often recalls happen",
+   "how often batches are rejected"
+  ],
+  [
+   "manual label and code checks",
+   "manual visual checks"
+  ],
+  [
+   "Staff hours a week on label and code checks",
+   "Staff hours a week on visual checks"
+  ],
+  [
+   "How are labels and codes checked today?",
+   "How are boards checked today?"
+  ],
+  [
+   "Tubs a day on the busiest line",
+   "Boards a day on the busiest line"
+  ],
+  [
+   "the product labels are generic",
+   "the boards shown are generic"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Figures on this page are examples. Use your own numbers in the estimate.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 3000,
+  "days": 250,
+  "hours": 12,
+  "rate": 45,
+  "recall": 20000,
+  "recalls": 3,
+  "penalty": 10000,
+  "escape": 3
+ },
+ "slug": "daikin"
+}

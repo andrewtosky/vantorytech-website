@@ -1,0 +1,176 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Printgraphics Press Check",
+ "company": "Printgraphics",
+ "short": "Printgraphics",
+ "site": "Mount Waverley, VIC",
+ "shape": "flatbag",
+ "productName": "Printed sheet",
+ "productShort": "sheets",
+ "headline": "Every sheet checked during the run.",
+ "formProduct": "Printed sheets and jobs",
+ "labelTop": "",
+ "labelMain": "",
+ "labelSize": "",
+ "wrongTop": "",
+ "wrongMain": "",
+ "code": "JOB 4412 SH 0218",
+ "codeWrong": "JOB 4411 SH 0218",
+ "lid": "#f4f4f4",
+ "label": "#ffffff",
+ "labelInk": "#555555",
+ "wrongLabel": "#e7c6e0",
+ "body": "#f4f4f4",
+ "fill": "#f4f4f4",
+ "lineType": "printing press",
+ "vatsLabel": "Plates and ink",
+ "visitLine": "Call and visit to Mount Waverley",
+ "heroLede": "Colour drift and registration errors found after the run cost paper, ink and press time. Here's what a camera check could look like at the delivery of your press. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every sheet is in register, with each colour sitting where it should. A sheet a fraction out of register is easy to miss by eye at full speed.",
+ "labelLede": "Colour drift, hickeys, streaks and missing text are easy to miss during a long run. The camera compares every sheet with the approved first sheet your operator signs off.",
+ "codeLede": "Where your sheets carry job and sheet marks, the system reads them on every sheet, so the wrong plate or an old version of the artwork shows up straight away.",
+ "objectLede": "Paper offcuts and loose items can end up in the delivery pile. The camera spots anything that should not be there before sheets go to finishing.",
+ "vocab": {
+  "unit": "sheet",
+  "units": "sheets",
+  "c1": "Registration",
+  "c1h": "Colours in register",
+  "chips": [
+   "Colours out of register",
+   "Colour drift",
+   "Streaks and spots"
+  ],
+  "r1": [
+   "Out of register: 0.4 mm",
+   "Colour drift on magenta",
+   "Ink streak"
+  ],
+  "tag1": "REG",
+  "ok": "Register, print and job mark OK",
+  "lidder": "Press units",
+  "filler": "Feeder",
+  "coder": "Delivery",
+  "alert": "Colour drift on four sheets in fifteen minutes. Check the ink keys.",
+  "c2": "Print defects",
+  "r2": [
+   "Hickey on the sheet",
+   "Text missing",
+   "Ink smudged"
+  ],
+  "tag2": "PRINT",
+  "tag3": "JOB",
+  "codes": "Job marks",
+  "codesLong": "Job and sheet marks",
+  "code1": "Job mark",
+  "codeLower": "job number",
+  "codeShort": "job number",
+  "smudge": "JOB 44?? SH 02??",
+  "wrongCode": "Wrong job: 4411 printed, 4412 expected",
+  "audits": "customer quality checks",
+  "retailer": "customer"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">Print defects and colour</h2>"
+  ],
+  [
+   "'Wrong label:  on a  run'",
+   "'Wrong version: old artwork on a new job'"
+  ],
+  [
+   "<span class=\"live\">Camera 1 · after the coder</span>",
+   "<span class=\"live\">Camera 1 · at the delivery</span>"
+  ],
+  [
+   "['Labeller', X_LABEL",
+   "['Leak tester', X_LABEL"
+  ],
+  [
+   "The on-site AI reads the code",
+   "The on-site AI checks register, print and job marks"
+  ],
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   "<p class=\"fact\">A photo of every sheet checked gives your team a record of each job for your customers.</p>"
+  ],
+  [
+   "<p class=\"fact\">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC</a></p>",
+   ""
+  ],
+  [
+   "Half a day in a maintenance window, rated for washdown areas.",
+   "Half a day in a maintenance window, clear of the press's moving parts."
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"15000\">$15,000</span><span class=\"per\">per rejected batch avoided</span></p>\n        <p class=\"calc\">Example cost of one batch sent back by a customer: paper, ink, press time and freight. Use your own figure below.</p>"
+  ],
+  [
+   "Cost of one recall or withdrawal",
+   "Cost of one batch rejected by a customer"
+  ],
+  [
+   "Recalls or withdrawals in the past 5 years",
+   "Batches rejected in the past 5 years"
+  ],
+  [
+   "Retailer penalties and rejected loads a year",
+   "Customer claims and credits a year"
+  ],
+  [
+   "['Recall risk',",
+   "['Rejected batches',"
+  ],
+  [
+   "['Retailer penalties',",
+   "['Customer claims',"
+  ],
+  [
+   "retailer penalties a year",
+   "customer claims a year"
+  ],
+  [
+   "how often recalls happen",
+   "how often batches are rejected"
+  ],
+  [
+   "manual label and code checks",
+   "manual visual checks"
+  ],
+  [
+   "Staff hours a week on label and code checks",
+   "Staff hours a week on visual checks"
+  ],
+  [
+   "How are labels and codes checked today?",
+   "How are sheets checked today?"
+  ],
+  [
+   "Tubs a day on the busiest line",
+   "Sheets a day on the busiest press"
+  ],
+  [
+   "the product labels are generic",
+   "the sheets shown are generic"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Figures on this page are examples. Use your own numbers in the estimate.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 30000,
+  "days": 250,
+  "hours": 15,
+  "rate": 45,
+  "recall": 8000,
+  "recalls": 3,
+  "penalty": 10000,
+  "escape": 4
+ },
+ "slug": "printgraphics"
+}

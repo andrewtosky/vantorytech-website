@@ -1,0 +1,176 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Li Electrical Board Check",
+ "company": "Li Electrical",
+ "short": "Li Electrical",
+ "site": "Victoria",
+ "shape": "carton",
+ "productName": "Switchboard",
+ "productShort": "boards",
+ "headline": "Every board checked before it goes to test.",
+ "formProduct": "Switchboards and control panels",
+ "labelTop": "",
+ "labelMain": "",
+ "labelSize": "",
+ "wrongTop": "",
+ "wrongMain": "",
+ "code": "JOB 3121 DB-04 REV C",
+ "codeWrong": "JOB 3121 DB-04 REV B",
+ "lid": "#d7dbe0",
+ "label": "#ffffff",
+ "labelInk": "#555555",
+ "wrongLabel": "#f3d9a8",
+ "body": "#d7dbe0",
+ "fill": "#d7dbe0",
+ "lineType": "board assembly area",
+ "vatsLabel": "Kitting",
+ "visitLine": "Call and visit to your workshop",
+ "heroLede": "A wiring or labelling error found during testing or on site means rework, delays and a frustrated customer. Here's what a camera check could look like at the end of your assembly bench. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every wire is terminated and every link is in place, against the drawing for that board. A loose wire is easy to miss in a full board.",
+ "labelLede": "A missing breaker, the wrong rating or an untied loom are easy to miss by eye. The camera compares every board with the drawing and good examples your team supplies.",
+ "codeLede": "Every board carries job and circuit labels. The system reads them and checks they match the current drawing revision, so a board built to an old revision shows up before testing.",
+ "objectLede": "Offcuts, screws and cable ties can be left inside an enclosure. The camera spots anything that should not be there before the board is closed up.",
+ "vocab": {
+  "unit": "board",
+  "units": "boards",
+  "c1": "Terminations",
+  "c1h": "Every wire terminated and in place",
+  "chips": [
+   "Loose wires",
+   "Missing links",
+   "Wrong terminal"
+  ],
+  "r1": [
+   "Wire not terminated",
+   "Link missing",
+   "Wire in the wrong terminal"
+  ],
+  "tag1": "WIRING",
+  "ok": "Wiring, parts and labels OK",
+  "lidder": "Wiring bench",
+  "filler": "Assembly bench",
+  "coder": "Labelling",
+  "alert": "Two missing links on this shift's boards. Check the wiring kit.",
+  "c2": "Parts and looms",
+  "r2": [
+   "Breaker missing",
+   "Wrong breaker rating",
+   "Loom not tied"
+  ],
+  "tag2": "PARTS",
+  "tag3": "LABEL",
+  "codes": "Labels",
+  "codesLong": "Job and circuit labels",
+  "code1": "Job label",
+  "codeLower": "drawing revision",
+  "codeShort": "revision",
+  "smudge": "JOB 31?? DB-0? REV ?",
+  "wrongCode": "Wrong revision: rev B built, rev C expected",
+  "audits": "customer handover records",
+  "retailer": "customer"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">Parts and wiring looms</h2>"
+  ],
+  [
+   "'Wrong label:  on a  run'",
+   "'Wrong drawing: rev B board on a rev C job'"
+  ],
+  [
+   "<span class=\"live\">Camera 1 · after the coder</span>",
+   "<span class=\"live\">Camera 1 · at the end of the bench</span>"
+  ],
+  [
+   "['Labeller', X_LABEL",
+   "['Leak tester', X_LABEL"
+  ],
+  [
+   "The on-site AI reads the code",
+   "The on-site AI checks wiring, parts and labels"
+  ],
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   "<p class=\"fact\">A photo of every board checked gives your team a record for testing and customer handover.</p>"
+  ],
+  [
+   "<p class=\"fact\">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC</a></p>",
+   ""
+  ],
+  [
+   "Half a day in a maintenance window, rated for washdown areas.",
+   "Half a day in a maintenance window, clear of the work area."
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"15000\">$15,000</span><span class=\"per\">per rejected batch avoided</span></p>\n        <p class=\"calc\">Example cost of one batch sent back by a customer: parts, labour, site visits and rework. Use your own figure below.</p>"
+  ],
+  [
+   "Cost of one recall or withdrawal",
+   "Cost of one batch rejected by a customer"
+  ],
+  [
+   "Recalls or withdrawals in the past 5 years",
+   "Batches rejected in the past 5 years"
+  ],
+  [
+   "Retailer penalties and rejected loads a year",
+   "Customer claims and credits a year"
+  ],
+  [
+   "['Recall risk',",
+   "['Rejected batches',"
+  ],
+  [
+   "['Retailer penalties',",
+   "['Customer claims',"
+  ],
+  [
+   "retailer penalties a year",
+   "customer claims a year"
+  ],
+  [
+   "how often recalls happen",
+   "how often batches are rejected"
+  ],
+  [
+   "manual label and code checks",
+   "manual visual checks"
+  ],
+  [
+   "Staff hours a week on label and code checks",
+   "Staff hours a week on visual checks"
+  ],
+  [
+   "How are labels and codes checked today?",
+   "How are boards checked today?"
+  ],
+  [
+   "Tubs a day on the busiest line",
+   "Boards a week on the busiest bench"
+  ],
+  [
+   "the product labels are generic",
+   "the boards shown are generic"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Figures on this page are examples. Use your own numbers in the estimate.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 20,
+  "days": 250,
+  "hours": 8,
+  "rate": 45,
+  "recall": 15000,
+  "recalls": 3,
+  "penalty": 10000,
+  "escape": 5
+ },
+ "slug": "li-electrical"
+}

@@ -1,0 +1,82 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Simplot Frozen Vegetable Bag Line",
+ "company": "Simplot Australia",
+ "short": "Simplot",
+ "site": "Bathurst, NSW and Ulverstone, TAS",
+ "shape": "flatbag",
+ "productName": "Frozen mixed vegetables 1 kg",
+ "productShort": "frozen vegetable bags",
+ "headline": "Every bag of frozen vegetables checked, not a sample.",
+ "formProduct": "Frozen vegetables in retail and food service bags",
+ "labelTop": "FROZEN",
+ "labelMain": "MIXED VEG",
+ "labelSize": "1 kg",
+ "wrongTop": "FROZEN",
+ "wrongMain": "PEAS AND CORN",
+ "code": "BB 14 MAY 28 L2317",
+ "codeWrong": "BB 14 MAY 27 L2317",
+ "lid": "#e9edf2",
+ "label": "#FFFFFF",
+ "labelInk": "#7A3A1A",
+ "wrongLabel": "#F6E7C8",
+ "body": "#e9edf2",
+ "fill": "#7fa64a",
+ "lineType": "frozen vegetable bagging line",
+ "vatsLabel": "Blanching and freezing",
+ "visitLine": "Call and video meeting with your plant team",
+ "heroLede": "With many vegetable mixes and bag sizes on the same lines, every bag needs the right label and best-before code. Here's what a camera check could look like after your baggers. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every bag is sealed straight across, with no product caught in the seal. A weak seal lets in frost and air, and the bag comes back as a complaint.",
+ "labelLede": "A bag of mixed vegetables and a bag of peas and corn can look much the same at line speed. The camera checks every bag carries the right label for the run, straight and intact.",
+ "codeLede": "The best-before and batch code has to be right and readable on every pack. The system reads the printed code and compares it with the product and date set at changeover.",
+ "objectLede": "Film offcuts, glove pieces and loose parts can end up on the conveyor. The camera over the belt spots anything that should not be there before bags reach a carton.",
+ "vocab": {
+  "unit": "bag",
+  "units": "bags",
+  "c1h": "Bags sealed straight across",
+  "chips": [
+   "Open seals",
+   "Creased seals",
+   "Product in the seal"
+  ],
+  "r1": [
+   "Seal creased",
+   "Bag not sealed",
+   "Product caught in the seal"
+  ],
+  "filler": "Weigher",
+  "coder": "Date coder",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected",
+  "c1": "Seals",
+  "tag1": "SEAL",
+  "ok": "Seal, label and code OK",
+  "alert": "Four creased seals in fifteen minutes on Line 1. Check the bagger.",
+  "lidder": "Bagger"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the run</h2>"
+  ]
+ ],
+ "est": {
+  "packs": 120000,
+  "days": 300,
+  "hours": 30,
+  "rate": 45,
+  "recall": 300000,
+  "recalls": 1,
+  "penalty": 50000,
+  "escape": 6
+ },
+ "slug": "simplot"
+}

@@ -1,0 +1,176 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Hargo Machined Part Check",
+ "company": "Hargo",
+ "short": "Hargo",
+ "site": "Croydon South, VIC",
+ "shape": "block",
+ "productName": "Machined part",
+ "productShort": "parts",
+ "headline": "Every part checked as it leaves the machine.",
+ "formProduct": "Precision machined parts",
+ "labelTop": "",
+ "labelMain": "",
+ "labelSize": "",
+ "wrongTop": "",
+ "wrongMain": "",
+ "code": "HG-2214 B08",
+ "codeWrong": "HG-2214 B07",
+ "lid": "#b9c0c8",
+ "label": "#d9dee4",
+ "labelInk": "#555555",
+ "wrongLabel": "#c9b08a",
+ "body": "#b9c0c8",
+ "fill": "#b9c0c8",
+ "lineType": "machining cell",
+ "vatsLabel": "Bar stock",
+ "visitLine": "Call and visit to Croydon South",
+ "heroLede": "A missed operation or a burr that nobody notices quickly turns into scrap and a late job. Here's what a camera check could look like as parts come off your machines. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every part has all its features: holes drilled, threads cut and chamfers in place. A missed operation is easy to miss in a full tote.",
+ "labelLede": "Burrs, scratches and tool marks are easy to miss by eye at the end of a long shift. The camera compares every part with good examples your team supplies.",
+ "codeLede": "Where your parts carry part numbers or batch marks, the system reads them on every part, so a mix-up between jobs shows up straight away.",
+ "objectLede": "Swarf, offcuts and loose parts can end up with finished work. The camera spots anything that should not be there before parts are packed.",
+ "vocab": {
+  "unit": "part",
+  "units": "parts",
+  "c1": "Features",
+  "c1h": "Every feature machined",
+  "chips": [
+   "Missing holes",
+   "Missing threads",
+   "Missed operations"
+  ],
+  "r1": [
+   "Hole missing",
+   "Thread not cut",
+   "Chamfer missed"
+  ],
+  "tag1": "FEATURE",
+  "ok": "Features, surface and marks OK",
+  "lidder": "Deburring",
+  "filler": "CNC machine",
+  "coder": "Part marker",
+  "alert": "Four missing threads in fifteen minutes on Machine 2. Check the tap.",
+  "c2": "Surface and burrs",
+  "r2": [
+   "Burr on the edge",
+   "Scratch on the face",
+   "Tool mark"
+  ],
+  "tag2": "SURFACE",
+  "tag3": "MARK",
+  "codes": "Part marks",
+  "codesLong": "Part and batch marks",
+  "code1": "Part mark",
+  "codeLower": "batch mark",
+  "codeShort": "batch mark",
+  "smudge": "HG-22?? B0?",
+  "wrongCode": "Wrong batch mark: B07 marked, B08 expected",
+  "audits": "customer quality records",
+  "retailer": "customer"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">Surface, burrs and finish</h2>"
+  ],
+  [
+   "'Wrong label:  on a  run'",
+   "'Wrong part: job 2213 in a job 2214 tote'"
+  ],
+  [
+   "<span class=\"live\">Camera 1 · after the coder</span>",
+   "<span class=\"live\">Camera 1 · at the machine outfeed</span>"
+  ],
+  [
+   "['Labeller', X_LABEL",
+   "['Leak tester', X_LABEL"
+  ],
+  [
+   "The on-site AI reads the code",
+   "The on-site AI checks features, surface and marks"
+  ],
+  [
+   "<p class=\"fact\">38% of Australian food recalls in 2025 were for undeclared allergens, with packaging errors among the main causes. <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ</a></p>",
+   "<p class=\"fact\">A photo of every part checked gives your team a record of each job for your customers.</p>"
+  ],
+  [
+   "<p class=\"fact\">Foreign matter was the most common incident reported by manufacturers in the AFGC recall survey. <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC</a></p>",
+   ""
+  ],
+  [
+   "Half a day in a maintenance window, rated for washdown areas.",
+   "Half a day in a maintenance window, clear of the machine's moving parts."
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"15000\">$15,000</span><span class=\"per\">per rejected batch avoided</span></p>\n        <p class=\"calc\">Example cost of one batch sent back by a customer: material, machine time, freight and rework. Use your own figure below.</p>"
+  ],
+  [
+   "Cost of one recall or withdrawal",
+   "Cost of one batch rejected by a customer"
+  ],
+  [
+   "Recalls or withdrawals in the past 5 years",
+   "Batches rejected in the past 5 years"
+  ],
+  [
+   "Retailer penalties and rejected loads a year",
+   "Customer claims and credits a year"
+  ],
+  [
+   "['Recall risk',",
+   "['Rejected batches',"
+  ],
+  [
+   "['Retailer penalties',",
+   "['Customer claims',"
+  ],
+  [
+   "retailer penalties a year",
+   "customer claims a year"
+  ],
+  [
+   "how often recalls happen",
+   "how often batches are rejected"
+  ],
+  [
+   "manual label and code checks",
+   "manual visual checks"
+  ],
+  [
+   "Staff hours a week on label and code checks",
+   "Staff hours a week on visual checks"
+  ],
+  [
+   "How are labels and codes checked today?",
+   "How are parts checked today?"
+  ],
+  [
+   "Tubs a day on the busiest line",
+   "Parts a day on the busiest machine"
+  ],
+  [
+   "the product labels are generic",
+   "the parts shown are generic"
+  ],
+  [
+   "<p>Sources: <a href=\"https://www.foodstandards.gov.au/news/2025-food-recall-statistics-released\">FSANZ, 2025 food recall statistics</a>; <a href=\"https://afgc.org.au/wp-content/uploads/2024/10/AFGC-Victual-Food-Recall-Survey-Report.pdf\">AFGC Product Recall Survey Report</a>.</p>",
+   "<p>Figures on this page are examples. Use your own numbers in the estimate.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 2000,
+  "days": 250,
+  "hours": 12,
+  "rate": 45,
+  "recall": 10000,
+  "recalls": 3,
+  "penalty": 10000,
+  "escape": 3
+ },
+ "slug": "hargo"
+}

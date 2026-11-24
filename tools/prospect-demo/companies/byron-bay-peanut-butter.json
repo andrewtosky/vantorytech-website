@@ -1,0 +1,80 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Byron Bay Peanut Butter Jar Line",
+ "company": "Byron Bay Peanut Butter Co",
+ "short": "Byron Bay Peanut Butter",
+ "site": "Byron Bay region, NSW",
+ "shape": "tub",
+ "productName": "Crunchy peanut butter jar",
+ "productShort": "jars",
+ "headline": "Every jar checked, not a sample.",
+ "formProduct": "Peanut butter and satay sauce jars",
+ "labelTop": "PEANUT BUTTER",
+ "labelMain": "CRUNCHY",
+ "labelSize": "Jar",
+ "wrongTop": "PEANUT BUTTER",
+ "wrongMain": "SMOOTH",
+ "code": "BB 14 NOV 27 L2311",
+ "codeWrong": "BB 14 NOV 26 L2311",
+ "lid": "#2b2b2b",
+ "label": "#FFFFFF",
+ "labelInk": "#1f2a44",
+ "wrongLabel": "#F3E3C3",
+ "lineType": "jar filling line",
+ "vatsLabel": "Roasting and grinding",
+ "visitLine": "Call, video meeting or visit",
+ "heroLede": "With smooth, crunchy and several satay sauces going into similar jars, the label and lid are what keep every jar right. Here's what a camera check could look like at the end of your filling line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every jar has its lid on, straight and fully seated. A loose lid means oil leaks in the carton and a jar that comes back as a complaint.",
+ "labelLede": "A crunchy jar and a smooth jar, or two satay sauces, can look much the same at line speed. The camera checks every jar carries the right label for what is inside, straight and intact.",
+ "codeLede": "Every jar needs a correct, readable best-before date and batch code. The system reads the printed code and compares it with the product and date set at changeover.",
+ "objectLede": "Lid offcuts, label backing and loose parts can end up near the line. The camera over the belt spots anything that should not be there before jars reach a carton.",
+ "vocab": {
+  "unit": "jar",
+  "units": "jars",
+  "c1": "Lids",
+  "c1h": "Lids on, straight and seated",
+  "chips": [
+   "Missing lids",
+   "Crooked lids",
+   "Lids not seated"
+  ],
+  "r1": [
+   "Lid crooked",
+   "Lid missing",
+   "Lid not seated"
+  ],
+  "tag1": "LID",
+  "ok": "Lid, label and code OK",
+  "lidder": "Capper",
+  "filler": "Jar filler",
+  "coder": "Date coder",
+  "alert": "Four crooked lids in fifteen minutes. Check the capper.",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? N?V 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected"
+ },
+ "extra": [
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"80000\">$80,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a smaller maker: stock destroyed, retrieval, retailer fees and lost sales. This is a guess. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 3000,
+  "days": 220,
+  "hours": 8,
+  "rate": 40,
+  "recall": 80000,
+  "recalls": 1,
+  "penalty": 8000,
+  "escape": 6
+ },
+ "slug": "byron-bay-peanut-butter"
+}

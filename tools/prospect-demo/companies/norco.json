@@ -1,0 +1,65 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Frozen dispatch",
+ "pageTitle": "Norco Lismore Ice Cream Line",
+ "company": "Norco",
+ "short": "Norco",
+ "site": "Lismore, NSW",
+ "shape": "tub",
+ "productName": "Vanilla ice cream 2 L",
+ "productShort": "tubs of ice cream",
+ "headline": "Every tub of ice cream checked, not a sample.",
+ "formProduct": "Ice cream tubs",
+ "labelTop": "ICE CREAM",
+ "labelMain": "VANILLA",
+ "labelSize": "2 L",
+ "wrongTop": "ICE CREAM",
+ "wrongMain": "CHOC CHIP",
+ "code": "BB 14 MAY 28 L1126",
+ "codeWrong": "BB 14 MAY 27 L1126",
+ "lid": "#2E6DB4",
+ "label": "#FFFFFF",
+ "labelInk": "#1E4E8C",
+ "wrongLabel": "#E9E1D6",
+ "lineType": "ice cream tub line",
+ "vatsLabel": "Mix and freeze",
+ "visitLine": "Call and visit to Lismore",
+ "heroLede": "With four lines running many flavours and customer brands, the lid, the label and the date are what keep each run right. Here's what a camera check could look like on your tub line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every tub has its lid on, pressed down flat all the way round. A lifted lid lets in frost and comes back as a complaint from the store.",
+ "labelLede": "A vanilla tub and a choc chip tub look much the same with the lid on, and on a customer brand run the wrong label is their problem as well as yours. The camera checks every tub carries the right label for the flavour inside, straight and intact.",
+ "codeLede": "The best-before and batch code has to be right and readable on every tub. The system reads the printed code and compares it with the flavour and date set at changeover.",
+ "objectLede": "Lid offcuts, glove pieces and loose machine parts can end up close to the line. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L11??",
+  "wrongCode": "Wrong year: 27 printed, 28 expected",
+  "coder": "Date coder"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the flavour</h2>"
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"300000\">$300,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a large ice cream maker: product destroyed, retrieval, customer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 40000,
+  "days": 250,
+  "hours": 30,
+  "rate": 45,
+  "recall": 300000,
+  "recalls": 1,
+  "penalty": 40000,
+  "escape": 6
+ },
+ "slug": "norco"
+}

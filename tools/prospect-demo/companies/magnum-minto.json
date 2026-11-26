@@ -1,0 +1,86 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Frozen dispatch",
+ "pageTitle": "Minto Ice Cream Multipack Line",
+ "company": "The Magnum Ice Cream Company",
+ "short": "Minto",
+ "site": "Minto, NSW",
+ "shape": "carton",
+ "productName": "Ice cream sticks 4 pack",
+ "productShort": "multipacks of ice cream",
+ "headline": "Every multipack of ice cream checked, not a sample.",
+ "formProduct": "Ice cream sticks and cones in multipack cartons",
+ "labelTop": "ICE CREAM STICKS",
+ "labelMain": "CLASSIC",
+ "labelSize": "4 pack",
+ "wrongTop": "ICE CREAM STICKS",
+ "wrongMain": "ALMOND",
+ "code": "BB 14 MAY 28 L2317",
+ "codeWrong": "BB 14 MAY 27 L2317",
+ "lid": "#1f2a44",
+ "label": "#F4E6C8",
+ "labelInk": "#5A3418",
+ "wrongLabel": "#E9D3A6",
+ "body": "#2a2a2a",
+ "fill": "#6b3f1f",
+ "lineType": "ice cream multipack line",
+ "vatsLabel": "Mix and freeze",
+ "visitLine": "Call and visit to Minto",
+ "heroLede": "With close to three million servings a day leaving Minto, a wrong carton or a bad code is easy to miss by eye. Here's what a camera check could look like on your multipack line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every multipack carton is closed and glued, flaps down and square. An open carton in a freezer means damaged sticks and a complaint from the store.",
+ "labelLede": "A classic pack and an almond pack look much the same at line speed, and one of them carries tree nuts. The camera checks every carton carries the right label for the sticks inside, straight and intact.",
+ "codeLede": "The best-before and batch code has to be right and readable on every carton. The system reads the printed code and compares it with the product and date set at changeover.",
+ "objectLede": "Stick offcuts, wrapper film and glove pieces can end up close to the line. The camera over the belt spots anything that should not be there before it reaches a case.",
+ "vocab": {
+  "unit": "pack",
+  "units": "packs",
+  "c1": "Cartons closed",
+  "c1h": "Closed, glued and square",
+  "chips": [
+   "Open flaps",
+   "Flaps not glued",
+   "Crushed cartons"
+  ],
+  "r1": [
+   "Flap not glued",
+   "Flap open",
+   "Carton crushed"
+  ],
+  "tag1": "CARTON",
+  "ok": "Carton, label and code OK",
+  "lidder": "Cartoner",
+  "filler": "Stick wrapper",
+  "coder": "Date coder",
+  "alert": "Four open flaps in fifteen minutes. Check the cartoner.",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? M?Y 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the pack</h2>"
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"500000\">$500,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a large ice cream maker: product destroyed, retrieval, customer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 150000,
+  "days": 280,
+  "hours": 40,
+  "rate": 45,
+  "recall": 500000,
+  "recalls": 1,
+  "penalty": 80000,
+  "escape": 4
+ },
+ "slug": "magnum-minto"
+}

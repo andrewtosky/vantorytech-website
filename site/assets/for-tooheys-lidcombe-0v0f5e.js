@@ -193,7 +193,7 @@ function drawShot(it){
     else sx.fillRect(-half, -lh / 2, half * 2, lh);
     sx.fillStyle = wrong ? '#24476b' : '#2A3A2A';
     sx.textAlign = 'center';
-    sx.font = '600 11px Inter, sans-serif'; sx.fillText(wrong ? 'LIDCOMBE' : 'LIDCOMBE', 0, -20);
+    sx.font = '600 11px Inter, sans-serif'; sx.fillText(wrong ? 'PALE ALE' : 'LAGER', 0, -20);
     sx.font = '700 19px Inter, sans-serif'; sx.fillText(wrong ? 'PALE ALE' : 'LAGER', 0, 2);
     sx.font = '600 12px Inter, sans-serif'; sx.fillText('375 mL', 0, 22);
     sx.restore();

@@ -1,0 +1,44 @@
+{
+  "slug": "jayco",
+  "pageTitle": "Jayco Production Floor",
+  "company": "Jayco",
+  "short": "Jayco",
+  "headline": "A safer production floor, every shift.",
+  "heroLede": "Jayco builds more than 200 caravans and motorhomes a week, with forklifts, gantries, saws and people sharing the floor all day. This page shows how cameras on site could flag near misses, people in exclusion zones and missing PPE as they happen, across your production sites.",
+  "forkLede": "Cameras over aisles, crossings and loading areas track forklifts and people together. When a forklift and a person come too close, or a forklift speeds through a pedestrian area, the supervisor gets an alert straight away.",
+  "zoneLede": "Zones are drawn around gantry lifts, chassis welding, saws and CNC routers. If someone steps inside while a load or machine is moving, the system raises an alert and logs a clip.",
+  "ppeLede": "In the timber and panel shop, near the saws and routers, the cameras check for safety glasses, hearing protection and hi-vis, and flag a miss to the area leader.",
+  "machLede": "Sensors on the saws, CNC routers, compressors and gantry hoists learn how each machine normally runs. A rise in vibration, heat or current is flagged days before a breakdown, so maintenance can plan the fix.",
+  "machAlert": "CNC router 2: spindle vibration rising for 6 days. Suggested check within the week.",
+  "machPill": "Spindle vibration rising",
+  "machFeed": "Vibration rising, check this week",
+  "machines": [
+    {"name": "Panel saw", "health": 94},
+    {"name": "CNC router 2", "health": 63, "warn": true},
+    {"name": "Air compressor", "health": 89},
+    {"name": "Gantry hoist", "health": 91}
+  ],
+  "report": [["Main crossing", 9], ["Gantry zone", 6], ["Saw area PPE", 14], ["Dispatch yard", 5]],
+  "stations": ["Chassis", "Floor and walls", "Roof (gantry)", "Fit-out", "End of line"],
+  "shop": [
+    {"name": "Panel saw", "x": 260, "w": 200},
+    {"name": "CNC router 2", "x": 520, "w": 220, "warn": true},
+    {"name": "Welding bays", "x": 800, "w": 240},
+    {"name": "Compressor", "x": 1100, "w": 160},
+    {"name": "Stores", "x": 1320, "w": 160}
+  ],
+  "shopLabel": "Timber, panel and chassis shop",
+  "lineLabel": "Van assembly line",
+  "yardLabel": "Finished vans and dispatch",
+  "nearWhere": "Main crossing, forklift aisle",
+  "zoneWhere": "Roof station, gantry",
+  "ppeWhere": "Panel saw",
+  "okWhere": "Assembly hall",
+  "visit": "Call and visit to one of your sites",
+  "areas": ["Main assembly line", "Timber, panel and chassis shop", "Forklift aisles and loading", "Finished vans and dispatch", "Not sure yet"],
+  "later": [
+    ["Finished van checks", "A camera at the end of the line checks windows, seals, badges and panel fit on every van before dispatch. This needs a model trained on your vans, so we scope it with your quality team."],
+    ["Parts and kitting checks", "Confirm the right parts and fittings are in each kit before it reaches the line."],
+    ["Paperwork and admin", "Take repetitive, time-consuming office tasks off your team's plate, such as order and compliance paperwork."]
+  ]
+}

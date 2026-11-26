@@ -1,0 +1,100 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Bega Group Spreads Lines",
+ "company": "Bega Group",
+ "short": "Bega",
+ "site": "Spreads and grocery plants, Australia",
+ "shape": "tub",
+ "productName": "Peanut butter jar",
+ "productShort": "jars",
+ "headline": "Every jar, every line, every plant. One system.",
+ "formProduct": "Spreads, peanut butter and grocery jars",
+ "labelTop": "PEANUT BUTTER",
+ "labelMain": "SMOOTH",
+ "labelSize": "Jar",
+ "wrongTop": "PEANUT BUTTER",
+ "wrongMain": "CRUNCHY",
+ "code": "BB 14 NOV 27 L4127",
+ "codeWrong": "BB 14 NOV 26 L4127",
+ "lid": "#3a3f4a",
+ "label": "#FFFFFF",
+ "labelInk": "#1f2a44",
+ "wrongLabel": "#F3E3C3",
+ "lineType": "spreads jar line",
+ "vatsLabel": "Mixing and filling",
+ "visitLine": "Site visit and walk-through",
+ "heroLede": "Bega runs spreads, peanut butter and grocery lines across several plants, for brands at home and in export markets. Here's what one system could look like across all of them: cameras on every line checking each jar's label, lid and best-before code, machine health on the fillers and cappers, and safety monitoring on the floor, all reporting into one view for your managers. Scroll through one jar's journey, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "On every line, the camera checks each jar has its lid on, straight and fully seated. A loose lid means leaks in the carton and a complaint from a retailer or an export customer.",
+ "labelLede": "With smooth, crunchy, light and export versions running in similar jars, the label is what keeps every jar right. The camera checks every jar carries the label set for the run, straight and intact, including export labels.",
+ "codeLede": "Every jar needs a correct, readable best-before date and batch code. The system reads each printed code and compares it with the product and date set at changeover, on every line at every plant.",
+ "objectLede": "Lid offcuts, label backing and loose parts can end up near a line. Cameras over the belts spot anything that should not be there before jars reach a carton, and the same cameras can watch forklift and pedestrian zones.",
+ "vocab": {
+  "unit": "jar",
+  "units": "jars",
+  "c1": "Lids",
+  "c1h": "Lids on, straight and seated",
+  "chips": [
+   "Missing lids",
+   "Crooked lids",
+   "Lids not seated"
+  ],
+  "r1": [
+   "Lid crooked",
+   "Lid missing",
+   "Lid not seated"
+  ],
+  "tag1": "LID",
+  "ok": "Lid, label and code OK",
+  "lidder": "Capper",
+  "filler": "Jar filler",
+  "coder": "Date coder",
+  "alert": "Four crooked lids in fifteen minutes. Check the capper.",
+  "codes": "Best-before codes",
+  "codesLong": "Best-before and batch codes",
+  "code1": "Best-before code",
+  "codeLower": "best-before date",
+  "codeShort": "best-before",
+  "smudge": "BB 1? N?V 2? L23??",
+  "wrongCode": "Wrong year: 26 printed, 27 expected"
+ },
+ "extra": [
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"1000000\">$1,000,000</span><span class=\"per\">per national recall avoided</span></p>\n        <p class=\"calc\">Example cost of one national recall for a large brand owner: stock destroyed, retrieval, retailer fees and lost sales. This is a guess. Use your own figure below.</p>"
+  ],
+  [
+   "<li><b>Every tub</b><span>checked at line speed</span></li>",
+   "<li><b>Every line, every plant</b><span>in one view for your managers</span></li>"
+  ],
+  [
+   "<span>the AI runs on a unit beside your line</span>",
+   "<span>AI runs at each plant and footage stays there</span>"
+  ],
+  [
+   "One camera, one line, alerts only",
+   "Prove it on one line, then roll it out to every plant"
+  ],
+  [
+   "Our equipment never stops your line. Automatic rejects come in phase two, with your maintenance team.",
+   "Our equipment never stops your lines. Once the first line meets its targets, the same setup rolls out line by line and plant by plant, all reporting into one system. Machine health and floor safety can join at the same time, and automatic rejects come later with your maintenance teams."
+  ],
+  [
+   "with a trial plan for your line, including where the camera goes, dates and indicative costs.",
+   "with a plan for your plants: where the first cameras go, how the rollout runs, dates and indicative costs."
+  ]
+ ],
+ "est": {
+  "packs": 150000,
+  "days": 300,
+  "hours": 120,
+  "rate": 45,
+  "recall": 1000000,
+  "recalls": 1,
+  "penalty": 60000,
+  "escape": 5
+ },
+ "slug": "bega"
+}

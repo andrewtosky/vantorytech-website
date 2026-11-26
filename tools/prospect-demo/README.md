@@ -59,7 +59,7 @@ Prospect pages are link-only. Nothing on the site links to them, they are not in
 
 ## Safety-floor pages (no packing line)
 
-For prospects without a packing line (for example caravan makers), `build_safety.py` builds a 2D factory-floor page instead: forklift and pedestrian near misses, exclusion zones, PPE, machine health, weekly report, trial and next steps. Template: `safety-floor.html` + `safety-floor.js`; example data: `companies/jayco.json`.
+For prospects without a packing line (for example caravan makers), `build_safety.py` builds a 3D factory-floor page instead (three.js, same as the line pages): forklift and pedestrian near misses, exclusion zones, PPE, machine health, weekly report, trial and next steps. Template: `safety-floor.html` + `safety-floor.js`; example data: `companies/jayco.json`.
 
 ```
 python3 build_safety.py companies/jayco.json out/jayco.html          # preview

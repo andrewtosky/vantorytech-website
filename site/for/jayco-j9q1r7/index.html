@@ -210,7 +210,7 @@ footer.note p{max-width:640px;margin:0 0 8px clamp(0px,3vw,48px);font-size:12.5p
 }
 
 /* safety-floor page: 2D plan view of the factory instead of the 3D line */
-#floor{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:0}
+.tag3d{font-size:12.5px}
 .feed{position:fixed;z-index:5;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));width:340px;
   background:rgba(11,20,36,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:var(--radius);
   padding:12px;display:flex;flex-direction:column;gap:10px;transition:opacity .4s,transform .4s}
@@ -261,8 +261,9 @@ footer.note p{max-width:640px;margin:0 0 8px clamp(0px,3vw,48px);font-size:12.5p
   <a class="btn" href="#your-trial">Plan a trial</a>
 </header>
 
-<canvas id="floor" aria-hidden="true"></canvas>
+<canvas id="scene" aria-hidden="true"></canvas>
 <div class="scrim" aria-hidden="true"></div>
+<div id="labels" aria-hidden="true"></div>
 
 <ol class="rail" aria-label="Sections">
   <li><button type="button" data-go="0"><span>The floor</span></button></li>
@@ -414,6 +415,7 @@ footer.note p{max-width:640px;margin:0 0 8px clamp(0px,3vw,48px);font-size:12.5p
   <p>The factory floor shown is an illustration, not a plan of Jayco's sites. Example figures show the report format and are not results from a specific client.</p>
 </footer>
 
+<script src="/assets/three-r128.min.js"></script>
 <script src="/assets/for-jayco-j9q1r7.js"></script>
 
 </html>

@@ -409,7 +409,7 @@ var lastFailTxt = '';
 function drawScreen(){
   var c = scrCtx; c.fillStyle = '#0b1424'; c.fillRect(0, 0, 512, 300);
   c.fillStyle = '#8ea6ff'; c.font = '600 22px Inter, sans-serif'; c.fillText('LINE 1  ·  CHANGEOVER SET 05:30', 24, 42);
-  c.fillStyle = '#eef1f6'; c.font = '700 34px Inter, sans-serif'; c.fillText('Chilled beef striploin, export carton', 24, 92);
+  c.fillStyle = '#eef1f6'; c.font = '700 34px Inter, sans-serif'; c.fillText('Chilled beef and lamb, export cartons', 24, 92);
   c.font = '600 28px "JetBrains Mono", monospace'; c.fillText(CODE_OK, 24, 138);
   c.fillStyle = '#a9b5d0'; c.font = '500 24px Inter, sans-serif';
   var total = 0; for (var k in report.cats) total += report.cats[k];

@@ -1,0 +1,65 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Chilled dispatch",
+ "pageTitle": "Bendigo Yoghurt Tub Line",
+ "company": "Lactalis",
+ "short": "Bendigo",
+ "site": "Bendigo, VIC",
+ "shape": "tub",
+ "productName": "Vanilla yoghurt 1 kg",
+ "productShort": "tubs of yoghurt and custard",
+ "headline": "Every tub of yoghurt checked, not a sample.",
+ "formProduct": "Yoghurt and custard tubs",
+ "labelTop": "YOGHURT",
+ "labelMain": "VANILLA",
+ "labelSize": "1 kg",
+ "wrongTop": "YOGHURT",
+ "wrongMain": "STRAWBERRY",
+ "code": "USE BY 18 DEC 26 L1126",
+ "codeWrong": "USE BY 18 DEC 25 L1126",
+ "lid": "#F2F2F2",
+ "label": "#FFFFFF",
+ "labelInk": "#1E4E8C",
+ "wrongLabel": "#E9E1D6",
+ "lineType": "yoghurt and custard tub line",
+ "vatsLabel": "Culturing and mixing",
+ "visitLine": "Call and visit to Bendigo",
+ "heroLede": "With more yoghurt and custard moving to Bendigo, more products share the same lines and every changeover is a chance for the wrong label or date. Here's what a camera check could look like on your tub line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every tub has its foil seal and lid on, pressed down flat all the way round. A lifted seal shortens shelf life and comes back as a store complaint.",
+ "labelLede": "A vanilla tub and a strawberry tub look much the same with the lid on. The camera checks every tub carries the right label for the product inside, straight and intact.",
+ "codeLede": "Chilled yoghurt and custard carry a use-by date that has to be right on every tub. The system reads the printed date and batch code and compares them with the product and date set at changeover.",
+ "objectLede": "Lid offcuts, glove pieces and loose machine parts can end up close to the line. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "codes": "Use-by codes",
+  "codesLong": "Use-by and batch codes",
+  "code1": "Use-by code",
+  "codeLower": "use-by date",
+  "codeShort": "use-by",
+  "smudge": "USE BY 1? D?C 2? L11??",
+  "wrongCode": "Wrong year: 25 printed, 26 expected",
+  "coder": "Use-by coder"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the product</h2>"
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"500000\">$500,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a large dairy maker: product destroyed, retrieval, customer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 80000,
+  "days": 300,
+  "hours": 40,
+  "rate": 45,
+  "recall": 500000,
+  "recalls": 1,
+  "penalty": 80000,
+  "escape": 6
+ },
+ "slug": "lactalis-bendigo"
+}

@@ -1,0 +1,83 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Dispatch",
+ "pageTitle": "Casella Yenda Bottling Line",
+ "company": "Casella Family Brands",
+ "short": "Casella",
+ "site": "Yenda, NSW",
+ "shape": "bottle",
+ "productName": "Shiraz 750 mL",
+ "productShort": "bottles",
+ "headline": "Every bottle checked, not a sample.",
+ "formProduct": "Wine in 750 mL bottles, own brands",
+ "labelTop": "SOUTH EASTERN AUSTRALIA",
+ "labelMain": "SHIRAZ",
+ "labelSize": "750 mL",
+ "wrongTop": "SOUTH EASTERN AUSTRALIA",
+ "wrongMain": "MERLOT",
+ "code": "LOT 26-1126",
+ "codeWrong": "LOT 25-1126",
+ "lid": "#d8c9a3",
+ "label": "#F7F2E6",
+ "labelInk": "#7A1F2A",
+ "wrongLabel": "#F1E3D0",
+ "body": "#2f4a2a",
+ "fill": "#2f4a2a",
+ "codeInk": "#F2F2F2",
+ "lineType": "wine bottling line",
+ "vatsLabel": "Tanks",
+ "visitLine": "Call and visit to Yenda",
+ "heroLede": "At 36,000 bottles an hour, one wrong label or crooked cap becomes thousands of bottles before anyone sees it. Here's what a camera check could look like on your bottling line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every bottle has its closure on, straight and fully seated. A crooked screw cap lets air in, and the wine is spoiled by the time someone opens it.",
+ "labelLede": "A shiraz and a merlot go into the same bottle and look much the same at line speed, and export markets each need their own label. The camera checks every bottle carries the right label for the run, straight and intact.",
+ "codeLede": "The lot code ties every bottle back to its tank and vintage. The system reads the printed code on every bottle and compares it with the wine and lot set at changeover.",
+ "objectLede": "Glass fragments, capsule offcuts and loose parts can end up on the conveyor. The camera over the belt spots anything that should not be there before it reaches a carton.",
+ "vocab": {
+  "unit": "bottle",
+  "units": "bottles",
+  "c1": "Closures",
+  "c1h": "Closures on, straight and seated",
+  "chips": [
+   "Missing closures",
+   "Crooked closures",
+   "Closures not seated"
+  ],
+  "r1": [
+   "Closure crooked",
+   "Closure missing",
+   "Closure not seated"
+  ],
+  "tag1": "CLOSURE",
+  "ok": "Closure, label and lot OK",
+  "lidder": "Closer",
+  "filler": "Filler",
+  "coder": "Lot coder",
+  "alert": "Four crooked closures in fifteen minutes. Check the closer.",
+  "codes": "Lot codes",
+  "codesLong": "Lot codes",
+  "code1": "Lot code",
+  "codeLower": "lot number",
+  "codeShort": "lot",
+  "smudge": "LOT 2?-11??",
+  "wrongCode": "Wrong vintage: 25 printed, 26 expected"
+ },
+ "extra": [
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"500000\">$500,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a large winery: product destroyed, retrieval, customer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 250000,
+  "days": 250,
+  "hours": 40,
+  "rate": 45,
+  "recall": 500000,
+  "recalls": 1,
+  "penalty": 60000,
+  "escape": 4
+ },
+ "slug": "casella"
+}

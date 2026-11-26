@@ -1,0 +1,82 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Chilled dispatch",
+ "pageTitle": "Hilton Foods Heathwood Tray Line",
+ "company": "Hilton Foods Australia",
+ "short": "Hilton Foods",
+ "site": "Heathwood, QLD",
+ "shape": "tray",
+ "productName": "Beef mince 500 g",
+ "productShort": "meat trays",
+ "headline": "Every tray of meat checked, not a sample.",
+ "formProduct": "Fresh beef, lamb and pork in sealed trays",
+ "labelTop": "FRESH BEEF",
+ "labelMain": "BEEF MINCE",
+ "labelSize": "500 g",
+ "wrongTop": "FRESH LAMB",
+ "wrongMain": "LAMB MINCE",
+ "code": "USE BY 02 DEC 26 L0331",
+ "codeWrong": "USE BY 02 NOV 26 L0331",
+ "lid": "#e9eef2",
+ "label": "#FFFFFF",
+ "labelInk": "#7A1F1F",
+ "wrongLabel": "#F1E3D3",
+ "body": "#2b2b2b",
+ "fill": "#b5443b",
+ "lineType": "retail meat tray line",
+ "vatsLabel": "Mincing and portioning",
+ "visitLine": "Call and visit to Heathwood",
+ "heroLede": "With fresh meat for hundreds of stores packed every day, a lifted seal or a wrong label goes straight to the shelf. Here's what a camera check could look like on your tray line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every tray has its film on, sealed all the way round, with no meat caught in the seal. A leaking tray of raw meat comes back as a store complaint.",
+ "labelLede": "Beef mince and lamb mince look much the same through the film. The camera checks every tray carries the right label for the product, straight and intact, so the shopper gets what the label says.",
+ "codeLede": "Fresh meat has a short shelf life, so the use-by date has to be right on every tray. The system reads the printed date and batch code and compares them with the product and date set at changeover.",
+ "objectLede": "Glove pieces, blue plastic and tray offcuts are all close at hand in a meat packing plant. The camera over the belt spots anything that should not be there before it reaches a crate.",
+ "vocab": {
+  "unit": "tray",
+  "units": "trays",
+  "c1": "Film and seals",
+  "c1h": "Film on and sealed all round",
+  "chips": [
+   "Missing film",
+   "Creased seals",
+   "Meat in the seal"
+  ],
+  "r1": [
+   "Seal creased",
+   "Film missing",
+   "Meat caught in the seal"
+  ],
+  "tag1": "SEAL",
+  "ok": "Seal, label and code OK",
+  "lidder": "Tray sealer",
+  "filler": "Tray loader",
+  "coder": "Label and code printer",
+  "alert": "Four creased seals in fifteen minutes on Line 1. Check the tray sealer.",
+  "smudge": "USE BY 0? D?C 2? L03??",
+  "wrongCode": "Wrong month: NOV printed, DEC expected",
+  "retailer": "store"
+ },
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the product</h2>"
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"500000\">$500,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a large retail meat packer: product destroyed, retrieval, customer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ],
+ "est": {
+  "packs": 150000,
+  "days": 300,
+  "hours": 60,
+  "rate": 50,
+  "recall": 500000,
+  "recalls": 1,
+  "penalty": 80000,
+  "escape": 8
+ },
+ "slug": "hilton-foods"
+}

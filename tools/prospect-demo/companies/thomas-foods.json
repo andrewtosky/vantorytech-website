@@ -1,0 +1,87 @@
+{
+ "preparedOn": "November 2026",
+ "preparedBy": "Andrew Tosky",
+ "contact": "enquiries@vantorytech.com",
+ "dispatchLabel": "Chiller and load-out",
+ "pageTitle": "Thomas Foods Murray Bridge Carton Line",
+ "company": "Thomas Foods International",
+ "short": "Thomas Foods",
+ "site": "Murray Bridge, SA",
+ "shape": "carton",
+ "productName": "Chilled beef striploin, export carton",
+ "productShort": "boxed beef cartons",
+ "headline": "Every carton of boxed beef checked, not a sample.",
+ "formProduct": "Chilled and frozen boxed beef, export cartons",
+ "labelTop": "CHILLED BEEF",
+ "labelMain": "STRIPLOIN",
+ "labelSize": "Vacuum packed",
+ "wrongTop": "CHILLED BEEF",
+ "wrongMain": "CUBE ROLL",
+ "code": "PACKED 26 NOV 26 L1402",
+ "codeWrong": "PACKED 26 NOV 25 L1402",
+ "lid": "#c9b48f",
+ "label": "#FFFFFF",
+ "labelInk": "#1F3B5C",
+ "wrongLabel": "#E3EAF2",
+ "body": "#b89a6c",
+ "fill": "#9c3b33",
+ "lineType": "carton packing and load-out line",
+ "vatsLabel": "Boning room",
+ "visitLine": "Call and visit to Murray Bridge",
+ "heroLede": "As the new Murray Bridge beef plant ramps up, more cuts and more customers mean more chances for the wrong label or date on a carton. Here's what a camera check could look like on your carton line. Scroll through, then adjust the estimate at the end to your own numbers.",
+ "lidLede": "The camera checks every carton is closed and taped flat before it reaches the chiller, with no flap lifted and no bag showing. A carton that opens in transit is a claim from the customer.",
+ "labelLede": "A striploin carton and a cube roll carton look the same from the outside. The camera checks every carton carries the right label for the cut being packed, straight and readable.",
+ "codeLede": "Export and local cartons carry a packed-on date and lot code that have to be right on every carton. The system reads the printed date and lot on every carton and compares them with what was set for the run.",
+ "objectLede": "Knife sheaths, glove pieces, tape and liner offcuts are all close at hand in a carton room. The camera over the belt spots anything that should not be there before cartons are palletised.",
+ "vocab": {
+  "unit": "carton",
+  "units": "cartons",
+  "c1": "Cartons closed",
+  "c1h": "Closed and taped flat",
+  "chips": [
+   "Open flaps",
+   "Lifted tape",
+   "Bag showing"
+  ],
+  "r1": [
+   "Flap lifted",
+   "Carton open",
+   "Tape missing"
+  ],
+  "ok": "Carton, label and date OK",
+  "lidder": "Carton taper",
+  "filler": "Carton packing",
+  "coder": "Carton labeller",
+  "alert": "Four lifted flaps in fifteen minutes on Line 1. Check the carton taper.",
+  "codes": "Packed-on dates",
+  "codesLong": "Packed-on dates and lot codes",
+  "code1": "Packed-on date",
+  "codeLower": "packed-on date",
+  "codeShort": "packed-on",
+  "smudge": "PACKED 2? N?V 2? L14??",
+  "tag3": "DATE",
+  "audits": "export and customer audits",
+  "retailer": "customer"
+ },
+ "est": {
+  "packs": 5000,
+  "days": 250,
+  "hours": 20,
+  "rate": 50,
+  "recall": 300000,
+  "recalls": 1,
+  "penalty": 30000,
+  "escape": 12
+ },
+ "slug": "thomas-foods",
+ "extra": [
+  [
+   "<h2 id=\"h-label\">The right label for the run</h2>",
+   "<h2 id=\"h-label\">The right label for the cut</h2>"
+  ],
+  [
+   "<p class=\"big\"><span class=\"num\" data-to=\"200000\">$200,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a mid-size maker: product destroyed, retrieval, retailer fees and lost sales. Use your own figure below.</p>",
+   "<p class=\"big\"><span class=\"num\" data-to=\"300000\">$300,000</span><span class=\"per\">per recall avoided</span></p>\n        <p class=\"calc\">Example cost of one recall for a large export beef plant: product destroyed, retrieval, customer fees and lost sales. Use your own figure below.</p>"
+  ]
+ ]
+}

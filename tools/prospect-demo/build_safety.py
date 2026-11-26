@@ -52,6 +52,7 @@ if len(sys.argv) > 3 and sys.argv[2] == '--publish':
     s = s.replace('<meta name="robots" content="noindex, nofollow">',
         '<meta name="robots" content="noindex, nofollow">\n<script src="/assets/plausible-init.js"></script>\n'
         '<script async src="https://plausible.io/js/pa-cBmSDXMl1zdkkjd0z-Frh.js"></script>', 1)
+    s = s.replace('{{THREE}}', '<script src="/assets/three-r128.min.js"></script>')
     s = s.replace('<script>\n{{JS}}\n</script>', '<script src="/assets/for-%s.js"></script>' % slug)
     s = ('<!DOCTYPE html>\n<html lang="en-AU">\n<head>\n<meta charset="utf-8">\n'
          '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
@@ -62,6 +63,7 @@ if len(sys.argv) > 3 and sys.argv[2] == '--publish':
     open(os.path.join(SITE, 'assets', 'for-%s.js' % slug), 'w').write(js)
     print('wrote site/for/%s/' % slug)
 else:
+    s = s.replace('{{THREE}}', '<script src="%s"></script>' % os.path.join(SITE, 'assets', 'three-r128.min.js'))
     s = s.replace('{{JS}}', js)
     s = '<!DOCTYPE html>\n<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' + s + '</html>'
     assert '{{' not in s

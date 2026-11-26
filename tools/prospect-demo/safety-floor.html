@@ -1,0 +1,210 @@
+<title>{{TITLE}}</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+{{BASECSS}}
+/* safety-floor page: 2D plan view of the factory instead of the 3D line */
+#floor{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:0}
+.feed{position:fixed;z-index:5;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));width:340px;
+  background:rgba(11,20,36,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:var(--radius);
+  padding:12px;display:flex;flex-direction:column;gap:10px;transition:opacity .4s,transform .4s}
+.feed.off{opacity:0;transform:translateY(12px);pointer-events:none}
+.feed ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.rail li{display:flex;justify-content:flex-end}
+.feed li{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:start;font-size:12.5px;line-height:1.35;background:var(--midnight-2);border:1px solid var(--line);border-radius:9px;padding:8px 9px;animation:pop .35s ease-out}
+.feed li i{width:8px;height:8px;border-radius:50%;margin-top:4px;background:var(--cobalt-soft)}
+.feed li.alert{border-color:rgba(255,90,78,.55)} .feed li.alert i{background:var(--alert)}
+.feed li.warn{border-color:rgba(255,181,71,.5)} .feed li.warn i{background:var(--warn)}
+.feed li.ok i{background:var(--ok)}
+.feed li time{font:500 11px/1.35 var(--mono);color:var(--muted)}
+.feed li b{display:block;font-weight:600}
+.feed li span{color:var(--muted)}
+.feed .counts{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0}
+.feed .counts div{background:var(--midnight-2);border:1px solid var(--line);border-radius:8px;padding:6px 8px;display:flex;flex-direction:column;gap:2px}
+.feed .counts b{font:600 16px/1.1 var(--font);font-variant-numeric:tabular-nums}
+.feed .counts span{font-size:11px;color:var(--muted)}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.health{display:flex;flex-direction:column;gap:8px}
+.health .row{display:grid;grid-template-columns:130px 1fr 64px;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
+.health .track{display:block;height:8px;border-radius:4px;background:#0E1A30;overflow:hidden}
+.health .fill{display:block;height:100%;border-radius:4px;background:var(--ok)}
+.health .fill.warn{background:var(--warn)}
+.health .val{font:500 12.5px/1 var(--mono);text-align:right;color:var(--text)}
+.tform{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}
+.tform .wide{grid-column:1/-1}
+.tform input[type=text],.tform input[type=email],.tform select,.tform textarea{width:100%;font:500 15px/1.3 var(--font);color:var(--text);background:var(--midnight-2);border:1px solid var(--line);border-radius:10px;padding:11px 12px}
+.tform textarea{min-height:80px;resize:vertical}
+.tform input:focus,.tform select:focus,.tform textarea:focus{outline:none;border-color:var(--cobalt-soft)}
+.checks{display:flex;flex-wrap:wrap;gap:8px;border:0;margin:0;padding:0}
+.checks legend{font-size:13px;color:var(--muted);margin-bottom:6px;padding:0}
+.checks label{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--text);background:var(--midnight-2);border:1px solid var(--line);border-radius:999px;padding:7px 11px;cursor:pointer}
+.status{margin:0;font-size:13.5px;color:var(--muted)}
+.status.ok{color:var(--ok)} .status.err{color:#ff8b82}
+@media (max-width:760px){
+  .feed{left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));width:auto;padding:10px;gap:8px}
+  .feed ul{min-height:0}
+  .feed li:nth-child(n+3){display:none}
+  .feed .counts{display:none}
+  .tform{grid-template-columns:1fr}
+  .health .row{grid-template-columns:100px 1fr 54px}
+}
+</style>
+
+<header class="bar">
+  <a class="logo" href="https://www.vantorytech.com/" aria-label="Vantory Technologies home">{{LOGO}}</a>
+  <a class="btn" href="#your-trial">Plan a trial</a>
+</header>
+
+<canvas id="floor" aria-hidden="true"></canvas>
+<div class="scrim" aria-hidden="true"></div>
+
+<ol class="rail" aria-label="Sections">
+  <li><button type="button" data-go="0"><span>The floor</span></button></li>
+  <li><button type="button" data-go="1"><span>Forklifts and people</span></button></li>
+  <li><button type="button" data-go="2"><span>Exclusion zones</span></button></li>
+  <li><button type="button" data-go="3"><span>PPE</span></button></li>
+  <li><button type="button" data-go="4"><span>Machine health</span></button></li>
+  <li><button type="button" data-go="5"><span>Weekly report</span></button></li>
+  <li><button type="button" data-go="6"><span>Trial</span></button></li>
+  <li><button type="button" data-go="7"><span>Finished vans</span></button></li>
+  <li><button type="button" data-go="8"><span>Plan a trial</span></button></li>
+</ol>
+
+<aside class="feed off" id="feed" aria-label="Live safety alerts">
+  <p class="cam-h"><span class="live">Live alerts · {{SHORT}} floor</span><span class="chip" id="feed-status">Watching</span></p>
+  <ul id="feed-list"></ul>
+  <div class="counts">
+    <div><b id="n-near">0</b><span>near misses</span></div>
+    <div><b id="n-zone">0</b><span>zone entries</span></div>
+    <div><b id="n-ppe">0</b><span>PPE flags</span></div>
+  </div>
+</aside>
+
+<main>
+  <section class="stop hero" data-stop="0" aria-labelledby="h-top">
+    <div class="intro">
+      <p class="eyebrow"><span class="dot"></span>Prepared for {{COMPANY}}</p>
+      <h1 id="h-top">{{HEADLINE}}</h1>
+      <p class="lede">{{HEROLEDE}}</p>
+      <ul class="facts">
+        <li><b>Seconds</b><span>from near miss to alert</span></li>
+        <li><b>24/7</b><span>every shift watched</span></li>
+        <li><b>On site</b><span>footage stays with you</span></li>
+      </ul>
+      <p class="hint">Scroll to walk the floor</p>
+    </div>
+  </section>
+
+  <section class="stop" data-stop="1" aria-labelledby="h-fork">
+    <div class="panel">
+      <p class="eyebrow"><span class="dot"></span>Check 1</p>
+      <h2 id="h-fork">Forklifts and people, kept apart</h2>
+      <p class="lede">{{FORKLEDE}}</p>
+      <ul class="chips"><li>Near misses at crossings</li><li>Speed in pedestrian areas</li><li>Blind corners</li></ul>
+      <p class="fact">An alert reaches the supervisor's phone or a light on the floor within seconds, with a short clip of what happened.</p>
+    </div>
+  </section>
+
+  <section class="stop" data-stop="2" aria-labelledby="h-zone">
+    <div class="panel">
+      <p class="eyebrow"><span class="dot"></span>Check 2</p>
+      <h2 id="h-zone">Exclusion zones under gantries and around machines</h2>
+      <p class="lede">{{ZONELEDE}}</p>
+      <ul class="chips"><li>Under a moving load</li><li>Inside a machine guard area</li><li>After-hours entry</li></ul>
+    </div>
+  </section>
+
+  <section class="stop" data-stop="3" aria-labelledby="h-ppe">
+    <div class="panel">
+      <p class="eyebrow"><span class="dot"></span>Check 3</p>
+      <h2 id="h-ppe">PPE, checked where it matters</h2>
+      <p class="lede">{{PPELEDE}}</p>
+      <ul class="chips"><li>Hi-vis</li><li>Safety glasses</li><li>Hearing protection</li><li>Gloves</li></ul>
+      <p class="fact">Faces can be blurred in saved clips. The aim is fewer injuries, not watching people.</p>
+    </div>
+  </section>
+
+  <section class="stop" data-stop="4" aria-labelledby="h-mach">
+    <div class="panel">
+      <p class="eyebrow"><span class="dot"></span>Predictive maintenance</p>
+      <h2 id="h-mach">Machines that warn you before they stop</h2>
+      <p class="lede">{{MACHLEDE}}</p>
+      <div class="health" id="health"></div>
+      <p class="alertrow" id="mach-alert">{{MACHALERT}}</p>
+    </div>
+  </section>
+
+  <section class="stop" data-stop="5" aria-labelledby="h-rep">
+    <div class="panel">
+      <p class="eyebrow"><span class="dot"></span>Weekly report</p>
+      <h2 id="h-rep">Where the risk really is</h2>
+      <p class="lede">Every alert is logged with a time, place and clip. The weekly report shows your safety team which crossings, zones and shifts need attention, and gives you a record for audits and toolbox talks.</p>
+      <div class="report">
+        <div><b>14</b><span>near misses</span></div>
+        <div><b>9</b><span>zone entries</span></div>
+        <div><b>23</b><span>PPE flags</span></div>
+      </div>
+      <div class="bars" id="rep-bars"></div>
+      <p class="fine">Example week to show the format, not figures from your sites.</p>
+    </div>
+  </section>
+
+  <section class="stop" data-stop="6" aria-labelledby="h-trial">
+    <div class="panel">
+      <p class="eyebrow"><span class="dot"></span>How a trial runs</p>
+      <h2 id="h-trial">One area, a few cameras, alerts only</h2>
+      <ol class="timeline">
+        <li><span class="wk">Week 1</span><div><b>{{VISIT}}</b><span>We walk the floor with your safety and production leads and pick the busiest area.</span></div></li>
+        <li><span class="wk">Weeks 2 to 3</span><div><b>Proposal</b><span>Fixed trial price, success targets and data handling in writing.</span></div></li>
+        <li><span class="wk">Weeks 3 to 6</span><div><b>Setup</b><span>We set the zones and rules with your team and prepare the equipment.</span></div></li>
+        <li><span class="wk">Week 7</span><div><b>Install and tune</b><span>Cameras and an on-site unit go in outside production hours, then we cut false alarms.</span></div></li>
+        <li><span class="wk">Weeks 8 to 12</span><div><b>Four-week trial and review</b><span>We report alerts, false alarms and trends against the targets.</span></div></li>
+      </ol>
+      <p class="callout">Nothing connects to your machines or stops production during the trial. The AI runs on a unit on site, so footage stays with you.</p>
+    </div>
+  </section>
+
+  <section class="stop" data-stop="7" aria-labelledby="h-later">
+    <div class="panel">
+      <p class="eyebrow later"><span class="dot"></span>Next steps</p>
+      <h2 id="h-later">Once the floor is covered</h2>
+      <p class="lede">The same on-site unit can take on more of the plant. Each of these is scoped for your sites before we quote it.</p>
+      <ul class="later-list">
+        {{LATER}}
+      </ul>
+    </div>
+  </section>
+
+  <section class="stop final" data-stop="8" id="your-trial" aria-labelledby="h-form">
+    <div class="panel">
+      <p class="eyebrow"><span class="dot"></span>Plan a trial</p>
+      <h2 id="h-form">Tell us where to start</h2>
+      <p class="lede">Leave your details and we will email you a trial plan within one business day.</p>
+      <form class="tform" id="trial-form" novalidate>
+        <div class="field"><label for="t-name">Name</label><input id="t-name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="t-role">Role</label><input id="t-role" type="text" autocomplete="organization-title"></div>
+        <div class="field wide"><label for="t-email">Work email</label><input id="t-email" type="email" autocomplete="email" required></div>
+        <input id="t-company" type="hidden" value="{{COMPANY}}">
+        <div class="field wide"><label for="t-area">Where would you start?</label>
+          <select id="t-area">{{AREAS}}</select></div>
+        <fieldset class="checks wide"><legend>What should the trial cover?</legend>
+          <label><input type="checkbox" name="t-check" value="Forklift and pedestrian near misses" checked> Forklift near misses</label>
+          <label><input type="checkbox" name="t-check" value="Exclusion zones" checked> Exclusion zones</label>
+          <label><input type="checkbox" name="t-check" value="PPE checks"> PPE</label>
+          <label><input type="checkbox" name="t-check" value="Predictive maintenance"> Machine health</label>
+          <label><input type="checkbox" name="t-check" value="Finished product checks"> Finished product checks</label>
+        </fieldset>
+        <div class="field wide"><label for="t-notes">Anything we should know?</label><textarea id="t-notes"></textarea></div>
+        <div class="cta-row wide"><button class="btn" type="submit">Send me a trial plan</button><a class="btn ghost" href="https://www.vantorytech.com/solutions.html">See all solutions</a></div>
+        <p class="status wide" id="t-status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="note">
+  <p>The factory floor shown is an illustration, not a plan of {{SHORT}}'s sites. Example figures show the report format and are not results from a specific client.</p>
+</footer>
+
+<script>
+{{JS}}
+</script>

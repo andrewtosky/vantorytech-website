@@ -56,3 +56,12 @@ Prospect pages are link-only. Nothing on the site links to them, they are not in
 ## The public example
 
 `companies/riverbend-example.json` builds the example preview linked from the free solution plan page (`site/plan.html`). The published page names the industry ("Juice bottling industry"), not the made-up company in the JSON file, and says the business is made up. It lives at `site/example/preview/` (script in `site/assets/example-preview.js`), next to the example full plan at `site/example/plan.html`. If you rebuild it, run `publish.py` with the slug `example-preview`, move the output from `site/for/example-preview/` to `site/example/preview/`, rename the script to `example-preview.js`, and replace the company name with the industry, keep the "made up" wording and the links to `/plan.html` in place of the form.
+
+## Safety-floor pages (no packing line)
+
+For prospects without a packing line (for example caravan makers), `build_safety.py` builds a 2D factory-floor page instead: forklift and pedestrian near misses, exclusion zones, PPE, machine health, weekly report, trial and next steps. Template: `safety-floor.html` + `safety-floor.js`; example data: `companies/jayco.json`.
+
+```
+python3 build_safety.py companies/jayco.json out/jayco.html          # preview
+python3 build_safety.py companies/jayco.json --publish jayco-<code>  # live page
+```

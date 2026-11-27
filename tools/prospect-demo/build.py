@@ -548,6 +548,9 @@ for a, b in C.get('extra', []):
     assert a in s, 'extra text not found: ' + a
     s = s.replace(a, b)
 s = shapes.apply_vocab(s, V, C)
+if C.get('wholeOperation'):
+    import whole_op
+    s = whole_op.apply(s, C.get('wholeSites', 'plants'))
 s = s.replace('{{LOGO}}', logo)
 open(sys.argv[2], 'w').write(s)
 print('ok', len(s))
